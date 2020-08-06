@@ -911,15 +911,15 @@ a {
   border-radius: 2px;
   background-color: #1c272d;
   font-family: Montserrat, sans-serif;
-  color: #fff;
+  color: #60c093;
   font-size: 16px;
   font-weight: 600;
   text-decoration: none;
 }
 
 .button:hover {
-  background-color: transparent;
-  color: #000;
+  background-color: #60c093;
+  color: #fff;
 }
 
 .button.ghost {
@@ -8359,6 +8359,46 @@ a {
   color: #60c093;
 }
 
+.text-field-2 {
+  height: 50px;
+  text-align: center;
+}
+
+.form-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.submit-button-2 {
+  width: 100px;
+  height: 50px;
+  border-style: solid;
+  border-width: 4px;
+  border-color: #60c093;
+  border-radius: 3px;
+  background-color: #1c272d;
+  font-family: Montserrat, sans-serif;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+.form-block-2 {
+  width: 100px;
+  max-width: 500px;
+}
+
+.success-message {
+  background-color: #529dad;
+  font-family: Montserrat, sans-serif;
+}
+
+.text-block-10 {
+  color: #fff;
+  font-weight: 600;
+}
+
 @media screen and (min-width: 1440px) {
   body {
     background-color: #fcfcfc;
@@ -15607,10 +15647,5 @@ a {
 .grid-4>#w-node-695982e92840-95ca0f1a {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
-}
-
-#w-node-09df055f07ba-cfb41f2a {
-  -ms-grid-column-align: end;
-  justify-self: end;
 }
 
