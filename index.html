@@ -90,21 +90,31 @@
         </div>
       </div>
       <div class="demovideo w-col w-col-6 w-col-small-small-stack">
+
+
         <div class="container-2 w-container">
-          <div class="centre-hero-image-wrapper"><a href="#" class="microrganisms w-inline-block w-lightbox"><img src="images/noun_play_3457061.svg" width="59" alt="Play button" class="image-106"><script type="application/json" class="w-json">{
-            "items": [
-              {
-                "type": "video",
-                "originalUrl": "https://www.youtube.com/watch?v=C52siCNscpM",
-                "url": "https://www.youtube.com/watch?v=C52siCNscpM",
-                "html": "<iframe class=\"embedly-embed\" src=\"//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FC52siCNscpM%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DC52siCNscpM&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FC52siCNscpM%2Fhqdefault.jpg&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=youtube\" width=\"940\" height=\"528\" scrolling=\"no\" title=\"YouTube embed\" frameborder=\"0\" allow=\"autoplay; fullscreen\" allowfullscreen=\"true\"></iframe>",
-                "thumbnailUrl": "https://i.ytimg.com/vi/C52siCNscpM/hqdefault.jpg",
-                "width": 940,
-                "height": 528
-              }
-            ]
-          }</script></a></div>
+
+          <!-- Listens to click and logs event in google analytics-->>
+          <div id="demo-video" class="centre-hero-image-wrapper">
+            <a href="#" 
+             class="microrganisms w-inline-block w-lightbox"><img src="images/noun_play_3457061.svg" width="59" alt="Play button" class="image-106"><script type="application/json" class="w-json">{
+              "items": [
+                  {
+                    "type": "video",
+                    "originalUrl": "https://www.youtube.com/watch?v=C52siCNscpM",
+                    "url": "https://www.youtube.com/watch?v=C52siCNscpM",
+                    "html": "<iframe class=\"embedly-embed\" src=\"//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FC52siCNscpM%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DC52siCNscpM&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FC52siCNscpM%2Fhqdefault.jpg&key=96f1f04c5f4143bcb0f2e68c87d65feb&type=text%2Fhtml&schema=youtube\" width=\"940\" height=\"528\" scrolling=\"no\" title=\"YouTube embed\" frameborder=\"0\" allow=\"autoplay; fullscreen\" allowfullscreen=\"true\"></iframe>",
+                    "thumbnailUrl": "https://i.ytimg.com/vi/C52siCNscpM/hqdefault.jpg",
+                    "width": 940,
+                    "height": 528
+                  }
+                ]
+              }</script>
+            </a>
+          </div>
+
         </div>
+
       </div>
     </div>
     <a href="#what_if" class="click_to_continue w-inline-block">
@@ -141,14 +151,24 @@
       <div id="Made_by_devs" class="integrations">
         <h2 class="heading-2 centre _800w">Get Started</h2>
         <div class="columns-17 w-row">
+
           <div class="w-col w-col-6">
             <div class="div-block-69">
-              <div data-w-id="32c25765-17aa-c738-fbed-9928095b96e9" data-animation-type="lottie" data-src="documents/9660-app-developer.json" data-loop="1" data-direction="1" data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="7" data-duration="9" class="lottie-animation-3"></div><a href="#Application_Developers" class="user_profiles_button w-button">Application Developers</a></div>
+              <div data-w-id="32c25765-17aa-c738-fbed-9928095b96e9" data-animation-type="lottie" data-src="documents/9660-app-developer.json" data-loop="1" data-direction="1" data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="7" data-duration="9" class="lottie-animation-3"></div>
+            
+              <!-- Log app developers user event here -->
+              <a id="app-dev-user" href="#Application_Developers" class="user_profiles_button w-button">Application Developers</a>
+            </div>
           </div>
+
           <div class="w-col w-col-6">
             <div class="div-block-69">
-              <div data-w-id="b8088782-06d7-0fac-c87b-e29bf990a370" data-animation-type="lottie" data-src="documents/3738-blockchain-2.json" data-loop="1" data-direction="1" data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="3" data-duration="5" class="lottie-animation-4"></div><a href="#Smart_Contract_Developers" class="user_profiles_button w-button">Smart Contract Developers</a></div>
+              <div data-w-id="b8088782-06d7-0fac-c87b-e29bf990a370" data-animation-type="lottie" data-src="documents/3738-blockchain-2.json" data-loop="1" data-direction="1" data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="3" data-duration="5" class="lottie-animation-4"></div>
+              
+              <!-- Log protocol-developers developers user event here -->
+              <a id="protocol-dev-user" href="#Smart_Contract_Developers" class="user_profiles_button w-button">Smart Contract Developers</a></div>
           </div>
+
         </div>
       </div>
     </div>
@@ -317,6 +337,19 @@
   <!-- GOOGLE ANALYTICS SPECIAL EVENTS LOGGING -->
   <!-- docs: https://developers.google.com/analytics/devguides/collection/analyticsjs/events -->
   <script>
+
+    document.getElementById("demo-video").addEventListener("click", () => {
+    // Logs footer CTA 'Early access' clicks
+      console.log("The Demo Video event is being logged.");
+      ga('send', {
+          hitType: 'event',
+            eventCategory: 'Demo Video',
+            eventAction: 'click',
+            eventLabel: 'Early Access'
+          });
+      } )
+    
+    
     document.getElementById("submit-email-form-hero").addEventListener("click", () => {
         // Logs header Hero 'Early access' clicks
         console.log("The Hero Header GA event is being logged.");
@@ -337,8 +370,30 @@
              eventAction: 'sign up',
              eventLabel: 'Early Access'
             });
-
         } )
+
+    document.getElementById("app-dev-user").addEventListener("click", () => {
+    // Logs APP DEVELOPER button clicks
+    console.log("The App Dev button GA event is being logged.");
+    ga('send', {
+        hitType: 'event',
+          eventCategory: 'Button-CTA',
+          eventAction: 'sign up',
+          eventLabel: 'Early Access'
+        });
+    } )    
+    
+    document.getElementById("protocol-dev-user").addEventListener("click", () => {
+    // Logs PROTOCOL DEVELOPER button clicks
+    console.log("The Protocol Dev button GA event is being logged.");
+    ga('send', {
+        hitType: 'event',
+          eventCategory: 'Button-CTA',
+          eventAction: 'sign up',
+          eventLabel: 'Early Access'
+        });
+    } )
+
   </script>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
 </body>
