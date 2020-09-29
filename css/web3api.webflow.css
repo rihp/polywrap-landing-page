@@ -675,7 +675,7 @@ a {
 
 .heading-1.centre._950w {
   max-width: 950px;
-  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  font-family: 'Montserrat', 'Book Antiqua', Palatino, serif;
   color: #fff;
   text-align: left;
 }
@@ -878,7 +878,7 @@ a {
 }
 
 .paragraph.black-bold._18px {
-  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  font-family: 'Montserrat', 'Book Antiqua', Palatino, serif;
   color: #fff;
   font-size: 18px;
 }
@@ -1216,7 +1216,7 @@ a {
 .heading-2 {
   margin-top: 0px;
   margin-bottom: 20px;
-  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  font-family: 'Montserrat', 'Book Antiqua', Palatino, serif;
   color: #fff;
   font-size: 40px;
   line-height: 1.5em;
@@ -6889,7 +6889,7 @@ a {
   margin-top: 0px;
   margin-bottom: 22px;
   padding-top: 0px;
-  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  font-family: 'Montserrat', 'Book Antiqua', Palatino, serif;
   color: #fff;
   font-size: 40px;
   font-style: italic;
@@ -7221,7 +7221,7 @@ a {
 }
 
 .user_description.black-bold._18px {
-  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  font-family: 'Montserrat', 'Book Antiqua', Palatino, serif;
   color: #fff;
   font-size: 18px;
 }
@@ -7302,7 +7302,7 @@ a {
 
 .main_feature {
   margin-bottom: 21px;
-  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  font-family: 'Montserrat', 'Book Antiqua', Palatino, serif;
   color: #fff;
   font-size: 20px;
   font-weight: 600;
@@ -7487,7 +7487,7 @@ a {
   margin-top: 40px;
   margin-bottom: 40px;
   padding-right: 0px;
-  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  font-family: 'Montserrat', 'Book Antiqua', Palatino, serif;
   font-size: 30px;
   font-weight: 700;
   text-align: center;
@@ -7965,7 +7965,7 @@ a {
 .scdevs_header {
   margin-top: 0px;
   margin-bottom: 20px;
-  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  font-family: 'Montserrat', 'Book Antiqua', Palatino, serif;
   color: #fff;
   font-size: 40px;
   line-height: 1.5em;
@@ -8029,7 +8029,7 @@ a {
 .appdevs_header {
   margin-top: 0px;
   margin-bottom: 20px;
-  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  font-family: 'Montserrat', 'Book Antiqua', Palatino, serif;
   color: #fff;
   font-size: 40px;
   line-height: 1.5em;
@@ -8726,8 +8726,9 @@ a {
   .heading-1.centre._950w {
     max-width: none;
     margin: 0px auto;
-    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-family: 'Montserrat', 'Book Antiqua', Palatino, serif;
     color: #fff;
+    font-size: 45px;
   }
   .heading-1.centre._950w.white {
     color: #f8eee7;
@@ -8878,7 +8879,7 @@ a {
     margin-left: auto;
   }
   .heading-2 {
-    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-family: 'Montserrat', 'Book Antiqua', Palatino, serif;
     color: #fff;
     font-weight: 600;
   }
@@ -8890,7 +8891,7 @@ a {
   }
   .heading-2.centre._650w {
     max-width: 650px;
-    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-family: 'Montserrat', 'Book Antiqua', Palatino, serif;
     color: #fff;
   }
   .heading-2._35px {
@@ -9809,7 +9810,7 @@ a {
     min-height: 300px;
     margin-top: 0px;
     margin-bottom: 0px;
-    padding-top: 25vh;
+    padding-top: 15vh;
     padding-bottom: 100px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -10603,7 +10604,7 @@ a {
     text-align: center;
   }
   .bold-text-7 {
-    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-family: 'Montserrat', 'Book Antiqua', Palatino, serif;
     color: #fff;
   }
   .hero_header {
@@ -10816,7 +10817,7 @@ a {
     margin: 0px auto;
     padding-top: 0px;
     padding-bottom: 0px;
-    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-family: 'Montserrat', 'Book Antiqua', Palatino, serif;
     color: #fff;
   }
   .thought_text.centre._650w {
@@ -11160,7 +11161,7 @@ a {
     box-shadow: -4px 4px 0 0 #000;
   }
   .scdevs_header {
-    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-family: 'Montserrat', 'Book Antiqua', Palatino, serif;
     color: #fff;
     font-weight: 600;
   }
@@ -11172,14 +11173,14 @@ a {
   }
   .scdevs_header.centre._650w {
     max-width: 650px;
-    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-family: 'Montserrat', 'Book Antiqua', Palatino, serif;
     color: #fff;
   }
   .scdevs_header._35px {
     letter-spacing: 0px;
   }
   .appdevs_header {
-    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-family: 'Montserrat', 'Book Antiqua', Palatino, serif;
     color: #fff;
     font-weight: 600;
   }
@@ -11191,7 +11192,7 @@ a {
   }
   .appdevs_header.centre._650w {
     max-width: 650px;
-    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    font-family: 'Montserrat', 'Book Antiqua', Palatino, serif;
     color: #fff;
   }
   .appdevs_header._35px {
