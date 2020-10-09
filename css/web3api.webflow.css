@@ -1539,6 +1539,7 @@ a {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  
 }
 
 .form-block {
@@ -8369,6 +8370,10 @@ a {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+}
+
+.form-wrap{
+  flex-flow: row wrap;
 }
 
 .submit-button-2 {
