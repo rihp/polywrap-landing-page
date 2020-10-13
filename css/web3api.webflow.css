@@ -6845,14 +6845,12 @@ a {
 }
 
 .hero_subtitle.centre.white._750 {
-  max-width: 700px;
   margin-bottom: 20px;
   line-height: 1.5em;
   font-weight: 300;
 }
 
 .hero_subtitle.centre._750w {
-  max-width: 750px;
   font-family: Montserrat, sans-serif;
   color: #3282b8;
   font-size: 22px;
@@ -6860,7 +6858,6 @@ a {
 }
 
 .hero_subtitle._500w {
-  max-width: 500px;
   margin-bottom: 20px;
 }
 
@@ -8329,6 +8326,7 @@ a {
 }
 
 .thepowerofweb3 {
+  max-width: 700px;
   padding-right: 10px;
 }
 
@@ -8730,7 +8728,7 @@ a {
   }
   .heading-1.centre._950w {
     max-width: none;
-    margin: 0px auto;
+    margin-bottom: 20px;
     font-family: 'Montserrat', 'Book Antiqua', Palatino, serif;
     color: #fff;
     font-size: 45px;
@@ -12557,6 +12555,7 @@ a {
   }
   .heading-1.centre._950w {
     margin-top: 31px;
+    margin-bottom: 20px;
     text-align: center;
   }
   .heading-1.centre._960-width {
