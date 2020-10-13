@@ -33,6 +33,7 @@
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/web3api.webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/web3api_partners.css" rel="stylesheet" type="text/css">
   
   
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
@@ -54,32 +55,48 @@
 </script>
 </head>
 <body class="body">
+
+  <!--NAVIGATION BAR STARTS-->
   <div data-collapse="medium" data-animation="default" data-duration="400" role="banner" class="navbar w-nav">
     <div class="navigation-div"><a href="index.html" aria-current="page" class="brand w-nav-brand w--current"><img src="images/Web3API_Logo-1.png" srcset="images/Web3API_Logo-1-p-500.png 500w, images/Web3API_Logo-1.png 2608w" sizes="(max-width: 479px) 54vw, (max-width: 991px) 170px, 158px" alt="" class="image-117"></a>
-      <nav role="navigation" class="nav-menu-dropdown w-clearfix w-nav-menu"><a href="https://github.com/web3-api/prototype" target="_blank" class="nav-link w-nav-link">Code</a>
-        <div class="line-break"></div><a href="#integrate_form_email_sub" class="nav-link w-nav-link">Hub ⁽ᶜᵒᵐᶦⁿᵍ ˢᵒᵒⁿ⁾</a></nav>
+      
+
+      <nav role="navigation" class="nav-menu-dropdown w-clearfix w-nav-menu">
+        <a href="https://github.com/web3-api/prototype" target="_blank" class="nav-link w-nav-link">Code</a>
+        <div class="line-break"></div>
+        <a href="https://contact.web3api.dev" class="nav-link w-nav-link">Contact</a>
+      </nav>
+
       <div class="menu-button-green w-nav-button">
         <div class="icon-2 w-icon-nav-menu"></div>
       </div>
     </div>
+
   </div>
+  <!--NAVIGATION BAR ENDS-->
+
+
   <div class="intro hero features">
     <div class="columns-19 w-row">
       <div class="thepowerofweb3 w-col w-col-6 w-col-small-small-stack">
+      
         <div class="hero_header">
           <h1 class="heading-1 centre _950w">The Power of Web3,<br>The Ease of Web2</h1>
           <p class="hero_subtitle centre _750w"><em class="italic-text">Interact with smart contracts through<br>decentralized GraphQL endpoints</em></p>
-          <div class="form-block centre _500w w-form">
+          
+
+
+          <!--JOIN EMAIL FORM STARTS-->
+          <div class="form-block _500w w-form">
             
-            <!--JOIN EMAIL FORM STARTS-->
-            <form id="wf-form-Email-Form" name="wf-form-Email-Form" data-name="Email Form" action="https://tech.us17.list-manage.com/subscribe/post?u=7515d8292da68c0a33f4c7e7e&amp;amp;id=48ff512e96" method="post" class="form-2">
+            <form id="wf-form-Email-Form" name="wf-form-Email-Form" data-name="Email Form" action="https://tech.us17.list-manage.com/subscribe/post?u=7515d8292da68c0a33f4c7e7e&amp;amp;id=48ff512e96" method="post" class="form-2 form-wrap">
               <input type="email" class="text-field _15-padding w-input" maxlength="256" name="email-3" data-name="Email 3" placeholder="Sign up for early access" id="email-3" required="">
                
               <!-- #id is used to log the google analytics event -->
               <input type="submit" id="submit-email-form-hero"
                 value="Join" data-wait="Please wait..." class="button w-button">
             </form>
-            <!--JOIN EMAIL FORM STARTS-->
+
             <div class="success-message w-form-done">
               <div class="text-block-10">Thank you for signing up! More details coming soon.</div>
             </div>
@@ -87,14 +104,16 @@
               <div>Oops! Something went wrong. Please refresh try again.</div>
             </div>
           </div>
+          <!--JOIN EMAIL FORM ENDS-->
+
+
         </div>
       </div>
+
       <div class="demovideo w-col w-col-6 w-col-small-small-stack">
-
-
         <div class="container-2 w-container">
 
-          <!-- Listens to click and logs event in google analytics-->>
+          <!-- Listens to click and logs event in google analytics-->
           <div id="demo-video" class="centre-hero-image-wrapper">
             <a href="#" 
              class="microrganisms w-inline-block w-lightbox"><img src="images/noun_play_3457061.svg" width="59" alt="Play button" class="image-106"><script type="application/json" class="w-json">{
@@ -112,225 +131,11 @@
             }</script>
             </a>
           </div>
-
-        </div>
-
-      </div>
-    </div>
-    <a href="#what_if" class="click_to_continue w-inline-block">
-      <div data-w-id="43bf895c-4ab4-64fb-7482-d56fa58c2f12" data-animation-type="lottie" data-src="documents/lf30_editor_guXnwG.json" data-loop="1" data-direction="1" data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="1.8351684270872277" data-duration="5" class="lottie-animation-10"></div>
-    </a>
-  </div>
-  <div id="scroll_button" class="topwave"></div>
-  <div id="what_if" class="though_provoking_quote blue-background extended-background wave_section">
-    <h2 class="thought_text centre _800w">Integrating Web3 Should Be Simple</h2>
-    <div class="columns-20 w-row">
-      <div class="main_feature_column w-col w-col-3 w-col-stack w-col-small-small-stack w-col-tiny-tiny-stack"><img src="images/multiplatformwhite.svg" alt="" class="image-116">
-        <div class="main_feature">Multi-platform</div>
-        <p class="main_feature_description">Use Web3 APIs in your favorite programming languages:<br>‍Rust, J Python, Go, C,C#</p>
-      </div>
-      <div class="main_feature_column w-col w-col-3 w-col-stack w-col-small-small-stack w-col-tiny-tiny-stack"><img src="images/GraphQL_Logo_white.svg" alt="" class="image-116">
-        <div class="main_feature">Developer Friendly</div>
-        <p class="main_feature_description">Read and write to your favorite blockchain protocols through GraphQL queries.</p>
-      </div>
-      <div class="main_feature_column w-col w-col-3 w-col-stack w-col-small-small-stack w-col-tiny-tiny-stack"><img src="images/noun_Sync_1612070_white.svg" alt="" class="image-116">
-        <div class="main_feature">Dynamic dApps</div>
-        <p class="main_feature_description">Decide which Web3 APIs to use at run-time. No more build artifacts or extra SDKs!<br></p>
-      </div>
-      <div class="main_feature_column w-col w-col-3 w-col-stack w-col-small-small-stack w-col-tiny-tiny-stack"><img src="images/noun_secure_1825569.svg" alt="" class="image-116">
-        <div class="main_feature">Secure &amp; Efficient</div>
-        <p class="main_feature_description">Execute Web3 queries from a secure WASM sandbox at lightning speeds.</p>
-      </div>
-    </div>
-    <a href="#Get_Started" class="click_to_continue w-inline-block">
-      <div data-w-id="7f209e3d-0cfe-c8f7-82e8-0061759a33d9" data-animation-type="lottie" data-src="documents/lf30_editor_guXnwG.json" data-loop="1" data-direction="1" data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="1.8351684270872277" data-duration="5" class="lottie-animation-10"></div>
-    </a>
-  </div>
-  <div id="Get_Started" class="made_by_devs">
-    <div class="get_started_div w-container">
-      <div id="Made_by_devs" class="integrations">
-        <h2 class="heading-2 centre _800w">Get Started</h2>
-        <div class="columns-17 w-row">
-
-          <div class="w-col w-col-6">
-            <div class="div-block-69">
-              <div data-w-id="32c25765-17aa-c738-fbed-9928095b96e9" data-animation-type="lottie" data-src="documents/9660-app-developer.json" data-loop="1" data-direction="1" data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="7" data-duration="9" class="lottie-animation-3"></div>
-            
-              <!-- Log app developers user event here -->
-              <a id="app-dev-user" href="#Application_Developers" class="user_profiles_button w-button">Application Developers</a>
-            </div>
-          </div>
-
-          <div class="w-col w-col-6">
-            <div class="div-block-69">
-              <div data-w-id="b8088782-06d7-0fac-c87b-e29bf990a370" data-animation-type="lottie" data-src="documents/3738-blockchain-2.json" data-loop="1" data-direction="1" data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="3" data-duration="5" class="lottie-animation-4"></div>
-              
-              <!-- Log protocol-developers developers user event here -->
-              <a id="protocol-dev-user" href="#Smart_Contract_Developers" class="user_profiles_button w-button">Smart Contract Developers</a></div>
-          </div>
-
         </div>
       </div>
     </div>
   </div>
-  <div id="Application_Developers" class="applicationdevs _40-top-padding">
-    <div class="appdevs_div">
-      <h2 class="appdevs_header centre _650w">Application Developers</h2>
-      <p class="user_description centre _550-width">Forget about embedding smart contract SDKs &amp; ABIs.<br>Interact with Web3 in any programming language through GraphQL</p>
-      <div data-duration-in="300" data-duration-out="100" class="feature-tabs reverse w-tabs">
-        <div class="tabs-content-2 w-tab-content">
-          <div data-w-tab="Tab 4" class="w-tab-pane w--tab-active"><img src="images/programming-languages.png" srcset="images/programming-languages-p-500.png 500w, images/programming-languages-p-800.png 800w, images/programming-languages-p-1080.png 1080w, images/programming-languages-p-1600.png 1600w, images/programming-languages.png 2000w" sizes="(max-width: 1439px) 35vw, 350px" alt="" class="image-114"></div>
-          <div data-w-tab="Tab 3" class="w-tab-pane"><img src="images/portal-connect.png" alt="" class="image-114"></div>
-          <div data-w-tab="Tab 5" class="w-tab-pane"><img src="images/query.png" srcset="images/query-p-500.png 500w, images/query.png 800w" sizes="(max-width: 1439px) 35vw, 350px" alt="" class="image-114"></div>
-        </div>
-        <div class="tabs-selectors left w-tab-menu">
-          <a data-w-tab="Tab 4" class="feature-tab-click w-inline-block w-tab-link w--current">
-            <div class="paragraph black-bold _18px">Import</div>
-            <div class="paragraph _15px no-margin">Add the Web3API client to your application&#x27;s dependencies.</div>
-          </a>
-          <a data-w-tab="Tab 3" class="feature-tab-click w-inline-block w-tab-link">
-            <div class="paragraph black-bold _18px">Connect</div>
-            <div class="paragraph _15px no-margin">Connect Web3API to your favorite P2P networks using Portals.</div>
-          </a>
-          <a data-w-tab="Tab 5" class="feature-tab-click w-inline-block w-tab-link">
-            <div class="paragraph black-bold _18px">Interact</div>
-            <div class="paragraph _15px no-margin">Use any Web3 API your heart desires ♥</div>
-          </a>
-        </div>
-      </div>
-      <a href="#Smart_Contract_Developers" class="click_to_continue w-inline-block">
-        <div data-w-id="bfaf863d-4020-f633-80a3-53ce34e89765" data-animation-type="lottie" data-src="documents/lf30_editor_guXnwG.json" data-loop="1" data-direction="1" data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="1.8351684270872277" data-duration="5" class="lottie-animation-10"></div>
-      </a>
-    </div>
-  </div>
-  <div class="smartcontractdevs red-bg _40-bottom-padding">
-    <div id="Smart_Contract_Developers" class="scsdevs_div">
-      <h2 class="scdevs_header centre _650-width"><strong class="bold-text-7">Smart Contract Developers</strong></h2>
-      <p class="user_description centre _550-width">Forget about maintaining language-specific SDKs.<br>Develop one cross-platform API for your protocol.</p>
-      <div data-duration-in="300" data-duration-out="100" class="feature-tabs w-tabs">
-        <div class="tabs-content-2 w-tab-content">
-          <div data-w-tab="Tab 1" class="w-tab-pane w--tab-active"><img src="images/develop-contracts.png" srcset="images/develop-contracts-p-500.png 500w, images/develop-contracts.png 800w" sizes="(max-width: 479px) 86vw, (max-width: 767px) 85vw, (max-width: 991px) 45vw, 450px" alt="" class="image-120"></div>
-          <div data-w-tab="Tab 4" class="w-tab-pane"><img src="images/Wrap.png" srcset="images/Wrap-p-500.png 500w, images/Wrap-p-800.png 800w, images/Wrap-p-1080.png 1080w, images/Wrap.png 1346w" sizes="(max-width: 479px) 86vw, (max-width: 767px) 85vw, (max-width: 991px) 43vw, 421.7833251953125px" alt="" class="image-119"></div>
-          <div data-w-tab="Tab 5" class="w-tab-pane"><img src="images/Web3API_Icon.svg" alt="" class="image-119"></div>
-        </div>
-        <div id="w-node-09df055f07ba-95ca0f1a" class="tabs-selectors w-tab-menu">
-          <a data-w-tab="Tab 1" class="feature-tab-click w-inline-block w-tab-link w--current">
-            <div class="paragraph black-bold _18px">Develop</div>
-            <div class="paragraph _15px no-margin">Create and test your smart contracts as your normally would.</div>
-          </a>
-          <a data-w-tab="Tab 4" class="feature-tab-click w-inline-block w-tab-link">
-            <div class="paragraph black-bold _18px">Wrap</div>
-            <div class="paragraph _15px no-margin">Describe your protocol with a user friendly GraphQL schema, and implement its client logic and event mappings in WASM.</div>
-          </a>
-          <a data-w-tab="Tab 5" class="feature-tab-click w-inline-block w-tab-link">
-            <div class="paragraph black-bold _18px">Publish</div>
-            <div class="paragraph _15px no-margin">Publish your Web3 API to IPFS and ENS, enabling the world to build on-top of your protocol.</div>
-          </a>
-        </div>
-      </div>
-      <a href="#your_favorite_everything" class="click_to_continue w-inline-block">
-        <div data-w-id="78cb4278-6e9d-54b1-dd98-5f949a35d8d9" data-animation-type="lottie" data-src="documents/lf30_editor_guXnwG.json" data-loop="1" data-direction="1" data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="1.8351684270872277" data-duration="5" class="lottie-animation-10"></div>
-      </a>
-    </div>
-  </div>
-  <div id="your_favorite_everything" class="your_favorites">
-    <div class="container-4 w-container">
-      <div class="columns-21 w-row">
-        <div class="column-87 w-col w-col-6">
-          <p class="closing_features_title">Your favorite protocols.<br></p>
-          <div class="w-layout-grid grid-4 protocols_grid"><img src="images/gnosis-2.svg" width="100" alt="Gnosis" id="w-node-106c56e2e514-95ca0f1a" class="protocol_logo"><img src="images/1inchlogo.png" width="100" alt="1inch" id="w-node-254f871d8dea-95ca0f1a" class="protocol_logo"><img src="images/uniswap_logo_white.svg" width="100" alt="Uniswap" id="w-node-ec2210be9959-95ca0f1a" class="protocol_logo"><img src="images/opensea_png.png" width="100" alt="Open Sea" id="w-node-c1cc1a473e94-95ca0f1a" class="protocol_logo"><img src="images/Cryptokitty_logo.svg" width="100" alt="Cryptokitties" id="w-node-b44d18054773-95ca0f1a" class="protocol_logo"><img src="images/ENS.svg" width="100" alt="ENS" id="w-node-eb20393a6fb4-95ca0f1a" class="protocol_logo"><img src="images/livepeer-lpt-logo.svg" width="100" id="w-node-7b5904b8afb9-95ca0f1a" alt="" class="protocol_logo"><img src="images/aragon.svg" width="100" alt="Aragon" id="w-node-f03e70ce8f74-95ca0f1a" class="protocol_logo"><img src="images/decentraland.svg" width="100" alt="Decentraland" id="w-node-e91b84f4cee0-95ca0f1a" class="protocol_logo"></div>
-        </div>
-        <div class="column-88 w-col w-col-6">
-          <p class="closing_features_title">Your favorite languages.<br></p>
-          <div class="w-layout-grid grid-4 languages_grid"><img src="images/javascript.png" width="100" alt="JavaScript" id="w-node-b07b942e3b6a-95ca0f1a" class="language_logo"><img src="images/Ruby_logo.svg" width="100" alt="Ruby" id="w-node-91da2d3918c0-95ca0f1a" class="language_logo"><img src="images/C_Sharp_logo.svg" width="100" alt="C#" id="w-node-695982e9283c-95ca0f1a" class="language_logo"><img src="images/ISO_C_Logo.svg" width="100" alt="C++" id="w-node-5a2ce3557395-95ca0f1a" class="language_logo"><img src="images/Swift_logo.svg" width="100" alt="Swift" id="w-node-bfbe81fb9daf-95ca0f1a" class="language_logo"><img src="images/java-seeklogo.com.svg" width="100" alt="Java" id="w-node-93c6472444c9-95ca0f1a" class="language_logo"><img src="images/go-logo-blue.svg" width="100" alt="GO" id="w-node-1d7ac531ee56-95ca0f1a" class="language_logo"><img src="images/Python-logo-notext.svg" width="100" alt="Python" id="w-node-695982e9283e-95ca0f1a" class="language_logo"><img src="images/Rust_programming_language_black_logo.svg" width="100" alt="Rust" id="w-node-695982e92840-95ca0f1a" class="language_logo"></div>
-        </div>
-      </div>
-      <a href="#integrate_form_email_sub" class="click_to_continue w-inline-block">
-        <div data-w-id="8a66f2ce-4e20-3b6b-4f11-483e86225ba9" data-animation-type="lottie" data-src="documents/lf30_editor_guXnwG.json" data-loop="1" data-direction="1" data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="1.8351684270872277" data-duration="5" class="lottie-animation-10"></div>
-      </a>
-    </div>
-  </div>
-  <div id="call_to_action" class="integrate">
-    <div class="integrations flex">
-      <div data-delay="4000" data-animation="outin" data-autoplay="1" data-easing="linear" data-nav-spacing="7" data-duration="400" data-infinite="1" class="hub_preview_slider w-slider">
-        <div class="w-slider-mask">
-          <div class="w-slide">
-            <div class="slider_div_centered"><img src="images/Browser_window.png" srcset="images/Browser_window-p-500.png 500w, images/Browser_window-p-800.png 800w, images/Browser_window.png 813w" sizes="(max-width: 479px) 96vw, (max-width: 991px) 500px, (max-width: 1439px) 45vw, 500px" alt="" class="image-121"></div>
-          </div>
-          <div class="w-slide">
-            <div class="slider_div_centered"><img src="images/Query_1.png" srcset="images/Query_1-p-500.png 500w, images/Query_1-p-800.png 800w, images/Query_1.png 813w" sizes="(max-width: 479px) 96vw, (max-width: 991px) 500px, (max-width: 1439px) 45vw, 500px" alt="" class="image-121"></div>
-          </div>
-          <div class="w-slide">
-            <div class="slider_div_centered"><img src="images/Governance.png" srcset="images/Governance-p-500.png 500w, images/Governance-p-800.png 800w, images/Governance.png 813w" sizes="(max-width: 479px) 96vw, (max-width: 991px) 500px, (max-width: 1439px) 45vw, 500px" alt="" class="image-121"></div>
-          </div>
-          <div class="w-slide">
-            <div class="slider_div_centered"><img src="images/Governance2.png" srcset="images/Governance2-p-500.png 500w, images/Governance2-p-800.png 800w, images/Governance2.png 813w" sizes="(max-width: 479px) 96vw, (max-width: 991px) 500px, (max-width: 1439px) 45vw, 500px" alt="" class="image-121"></div>
-          </div>
-        </div>
-        <div class="w-slider-arrow-left">
-          <div class="w-icon-slider-left"></div>
-        </div>
-        <div class="w-slider-arrow-right">
-          <div class="w-icon-slider-right"></div>
-        </div>
-        <div class="w-slider-nav w-round"></div>
-      </div>
-      <div class="integrate_form">
-        <div data-w-id="e6966186-3136-9bb1-f396-75b1bf66b675" data-animation-type="lottie" data-src="documents/lf30_editor_7ShvPO.json" data-loop="1" data-direction="1" data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="1.9333333333333333" data-duration="4" class="lottie-animation-6"></div>
-        <h2 class="heading-2">Evolve to the next standard.</h2>
-        
-        <!--JOIN EMAIL FORM STARTS-->
-        <div id="integrate_form_email_sub" class="form-block centre _500w w-form">
-         
-            <form id="wf-form-Email-Form" 
-                name="wf-form-Email-Form" data-name="Email Form" 
-                action="https://tech.us17.list-manage.com/subscribe/post?u=7515d8292da68c0a33f4c7e7e&amp;amp;id=48ff512e96" 
-                method="post" class="form-2">
 
-                <input type="email"
-                class="text-field _15-padding w-input" maxlength="256" name="email-3" data-name="Email 3" 
-                placeholder="Sign up for early access" id="email-3" required="">
-
-                <input type="submit" id="submit-email-form-CTA"
-                 value="Join" data-wait="Please wait..." class="button w-button">
-                 
-            </form>
-
-            <!--EVENTS START-->
-            <div class="success-message w-form-done">
-                <div class="text-block-10">Thank you for signing up! More details coming soon.</div>
-            </div>
-            <div class="w-form-fail">
-                <div>Oops! Something went wrong. Please try again.</div>
-            </div>
-          <!--EVENTS END-->
-
-        <!--JOIN EMAIL FORM ENDS-->
-
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="section-2">
-    <div class="container-3 w-container">
-      <div class="columns_footer w-row">
-        <div class="column-89 w-col w-col-4">
-          <div class="legal"><a href="https://dorg.tech" target="_blank" class="link-2">Made with ♥ by dOrg</a></div>
-        </div>
-        <div class="w-col w-col-4">
-          <div class="twitter w-widget w-widget-twitter"><iframe allowtransparency="true" scrolling="no" src="https://platform.twitter.com/widgets/tweet_button.html#counturl=web3api.dev&amp;dnt=true&amp;height=28&amp;show_count=horizontal&amp;size=l&amp;text=Check%20out%20the%20%23Web3API%20made%20by%20%40dorg_tech&amp;url=https%3A%2F%2Fweb3api.dev&amp;width=76" style="border: medium none; height: 28px; overflow: hidden; width: 76px;" frameborder="0"></iframe>
-            <div class="w-widget-twitter-count-shim w--large">
-              <div class="w-widget-twitter-count-inner">...</div>
-            </div>
-          </div>
-        </div>
-        <div class="column-90 w-col w-col-4">
-          <div class="legal"><a href="https://dorg.tech/membrane" target="_blank" class="link-3">Careers</a></div>
-        </div>
-      </div>
-    </div>
-  </div>
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js?site=5f1712aa525f5597bdca0f1b" type="text/javascript" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
   
