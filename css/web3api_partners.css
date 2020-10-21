@@ -1,13 +1,11 @@
 .partners-section{
     width: 100%;
-    padding: 50px;
     box-sizing: border-box;
 
 }
 
 .partners-title{
     text-align: center;
-
 }
 
 .partners-container{
@@ -21,17 +19,24 @@
 }
 
 .partner-logo-container{
-    width: 100px;
-    height: 100px;
+    width: 15vw;
+    height: 15vw;
+    max-height: 150px;
+    max-width: 150px;
     margin: 0 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.partner-logo-image{
+.partner-logo-image {
     max-height: 100%;
     max-width: 100%;
+    filter: invert(60%) sepia(44%) saturate(424%) hue-rotate(142deg) brightness(86%) contrast(90%);
+}
+
+.partner-logo-image:hover {
+    filter: invert(72%) sepia(45%) saturate(386%) hue-rotate(100deg) brightness(86%) contrast(90%);
 }
 
 .partner-logo-image-cover{
