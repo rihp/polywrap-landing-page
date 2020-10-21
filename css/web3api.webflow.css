@@ -3813,7 +3813,6 @@ a {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  min-height: 830px;
   padding: 132px 3% 164px;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
@@ -4765,25 +4764,6 @@ a {
   background-color: #048060;
 }
 
-.made_by_devs {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  min-height: 95vh;
-  padding-top: 20px;
-  padding-bottom: 56px;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #242f35;
-  background-image: url('../images/Wave_top_1B262C2.svg'), url('../images/Wave_bottom_1B262C.svg'), radial-gradient(circle farthest-corner at 50% 50%, #242f35, #1c272d);
-  background-position: 50% 100%, 50% 0%, 0px 0px;
-  background-size: 100vw, 100vw, auto;
-  background-repeat: repeat-x, repeat-x, repeat;
-}
-
 .list {
   margin-bottom: 0px;
 }
@@ -4804,25 +4784,6 @@ a {
   padding-top: 0px;
   padding-left: 0px;
   text-align: center;
-}
-
-.lottie-animation-3 {
-  height: 400px;
-  min-height: 35vh;
-  margin-top: -70px;
-  margin-bottom: auto;
-  margin-left: 0px;
-  padding-right: 20px;
-  padding-left: 0px;
-  border-radius: 0px;
-}
-
-.lottie-animation-4 {
-  height: 400px;
-  min-height: 35vh;
-  margin-top: -70px;
-  margin-bottom: auto;
-  padding-top: 100px;
 }
 
 .intro {
@@ -4894,9 +4855,8 @@ a {
   display: flex;
   height: auto;
   max-height: none;
-  min-height: 95px;
   margin-top: 68px;
-  padding-top: 122px;
+  padding-top: 0px;
   padding-bottom: 8px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -9807,7 +9767,7 @@ a {
     min-height: 300px;
     margin-top: 0px;
     margin-bottom: 0px;
-    padding-top: 15vh;
+    padding-top: 80px;
     padding-bottom: 100px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -13496,7 +13456,6 @@ a {
     order: -1;
   }
   .columns-19 {
-    height: 65vh;
     margin-top: 43px;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
