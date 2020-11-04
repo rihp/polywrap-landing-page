@@ -6,8 +6,9 @@
     background-color: #1c272d;
     border-radius: 1.5rem;
     overflow: hidden;
-  }
-  .carouselTestimonial {
+}
+
+.carouselTestimonial {
     width: 100%;
     /*height: 50px;*/
     animation: fade 1.5s;
@@ -21,16 +22,28 @@
     align-items: center;
     justify-items: center;
     justify-content: center;
-  }
+}
+
+.testimonialText {
+    font-family: Montserrat, sans-serif;
+    text-align: center;
+    color: #3282b8;
+}
+
+.testimonialWideLogo{
+    margin-top: -50px;
+}
 
 
-  .prev, .next {
+.prev, .next {
     position: absolute;
     top: 49%;
     cursor: pointer
-  }
-  .prev { left: 10px; }
-  .next { right: 10px; }
+}
+
+.prev { left: 10px; }
+
+.next { right: 10px; }
 
 
 
@@ -41,7 +54,7 @@
 
   */
 
-  @keyframes fade {
+@keyframes fade {
     from { opacity: 0.4; }
     to { opacity: 1; }
-  }
+}
