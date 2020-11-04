@@ -11,13 +11,16 @@ function showSlide(slideIndex) {
   console.log(slides, currentSlide)
 }
 
+var looper = setInterval(() => showSlide(currentSlide+=1), 700); // Change slide every 5 seconds
 
 function nextSlide() {
-  showSlide(currentSlide += 1);
+    clearInterval(looper);
+    showSlide(currentSlide += 1);
 }
 
 function previousSlide() {
-  showSlide(currentSlide -= 1);
+    clearInterval(looper);
+    showSlide(currentSlide -= 1);
 }
 
 window.onload = function () {
