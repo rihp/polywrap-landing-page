@@ -11,7 +11,7 @@ function showSlide(slideIndex) {
   console.log(slides, currentSlide)
 }
 
-var looper = setInterval(() => showSlide(currentSlide+=1), 700); // Change slide every 5 seconds
+var looper = setInterval(() => showSlide(currentSlide+=1), 7000); // Change slide every 5 seconds
 
 function nextSlide() {
     clearInterval(looper);
