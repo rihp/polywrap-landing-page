@@ -42,6 +42,7 @@
 }
 
 .testimonialText {
+    animation: fade 1.5s ;
     font-family: Montserrat, sans-serif;
     text-align: center;
     color: #3282b8;
@@ -50,7 +51,7 @@
 }
 
 .testimonialWideLogo{
-    margin-top: -50px;
+    margin-top: -20px;
 }
 
 
@@ -67,14 +68,6 @@
 
 .next { right: 10px; }
 
-
-
-    /*
-  .slide2 { background-color: #577399; }
-  .slide3 { background-color: #bdd5ea; }
-  .slide4 { background-color: #f7f7ff; }
-
-  */
 
 @keyframes fade {
     from { opacity: 0.4; }
