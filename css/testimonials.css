@@ -23,11 +23,18 @@
     justify-items: center;
     justify-content: center;
 }
+.testimonialsTitle{
+    text-align: center;
+    font-weight: 400;
+
+}
 
 .testimonialText {
     font-family: Montserrat, sans-serif;
     text-align: center;
     color: #3282b8;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 .testimonialWideLogo{
