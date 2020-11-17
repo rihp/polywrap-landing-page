@@ -51,313 +51,17 @@ a {
   object-fit: fill;
 }
 
-.smartcontractdevs {
-  display: block;
-  overflow: hidden;
-  height: auto;
-  max-height: none;
-  padding-top: 80px;
-  padding-bottom: 80px;
-  -webkit-justify-content: space-around;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-image: url('../images/Green-BG2x.png');
-  background-position: 0px 0px;
-  background-size: cover;
-  font-family: Inter, sans-serif;
+.twitter {
+  width: 35px;
+  float: right;
+  margin-right: 10vw;
+  fill: red;
 }
 
-.smartcontractdevs.hero {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100vh;
-  max-height: 650px;
-  margin-top: 60px;
-  padding-top: 80px;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.smartcontractdevs.hero.home {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: auto;
-  max-height: none;
-  min-height: 90vh;
-  margin-top: 0px;
-  padding-top: 110px;
-  padding-bottom: 50px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.smartcontractdevs.hero.features {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  overflow: visible;
-  height: auto;
-  max-height: none;
-  min-height: 95px;
-  padding-bottom: 80px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: transparent;
-}
-
-.smartcontractdevs.hero.style-guide {
-  height: 50vh;
-  max-height: none;
-  min-height: 0px;
-  padding-bottom: 80px;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #140f3a;
-}
-
-.smartcontractdevs.hero.lp-template {
-  height: auto;
-  max-height: none;
-  min-height: 90vh;
-  margin-top: 0px;
-  padding-top: 100px;
-  padding-bottom: 80px;
-  background-image: url('../images/Brown-LP-BG2x.png');
-  background-position: 0px 0px;
-  background-size: 100% 100%;
-}
-
-.smartcontractdevs.hero.lp-template.light-blue {
-  height: auto;
-  max-height: none;
-  min-height: 85vh;
-  margin-top: 0px;
-  padding-top: 140px;
-  background-color: #c7f3f8;
-}
-
-.smartcontractdevs.hero.blog {
-  display: block;
-  height: auto;
-  max-height: none;
-  margin-top: 0px;
-  padding-top: 110px;
-  background-color: transparent;
-  background-image: url('../images/Blog2x.png');
-  background-position: 0px 0px;
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
-
-.smartcontractdevs.hero.pricing {
-  display: block;
-  height: auto;
-  max-height: none;
-  min-height: 0px;
-  margin-top: 0px;
-  padding-top: 160px;
-  padding-bottom: 40px;
-  background-image: url('../images/Purple-BG-Pricing2x.png');
-  background-position: 0px 0px;
-  background-size: 100% 100%;
-}
-
-.smartcontractdevs._40-top-padding {
-  padding-top: 0px;
-  background-color: #b6ebdd;
-  background-image: url('../images/LP-Background-32x.png');
-  background-position: 0px 0px;
-  background-size: cover;
-}
-
-.smartcontractdevs.blog {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 65vh;
-  max-height: 550px;
-  margin-top: 60px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #181818;
-}
-
-.smartcontractdevs._40-padding {
-  overflow: hidden;
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-
-.smartcontractdevs._40-padding.yellow-wave-bg {
-  background-image: url('../images/LP-Background-32x.png');
-  background-position: 0px 0px;
-  background-size: 100% 100%;
-}
-
-.smartcontractdevs._40-bottom-padding {
-  overflow: hidden;
-  padding-top: 80px;
-  padding-bottom: 40px;
-}
-
-.smartcontractdevs.demo-page {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: auto;
-  margin-top: 60px;
-  padding-top: 80px;
-  padding-bottom: 0px;
-  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-  background-color: transparent;
-}
-
-.smartcontractdevs._60-top-margin {
-  overflow: hidden;
-  margin-top: 60px;
-}
-
-.smartcontractdevs.white {
-  background-color: #fff;
-}
-
-.smartcontractdevs.blue-background {
-  background-color: transparent;
-  background-image: url('../images/Product-Tour-Green-wave2x.png');
-  background-position: 0px 0px;
-  background-size: 100% 100%;
-}
-
-.smartcontractdevs.blue-background.extended-background {
-  padding-top: 325px;
-  background-image: url('../images/Product-Tour-Green-wave2x.png');
-  background-position: 0px 0px;
-  background-size: 100% 100%;
-}
-
-.smartcontractdevs.grey {
-  background-color: #f7f7f7;
-}
-
-.smartcontractdevs.light-blue {
-  background-color: #c7f3f8;
-}
-
-.smartcontractdevs.dark-blue {
-  background-color: #0a236d;
-}
-
-.smartcontractdevs._0-padding {
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-
-.smartcontractdevs.home-background-a {
-  background-image: url('../images/Home-Background-A2x.png');
-  background-position: 50% 100%;
-  background-size: 100% 100%;
-  background-repeat: repeat-x;
-}
-
-.smartcontractdevs.flex {
-  height: auto;
-}
-
-.smartcontractdevs.home-background-b {
-  background-image: url('../images/Yellow-BG-2-Home2x.png');
-  background-position: 0px 0px;
-  background-size: 100% 100%;
-}
-
-.smartcontractdevs.home-background-b._40-bottom-margin {
-  padding-bottom: 40px;
-}
-
-.smartcontractdevs._0-top-padding {
-  padding-top: 0px;
-}
-
-.smartcontractdevs.yello-bg-90 {
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(4%, transparent), color-stop(0, #fff9ef), to(#fff));
-  background-image: linear-gradient(90deg, transparent 4%, #fff9ef 0, #fff);
-}
-
-.smartcontractdevs.red-bg {
-  background-image: url('../images/Red-Bg2x.png');
-  background-position: 0px 0px;
-  background-size: 100% 100%;
-}
-
-.smartcontractdevs.red-bg._40-bottom-padding {
-  height: auto;
-  min-height: 95vh;
-  margin-top: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  background-color: transparent;
-  background-image: url('../images/Wave_bottom_1B262C1.svg'), radial-gradient(circle farthest-corner at 50% 50%, #242f35, #1c272d 56%);
-  background-position: 50% 0%, 0px 0px;
-  background-size: 100vw, auto;
-  background-repeat: repeat-x, repeat;
-}
-
-.smartcontractdevs.yellow-wave-bg {
-  background-image: url('../images/LP-Background-32x.png');
-  background-position: 0px 0px;
-  background-size: 100% 100%;
-}
-
-.smartcontractdevs.yellow-wave-bg._40-bottom-margin {
-  padding-bottom: 40px;
-}
-
-.smartcontractdevs.demo-hero {
-  padding-top: 120px;
-  padding-bottom: 40px;
-  background-image: url('../images/Orange-Blob2x.png');
-  background-position: 0px 0px;
-  background-size: 70% 100%;
-  background-repeat: no-repeat;
+.telegram {
+  width: 35px;
+  float: right;
+  margin-right: 10px;
 }
 
 .integrations {
@@ -1685,11 +1389,13 @@ a {
 }
 
 .footer {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: #1d2b36;
-  -o-object-fit: fill;
-  object-fit: fill;
+  position: inherit;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 .heading-8 {
@@ -4856,7 +4562,8 @@ a {
   display: flex;
   height: auto;
   max-height: none;
-  margin-top: 68px;
+  margin-top: 34px;
+  margin-bottom: 34px;
   padding-top: 0px;
   padding-bottom: 8px;
   -webkit-box-orient: vertical;
@@ -6388,10 +6095,6 @@ a {
   -ms-flex-align: center;
   align-items: center;
   background-color: #1c272d;
-}
-
-.twitter {
-  margin-top: 10px;
 }
 
 .bold-text-7 {
@@ -8978,22 +8681,6 @@ a {
     -ms-flex-pack: distribute;
     justify-content: space-around;
   }
-  .footer {
-    position: relative;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-  }
   .legal {
     margin-top: 20px;
     text-align: center;
@@ -9768,8 +9455,8 @@ a {
     min-height: 300px;
     margin-top: 0px;
     margin-bottom: 0px;
-    padding-top: 80px;
-    padding-bottom: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
@@ -10555,11 +10242,6 @@ a {
   }
   .section-2 {
     background-color: #1c272d;
-  }
-  .twitter {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    text-align: center;
   }
   .bold-text-7 {
     font-family: 'Montserrat', 'Book Antiqua', Palatino, serif;
@@ -13116,7 +12798,7 @@ a {
   }
   .intro.hero.features {
     margin-top: 0px;
-    padding-top: 60px;
+    padding-top: 50px;
   }
   .intro.hero.lp-template {
     padding-top: 110px;
