@@ -1,0 +1,29 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    color: #529dad;
+    background-color: #1c272d;
+
+}
+
+h1 {
+    color: #ffffff;
+    font-weight: 1200;
+}
+
+.header-img {
+    margin: 0 auto;
+
+}
+
+.content-box {
+    width: 60%;
+    margin: 0 auto;
+    background-color: #1c272d;
+}
+
+.batches-table {
+    background-color: white;
+    color: black;
+    border: solid 2px black;
+
+}
