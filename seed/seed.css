@@ -24,12 +24,20 @@ h2 {
     font-weight: 1200;
 }
 
+a {
+    color: white;
+}
+
+.note{ 
+    font-size: 12px;
+}
 .header-img {
     margin: 0 auto;
 }
 .batches-table {
-    background-color: white;
-    color: black;
-    border: solid 2px black;
+    border: solid 2px #529dad;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
 
 }
