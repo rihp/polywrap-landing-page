@@ -2,13 +2,11 @@ body {
     font-family: "Montserrat", sans-serif;
     color: #529dad;
     background-color: #1c272d;
-
 }
-
-
 
 .content-box {
     width: 60%;
+    max-width: 600px;
     margin: 0 auto;
     background-color: #1c272d;
 }
@@ -16,12 +14,13 @@ body {
 h1 {
     color: #ffffff;
     font-weight: 1200;
+    text-align: center;
 }
-
 
 h2 {
     color: #ffffff;
     font-weight: 1200;
+    text-align: center;
 }
 
 a {
@@ -31,13 +30,23 @@ a {
 .note{ 
     font-size: 12px;
 }
+
 .header-img {
     margin: 0 auto;
+    text-align: -webkit-center;
 }
+
+.batches-table-container {
+    text-align: -webkit-center;
+}
+
 .batches-table {
     border: solid 2px #529dad;
     text-align: center;
     margin-top: 25px;
     margin-bottom: 25px;
+}
 
+.center-image {
+    text-align: -webkit-center;
 }
