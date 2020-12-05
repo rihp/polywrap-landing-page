@@ -1,21 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { NavBar } from './components/navbar';
-import { TextField, ThemeProvider } from '@material-ui/core';
+import { Switch, Route, HashRouter } from "react-router-dom";
+import { ThemeProvider } from '@material-ui/core';
 import { theme } from './theme';
-import { HomePage } from './pages/home';
+import { Home } from "./pages/Home";
+import { NavBar } from "./components/Navbar";
+import './App.css';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-        <NavBar/>
-        <HomePage/>
-        <TextField></TextField>
+        <HashRouter>
+          <NavBar />
+          <Switch>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </HashRouter>
       </ThemeProvider>
     </div>
+    
   );
-}
+};
 
 export default App;

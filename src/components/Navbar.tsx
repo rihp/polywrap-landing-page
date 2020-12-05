@@ -1,11 +1,10 @@
-import { AppBar, Grid, Box, Link } from '@material-ui/core'
-import React from 'react'
-import { styled } from '@material-ui/core'
+import React from "react";
+import { styled, AppBar, Grid, Box, Link } from "@material-ui/core";
 
-const Logo = styled('img')({
+const Logo = styled("img")({
   width: 170,
-  height: 'auto'
-})
+  height: "auto",
+});
 
 const LinkButton = styled(Link)({
   height: '100%'
@@ -17,7 +16,7 @@ export const NavBar: React.FC = () => {
       <Grid container justify="space-between" alignItems='center'>
         <Grid item>
           <Box>
-            <Logo src={'./logo-full.png'} alt='Web3 API Logo'/>
+            <Logo src={"./logos/web3api.png"} alt="Web3 API Logo" />
           </Box>
         </Grid>
         <Grid item>
@@ -27,5 +26,5 @@ export const NavBar: React.FC = () => {
         </Grid>
       </Grid>
     </AppBar>
-  )
-}
+  );
+};
