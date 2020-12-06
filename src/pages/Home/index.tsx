@@ -25,10 +25,10 @@ const HeroBody = styled(Typography)({
 });
 
 const VideoBox = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  margin: 'auto',
-  flexDirection: 'column',
-  justifyContent: 'center',
+  display: "flex",
+  margin: "auto",
+  flexDirection: "column",
+  justifyContent: "center",
   borderRadius: 40,
   backgroundImage: "url('./Web3API Icon.svg');",
   backgroundPosition: "50% 50%",
@@ -36,28 +36,32 @@ const VideoBox = styled(Box)(({ theme }) => ({
   backgroundRepeat: "no-repeat",
   boxShadow: "2px 2px 14px 3px rgba(0, 0, 0, 0.28)",
   height: 400,
-  width: '80%',
+  width: "80%",
 
-  [theme.breakpoints.down('xs')]: {
-    height: 200
-  }
+  [theme.breakpoints.down("xs")]: {
+    height: 200,
+  },
 }));
 
 export const Home = () => {
-
   return (
     <Box>
       <Hero container justify="center">
         <Grid item xs={12} md={6}>
-          <Grid container direction='column' justify='space-between' style={{ height: '100%' }}>
+          <Grid
+            container
+            direction="column"
+            justify="space-between"
+            style={{ height: "100%" }}
+          >
             <Grid item>
               <HeroTitle color="textPrimary" variant="h1">
                 The Universal Web3 Integration Standard
               </HeroTitle>
               <HeroBody color="textSecondary" variant="subtitle1">
                 Web3API is a WASM standard for integrating Web3 protocols into
-                applications. This eliminates the need for client-side SDKs, making
-                dApps lightweight and cross-platform.
+                applications. This eliminates the need for client-side SDKs,
+                making dApps lightweight and cross-platform.
               </HeroBody>
             </Grid>
             <Grid item>
@@ -81,7 +85,7 @@ export const Home = () => {
           <VideoBox></VideoBox>
         </Grid>
       </Hero>
-      <Carousel/>
+      <Carousel />
     </Box>
   );
 };
