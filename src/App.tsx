@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 import { Switch, Route, HashRouter } from "react-router-dom";
-import { ThemeProvider } from '@material-ui/core';
-import { theme } from './theme';
+import { Box, ThemeProvider } from "@material-ui/core";
+import { theme } from "./theme";
 import { Home } from "./pages/Home";
 import { NavBar } from "./components/Navbar";
-import './App.css';
+import "./App.css";
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <Box bgcolor="primary.main" width="100%" minHeight='100vh'>
         <HashRouter>
           <NavBar />
           <Switch>
@@ -18,9 +18,8 @@ const App: React.FC = () => {
             </Route>
           </Switch>
         </HashRouter>
-      </ThemeProvider>
-    </div>
-    
+      </Box>
+    </ThemeProvider>
   );
 };
 
