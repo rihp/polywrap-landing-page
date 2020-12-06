@@ -16,7 +16,7 @@ export const theme = createMuiTheme({
   typography: {
     fontFamily: `'Montserrat', sans-serif`,
     h1: {
-      fontSize: 60,
+      fontSize: 45,
       letterSpacing: -1
     },
     h2: {
@@ -33,8 +33,24 @@ export const theme = createMuiTheme({
   overrides: {
     MuiTextField: {
       root: {
-        border: 'solid 3px #529dad'
-      }
+        border: 'solid 1px #529dad',
+        borderRadius: 4, 
+        backgroundColor: '#242F35',
+        '& .MuiInput-underline:before': {
+          borderBottomColor: 'none',
+        },
+        '& .MuiInput-underline:hover:before': {
+          borderBottomColor: 'none',
+        },
+        '& .MuiInput-underline:after': {
+          borderBottomColor: 'none',
+        },
+      },
+    },
+    MuiInput: {
+      root: {
+        height: 40
+      },
     },
     MuiLink: {
       root: {
