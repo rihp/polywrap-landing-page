@@ -7,6 +7,7 @@ import {
   faAngleDoubleLeft,
   faAngleDoubleRight,
 } from "@fortawesome/free-solid-svg-icons";
+import { useInterval } from "../hooks/useInterval";
 
 const useStyles = makeStyles({
   root: {
@@ -82,6 +83,9 @@ export const Carousel = () => {
     const newSlide = isNext ? actualSlide + 1 : actualSlide - 1;
     setActualSlide(newSlide);
   };
+
+  // Change the testimonial every seven seconds
+  useInterval(() => handleSlideChange("next"), 7000);
 
   return (
     <Box className={classes.root}>
