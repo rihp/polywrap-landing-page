@@ -14,6 +14,7 @@ export const theme = createMuiTheme({
     }
   },
   typography: {
+    fontFamily: `'Montserrat', sans-serif`,
     h1: {
       fontSize: 60,
       letterSpacing: -1
@@ -33,6 +34,19 @@ export const theme = createMuiTheme({
     MuiTextField: {
       root: {
         border: 'solid 3px #529dad'
+      }
+    },
+    MuiLink: {
+      root: {
+        '&:hover': {
+          color: '#60c093'
+        }
+      }
+    },
+    MuiAppBar: {
+      root: {
+        backgroundColor: '#1B262C',
+        boxShadow: 'none'
       }
     }
   }
