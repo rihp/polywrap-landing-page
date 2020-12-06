@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route, HashRouter } from "react-router-dom";
 import { Home } from "./pages/Home";
-import { NavBar } from "./components/navbar";
+import { NavBar } from "./components/Navbar";
 
 const App: React.FC = () => {
   return (
