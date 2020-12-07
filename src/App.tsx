@@ -5,6 +5,7 @@ import { theme } from "./theme";
 import { Home } from "./pages/Home";
 import { NavBar } from "./components/Navbar";
 import "./App.css";
+import { Footer } from "./components/Footer";
 
 const App: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const App: React.FC = () => {
               <Home />
             </Route>
           </Switch>
+          <Footer/>
         </HashRouter>
       </Box>
     </ThemeProvider>

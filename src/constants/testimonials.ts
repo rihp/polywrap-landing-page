@@ -74,3 +74,46 @@ export const TESTIMONIALS: Testimonial[] = [
     url: "https://mantradao.com/",
   },
 ];
+
+export const launchPartners = [
+  {
+    logo: "./logos/fleekGray.png",
+    url: "https://fleek.co/"
+  },
+  {
+    logo: "./logos/abridgedGray.png",
+    url: "https://abridged.io/"
+  },
+  {
+    logo: "./logos/mantradaoGray.png",
+    url: "https://mantradao.com/"
+  },
+  {
+    logo: "./logos/rocksideGray.png",
+    url: "https://rockside.io/"
+  },
+  {
+    logo: "./logos/torusGray.png",
+    url: "https://tor.us/"
+  },
+  {
+    logo: "./logos/pocketGray.png",
+    url: "https://www.pokt.network/"
+  },
+  {
+    logo: "./logos/gnosisGray.png",
+    url: "https://gnosis.io/"
+  },
+  {
+    logo: "./logos/dxdaoGray.png",
+    url: "https://dxdao.eth.link/#/"
+  },
+  {
+    logo: "./logos/squadGray.png",
+    url: "https://squad.games/"
+  },
+  {
+    logo: "./logos/dorgGray.png",
+    url: "https://dorg.tech/"
+  }
+]

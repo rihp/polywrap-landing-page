@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Grid, makeStyles, styled, Typography } from "@material-ui/core";
+import { Box, Grid, makeStyles, styled, Typography, useTheme } from "@material-ui/core";
 
 import { TESTIMONIALS, Testimonial } from "../constants/testimonials";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,18 +8,17 @@ import {
   faAngleDoubleRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { useInterval } from "../hooks/useInterval";
+import { filters } from "../theme";
 
 const useStyles = makeStyles({
   root: {
-    height: 800,
-    width: 800,
+    maxWidth: 800,
+    padding: "0 10px",
     display: "block",
     margin: "auto",
-    "webkit-user-select": "none" /* Chrome/Safari */,
-    "moz-user-select": "none" /* Firefox */,
-    "ms-user-select": "none" /* IE10+ */,
-
-    /* Rules below not implemented in browsers yet */
+    "webkit-user-select": "none",
+    "moz-user-select": "none",
+    "ms-user-select": "none",
     "o-user-select": "none",
     "user-select": "none",
   },
@@ -28,42 +27,55 @@ const useStyles = makeStyles({
 const TestimonialText = styled(Typography)({
   fontStyle: "italic",
   textAlign: "center",
-  color: "#3282B8",
   margin: "auto",
   maxWidth: "80%",
-  fontSize: 14,
 });
 
-const Icon = styled(FontAwesomeIcon)({
-  marginTop: 120,
+const Icon = styled(FontAwesomeIcon)(({ theme }) => ({
   cursor: "pointer",
-});
+  fontSize: 25,
+  color: theme.palette.text.secondary,
+
+  "&:hover": {
+    color: theme.palette.secondary.main
+  }
+}));
 
 const Logo = styled("img")({
   height: "auto",
   width: "100%",
-  filter:
-    "invert(60%) sepia(44%) saturate(424%) hue-rotate(142deg) brightness(86%) contrast(90%)",
+  filter: filters.textSecondary,
+
+  '&:hover': {
+    filter: filters.secondary,
+  }
 });
 
 const LogoContainer = styled("a")({
   display: "flex",
-  height: 200,
+  maxHeight: 150,
   flexDirection: "column",
   justifyContent: "center",
 });
 
-const LogoLogoContainer = styled(Box)({
+const InnerLogoContainer = styled(Box)({
   maxWidth: 150,
-  margin: "auto",
+  width: "15vw",
+  height: "15vw",
+  maxHeight: 150,
+  margin: "0 auto",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
 });
 
 const TestimonialContainer = styled(Grid)({
-  width: 750,
+  maxWidth: 750,
 });
 
 export const Carousel = () => {
   const classes = useStyles();
+  const theme = useTheme()
   const [actualSlide, setActualSlide] = useState(0);
   const NUMBER_OF_TESTIMONIALS = TESTIMONIALS.length - 1;
 
@@ -89,14 +101,14 @@ export const Carousel = () => {
 
   return (
     <Box className={classes.root}>
-      <Grid container direction="row" justify="space-around" unselectable="on">
-        <Grid item>
-          <Icon
-            icon={faAngleDoubleLeft}
-            onClick={() => handleSlideChange("previous")}
-            color="#61a1b0"
-          />
-        </Grid>
+      <Grid
+        container
+        direction="row"
+        justify="space-around"
+        wrap="nowrap"
+        unselectable="on"
+        style={{ padding: "0 30px" }}
+      >
         <Grid item>
           {TESTIMONIALS.map(
             (testimonial: Testimonial, index: number) =>
@@ -107,7 +119,7 @@ export const Carousel = () => {
                   key={`testimonial-${index}`}
                 >
                   <Grid item>
-                    <TestimonialText>
+                    <TestimonialText variant="body2" color="textSecondary">
                       {testimonial.description}
                       <br />
                       <br />
@@ -115,22 +127,31 @@ export const Carousel = () => {
                     </TestimonialText>
                   </Grid>
                   <Grid item>
-                    <LogoContainer href={testimonial.url} target="_blank">
-                      <LogoLogoContainer>
-                        <Logo src={testimonial.logo} />
-                      </LogoLogoContainer>
-                    </LogoContainer>
+                    <Grid container justify='space-between' alignItems='center'>
+                      <Grid item>
+                        <Icon
+                          icon={faAngleDoubleLeft}
+                          onClick={() => handleSlideChange("previous")}
+                        />
+                      </Grid>
+                      <Grid item>
+                        <LogoContainer href={testimonial.url} target="_blank">
+                          <InnerLogoContainer>
+                            <Logo src={testimonial.logo} />
+                          </InnerLogoContainer>
+                        </LogoContainer>
+                      </Grid>
+                      <Grid item>
+                        <Icon
+                          icon={faAngleDoubleRight}
+                          onClick={() => handleSlideChange("next")}
+                        />
+                      </Grid>
+                    </Grid>
                   </Grid>
                 </TestimonialContainer>
               )
           )}
-        </Grid>
-        <Grid item>
-          <Icon
-            icon={faAngleDoubleRight}
-            onClick={() => handleSlideChange("next")}
-            color="#61a1b0"
-          />
         </Grid>
       </Grid>
     </Box>

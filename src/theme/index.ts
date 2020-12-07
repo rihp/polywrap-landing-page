@@ -1,4 +1,17 @@
 import { createMuiTheme } from '@material-ui/core/styles';
+import { hexToCSSFilter, HexToCssConfiguration } from 'hex-to-css-filter/dist/es2015';
+ 
+const config: HexToCssConfiguration = {
+  acceptanceLossPercentage: 1,
+  maxChecks: 10,
+};
+
+const getFilter = (hexColor: string) => hexToCSSFilter(hexColor, config).filter
+
+export const filters = {
+  textSecondary: getFilter('#529dad'),
+  secondary: getFilter('#60c093')
+}
 
 export const theme = createMuiTheme({
   palette: {
@@ -23,8 +36,14 @@ export const theme = createMuiTheme({
       fontSize: 40,
       letterSpacing: -1
     },
+    h3: {
+      fontSize: 40,
+      lineHeight: 1.5,
+      letterSpacing: '-1px'
+    },
     subtitle1: {
-      fontSize: 22
+      fontSize: 22,
+      lineHeight: 1.75
     },
     body1: {
       fontSize: 14
@@ -45,11 +64,23 @@ export const theme = createMuiTheme({
         '& .MuiInput-underline:after': {
           borderBottomColor: 'none',
         },
+        '& .MuiInput-underline:hover:not(.Mui-disabled):before': {
+          borderBottom: '0'
+        }
       },
     },
     MuiInput: {
       root: {
-        height: 40
+        height: 40,
+        "& $notchedOutline": {
+          borderWidth: 0
+        },
+        "&:hover $notchedOutline": {
+          borderWidth: 0
+        },
+        "&$focused $notchedOutline": {
+          borderWidth: 0
+        }
       },
     },
     MuiLink: {
@@ -63,6 +94,16 @@ export const theme = createMuiTheme({
       root: {
         backgroundColor: '#1B262C',
         boxShadow: 'none'
+      }
+    },
+    MuiButton: {
+      outlinedSecondary: {
+        border: 'solid 1px #529dad',
+        '&:hover': {
+          border: 'solid 1px #529dad',
+          backgroundColor: '#60c093',
+          color: '#ffffff'
+        }
       }
     }
   }
