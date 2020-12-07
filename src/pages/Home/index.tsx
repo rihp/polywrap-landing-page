@@ -4,7 +4,6 @@ import {
   Box,
   Button,
   Grid,
-  Icon,
   Modal,
   styled,
   TextField,
@@ -36,6 +35,7 @@ const Hero = styled(Grid)(({ theme }) => ({
 const HeroTitle = styled(Typography)(({ theme }) => ({
   fontWeight: 700,
   marginBottom: 20,
+  marginTop: 20,
 
   [theme.breakpoints.down('md')]: {
     fontSize: 60
@@ -74,12 +74,12 @@ const VideoBox = styled(Box)(({ theme }) => ({
   borderRadius: 40,
   backgroundImage: "url('./Web3API Icon.svg');",
   backgroundPosition: "50% 50%",
-  backgroundSize: "contain",
+  backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
   boxShadow: "2px 2px 14px 3px rgba(0, 0, 0, 0.28)",
   height: 420,
-  width: '90%',
-  maxWidth: '90%',
+  width: '45vw',
+  maxWidth: '80%',
 
   [theme.breakpoints.down('sm')]: {
     margin: 'auto'
@@ -166,7 +166,7 @@ const PlayIcon = styled(FontAwesomeIcon)(({ theme })=> ({
   opacity: 0.53,
   color: '#FFFFFF',
   padding: '0 0 8px 8px',
-  fontSize: 55,
+  fontSize: 70,
 
   [theme.breakpoints.down('xs')]: {
     fontSize: 35,
