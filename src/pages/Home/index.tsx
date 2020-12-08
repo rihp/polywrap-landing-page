@@ -98,11 +98,27 @@ const HeroTextContainer = styled(Grid)(({ theme }) => ({
 
 const StyledTextField = styled(TextField)({
   width: '100%'
-})
+});
 
 const JoinButton = styled(Button)({
   height: '100%'
-})
+});
+
+const ErrorText = styled(Box)({
+  color: '#f44336'
+});
+
+const SubmitSuccess = styled(Typography)({
+  background: '#529dad',
+  color: 'white',
+  width: '100%',
+  height: 'auto',
+  padding: '10px',
+  textAlign: 'center',
+  fontWeight: 700,
+  borderRadius: '10px',
+  boxShadow: 'rgba(0, 0, 0, 0.28) 2px 2px 14px 3px'
+});
 
 const VideoBoxGridContainer = styled(Grid)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
@@ -193,8 +209,38 @@ const ModalBody = styled(Box)(({ theme })=> ({
 export const Home = () => {
 
   const [isVideoOpen, setIsVideoOpen] = useState(false)
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [signupSuccess, setSignupSuccess] = useState(false);
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('xs'))
+
+  const onSubmit = async () => {
+    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (!re.test(email)) {
+      setEmailError("Invalid email address...");
+      return;
+    } else {
+      setEmailError("");
+    }
+
+    let uri = "https://tech.us17.list-manage.com/subscribe/post-json?u=7515d8292da68c0a33f4c7e7e&amp;id=48ff512e96&c=jQuery34108557665382199082_1607465109249&b_7515d8292da68c0a33f4c7e7e_48ff512e96=&_=1607465109250";
+    uri = uri + `&Email=${email}&EMAIL=${email}`;
+    uri = encodeURI(uri);
+
+    console.log(uri);
+
+    try {
+      await fetch(uri, {
+        mode: 'no-cors'
+      });
+
+      setSignupSuccess(true);
+    } catch (e) {
+      setEmailError('Sign-up failed... please use the "contract" form above.');
+    }
+  }
 
   return (
     <>
@@ -214,18 +260,32 @@ export const Home = () => {
             </Grid>
             <Grid item>
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={8}>
-                  <StyledTextField
-                    placeholder="Stay informed!"
-                    inputProps={{ style: { textAlign: "center" } }}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={4}>
-                  <JoinButton color="secondary" variant="outlined" fullWidth>
-                    Join
-                  </JoinButton>
-                </Grid>
+                {!signupSuccess ? (
+                  <>
+                  <Grid item xs={12} sm={8}>
+                    <StyledTextField
+                      placeholder="Stay informed!"
+                      inputProps={{ style: { textAlign: "center" } }}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={4}>
+                    <JoinButton color="secondary" variant="outlined" fullWidth onClick={onSubmit}>
+                      Join
+                    </JoinButton>
+                  </Grid>
+                  </>
+                ) : (
+                  <SubmitSuccess>
+                    Thank you for signing up {email}! More details coming soon.
+                  </SubmitSuccess>
+                )}
               </Grid>
+              {emailError && (
+                <ErrorText>
+                {emailError}
+                </ErrorText>
+              )}
             </Grid>
           </HeroTextContainer>
         </Grid>
