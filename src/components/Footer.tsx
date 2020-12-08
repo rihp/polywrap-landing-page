@@ -4,6 +4,8 @@ import { Grid, Link, styled, useTheme } from '@material-ui/core'
 import React from 'react'
 
 const FooterContainer = styled(Grid)({
+  maxWidth: '1400px',
+  margin: 'auto',
   height: 50,
   paddingBottom: 15
 })

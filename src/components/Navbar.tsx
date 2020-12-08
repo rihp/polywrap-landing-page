@@ -1,6 +1,14 @@
 import React from "react";
 import { styled, AppBar, Grid, Box, Link } from "@material-ui/core";
 
+const AppBarBody = styled(Grid)({
+  maxHeight: 70,
+  maxWidth: '1400px',
+  margin: 'auto',
+  paddingTop: '20px',
+  paddingBottom: '20px'
+});
+
 const Logo = styled("img")({
   width: 'auto',
   height: '20vw',
@@ -21,14 +29,6 @@ const LinkDivider = styled(Grid)({
   width: '1px',
   marginRight: '10px',
   marginLeft: '10px'
-});
-
-const AppBarBody = styled(Grid)({
-  maxHeight: 70,
-  maxWidth: '1400px',
-  margin: 'auto',
-  paddingTop: '20px',
-  paddingBottom: '20px'
 });
 
 export const NavBar: React.FC = () => {

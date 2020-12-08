@@ -16,6 +16,11 @@ import { Carousel } from "../../components/Carousel";
 import { launchPartners } from "../../constants/testimonials";
 import { filters } from "../../theme";
 
+const Root = styled(Box)({
+  maxWidth: '1400px',
+  margin: 'auto'
+})
+
 const Hero = styled(Grid)(({ theme }) => ({
   minHeight: 310,
   padding: 50,
@@ -156,9 +161,8 @@ const InnerLogoContainer = styled(Box)(({ theme }) => ({
 }));
 
 const LaunchPartnersContainer = styled(Grid)({
-  boxSizing: 'border-box',
-  paddingRight: '10vw',
-  paddingLeft: '10vw'
+  paddingRight: '20px',
+  paddingLeft: '20px'
 })
 
 const PlayIcon = styled(FontAwesomeIcon)(({ theme })=> ({
@@ -197,7 +201,7 @@ export const Home = () => {
 
   return (
     <>
-    <Box>
+    <Root>
       <Hero container justify="center" direction={matches? 'row-reverse': 'row'}>
         <Grid item xs={12} sm={5}>
           <HeroTextContainer container direction='column' justify='space-between'>
@@ -253,7 +257,7 @@ export const Home = () => {
         }
       </LaunchPartnersContainer>
       <Carousel/>
-    </Box>
+    </Root>
     <Modal
       open={isVideoOpen}
       onClose={() => setIsVideoOpen(false)}
