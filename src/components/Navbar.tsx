@@ -3,23 +3,33 @@ import { styled, AppBar, Grid, Box, Link } from "@material-ui/core";
 
 const Logo = styled("img")({
   width: 'auto',
-  height: 41,
+  height: '20vw',
+  maxHeight: '32px',
+  marginLeft: '2vw'
+});
+
+const LinksContainer = styled(Grid)({
+  marginRight: '2vw'
 });
 
 const LinkButton = styled(Link)({
-  height: '100%',
-})
+  fontSize: '14px'
+});
 
-const BorderedLinkContainer = styled(Grid)({
+const LinkDivider = styled(Grid)({
   borderLeft: 'solid 1px white',
-  borderRight: 'solid 1px white'
-})
+  width: '1px',
+  marginRight: '10px',
+  marginLeft: '10px'
+});
 
 const AppBarBody = styled(Grid)({
-  minHeight: 70,
-  boxSizing: 'border-box',
-  padding: '0 32px'
-})
+  maxHeight: 70,
+  maxWidth: '1400px',
+  margin: 'auto',
+  paddingTop: '20px',
+  paddingBottom: '20px'
+});
 
 export const NavBar: React.FC = () => {
   return (
@@ -27,21 +37,23 @@ export const NavBar: React.FC = () => {
       <AppBarBody container justify="space-between" alignItems='center'>
         <Grid item>
           <Box>
-            <Logo src={"./logos/web3api.png"} alt="Web3 API Logo" />
+            <Logo src={process.env.PUBLIC_URL + "/logos/web3api.png"} alt="Web3 API Logo" />
           </Box>
         </Grid>
         <Grid item>
-          <Grid container spacing={3} wrap='nowrap'>
+          <LinksContainer container wrap='nowrap'>
             <Grid item>
               <LinkButton href="https://airtable.com/shri2hEgu1BlMLXZ9" color={'textSecondary'} variant='body1'>Blog</LinkButton>
             </Grid>
-            <BorderedLinkContainer item>
+            <LinkDivider item />
+            <Grid item>
               <LinkButton href="https://github.com/web3-api/prototype" color={'textSecondary'} variant='body1'>Code</LinkButton>
-            </BorderedLinkContainer>
+            </Grid>
+            <LinkDivider item />
             <Grid item>
               <LinkButton href="https://web3api.substack.com/" color={'textSecondary'} variant='body1'>Contact</LinkButton>
             </Grid>
-          </Grid>
+          </LinksContainer>
         </Grid>
       </AppBarBody>
     </AppBar>

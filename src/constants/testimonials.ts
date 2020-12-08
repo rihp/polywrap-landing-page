@@ -7,7 +7,7 @@ export interface Testimonial {
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    logo: "./logos/gnosisGray.png",
+    logo: process.env.PUBLIC_URL + "/logos/gnosis.png",
     persona: "Team Gnosis",
     description: `Web3api will make it easy for everyone to build on top of Gnosis
     technologies and interact with our contracts and interfaces. This will
@@ -16,7 +16,7 @@ export const TESTIMONIALS: Testimonial[] = [
     url: "https://gnosis.io/",
   },
   {
-    logo: "./logos/abridgedGray.png",
+    logo: process.env.PUBLIC_URL + "/logos/abridged.png",
     persona: "James Duncan, Co-Founder",
     description: `Web3API aligns with Abridged's vision of lowering the barrier for smart contract 
     "remixing". More importantly the team behind the project is smart, passionate and know how to ship. 
@@ -25,7 +25,7 @@ export const TESTIMONIALS: Testimonial[] = [
     url: "https://abridged.io/",
   },
   {
-    logo: "./logos/pocketGray.png",
+    logo: process.env.PUBLIC_URL + "/logos/pocket.png",
     persona: "Michael O'Rourke, CEO",
     description: `By creating one single standard for Web3 developers, 
     the complexity and user experience of accessing the basic building 
@@ -35,7 +35,7 @@ export const TESTIMONIALS: Testimonial[] = [
     url: "https://www.pokt.network",
   },
   {
-    logo: "./logos/fleekGray.png",
+    logo: process.env.PUBLIC_URL + "/logos/fleek.png",
     persona: "Harrison Hines, CEO",
     description: `Our leading product (the open source Space Daemon for building dweb apps) 
     currently only works on desktop, and the most elegant way we can get it to work in the 
@@ -45,7 +45,7 @@ export const TESTIMONIALS: Testimonial[] = [
     url: "https://fleek.co/",
   },
   {
-    logo: "./logos/squadGray.png",
+    logo: process.env.PUBLIC_URL + "/logos/squad.png",
     persona: "Jesse B. Miller, Co-Founder",
     description: `We’re building a platform that needs to run anywhere, 
     integrate with other projects, and provide a welcoming developer experience. 
@@ -54,7 +54,7 @@ export const TESTIMONIALS: Testimonial[] = [
     url: "https://squad.games/",
   },
   {
-    logo: "./logos/rocksideGray.png",
+    logo: process.env.PUBLIC_URL + "/logos/rockside.png",
     persona: "Vincent Le Gallic, CTO & Co-Founder",
     description: `Rockside is simplifying the usage of blockchain thanks to its 
     relayer and  meta-transactions. We want to push further the simplification of 
@@ -64,7 +64,7 @@ export const TESTIMONIALS: Testimonial[] = [
     url: "https://rockside.io/",
   },
   {
-    logo: "./logos/mantradaoGray.png",
+    logo: process.env.PUBLIC_URL + "/logos/mantradao.png",
     persona: "John Patrick Mullin, Co-Founder",
     description: `With cross-chain DeFi products at the core of what MANTRA DAO is building, 
     this inherently involves building a tech stack that is blockchain and programming language 
@@ -77,43 +77,43 @@ export const TESTIMONIALS: Testimonial[] = [
 
 export const launchPartners = [
   {
-    logo: "./logos/fleekGray.png",
+    logo: process.env.PUBLIC_URL + "/logos/fleek.png",
     url: "https://fleek.co/"
   },
   {
-    logo: "./logos/abridgedGray.png",
+    logo: process.env.PUBLIC_URL + "/logos/abridged.png",
     url: "https://abridged.io/"
   },
   {
-    logo: "./logos/mantradaoGray.png",
+    logo: process.env.PUBLIC_URL + "/logos/mantradao.png",
     url: "https://mantradao.com/"
   },
   {
-    logo: "./logos/rocksideGray.png",
+    logo: process.env.PUBLIC_URL + "/logos/rockside.png",
     url: "https://rockside.io/"
   },
   {
-    logo: "./logos/torusGray.png",
+    logo: process.env.PUBLIC_URL + "/logos/torus.png",
     url: "https://tor.us/"
   },
   {
-    logo: "./logos/pocketGray.png",
+    logo: process.env.PUBLIC_URL + "/logos/pocket.png",
     url: "https://www.pokt.network/"
   },
   {
-    logo: "./logos/gnosisGray.png",
+    logo: process.env.PUBLIC_URL + "/logos/gnosis.png",
     url: "https://gnosis.io/"
   },
   {
-    logo: "./logos/dxdaoGray.png",
+    logo: process.env.PUBLIC_URL + "/logos/dxdao.png",
     url: "https://dxdao.eth.link/#/"
   },
   {
-    logo: "./logos/squadGray.png",
+    logo: process.env.PUBLIC_URL + "/logos/squad.png",
     url: "https://squad.games/"
   },
   {
-    logo: "./logos/dorgGray.png",
+    logo: process.env.PUBLIC_URL + "/logos/dorg.png",
     url: "https://dorg.tech/"
   }
 ]

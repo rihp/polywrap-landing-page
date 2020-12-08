@@ -72,7 +72,7 @@ const VideoBox = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'center',
   borderRadius: 40,
-  backgroundImage: "url('./Web3API Icon.svg');",
+  backgroundImage: `url('${process.env.PUBLIC_URL}/Web3API_Icon.svg');`,
   backgroundPosition: "50% 50%",
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
