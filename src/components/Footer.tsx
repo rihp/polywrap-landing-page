@@ -7,19 +7,20 @@ const FooterContainer = styled(Grid)({
   maxWidth: '1400px',
   margin: 'auto',
   height: 50,
+  paddingTop: 15,
   paddingBottom: 15
-})
+});
 
 const LogoContainer = styled(Link)({
   display: 'flex',
   justifyContent: 'center',
-  alignItems: 'center'
-})
+  alignItems: 'center',
+  maxHeight: '50px'
+});
 
 const Logo = styled(FontAwesomeIcon)(({ theme }) => ({
   cursor: 'pointer',
-  fontSize: 30,
-  paddingRight: '10vw',
+  fontSize: 24,
   color: theme.palette.text.secondary,
 
   "&:hover": {
@@ -46,10 +47,10 @@ export const Footer = () => {
           <Logo
             icon={faTwitter}
             color={theme.palette.text.secondary}
-            style={{ paddingRight: 35 }}
+            style={{ paddingRight: 10 }}
           />
         </LogoContainer>
       </Grid>
     </FooterContainer>
-  )
+  );
 }

@@ -24,7 +24,6 @@ const Root = styled(Box)({
 const Hero = styled(Grid)(({ theme }) => ({
   minHeight: 310,
   padding: 50,
-  maxWidth: '80vw',
   margin: 'auto',
 
   [theme.breakpoints.down('md')]: {
@@ -33,7 +32,7 @@ const Hero = styled(Grid)(({ theme }) => ({
   },
 
   [theme.breakpoints.down('sm')]: {
-    padding: '50px 10px'
+    padding: '20px 10px'
   },
 }));
 
@@ -41,17 +40,11 @@ const HeroTitle = styled(Typography)(({ theme }) => ({
   fontWeight: 700,
   marginBottom: 20,
   marginTop: 20,
-
-  [theme.breakpoints.down('md')]: {
-    fontSize: 60
-  },
+  fontSize: 45,
 
   [theme.breakpoints.down('sm')]: {
-    fontSize: 40
-  },
-
-  [theme.breakpoints.down('xs')]: {
-    textAlign: 'center'
+    textAlign: 'center',
+    fontSize: 32
   },
 }));
 
@@ -63,7 +56,7 @@ const HeroBody = styled(Typography)(({ theme }) => ({
     lineHeight: 1.5
   },
 
-  [theme.breakpoints.down('xs')]: {
+  [theme.breakpoints.down('sm')]: {
     textAlign: 'center',
     fontSize: 16
   },
@@ -87,19 +80,21 @@ const VideoBox = styled(Box)(({ theme }) => ({
   maxWidth: '80%',
 
   [theme.breakpoints.down('sm')]: {
-    margin: 'auto'
-  },
-
-  [theme.breakpoints.down('xs')]: {
-    width: '60vw',
+    margin: 'auto',
+    width: '80vw',
     height: '50vw',
-    marginBottom: 45
-  },
+    marginBottom: 10
+  }
 }));
 
-const HeroTextContainer = styled(Grid)({
-  height: '100%'
-})
+const HeroTextContainer = styled(Grid)(({ theme }) => ({
+  height: '100%',
+  margin: 'auto',
+
+  [theme.breakpoints.down('sm')]: {
+    width: '80%'
+  }
+}))
 
 const StyledTextField = styled(TextField)({
   width: '100%'
@@ -110,7 +105,7 @@ const JoinButton = styled(Button)({
 })
 
 const VideoBoxGridContainer = styled(Grid)(({ theme }) => ({
-  [theme.breakpoints.down('xs')]: {
+  [theme.breakpoints.down('sm')]: {
     order: -1
   }
 }))
@@ -139,7 +134,7 @@ const Logo = styled("img")({
 
 const LogoContainer = styled("a")({
   display: "flex",
-  width: 200,
+  padding: 10,
   maxHeight: 150,
   flexDirection: "column",
   justifyContent: "center",
@@ -162,7 +157,9 @@ const InnerLogoContainer = styled(Box)(({ theme }) => ({
 
 const LaunchPartnersContainer = styled(Grid)({
   paddingRight: '20px',
-  paddingLeft: '20px'
+  paddingLeft: '20px',
+  maxWidth: '1200px',
+  margin: 'auto'
 })
 
 const PlayIcon = styled(FontAwesomeIcon)(({ theme })=> ({
@@ -203,7 +200,7 @@ export const Home = () => {
     <>
     <Root>
       <Hero container justify="center" direction={matches? 'row-reverse': 'row'}>
-        <Grid item xs={12} sm={5}>
+        <Grid item sm={12} md={5}>
           <HeroTextContainer container direction='column' justify='space-between'>
             <Grid item>
               <HeroTitle color="textPrimary" variant="h1">
@@ -232,7 +229,7 @@ export const Home = () => {
             </Grid>
           </HeroTextContainer>
         </Grid>
-        <VideoBoxGridContainer item xs={12} sm={7} onClick={() => setIsVideoOpen(true)}>
+        <VideoBoxGridContainer item sm={12} md={7} onClick={() => setIsVideoOpen(true)}>
           <Box display='flex' flexDirection='column' justifyContent='center' width='100%' height='100%'>
             <VideoBox>
               <PlayIcon icon={faPlay} />
