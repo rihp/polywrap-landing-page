@@ -1,7 +1,7 @@
 {
   "name": "@web3api/landing-page",
   "version": "0.1.0",
-  "homepage": "https://web3-api.github.io",
+  "homepage": "https://web3api.dev/",
   "scripts": {
     "start": "serve -s build",
     "dev": "react-scripts start",
