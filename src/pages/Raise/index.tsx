@@ -113,9 +113,7 @@ export const Raise = () => {
         Pre-Seed Funders
       </H1>
       <Body>
-        4,000 <code>W3API</code> will be minted to <em>Pre-Seed Funders</em>,
-        with a goal of raising $1M by December 31st. Tokens will be priced in
-        three batches (viewable{" "}
+        4,000 <code>W3API</code> will be minted to <em>Pre-Seed Funders</em>, with a goal of raising $1M by December 31st. Tokens will be priced in three batches (viewable{" "}
         <ExtLink href="https://github.com/Web3-API/dao/blob/master/token-allocations/pre-seed-funders.csv">
           here
         </ExtLink>).
@@ -147,8 +145,7 @@ export const Raise = () => {
           </tbody>
       </table>
       <InfoText>
-        NOTE: If all 4,000 <code>W3API</code> are not sold by December 31st, the remaining <code>W3API</code>
-        <em>Pre-Seed Funder</em> allocation will be distributed pro-rata to existing <em>Pre-Seed Funders</em>.
+        NOTE: If all 4,000 <code>W3API</code> are not sold by December 31st, the remaining <code>W3API</code> <em>Pre-Seed Funder</em> allocation will be distributed pro-rata to existing <em>Pre-Seed Funders</em>.
       </InfoText>
       <H2 variant="h2">
         Distribution of Governance
@@ -163,16 +160,12 @@ export const Raise = () => {
         Follow these steps to become a <em>Pre-Seed Funder</em>:
         <ol>
             <li>Go to the <ExtLink
-                href="https://client.aragon.org/#/w3api/0x9bb4ea752a3096104c7765ad318b0f9cabaaf95f/">DAO&#39;s
-                Token Request App</ExtLink>.</li>
+                href="https://client.aragon.org/#/w3api/0x9bb4ea752a3096104c7765ad318b0f9cabaaf95f/">DAO&#39;s Token Request App</ExtLink>.</li>
             <li>Click <strong>Connect Wallet</strong> in the top right corner and select your wallet of choice (i.e. Metamask).</li>
             <li>Click <strong>New Request</strong> below that.</li>
-            <li>In <strong>Offered Amount</strong> enter the amount you would like to contribute (DAI, USDC, USDT, or
-                TUSD).
+            <li>In <strong>Offered Amount</strong> enter the amount you would like to contribute (DAI, USDC, USDT, or TUSD).
             </li>
-            <li>In <strong>Requested Amount</strong> enter the <strong>Offered Amount</strong> divided by the current
-                batch
-                price (<em>$250</em>). This is the number of <code>W3API</code> you will receive.
+            <li>In <strong>Requested Amount</strong> enter the <strong>Offered Amount</strong> divided by the current batch price (<em>$250</em>). This is the number of <code>W3API</code> you will receive.
             </li>
             <li>Press <strong>Create Request</strong> to initiate the proposal and deposit your funds.</li>
             <li>Fill out <ExtLink href="https://airtable.com/shrE0bMs1D07FV3oO">this quick form</ExtLink>.</li>
@@ -182,9 +175,7 @@ export const Raise = () => {
         <RequestGif src={process.env.PUBLIC_URL + "/imgs/request.gif"} alt="Distribution Image" />
       </CenterBox>
       <Subtext>
-        <code>W3API</code> holders will receive this information and vote on your request. If approved, your funds
-        will transfer to the DAO and <code>W3API</code> will be minted to your wallet. If rejected, you will be able to
-        withdraw your funds. You may also withdraw your funds at any time before the request is approved.
+        <code>W3API</code> holders will receive this information and vote on your request. If approved, your funds will transfer to the DAO and <code>W3API</code> will be minted to your wallet. If rejected, you will be able to withdraw your funds. You may also withdraw your funds at any time before the request is approved.
       </Subtext>
       <H1 variant="h1">
         F.A.Q.
