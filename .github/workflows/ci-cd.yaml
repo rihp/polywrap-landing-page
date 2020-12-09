@@ -28,7 +28,9 @@ jobs:
       run: yarn
 
     - name: Build
-      run: yarn build
+      run: |
+        yarn build
+        echo web3api.dev > CNAME
 
     - name: Deploy
       run: |
