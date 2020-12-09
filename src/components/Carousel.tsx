@@ -75,7 +75,6 @@ const TestimonialContainer = styled(Grid)({
 
 export const Carousel = () => {
   const classes = useStyles();
-  const theme = useTheme()
   const [actualSlide, setActualSlide] = useState(0);
   const NUMBER_OF_TESTIMONIALS = TESTIMONIALS.length - 1;
 
