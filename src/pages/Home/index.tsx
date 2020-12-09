@@ -1,3 +1,7 @@
+import { Carousel } from "../../components/Carousel";
+import { launchPartners } from "../../constants/testimonials";
+import { filters } from "../../theme";
+
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,9 +16,7 @@ import {
   useTheme,
 } from "@material-ui/core";
 import React, { useState } from "react";
-import { Carousel } from "../../components/Carousel";
-import { launchPartners } from "../../constants/testimonials";
-import { filters } from "../../theme";
+import ReactGA from "react-ga";
 
 const Root = styled(Box)({
   maxWidth: '1400px',
@@ -208,6 +210,8 @@ const ModalBody = styled(Box)(({ theme })=> ({
 
 export const Home = () => {
 
+  ReactGA.pageview('home');
+
   const [isVideoOpen, setIsVideoOpen] = useState(false)
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -234,6 +238,12 @@ export const Home = () => {
     try {
       await fetch(uri, {
         mode: 'no-cors'
+      });
+
+      ReactGA.event({
+        category: 'Button-hero',
+        action: 'sign up',
+        label: 'Early Access'
       });
 
       setSignupSuccess(true);
@@ -289,7 +299,15 @@ export const Home = () => {
             </Grid>
           </HeroTextContainer>
         </Grid>
-        <VideoBoxGridContainer item sm={12} md={7} onClick={() => setIsVideoOpen(true)}>
+        <VideoBoxGridContainer item sm={12} md={7} onClick={() => {
+          ReactGA.event({
+            category: 'Demo Video',
+            action: 'click',
+            label: 'Early Access'
+          });
+
+          setIsVideoOpen(true)
+        }}>
           <Box display='flex' flexDirection='column' justifyContent='center' width='100%' height='100%'>
             <VideoBox>
               <PlayIcon icon={faPlay} />
@@ -303,8 +321,14 @@ export const Home = () => {
       <LaunchPartnersContainer container justify='center'>
         {
           launchPartners.map(({logo, url}) => (
-            <Grid item>
-              <LogoContainer href={url} target="_blank">
+            <Grid item key={url}>
+              <LogoContainer href={url} target="_blank" onClick={() => {
+                ReactGA.event({
+                  category: 'Launch Partners',
+                  action: `goto ${url}`,
+                  label: 'Early Access'
+                });
+              }}>
                 <InnerLogoContainer>
                   <Logo src={logo} />
                 </InnerLogoContainer>

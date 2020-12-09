@@ -14,7 +14,7 @@ const App: React.FC = () => {
       <Box bgcolor="primary.main" width="100%" minHeight='100vh'>
         <HashRouter>
           <NavBar />
-          <Switch>
+          <Switch >
             <Route path="/" exact>
               <Home />
             </Route>
@@ -22,7 +22,7 @@ const App: React.FC = () => {
               <Raise />
             </Route>
           </Switch>
-          <Footer/>
+          <Footer />
         </HashRouter>
       </Box>
     </ThemeProvider>

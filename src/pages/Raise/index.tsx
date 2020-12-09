@@ -5,6 +5,7 @@ import {
   Link
 } from "@material-ui/core";
 import { CSSProperties } from "react";
+import ReactGA from "react-ga";
 
 const Root = styled(Box)({
   width: '60%',
@@ -101,6 +102,9 @@ const RequestGif = styled("img")({
 })
 
 export const Raise = () => {
+
+  ReactGA.pageview('raise');
+
   return (
     <>
     <SubtextContainer>
