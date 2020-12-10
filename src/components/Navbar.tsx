@@ -1,5 +1,6 @@
 import React from "react";
 import { styled, AppBar, Grid, Box, Link } from "@material-ui/core";
+import { useHistory } from 'react-router-dom';
 
 const AppBarBody = styled(Grid)({
   maxHeight: 70,
@@ -13,7 +14,8 @@ const Logo = styled("img")({
   width: 'auto',
   height: '20vw',
   maxHeight: '32px',
-  marginLeft: '2vw'
+  marginLeft: '2vw',
+  cursor: 'pointer'
 });
 
 const LinksContainer = styled(Grid)({
@@ -32,12 +34,15 @@ const LinkDivider = styled(Grid)({
 });
 
 export const NavBar: React.FC = () => {
+  const history = useHistory();
+  const onLogoClick = () => history.push('/');
+
   return (
     <AppBar position="static">
       <AppBarBody container justify="space-between" alignItems='center'>
         <Grid item>
           <Box>
-            <Logo src={process.env.PUBLIC_URL + "/logos/web3api.png"} alt="Web3 API Logo" />
+            <Logo src={process.env.PUBLIC_URL + "/logos/web3api.png"} alt="Web3 API Logo" onClick={onLogoClick} />
           </Box>
         </Grid>
         <Grid item>
