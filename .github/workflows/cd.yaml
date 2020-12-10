@@ -1,9 +1,7 @@
-name: CI/CD
+name: CD
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
     branches: [ master ]
 
 jobs:
@@ -31,7 +29,6 @@ jobs:
       run: yarn build
 
     - name: Deploy
-      if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true
       run: |
         git config --global user.name $user_name
         git config --global user.email $user_email
