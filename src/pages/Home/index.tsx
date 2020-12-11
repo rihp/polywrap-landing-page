@@ -131,7 +131,7 @@ const VideoBoxGridContainer = styled(Grid)(({ theme }) => ({
 const LaunchPartnersText = styled(Typography)(({ theme }) => ({
   display: 'block',
   margin: 'auto',
-  marginTop: 20,
+  marginTop: 40,
   marginBottom: 20,
   textAlign: 'center',
   fontWeight: 700,
@@ -377,6 +377,18 @@ export const Home = () => {
           </Box>
         </VideoBoxGridContainer>
       </Hero>
+      <BetterTitle color="textPrimary" variant="h1">
+        A Better Development Experience
+      </BetterTitle>
+      <BetterContainer>
+        <BetterInfographic />
+        <BetterBody color="textSecondary" variant="subtitle1">
+          The Web3API Standard makes integrating Web3 protocols quick and seamless without sacrificing decentralization. This standard allows protocols to be extendable and infinitely composable.
+          <br/>
+          <br/>
+          The Web3API Client leverages WebAssembly to execute complex logic at blazing speeds and more securely than Javascript SDKs.
+        </BetterBody>
+      </BetterContainer>
       <LaunchPartnersText variant='h3' color='textPrimary'>
         Launch Partners
       </LaunchPartnersText>
@@ -400,18 +412,6 @@ export const Home = () => {
         }
       </LaunchPartnersContainer>
       <Carousel/>
-      <BetterTitle color="textPrimary" variant="h1">
-        A Better Development Experience
-      </BetterTitle>
-      <BetterContainer>
-        <BetterInfographic />
-        <BetterBody color="textSecondary" variant="subtitle1">
-          The Web3API Standard makes integrating Web3 protocols quick and seamless without sacrificing decentralization. This standard allows protocols to be extendable and infinitely composable.
-          <br/>
-          <br/>
-          The Web3API Client leverages WebAssembly to execute complex logic at blazing speeds and more securely than Javascript SDKs.
-        </BetterBody>
-      </BetterContainer>
     </Root>
     <Modal
       open={isVideoOpen}
