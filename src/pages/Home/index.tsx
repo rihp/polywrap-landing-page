@@ -306,7 +306,7 @@ export const Home = () => {
             label: 'Early Access'
           });
 
-          setIsVideoOpen(true)
+          setIsVideoOpen(true);
         }}>
           <Box display='flex' flexDirection='column' justifyContent='center' width='100%' height='100%'>
             <VideoBox>
@@ -347,7 +347,7 @@ export const Home = () => {
     >
       <ModalBody>
         <iframe title='youtubeplayer' id="ytplayer" width="100%" height="100%" frameBorder='0'
-          src="http://www.youtube.com/embed/ojbMBN9pga4?autoplay=1"
+          src="https://www.youtube.com/embed/ojbMBN9pga4?autoplay=1"
         />
       </ModalBody>
     </Modal>
