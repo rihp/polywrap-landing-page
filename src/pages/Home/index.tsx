@@ -131,11 +131,12 @@ const VideoBoxGridContainer = styled(Grid)(({ theme }) => ({
 const LaunchPartnersText = styled(Typography)(({ theme }) => ({
   display: 'block',
   margin: 'auto',
+  marginTop: 20,
   marginBottom: 20,
   textAlign: 'center',
   fontWeight: 700,
 
-  [theme.breakpoints.down('xs')]: {
+  [theme.breakpoints.down('sm')]: {
     fontSize: 30
   }
 }))
@@ -168,7 +169,7 @@ const InnerLogoContainer = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   justifyContent: "center",
 
-  [theme.breakpoints.down('xs')]: {
+  [theme.breakpoints.down('sm')]: {
     width: "20vw",
   }
 }));
@@ -178,7 +179,7 @@ const LaunchPartnersContainer = styled(Grid)({
   paddingLeft: '20px',
   maxWidth: '1200px',
   margin: 'auto'
-})
+});
 
 const PlayIcon = styled(FontAwesomeIcon)(({ theme })=> ({
   cursor: 'pointer',
@@ -187,12 +188,12 @@ const PlayIcon = styled(FontAwesomeIcon)(({ theme })=> ({
   padding: '0 0 8px 8px',
   fontSize: 70,
 
-  [theme.breakpoints.down('xs')]: {
+  [theme.breakpoints.down('sm')]: {
     fontSize: 35,
   }
-}))
+}));
 
-const ModalBody = styled(Box)(({ theme })=> ({
+const ModalBody = styled(Box)({
   height: 528,
   maxHeight: '90%',
   width: 940,
@@ -201,12 +202,75 @@ const ModalBody = styled(Box)(({ theme })=> ({
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  outline: 'none',
+  outline: 'none'
+});
 
-  [theme.breakpoints.down('xs')]: {
-    height: 300
+const BetterContainer = styled(Grid)(({ theme }) => ({
+  paddingRight: '20px',
+  paddingLeft: '20px',
+  marginTop: '50px',
+  maxWidth: '1000px',
+  margin: 'auto',
+  display: 'flex',
+  flexDirection: 'row',
+
+  [theme.breakpoints.down('sm')]: {
+    flexDirection: 'column'
+  },
+}));
+
+const BetterTitle = styled(Typography)(({ theme }) => ({
+  fontWeight: 700,
+  marginBottom: 20,
+  marginTop: 20,
+  fontSize: 45,
+  textAlign: 'center',
+
+  [theme.breakpoints.down('sm')]: {
+    fontSize: 32
+  },
+}));
+
+const BetterInfographic = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  marginRight: 'auto',
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundImage: `url('${process.env.PUBLIC_URL}/imgs/infographic.svg');`,
+  backgroundPosition: "50% 50%",
+  backgroundSize: "contain",
+  backgroundRepeat: "no-repeat",
+  height: '500px',
+  width: '45vw',
+  maxWidth: '50%',
+
+  [theme.breakpoints.down('sm')]: {
+    margin: 'auto',
+    width: '80vw',
+    height: '50vw',
+    marginBottom: 10
   }
-}))
+}));
+
+const BetterBody = styled(Typography)(({ theme }) => ({
+  marginTop: '20px',
+  paddingTop: '10px',
+  paddingLeft: '20px',
+  width: '45vw',
+  maxWidth: '50%',
+
+  [theme.breakpoints.down('md')]: {
+    lineHeight: 1.5
+  },
+
+  [theme.breakpoints.down('sm')]: {
+    textAlign: 'center',
+    fontSize: 16,
+    margin: 'auto',
+    width: '80vw',
+    marginBottom: 10
+  }
+}));
 
 export const Home = () => {
 
@@ -263,9 +327,7 @@ export const Home = () => {
                 The Universal Web3 Integration Standard
               </HeroTitle>
               <HeroBody color="textSecondary" variant="subtitle1">
-                Web3API is a WASM standard for integrating Web3 protocols into
-                applications. This eliminates the need for client-side SDKs,
-                making dApps lightweight and cross-platform.
+                Web3API is a WASM standard for integrating Web3 protocols into applications. This eliminates the need for client-side SDKs, making dApps lightweight and cross-platform.
               </HeroBody>
             </Grid>
             <Grid item>
@@ -338,6 +400,18 @@ export const Home = () => {
         }
       </LaunchPartnersContainer>
       <Carousel/>
+      <BetterTitle color="textPrimary" variant="h1">
+        A Better Development Experience
+      </BetterTitle>
+      <BetterContainer>
+        <BetterInfographic />
+        <BetterBody color="textSecondary" variant="subtitle1">
+          The Web3API Standard makes integrating Web3 protocols quick and seamless without sacrificing decentralization. This standard allows protocols to be extendable and infinitely composable.
+          <br/>
+          <br/>
+          The Web3API Client leverages WebAssembly to execute complex logic at blazing speeds and more securely than Javascript SDKs.
+        </BetterBody>
+      </BetterContainer>
     </Root>
     <Modal
       open={isVideoOpen}
