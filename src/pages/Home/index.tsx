@@ -256,11 +256,12 @@ const BetterInfographic = styled(Box)(({ theme }) => ({
 }));
 
 const BetterBody = styled(Typography)(({ theme }) => ({
-  marginTop: '20px',
-  paddingTop: '10px',
   paddingLeft: '20px',
   width: '45vw',
   maxWidth: '50%',
+  fontSize: 18,
+  marginBottom: 'auto',
+  marginTop: 'auto',
 
   [theme.breakpoints.down('md')]: {
     lineHeight: 1.5
@@ -271,6 +272,7 @@ const BetterBody = styled(Typography)(({ theme }) => ({
     fontSize: 16,
     margin: 'auto',
     width: '80vw',
+    marginTop: 10,
     marginBottom: 10
   }
 }));
@@ -408,10 +410,10 @@ export const Home = () => {
       <BetterContainer>
         <BetterInfographic />
         <BetterBody color="textSecondary" variant="subtitle1">
-          The Web3API Standard makes integrating Web3 protocols quick and seamless without sacrificing decentralization. This standard allows protocols to be extendable and infinitely composable.
+          The Web3API Standard makes integrating Web3 protocols quick and seamless without sacrificing decentralization. This standard allows protocols to be extendable, and infinitely composable.
           <br/>
           <br/>
-          The Web3API Client leverages WebAssembly to execute complex logic at blazing speeds and more securely than Javascript SDKs.
+          The Web3API Client enables any application to integrate with Web3 protocols through simple GraphQL queries. WebAssembly is used to execute the query's complex logic at blazing speeds, and more securely than Javascript SDKs.
         </BetterBody>
       </BetterContainer>
       <CarouselContainer>
