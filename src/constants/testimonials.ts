@@ -97,6 +97,10 @@ export const launchPartners = [
     url: "https://tor.us/"
   },
   {
+    logo: process.env.PUBLIC_URL + "/logos/aleph.png",
+    url: "https://aleph.im"
+  },
+  {
     logo: process.env.PUBLIC_URL + "/logos/pocket.png",
     url: "https://www.pokt.network/"
   },
