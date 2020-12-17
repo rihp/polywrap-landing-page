@@ -136,12 +136,12 @@ export const Raise = () => {
               <td><del>1,500 <code>W3API</code></del></td>
               <td>$200</td>
             </tr>
-            <tr style={CurrentBatch}>
+            <tr>
               <td><em>B</em></td>
-              <td>1,500 <code>W3API</code></td>
+              <td><del>1,500 <code>W3API</code></del></td>
               <td>$250</td>
             </tr>
-            <tr>
+            <tr style={CurrentBatch}>
               <td><em>C</em></td>
               <td>1,000 <code>W3API</code></td>
               <td>$325</td>
@@ -169,7 +169,7 @@ export const Raise = () => {
             <li>Click <strong>New Request</strong> below that.</li>
             <li>In <strong>Offered Amount</strong> enter the amount you would like to contribute (DAI, USDC, USDT, or TUSD).
             </li>
-            <li>In <strong>Requested Amount</strong> enter the <strong>Offered Amount</strong> divided by the current batch price (<em>$250</em>). This is the number of <code>W3API</code> you will receive.
+            <li>In <strong>Requested Amount</strong> enter the <strong>Offered Amount</strong> divided by the current batch price (<em>$325</em>). This is the number of <code>W3API</code> you will receive.
             </li>
             <li>Press <strong>Create Request</strong> to initiate the proposal and deposit your funds.</li>
             <li>Fill out <ExtLink href="https://airtable.com/shrE0bMs1D07FV3oO">this quick form</ExtLink>.</li>
