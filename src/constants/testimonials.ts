@@ -77,6 +77,10 @@ export const TESTIMONIALS: Testimonial[] = [
 
 export const launchPartners = [
   {
+    logo: process.env.PUBLIC_URL + "/logos/walletconnect.png",
+    url: "https://walletconnect.org/"
+  },
+  {
     logo: process.env.PUBLIC_URL + "/logos/fleek.png",
     url: "https://fleek.co/"
   },
