@@ -119,9 +119,5 @@ export const launchPartners = [
   {
     logo: process.env.PUBLIC_URL + "/logos/squad.png",
     url: "https://squad.games/"
-  },
-  {
-    logo: process.env.PUBLIC_URL + "/logos/dorg.png",
-    url: "https://dorg.tech/"
   }
 ]
