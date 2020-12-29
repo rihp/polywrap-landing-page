@@ -1,6 +1,7 @@
 import { Carousel } from "../../components/Carousel";
 import { launchPartners } from "../../constants/testimonials";
 import { filters } from "../../theme";
+import Web3ApiAnimation from "../../lottie/Web3API_Icon_Cycle.json";
 
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,6 +18,7 @@ import {
 } from "@material-ui/core";
 import React, { useState } from "react";
 import ReactGA from "react-ga";
+import Lottie from "react-lottie";
 
 const Root = styled(Box)({
   maxWidth: '1400px',
@@ -72,7 +74,6 @@ const VideoBox = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'center',
   borderRadius: 40,
-  backgroundImage: `url('${process.env.PUBLIC_URL}/Web3API_Icon.svg');`,
   backgroundPosition: "50% 50%",
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
@@ -187,10 +188,11 @@ const CarouselContainer = styled(Box)({
 
 const PlayIcon = styled(FontAwesomeIcon)(({ theme })=> ({
   cursor: 'pointer',
-  opacity: 0.53,
+  opacity: 0.8,
   color: '#FFFFFF',
   padding: '0 0 8px 8px',
-  fontSize: 70,
+  fontSize: 55,
+  position: "absolute",
 
   [theme.breakpoints.down('sm')]: {
     fontSize: 35,
@@ -287,6 +289,11 @@ export const Home = () => {
   const [signupSuccess, setSignupSuccess] = useState(false);
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('xs'))
+  const lottieOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: Web3ApiAnimation
+  };
 
   const onSubmit = async () => {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -366,17 +373,21 @@ export const Home = () => {
             </Grid>
           </HeroTextContainer>
         </Grid>
-        <VideoBoxGridContainer item sm={12} md={7} onClick={() => {
-          ReactGA.event({
-            category: 'Demo Video',
-            action: 'click',
-            label: 'Early Access'
-          });
-
-          setIsVideoOpen(true);
-        }}>
+        <VideoBoxGridContainer item sm={12} md={7}>
           <Box display='flex' flexDirection='column' justifyContent='center' width='100%' height='100%'>
-            <VideoBox>
+            <VideoBox onClick={() => {
+              ReactGA.event({
+                category: 'Demo Video',
+                action: 'click',
+                label: 'Early Access'
+              });
+
+              setIsVideoOpen(true);
+            }}>
+              <Lottie 
+                options={lottieOptions}
+                height={"90%"}
+              />
               <PlayIcon icon={faPlay} />
             </VideoBox>
           </Box>
