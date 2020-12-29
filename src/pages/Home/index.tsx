@@ -332,7 +332,7 @@ export const Home = () => {
                 The Universal Web3 Integration Standard
               </HeroTitle>
               <HeroBody color="textSecondary" variant="subtitle1">
-                Web3API is a WASM standard for integrating Web3 protocols into applications. This eliminates the need for client-side SDKs, making dApps lightweight and cross-platform.
+                Web3API is a WASM standard for integrating Web3 protocols into applications. This eliminates the need for client-side SDKs, making dApps lightweight and multi-platform.
               </HeroBody>
             </Grid>
             <Grid item>
