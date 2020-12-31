@@ -60,7 +60,7 @@ export const NavBar: React.FC = () => {
             </Grid>
             <LinkDivider item />
             <Grid item>
-              <LinkButton href="https://airtable.com/shri2hEgu1BlMLXZ9" target="_blank" color={'textSecondary'} variant='body1'>
+              <LinkButton href="https://airtable.com/shrzxezSAlpoUUZNV" target="_blank" color={'textSecondary'} variant='body1'>
                 Contact
               </LinkButton>
             </Grid>
