@@ -35,6 +35,11 @@ const styles = {
   root: {
     boxSizing: 'border-box',
     fontFamily: '"Dank Mono", "Fira Code", monospace',
+    border: "1px solid #19435F",
+    background: "#19435F",
+    borderRadius: "15px",
+    width: "800px",
+    margin: "40px",
     ...theme.plain
   }
 }
