@@ -426,9 +426,10 @@ export const Home = () => {
       </BetterTitle>
       <BetterContainer>
           <Lottie 
-                options={solutionLottieOptions}
-                height={"60vh"}
-              />        <BetterBody color="textSecondary" variant="subtitle1">
+            options={solutionLottieOptions}
+            height={"60vh"}
+          />        
+          <BetterBody color="textSecondary" variant="subtitle1">
           The Web3API Standard makes integrating Web3 protocols quick and seamless without sacrificing decentralization. This standard allows protocols to be extendable, and infinitely composable.
           <br/>
           <br/>
