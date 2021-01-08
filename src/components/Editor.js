@@ -5,7 +5,6 @@ import theme from 'prism-react-renderer/themes/nightOwl'
 
 const exampleCode = `
 import gql from "graphql-tag";
-
 import { Uri, Web3APIClient } from "@web3api/client-js";
 import { EthereumPlugin } from "@web3api/ethereum-plugin-js"
 
@@ -40,6 +39,9 @@ const styles = {
     borderRadius: "15px",
     width: "800px",
     margin: "40px",
+    paddingLeft: "20px",
+    paddingRight: "20px",
+    boxShadow: "20px 20px 20px rgba(0, 0, 0, 0.15)",
     ...theme.plain
   }
 }
