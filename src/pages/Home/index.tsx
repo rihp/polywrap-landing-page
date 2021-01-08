@@ -2,6 +2,7 @@ import { Carousel } from "../../components/Carousel";
 import { launchPartners } from "../../constants/testimonials";
 import { filters } from "../../theme";
 import Web3ApiAnimation from "../../lottie/Web3API_Icon_Cycle.json";
+import Web3ApiSolution from "../../lottie/Protocols_and_devices.json";
 
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -294,6 +295,11 @@ export const Home = () => {
     autoplay: true,
     animationData: Web3ApiAnimation
   };
+  const solutionLottieOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: Web3ApiSolution
+  };
 
   const onSubmit = async () => {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -419,8 +425,10 @@ export const Home = () => {
         A Better Development Experience
       </BetterTitle>
       <BetterContainer>
-        <BetterInfographic />
-        <BetterBody color="textSecondary" variant="subtitle1">
+          <Lottie 
+                options={solutionLottieOptions}
+                height={"60vh"}
+              />        <BetterBody color="textSecondary" variant="subtitle1">
           The Web3API Standard makes integrating Web3 protocols quick and seamless without sacrificing decentralization. This standard allows protocols to be extendable, and infinitely composable.
           <br/>
           <br/>
