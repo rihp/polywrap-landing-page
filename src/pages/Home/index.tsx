@@ -1,3 +1,4 @@
+import  Editor  from "../../components/Editor.js";
 import { Carousel } from "../../components/Carousel";
 import { launchPartners } from "../../constants/testimonials";
 import { filters } from "../../theme";
@@ -19,6 +20,9 @@ import {
 import React, { useState } from "react";
 import ReactGA from "react-ga";
 import Lottie from "react-lottie";
+
+
+
 
 const Root = styled(Box)({
   maxWidth: '1400px',
@@ -415,6 +419,12 @@ export const Home = () => {
           ))
         }
       </LaunchPartnersContainer>
+
+      <BetterTitle color="textPrimary" variant="h1">
+        BUIDL FAST.
+      </BetterTitle>
+      <Editor />
+
       <BetterTitle color="textPrimary" variant="h1">
         A Better Development Experience
       </BetterTitle>
