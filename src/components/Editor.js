@@ -34,19 +34,30 @@ const styles = {
   root: {
     boxSizing: 'border-box',
     fontFamily: '"Dank Mono", "Fira Code", monospace',
-    background: "#19435F",
-    borderRadius: "15px",
-    width: "800px",
-    margin: "40px",
-    paddingLeft: "20px",
-    paddingRight: "20px",
-    boxShadow: "20px 20px 20px rgba(0, 0, 0, 0.15)",
+    borderRadius: "0px 0px 15px 15px",
+    width: "auto",
     ...theme.plain
+  },
+  window: {
+    backgroundColor: "#19435F",
+    borderRadius: "15px",
+    boxSizing: 'border-box',
+    fontFamily: '"Montserrat", "Arial", sanserif',
+    fontWeight: "500",
+    color: "white",
+    boxShadow: "20px 20px 20px rgba(0, 0, 0, 0.15)",
+  },
+  tab: {
+    margin: '20px',
+    
   }
 }
 
 class EditorExample extends Component {
-  state = { code: exampleCode }
+  state = { 
+    code: exampleCode,
+    title: 'TestTitle.jsx'
+    }
 
   onValueChange = code => {
     this.setState({ code })
@@ -68,13 +79,19 @@ class EditorExample extends Component {
 
   render() {
     return (
-      <Editor
-        value={this.state.code}
-        onValueChange={this.onValueChange}
-        highlight={this.highlight}
-        padding={10}
-        style={styles.root}
-      />
+      <div className='CodeSnippets'
+        style={styles.window}>
+        <p style={styles.tab}>
+          {this.state.title}
+        </p>
+        <Editor
+          value={this.state.code}
+          onValueChange={this.onValueChange}
+          highlight={this.highlight}
+          padding={10}
+          style={styles.root}
+        />
+      </div>
     )
   }
 }
