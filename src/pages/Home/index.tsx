@@ -2,7 +2,7 @@ import  Editor  from "../../components/Editor.js";
 import { Carousel } from "../../components/Carousel";
 import { launchPartners } from "../../constants/testimonials";
 import { filters } from "../../theme";
-import Web3ApiAnimation from "../../lottie/Web3API_Icon_Cycle.json";
+import Web3ApiAnimation from "../../assets/Web3API_Icon_Cycle.json";
 
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

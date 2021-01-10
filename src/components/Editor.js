@@ -2,13 +2,9 @@ import React, { Fragment, Component} from 'react'
 import Editor from 'react-simple-code-editor'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/nightOwl'
+import { ReactComponent as Buttons } from "../assets/WindowButtons.svg"
 
-const exampleCode = `
-import gql from "graphql-tag";
-import { Uri, Web3APIClient } from "@web3api/client-js";
-import { EthereumPlugin } from "@web3api/ethereum-plugin-js"
-
-const client = new Web3APIClient({
+const exampleCode = `const client = new Web3APIClient({
   redirects: [
     {
       from: new Uri("w3://ens/ethereum.web3api.eth"),
@@ -52,29 +48,11 @@ const styles = {
     paddingLeft: '2px'
   },
   buttons: {
-    marginRight: '15px'
+    marginRight: '10px'
   }
 }
 
 
-
-class Buttons extends React.Component {
-  render() {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        
-        height="13"
-        fill="none"
-        viewBox="0 0 110 22"
-      >
-        <circle cx="11" cy="11" r="11" fill="#9C9C9C"></circle>
-        <circle cx="83" cy="11" r="11" fill="#9C9C9C"></circle>
-        <circle cx="47" cy="11" r="11" fill="#9C9C9C"></circle>
-      </svg>
-    );
-  }
-}
 
 
 class EditorExample extends Component {
@@ -88,7 +66,7 @@ class EditorExample extends Component {
   }
 
   highlight = code => (
-    <Highlight {...defaultProps} theme={theme} code={code} language="jsx">
+    <Highlight {...defaultProps} theme={theme} code={code} language="tsx">
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <Fragment>
           {tokens.map((line, i) => (
@@ -106,14 +84,14 @@ class EditorExample extends Component {
       <div className='CodeSnippets'
         style={styles.window}>
         <p style={styles.tab}>
-        <Buttons style={styles.buttons}/>
-        {this.state.title}
+          <Buttons style={styles.buttons}/>
+          {this.state.title}
         </p>
         <Editor
           value={this.state.code}
           onValueChange={this.onValueChange}
           highlight={this.highlight}
-          padding={10}
+          padding={20}
           style={styles.root}
         />
       </div>
