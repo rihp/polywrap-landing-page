@@ -49,6 +49,7 @@ const styles = {
   },
   tab: {
     margin: '12px',
+    paddingLeft: '5px'
   }
 }
 
