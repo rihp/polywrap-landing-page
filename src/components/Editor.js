@@ -48,8 +48,7 @@ const styles = {
     boxShadow: "20px 20px 20px rgba(0, 0, 0, 0.15)",
   },
   tab: {
-    margin: '20px',
-    
+    margin: '12px',
   }
 }
 
