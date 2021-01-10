@@ -49,9 +49,33 @@ const styles = {
   },
   tab: {
     margin: '12px',
-    paddingLeft: '5px'
+    paddingLeft: '2px'
+  },
+  buttons: {
+    marginRight: '15px'
   }
 }
+
+
+
+class Buttons extends React.Component {
+  render() {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        
+        height="13"
+        fill="none"
+        viewBox="0 0 110 22"
+      >
+        <circle cx="11" cy="11" r="11" fill="#9C9C9C"></circle>
+        <circle cx="83" cy="11" r="11" fill="#9C9C9C"></circle>
+        <circle cx="47" cy="11" r="11" fill="#9C9C9C"></circle>
+      </svg>
+    );
+  }
+}
+
 
 class EditorExample extends Component {
   state = { 
@@ -82,7 +106,8 @@ class EditorExample extends Component {
       <div className='CodeSnippets'
         style={styles.window}>
         <p style={styles.tab}>
-          {this.state.title}
+        <Buttons style={styles.buttons}/>
+        {this.state.title}
         </p>
         <Editor
           value={this.state.code}
