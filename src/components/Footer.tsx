@@ -1,4 +1,4 @@
-import { faTelegram, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faDiscord, faTelegram, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Grid, Link, styled, useTheme } from '@material-ui/core'
 import React from 'react'
@@ -46,6 +46,15 @@ export const Footer = () => {
         <LogoContainer href="https://twitter.com/web3api" target="_blank">
           <Logo
             icon={faTwitter}
+            color={theme.palette.text.secondary}
+            style={{ paddingRight: 10 }}
+          />
+        </LogoContainer>
+      </Grid>
+      <Grid item>
+        <LogoContainer href="https://discord.gg/Z5m88a5qWu" target="_blank">
+          <Logo
+            icon={faDiscord}
             color={theme.palette.text.secondary}
             style={{ paddingRight: 10 }}
           />
