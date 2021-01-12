@@ -1,4 +1,4 @@
-import  Editor  from "../../components/Editor.js";
+import Snippet from "../../components/Snippet";
 import { Carousel } from "../../components/Carousel";
 import { launchPartners } from "../../constants/testimonials";
 import { filters } from "../../theme";
@@ -425,12 +425,9 @@ export const Home = () => {
       </BetterTitle>
 
       <BetterContainer>
-        <Editor />
+        <Snippet />
         <BetterBody color="textSecondary" variant="subtitle1">
           The Web3API Standard makes integrating Web3 protocols quick and seamless without sacrificing decentralization. This standard allows protocols to be extendable, and infinitely composable.
-          <br/>
-          <br/>
-          The Web3API Client enables any application to integrate with Web3 protocols through simple GraphQL queries. WebAssembly is used to execute the query's complex logic at blazing speeds, and more securely than Javascript SDKs.
         </BetterBody>
       </BetterContainer>
 
