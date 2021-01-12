@@ -10,21 +10,27 @@ const AppBarBody = styled(Grid)({
   paddingBottom: '20px'
 });
 
-const Logo = styled("img")({
+const Logo = styled("img")(({ theme }) => ({
   width: 'auto',
   height: '20vw',
   maxHeight: '32px',
   marginLeft: '2vw',
-  cursor: 'pointer'
-});
+  cursor: 'pointer',
+  [theme.breakpoints.down('sm')]: {
+    maxHeight: '25px'
+  },
+}));
 
 const LinksContainer = styled(Grid)({
   marginRight: '2vw'
 });
 
-const LinkButton = styled(Link)({
-  fontSize: '14px'
-});
+const LinkButton = styled(Link)(({ theme }) => ({
+  fontSize: '14px',
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '12px'
+  },
+}));
 
 const LinkDivider = styled(Grid)({
   borderLeft: 'solid 1px white',
@@ -62,6 +68,12 @@ export const NavBar: React.FC = () => {
             <Grid item>
               <LinkButton href="https://airtable.com/shrzxezSAlpoUUZNV" target="_blank" color={'textSecondary'} variant='body1'>
                 Contact
+              </LinkButton>
+            </Grid>
+            <LinkDivider item />
+            <Grid item>
+              <LinkButton href="https://github.com/Web3-API/dao/issues?q=is%3Aopen+is%3Aissue+label%3Arecruiting" target="_blank" color={'textSecondary'} variant='body1'>
+                Build
               </LinkButton>
             </Grid>
           </LinksContainer>
