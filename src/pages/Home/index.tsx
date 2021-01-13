@@ -423,13 +423,7 @@ export const Home = () => {
       <BetterTitle color="textPrimary" variant="h1">
         BUIDL FAST.
       </BetterTitle>
-
-      <BetterContainer>
-        <Snippet />
-        <BetterBody color="textSecondary" variant="subtitle1">
-          The Web3API Standard makes integrating Web3 protocols quick and seamless without sacrificing decentralization. This standard allows protocols to be extendable, and infinitely composable.
-        </BetterBody>
-      </BetterContainer>
+      <Snippet />
 
       <BetterTitle color="textPrimary" variant="h1">
         A Better Development Experience

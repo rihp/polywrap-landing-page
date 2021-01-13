@@ -1,10 +1,9 @@
 import React from "react";
 import { Pre, Line, LineNo, LineContent } from "./styles";
 import Highlight, { defaultProps } from "prism-react-renderer";
-import theme from "prism-react-renderer/themes/nightOwl";
+import theme from "prism-react-renderer/themes/nightOwl"; 
 import { ReactComponent as Buttons } from "../assets/WindowButtons.svg"
 import { blueGrey } from "@material-ui/core/colors";
-
 
 const exampleCode = `client.query({
   uri: new Uri('ens/api.protocol.eth'),
@@ -29,10 +28,13 @@ const stylesConst = {
     fontWeight: 500,
     color: "white",
     boxShadow: "20px 20px 20px rgba(0, 0, 0, 0.15)",
+    padding: '15px',
+    margin:'60px',
+    
   },
   tab: {
-    margin: '12px',
-    paddingLeft: '2px'
+    margin: '5px',
+    paddingLeft: '0px'
   },
   buttons: {
     marginRight: '10px'
