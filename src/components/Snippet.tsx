@@ -1,9 +1,9 @@
 import React from "react";
-import { Pre, Line, LineNo, LineContent } from "./styles";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/nightOwl"; 
 import { ReactComponent as Buttons } from "../assets/WindowButtons.svg"
 import { blueGrey } from "@material-ui/core/colors";
+import { styled } from "@material-ui/core";
 
 const exampleCode = `client.query({
   uri: new Uri('ens/api.protocol.eth'),
@@ -12,6 +12,36 @@ const exampleCode = `client.query({
   }\`
 })
 `.trim();
+
+
+const Wrapper = styled("div") ({
+  fontFamily: 'sans-serif',
+  textAlign: 'center',
+});
+
+const Pre = styled("pre") ({
+  textAlign: 'left',
+  margin: '1em 0',
+  padding: '0.5em',
+  fontSize: 'large',
+});
+
+const Line = styled("div") ({
+  display: 'table-row'
+});
+
+const LineNo = styled("span") ({
+  display: 'table-cell',
+  textAlign: 'right',
+  paddingRight: '1em',
+  userSelect: 'none',
+  opacity: 0.5,
+});
+
+const LineContent = styled("span") ({
+  display: 'table-cell',
+});
+
 
 const stylesConst = {
   root: {
@@ -23,6 +53,7 @@ const stylesConst = {
     ...theme.plain
   },
   window: {
+    overflow: 'auto',
     borderRadius: "15px",
     backgroundColor: '#011627',
     fontFamily: '"Montserrat", "Arial", sanserif',
@@ -30,8 +61,9 @@ const stylesConst = {
     color: "white",
     boxShadow: "20px 20px 20px rgba(0, 0, 0, 0.15)",
     padding: '15px',
-    margin:'60px',
+    margin:'auto',
     maxWidth: '75vh',
+    
   },
   tab: {
     margin: '5px',

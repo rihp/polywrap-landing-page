@@ -423,8 +423,9 @@ export const Home = () => {
       <BetterTitle color="textPrimary" variant="h1">
         BUIDL FAST.
       </BetterTitle>
-      <Snippet />
-
+      <BetterContainer>
+        <Snippet />
+      </BetterContainer>
       <BetterTitle color="textPrimary" variant="h1">
         A Better Development Experience
       </BetterTitle>
