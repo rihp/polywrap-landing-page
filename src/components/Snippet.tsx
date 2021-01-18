@@ -20,11 +20,13 @@ const Wrapper = styled("div") ({
 });
 
 const Pre = styled("pre") ({
+  overflow: 'auto',
+
   textAlign: 'left',
   margin: '1em 0',
   padding: '0.5em',
   fontSize: 'large',
-  
+  paddingLeft: "25px",
   "& .token-line": {
     lineHeight: '1.3em',
     height: '1.3em',
@@ -53,26 +55,27 @@ const stylesConst = {
     boxSizing: 'border-box',
     fontFamily: '"Dank Mono", "Fira Code", monospace',
     borderRadius: "0px 0px 15px 15px",
-    width: "auto",
+    width: "100%",
 
     ...theme.plain
   },
   window: {
-    overflow: 'auto',
+    maxWidth: '75vh',
+    width: '100%',
+    //padding: '15px',
+    margin:'auto',
     borderRadius: "15px",
     backgroundColor: '#011627',
+    boxShadow: "20px 20px 20px rgba(0, 0, 0, 0.15)",
     fontFamily: '"Montserrat", "Arial", sanserif',
     fontWeight: 500,
     color: "white",
-    boxShadow: "20px 20px 20px rgba(0, 0, 0, 0.15)",
-    padding: '15px',
-    margin:'auto',
-    maxWidth: '75vh',
     
   },
   tab: {
     margin: '5px',
-    paddingLeft: '0px'
+    padding: '15px 0px 0px 15px',
+
   },
   buttons: {
     marginRight: '10px'
