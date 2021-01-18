@@ -25,6 +25,10 @@ const Pre = styled("pre") ({
   padding: '0.5em',
   fontSize: 'large',
   
+  "& .token-line": {
+    lineHeight: '1.3em',
+    height: '1.3em',
+  }
 });
 
 const Line = styled("div") ({
