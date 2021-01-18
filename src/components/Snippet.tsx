@@ -24,6 +24,7 @@ const Pre = styled("pre") ({
   margin: '1em 0',
   padding: '0.5em',
   fontSize: 'large',
+  
 });
 
 const Line = styled("div") ({
