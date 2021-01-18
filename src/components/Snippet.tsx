@@ -19,6 +19,7 @@ const stylesConst = {
     fontFamily: '"Dank Mono", "Fira Code", monospace',
     borderRadius: "0px 0px 15px 15px",
     width: "auto",
+
     ...theme.plain
   },
   window: {
@@ -30,7 +31,7 @@ const stylesConst = {
     boxShadow: "20px 20px 20px rgba(0, 0, 0, 0.15)",
     padding: '15px',
     margin:'60px',
-    
+    maxWidth: '75vh',
   },
   tab: {
     margin: '5px',
@@ -52,7 +53,7 @@ const WithLineNumbers = () => (
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <Pre className={className} style={style}>
             {tokens.map((line, i) => (
-              <Line key={i} {...getLineProps({ line, key: i })}>
+              <Line  key={i} {...getLineProps({ line, key: i })}>
                 <LineNo>{i + 1}</LineNo>
                 <LineContent>
                   {line.map((token, key) => (
