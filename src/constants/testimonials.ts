@@ -85,6 +85,10 @@ export const launchPartners = [
     url: "https://fleek.co/"
   },
   {
+    logo: process.env.PUBLIC_URL + "/logos/razor.png",
+    url: "https://razor.network/"
+  },
+  {
     logo: process.env.PUBLIC_URL + "/logos/abridged.png",
     url: "https://abridged.io/"
   },
