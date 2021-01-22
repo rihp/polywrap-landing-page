@@ -279,13 +279,15 @@ const BetterBody = styled(Typography)(({ theme }) => ({
   }
 }));
 
-const BecomePartnerSection = styled(Box)({
-
+const BecomePartnerContainer = styled(Grid)({
+  paddingRight: '20px',
+  paddingLeft: '20px',
+  maxWidth: '1200px',
+  margin: 'auto'
 });
 
-const BecomePartnerCTA = styled(Button)({
-  width: '250px',
-  marginLeft: '100px',
+const BecomePartnerButton = styled(Button)({
+  marginLeft: 'auto',
   marginRight: 'auto',
 });
 
@@ -365,7 +367,7 @@ export const Home = () => {
                   </Grid>
                   <Grid item xs={12} sm={4}>
                     <JoinButton color="secondary" variant="outlined" fullWidth onClick={onSubmit}>
-                      Join
+                      Subscribe
                     </JoinButton>
                   </Grid>
                   </>
@@ -425,11 +427,11 @@ export const Home = () => {
           ))
         }
       </LaunchPartnersContainer>
-      <BecomePartnerSection>
-        <BecomePartnerCTA href="https://airtable.com/shra8gDgo8EgrRT6c" variant="contained" color="secondary">
-        Become a Launch Partner
-        </BecomePartnerCTA>
-      </BecomePartnerSection>
+      <BecomePartnerContainer container justify="center">
+        <BecomePartnerButton color="secondary" variant="outlined" href="https://airtable.com/shra8gDgo8EgrRT6c">
+        Become a Partner
+        </BecomePartnerButton>
+      </BecomePartnerContainer>
       <BetterTitle color="textPrimary" variant="h1">
         A Better Development Experience
       </BetterTitle>
