@@ -2,6 +2,7 @@ import { Carousel } from "../../components/Carousel";
 import { launchPartners } from "../../constants/testimonials";
 import { filters } from "../../theme";
 import Web3ApiAnimation from "../../lottie/Web3API_Icon_Cycle.json";
+import Web3ApiSolution from "../../lottie/Protocols_and_devices.json";
 
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -241,10 +242,6 @@ const BetterInfographic = styled(Box)(({ theme }) => ({
   marginRight: 'auto',
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundImage: `url('${process.env.PUBLIC_URL}/imgs/infographic.svg');`,
-  backgroundPosition: "50% 50%",
-  backgroundSize: "contain",
-  backgroundRepeat: "no-repeat",
   height: '500px',
   width: '45vw',
   maxWidth: '50%',
@@ -252,7 +249,7 @@ const BetterInfographic = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
     margin: 'auto',
     width: '80vw',
-    height: '50vw',
+    height: '50vh',
     marginBottom: 10
   }
 }));
@@ -301,10 +298,15 @@ export const Home = () => {
   const [signupSuccess, setSignupSuccess] = useState(false);
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('xs'))
-  const lottieOptions = {
+  const videoLottieOptions = {
     loop: true,
     autoplay: true,
     animationData: Web3ApiAnimation
+  };
+  const solutionLottieOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: Web3ApiSolution
   };
 
   const onSubmit = async () => {
@@ -397,7 +399,7 @@ export const Home = () => {
               setIsVideoOpen(true);
             }}>
               <Lottie 
-                options={lottieOptions}
+                options={videoLottieOptions}
                 height={"90%"}
               />
               <PlayIcon icon={faPlay} />
@@ -436,8 +438,10 @@ export const Home = () => {
         A Better Development Experience
       </BetterTitle>
       <BetterContainer>
-        <BetterInfographic />
-        <BetterBody color="textSecondary" variant="subtitle1">
+          <BetterInfographic>
+            <Lottie options={solutionLottieOptions} />
+          </BetterInfographic>
+          <BetterBody color="textSecondary" variant="subtitle1">
           The Web3API Standard makes integrating Web3 protocols quick and seamless without sacrificing decentralization. This standard allows protocols to be extendable, and infinitely composable.
           <br/>
           <br/>
