@@ -242,10 +242,6 @@ const BetterInfographic = styled(Box)(({ theme }) => ({
   marginRight: 'auto',
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundImage: `url('${process.env.PUBLIC_URL}/imgs/infographic.svg');`,
-  backgroundPosition: "50% 50%",
-  backgroundSize: "contain",
-  backgroundRepeat: "no-repeat",
   height: '500px',
   width: '45vw',
   maxWidth: '50%',
@@ -253,7 +249,7 @@ const BetterInfographic = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
     margin: 'auto',
     width: '80vw',
-    height: '50vw',
+    height: '50vh',
     marginBottom: 10
   }
 }));
@@ -290,7 +286,7 @@ export const Home = () => {
   const [signupSuccess, setSignupSuccess] = useState(false);
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('xs'))
-  const lottieOptions = {
+  const videoLottieOptions = {
     loop: true,
     autoplay: true,
     animationData: Web3ApiAnimation
@@ -391,7 +387,7 @@ export const Home = () => {
               setIsVideoOpen(true);
             }}>
               <Lottie 
-                options={lottieOptions}
+                options={videoLottieOptions}
                 height={"90%"}
               />
               <PlayIcon icon={faPlay} />
@@ -425,10 +421,9 @@ export const Home = () => {
         A Better Development Experience
       </BetterTitle>
       <BetterContainer>
-          <Lottie 
-            options={solutionLottieOptions}
-            height={"60vh"}
-          />        
+          <BetterInfographic>
+            <Lottie options={solutionLottieOptions} />
+          </BetterInfographic>
           <BetterBody color="textSecondary" variant="subtitle1">
           The Web3API Standard makes integrating Web3 protocols quick and seamless without sacrificing decentralization. This standard allows protocols to be extendable, and infinitely composable.
           <br/>
