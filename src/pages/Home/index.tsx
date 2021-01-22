@@ -279,6 +279,18 @@ const BetterBody = styled(Typography)(({ theme }) => ({
   }
 }));
 
+const BecomePartnerContainer = styled(Grid)({
+  paddingRight: '20px',
+  paddingLeft: '20px',
+  maxWidth: '1200px',
+  margin: 'auto'
+});
+
+const BecomePartnerButton = styled(Button)({
+  marginLeft: 'auto',
+  marginRight: 'auto',
+});
+
 export const Home = () => {
 
   ReactGA.pageview('home');
@@ -355,7 +367,7 @@ export const Home = () => {
                   </Grid>
                   <Grid item xs={12} sm={4}>
                     <JoinButton color="secondary" variant="outlined" fullWidth onClick={onSubmit}>
-                      Join
+                      Subscribe
                     </JoinButton>
                   </Grid>
                   </>
@@ -415,6 +427,11 @@ export const Home = () => {
           ))
         }
       </LaunchPartnersContainer>
+      <BecomePartnerContainer container justify="center">
+        <BecomePartnerButton color="secondary" variant="outlined" href="https://airtable.com/shra8gDgo8EgrRT6c">
+        Become a Partner
+        </BecomePartnerButton>
+      </BecomePartnerContainer>
       <BetterTitle color="textPrimary" variant="h1">
         A Better Development Experience
       </BetterTitle>
