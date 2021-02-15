@@ -353,7 +353,7 @@ export const Home = () => {
                 The Universal Web3 Integration Standard
               </HeroTitle>
               <HeroBody color="textSecondary" variant="subtitle1">
-                Web3API solves the integration problem by making it easy to interact with any blockchain from any programming language.
+                Web3API makes it easy to interact with any blockchain from any programming language.
               </HeroBody>
             </Grid>
             <Grid item>
@@ -442,7 +442,7 @@ export const Home = () => {
             <Lottie options={solutionLottieOptions} />
           </BetterInfographic>
           <BetterBody color="textSecondary" variant="subtitle1">
-          Web3API is a standard for seamlessly integrating Web3 protocols into applications. Web3API-powered apps download lightweight WebAssembly (WASM) modules from IPFS, and execute GraphQL requests directly inside the app.
+          Web3API solves the integration problem by making Web3 protocols as universally accessible as traditional web services. Web3API-powered apps download lightweight WebAssembly (WASM) modules from IPFS at runtime, and execute GraphQL requests directly inside the app.
           <br/>
           <br/>
           These language-agnostic WASM modules enable developers to more easily compose and extend protocols while drastically improving dApp performance and security compared to Javascript SDKs.
