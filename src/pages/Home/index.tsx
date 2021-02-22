@@ -353,7 +353,7 @@ export const Home = () => {
                 The Universal Web3 Integration Standard
               </HeroTitle>
               <HeroBody color="textSecondary" variant="subtitle1">
-                Web3API is a WASM standard for integrating Web3 protocols into applications. This eliminates the need for client-side SDKs, making dApps lightweight and multi-platform.
+                Web3API makes it easy to interact with any blockchain from any programming language.
               </HeroBody>
             </Grid>
             <Grid item>
@@ -435,17 +435,17 @@ export const Home = () => {
         </BecomePartnerButton>
       </BecomePartnerContainer>
       <BetterTitle color="textPrimary" variant="h1">
-        A Better Development Experience
+        Hypercomposability Has Arrived
       </BetterTitle>
       <BetterContainer>
           <BetterInfographic>
             <Lottie options={solutionLottieOptions} />
           </BetterInfographic>
           <BetterBody color="textSecondary" variant="subtitle1">
-          The Web3API Standard makes integrating Web3 protocols quick and seamless without sacrificing decentralization. This standard allows protocols to be extendable, and infinitely composable.
+          Web3API solves the integration problem by making Web3 protocols as universally accessible as traditional web services. Web3API-powered apps download lightweight WebAssembly (WASM) modules from IPFS at runtime, and execute GraphQL requests directly inside the app.
           <br/>
           <br/>
-          The Web3API Client enables any application to integrate with Web3 protocols through simple GraphQL queries. WebAssembly is used to execute the query's complex logic at blazing speeds, and more securely than Javascript SDKs.
+          These language-agnostic WASM modules enable developers to more easily compose and extend protocols while drastically improving dApp performance and security compared to Javascript SDKs.
         </BetterBody>
       </BetterContainer>
       <CarouselContainer>
