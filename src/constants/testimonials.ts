@@ -45,6 +45,14 @@ export const TESTIMONIALS: Testimonial[] = [
     url: "https://fleek.co/",
   },
   {
+    logo: process.env.PUBLIC_URL + "/logos/gelato.png",
+    persona: "Hilmar X, Legendary Member",
+    description: `With the help of Web3Api, Gelato will enable every web3 developer to easily 
+    automate the execution of transactions on networks like Ethereum, giving them the ability to 
+    provide arbitrary instructions to a decentralized network of bots with a single web3 api call.`,
+    url: "https://gelato.network/",
+  },
+  {
     logo: process.env.PUBLIC_URL + "/logos/squad.png",
     persona: "Jesse B. Miller, Co-Founder",
     description: `We’re building a platform that needs to run anywhere, 
@@ -123,5 +131,9 @@ export const launchPartners = [
   {
     logo: process.env.PUBLIC_URL + "/logos/squad.png",
     url: "https://squad.games/"
+  },
+  {
+    logo: process.env.PUBLIC_URL + "/logos/gelato.png",
+    url: "https://gelato.network/"
   }
 ]
