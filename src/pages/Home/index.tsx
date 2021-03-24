@@ -350,10 +350,10 @@ export const Home = () => {
           <HeroTextContainer container direction='column' justify='space-between'>
             <Grid item>
               <HeroTitle color="textPrimary" variant="h1">
-                The Universal Web3 Integration Standard
+                Any Protocol. Any Language
               </HeroTitle>
               <HeroBody color="textSecondary" variant="subtitle1">
-                Web3API makes it easy to interact with any blockchain from any programming language.
+                Web3API makes it easy to interact with any web3 protocol from any programming language.
               </HeroBody>
             </Grid>
             <Grid item>
