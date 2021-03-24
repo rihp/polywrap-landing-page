@@ -350,7 +350,7 @@ export const Home = () => {
           <HeroTextContainer container direction='column' justify='space-between'>
             <Grid item>
               <HeroTitle color="textPrimary" variant="h1">
-                Any Protocol. Any Language
+                Any Protocol. Any Language.
               </HeroTitle>
               <HeroBody color="textSecondary" variant="subtitle1">
                 Web3API makes it easy to interact with any web3 protocol from any programming language.
