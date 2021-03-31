@@ -125,6 +125,10 @@ export const launchPartners = [
     url: "https://gnosis.io/"
   },
   {
+    logo: process.env.PUBLIC_URL + "/logos/jarvis.png",
+    url: "https://jarvis.network"
+  },
+  {
     logo: process.env.PUBLIC_URL + "/logos/dxdao.png",
     url: "https://dxdao.eth.link/#/"
   },

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Grid, makeStyles, styled, Typography, useTheme } from "@material-ui/core";
 
-import { TESTIMONIALS, Testimonial } from "../constants/testimonials";
+import { TESTIMONIALS, Testimonial } from "../constants/launch-partners";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAngleDoubleLeft,
