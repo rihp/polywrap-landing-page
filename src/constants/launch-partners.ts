@@ -137,6 +137,10 @@ export const launchPartners = [
     url: "https://gelato.network/"
   },
   {
+    logo: process.env.PUBLIC_URL + "/logos/zero.png",
+    url: "https://www.0.exchange/"
+  },
+  {
     logo: process.env.PUBLIC_URL + "/logos/jarvis.png",
     url: "https://jarvis.network"
   }
