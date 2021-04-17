@@ -54,26 +54,20 @@ export const NavBar: React.FC = () => {
         <Grid item>
           <LinksContainer container wrap='nowrap'>
             <Grid item>
-              <LinkButton href="https://web3api.substack.com/" target="_blank" color={'textSecondary'} variant='body1'>
-                Blog
+              <LinkButton href="https://docs.web3api.dev/" target="_blank" color={'textSecondary'} variant='body1'>
+                Docs
               </LinkButton>
             </Grid>
             <LinkDivider item />
             <Grid item>
-              <LinkButton href="https://github.com/web3-api/prototype" target="_blank" color={'textSecondary'} variant='body1'>
-                Code
+              <LinkButton href="https://github.com/Web3-API/dao/issues?q=is%3Aopen+is%3Aissue+label%3Arecruiting" target="_blank" color={'textSecondary'} variant='body1'>
+                Jobs
               </LinkButton>
             </Grid>
             <LinkDivider item />
             <Grid item>
               <LinkButton href="https://airtable.com/shrzxezSAlpoUUZNV" target="_blank" color={'textSecondary'} variant='body1'>
                 Contact
-              </LinkButton>
-            </Grid>
-            <LinkDivider item />
-            <Grid item>
-              <LinkButton href="https://github.com/Web3-API/dao/issues?q=is%3Aopen+is%3Aissue+label%3Arecruiting" target="_blank" color={'textSecondary'} variant='body1'>
-                Build
               </LinkButton>
             </Grid>
           </LinksContainer>
