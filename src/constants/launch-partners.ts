@@ -97,6 +97,10 @@ export const launchPartners = [
     url: "https://razor.network/"
   },
   {
+    logo: process.env.PUBLIC_URL + "/logos/3box.png",
+    url: "https://3boxlabs.com/"
+  },
+  {
     logo: process.env.PUBLIC_URL + "/logos/abridged.png",
     url: "https://abridged.io/"
   },
