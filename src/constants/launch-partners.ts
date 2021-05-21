@@ -147,5 +147,13 @@ export const launchPartners = [
   {
     logo: process.env.PUBLIC_URL + "/logos/jarvis.png",
     url: "https://jarvis.network"
+  },
+  {
+    logo: process.env.PUBLIC_URL + "/logos/omg.png",
+    url: "https://omg.network"
+  },
+  {
+    logo: process.env.PUBLIC_URL + "/logos/enya.png",
+    url: "https://enya.ai"
   }
 ]
