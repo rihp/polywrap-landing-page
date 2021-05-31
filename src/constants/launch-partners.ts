@@ -86,78 +86,78 @@ export const TESTIMONIALS: Testimonial[] = [
 export const launchPartners = [
   {
     logo: process.env.PUBLIC_URL + "/logos/walletconnect.png",
-    url: "https://walletconnect.org/",
+    url: "https://walletconnect.org/"
   },
   {
     logo: process.env.PUBLIC_URL + "/logos/fleek.png",
-    url: "https://fleek.co/",
+    url: "https://fleek.co/"
   },
   {
     logo: process.env.PUBLIC_URL + "/logos/razor.png",
-    url: "https://razor.network/",
+    url: "https://razor.network/"
   },
   {
     logo: process.env.PUBLIC_URL + "/logos/3box.png",
-    url: "https://3boxlabs.com/",
+    url: "https://3boxlabs.com/"
   },
   {
     logo: process.env.PUBLIC_URL + "/logos/abridged.png",
-    url: "https://abridged.io/",
+    url: "https://abridged.io/"
   },
   {
     logo: process.env.PUBLIC_URL + "/logos/mantradao.png",
-    url: "https://mantradao.com/",
+    url: "https://mantradao.com/"
   },
   {
     logo: process.env.PUBLIC_URL + "/logos/rockside.png",
-    url: "https://rockside.io/",
+    url: "https://rockside.io/"
   },
   {
     logo: process.env.PUBLIC_URL + "/logos/torus.png",
-    url: "https://tor.us/",
+    url: "https://tor.us/"
   },
   {
     logo: process.env.PUBLIC_URL + "/logos/aleph.png",
-    url: "https://aleph.im",
+    url: "https://aleph.im"
   },
   {
     logo: process.env.PUBLIC_URL + "/logos/pocket.png",
-    url: "https://www.pokt.network/",
+    url: "https://www.pokt.network/"
   },
   {
     logo: process.env.PUBLIC_URL + "/logos/gnosis.png",
-    url: "https://gnosis.io/",
+    url: "https://gnosis.io/"
   },
   {
     logo: process.env.PUBLIC_URL + "/logos/dxdao.png",
-    url: "https://dxdao.eth.link/#/",
+    url: "https://dxdao.eth.link/#/"
   },
   {
     logo: process.env.PUBLIC_URL + "/logos/squad.png",
-    url: "https://squad.games/",
+    url: "https://squad.games/"
   },
   {
     logo: process.env.PUBLIC_URL + "/logos/gelato.png",
-    url: "https://gelato.network/",
+    url: "https://gelato.network/"
   },
   {
     logo: process.env.PUBLIC_URL + "/logos/zero.png",
-    url: "https://www.0.exchange/",
+    url: "https://www.0.exchange/"
   },
   {
     logo: process.env.PUBLIC_URL + "/logos/jarvis.png",
-    url: "https://jarvis.network",
+    url: "https://jarvis.network"
   },
   {
     logo: process.env.PUBLIC_URL + "/logos/omg.png",
-    url: "https://omg.network",
+    url: "https://omg.network"
   },
   {
     logo: process.env.PUBLIC_URL + "/logos/enya.png",
-    url: "https://enya.ai",
+    url: "https://enya.ai"
   },
   {
     logo: process.env.PUBLIC_URL + "/logos/chainstack.png",
-    url: "https://chainstack.com/",
+    url: "https://chainstack.com/"
   },
 ];
