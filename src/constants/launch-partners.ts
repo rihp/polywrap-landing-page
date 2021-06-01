@@ -155,5 +155,9 @@ export const launchPartners = [
   {
     logo: process.env.PUBLIC_URL + "/logos/enya.png",
     url: "https://enya.ai"
-  }
-]
+  },
+  {
+    logo: process.env.PUBLIC_URL + "/logos/chainstack.png",
+    url: "https://chainstack.com/"
+  },
+];
