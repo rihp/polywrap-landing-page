@@ -8,22 +8,33 @@ const config: HexToCssConfiguration = {
 
 const getFilter = (hexColor: string) => hexToCSSFilter(hexColor, config).filter
 
+
+// **
+// * Polywrap Color Pallete
+// *
+// * Primary Green Gradient:    74DD9F - 27C69F - 120 Degrees
+// * Secondary Blue Gradient :  1B5FED - 1B87ED - 179 Degrees
+// * Terciary Yellow Gradient : FFC272 - FFE272 - 0 Degrees
+// * Wrap Gradient :            878787 - FFFFFF - 127 Degrees - 0.35 Transparency 
+// * Black Background :         231F20
+// * White Background :         FFFFFF
+// ** 
 export const filters = {
-  textSecondary: getFilter('#529dad'),
-  secondary: getFilter('#60c093')
+  textSecondary: getFilter('#FFFFFF'),
+  secondary: getFilter('#FFC272')
 }
 
 export const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#1C272D",
+      main: "#231F20",
     },
     secondary: {
-      main: "#60c093",
+      main: "#1B5FED",
     },
     text: {
       primary: '#FFFFFF',
-      secondary: '#529dad'
+      secondary: '#FFC272'
     }
   },
   typography: {
