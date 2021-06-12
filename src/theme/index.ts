@@ -1,3 +1,5 @@
+import { faPalette } from '@fortawesome/free-solid-svg-icons';
+import { colors } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { hexToCSSFilter, HexToCssConfiguration } from 'hex-to-css-filter/dist/es2015';
  
@@ -8,9 +10,8 @@ const config: HexToCssConfiguration = {
 
 const getFilter = (hexColor: string) => hexToCSSFilter(hexColor, config).filter
 
-
 // **
-// * Polywrap Color Pallete
+// * Polywrap Color Palletes can be handled here, and declared as a palette object with needed configurations.
 // *
 // * Primary Green Gradient:    74DD9F - 27C69F - 120 Degrees
 // * Secondary Blue Gradient :  1B5FED - 1B87ED - 179 Degrees
@@ -19,22 +20,50 @@ const getFilter = (hexColor: string) => hexToCSSFilter(hexColor, config).filter
 // * Black Background :         231F20
 // * White Background :         FFFFFF
 // ** 
-export const filters = {
-  textSecondary: getFilter('#FFFFFF'),
-  secondary: getFilter('#FFC272')
+
+export const polywrapPalette = {
+  primary: {
+    gradient: 'linear-gradient(to right, #74DD9F 20%, #000000, 20%)',
+    start: "#74DD9F",
+    end: "#27C69F",
+    direction: '120deg',
+  },
+  secondary: {
+    start: "#1B5FED",
+    end: "#1B87ED",
+    direction: 179,
+  },
+  terciary: {
+    gradient: 'linear-gradient(to right, #FFC272, #FFE272)',
+    start: "#FFC272",
+    end: "#FFE272",
+    direction: 0,
+  },
+  wrapGradient: {
+    gradient: 'linear-gradient(0deg, #000000 35%, #FFFFFF 35%)',
+    start: "#878787",
+    end: "#FFFFFF",
+    direction: 0,
+    opacity: 0.35,
+  },
+  blackBackground: "#231F20",
+  whiteBackground: "#FFFFFF",
 }
+
 
 export const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#231F20",
+      // sets background color
+      main: polywrapPalette.blackBackground, 
     },
     secondary: {
-      main: "#1B5FED",
+      main: polywrapPalette.primary.start,
     },
     text: {
-      primary: '#FFFFFF',
-      secondary: '#FFC272'
+      primary: polywrapPalette.terciary.start,   
+      secondary: polywrapPalette.primary.start
+    
     }
   },
   typography: {
@@ -63,9 +92,9 @@ export const theme = createMuiTheme({
   overrides: {
     MuiTextField: {
       root: {
-        border: 'solid 1px #529dad',
+        border: polywrapPalette.wrapGradient.gradient,
         borderRadius: 4, 
-        backgroundColor: '#242F35',
+        backgroundColor: polywrapPalette.primary.end,
         '& .MuiInput-underline:before': {
           borderBottomColor: 'none',
         },
@@ -82,7 +111,8 @@ export const theme = createMuiTheme({
     },
     MuiInput: {
       root: {
-        height: 40,
+        height: 50,
+        backgroundColor: polywrapPalette.blackBackground, 
         "& $notchedOutline": {
           borderWidth: 0
         },
@@ -90,32 +120,42 @@ export const theme = createMuiTheme({
           borderWidth: 0
         },
         "&$focused $notchedOutline": {
-          borderWidth: 0
+          borderWidth: 2
         }
       },
     },
     MuiLink: {
       root: {
         '&:hover': {
-          color: '#60c093'
+          color: polywrapPalette.primary.start
         }
       }
     },
     MuiAppBar: {
       root: {
-        backgroundColor: '#1B262C',
+        backgroundColor: polywrapPalette.blackBackground,
         boxShadow: 'none'
       }
     },
     MuiButton: {
       outlinedSecondary: {
-        border: 'solid 1px #529dad',
+        border: 'solid 1px ' + polywrapPalette.wrapGradient.start,
+        color: polywrapPalette.terciary.end,
         '&:hover': {
-          border: 'solid 1px #529dad',
-          backgroundColor: '#60c093',
-          color: '#ffffff'
+          border: 'solid 1px ' + polywrapPalette.wrapGradient.start,
+          backgroundColor: polywrapPalette.primary.end,
+          color: polywrapPalette.whiteBackground
         }
       }
     }
   }
 });
+
+
+export const filters = {
+  // sets color of Launch Partners when idle 
+  textSecondary: getFilter(polywrapPalette.wrapGradient.start),
+
+  // sets color for Launch Partners on-hover
+  secondary: getFilter(polywrapPalette.terciary.start) 
+};
