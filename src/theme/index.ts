@@ -114,7 +114,15 @@ export const theme = createMuiTheme({
     MuiInput: {
       root: {
         height: 50,
-        backgroundColor: polywrapPalette.blackBackground, 
+        //font color
+        color: polywrapPalette.terciary.start,
+        //bg color
+        backgroundColor: "#333333", 
+        //borders
+        border: 'solid 1px ' + polywrapPalette.wrapGradient.start,
+        borderColor: polywrapPalette.primary.end,
+        borderRadius: 4,
+        
         "& $notchedOutline": {
           borderWidth: 0
         },
