@@ -25,11 +25,13 @@ export const polywrapPalette = {
   primary: {
     gradient: 'linear-gradient(to right, #74DD9F 20%, #000000, 20%)',
     start: "#74DD9F",
+    mid: "#4ED29F",
     end: "#27C69F",
     direction: '120deg',
   },
   secondary: {
     start: "#1B5FED",
+    mid: "#1B6DED",
     end: "#1B87ED",
     direction: 179,
   },
@@ -46,7 +48,7 @@ export const polywrapPalette = {
     direction: 0,
     opacity: 0.35,
   },
-  blackBackground: "#231F20",
+  blackBackground: "#000000",
   whiteBackground: "#FFFFFF",
 }
 
@@ -61,8 +63,8 @@ export const theme = createMuiTheme({
       main: polywrapPalette.primary.start,
     },
     text: {
-      primary: polywrapPalette.terciary.start,   
-      secondary: polywrapPalette.primary.start
+      primary: polywrapPalette.primary.mid,   
+      secondary: polywrapPalette.whiteBackground
     
     }
   },

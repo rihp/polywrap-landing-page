@@ -1,7 +1,7 @@
 import { Carousel } from "../../components/Carousel";
 import { launchPartners } from "../../constants/launch-partners";
 import { filters } from "../../theme";
-import Web3ApiAnimation from "../../lottie/Web3API_Icon_Cycle.json";
+import Web3ApiAnimation from "../../lottie/wrapper-lottie.json";
 import Web3ApiSolution from "../../lottie/Protocols_and_devices.json";
 
 import { faPlay } from "@fortawesome/free-solid-svg-icons";

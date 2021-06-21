@@ -13,11 +13,11 @@ const AppBarBody = styled(Grid)({
 const Logo = styled("img")(({ theme }) => ({
   width: 'auto',
   height: '20vw',
-  maxHeight: '32px',
+  maxHeight: '150px',
   marginLeft: '2vw',
   cursor: 'pointer',
   [theme.breakpoints.down('sm')]: {
-    maxHeight: '25px'
+    maxHeight: '100px'
   },
 }));
 
@@ -48,7 +48,7 @@ export const NavBar: React.FC = () => {
       <AppBarBody container justify="space-between" alignItems='center'>
         <Grid item>
           <Box>
-            <Logo src={process.env.PUBLIC_URL + "/logos/web3api.png"} alt="Web3 API Logo" onClick={onLogoClick} />
+            <Logo src={process.env.PUBLIC_URL + "/logos/polywrap.png"} alt="Web3 API Logo" onClick={onLogoClick} />
           </Box>
         </Grid>
         <Grid item>
