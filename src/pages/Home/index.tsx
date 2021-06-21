@@ -353,7 +353,7 @@ export const Home = () => {
                 Any Protocol. Any Language.
               </HeroTitle>
               <HeroBody color="textSecondary" variant="subtitle1">
-                Web3API makes it easy to interact with any web3 protocol from any programming language.
+                Polywrap makes it easy to interact with any web3 protocol from any programming language.
               </HeroBody>
             </Grid>
             <Grid item>
@@ -442,10 +442,10 @@ export const Home = () => {
             <Lottie options={solutionLottieOptions} />
           </BetterInfographic>
           <BetterBody color="textSecondary" variant="subtitle1">
-          Web3API solves the integration problem by making Web3 protocols as universally accessible as traditional web services. Web3API-powered apps download lightweight WebAssembly (WASM) modules from IPFS at runtime, and execute GraphQL requests directly inside the app.
+          Polywrap solves the integration problem by making Web3 protocols as universally accessible as traditional web services. Polywrap-powered apps download lightweight WebAssembly (WASM) wrappers from IPFS at runtime, and execute GraphQL requests directly inside the app.
           <br/>
           <br/>
-          These language-agnostic WASM modules enable developers to more easily compose and extend protocols while drastically improving dApp performance and security compared to Javascript SDKs.
+          These language-agnostic WASM wrappers enable developers to more easily compose and extend protocols while drastically improving dApp performance and security compared to Javascript SDKs.
         </BetterBody>
       </BetterContainer>
       <CarouselContainer>
