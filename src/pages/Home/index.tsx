@@ -303,6 +303,7 @@ export const Home = () => {
   const videoLottieOptions = {
     loop: true,
     autoplay: true,
+    isClickToPauseDisabled: true, // TODO:  this doesn't work yet ? users shouldn't be able to click the lottie and stop it.
     animationData: Web3ApiAnimation //TODO: Rename to polywrap
   };
   const solutionLottieOptions = {
@@ -449,7 +450,9 @@ export const Home = () => {
             
             In the mean time, use this SVG.
             */}
-            <PolywrapSolution />
+            <PolywrapSolution
+              height={"90%"} 
+            />
 
           </BetterInfographic>
           <BetterBody color="textSecondary" variant="subtitle1">
