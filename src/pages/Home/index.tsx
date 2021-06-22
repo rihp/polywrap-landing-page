@@ -390,21 +390,22 @@ export const Home = () => {
           </HeroTextContainer>
         </Grid>
         <VideoBoxGridContainer item sm={12} md={7}>
-          <Box display='flex' flexDirection='column' justifyContent='center' width='100%' height='100%'>
+          <Box display='flex' flexDirection='column' justifyContent='center' width='100%' height='100%'>            
             <VideoBox onClick={() => {
               ReactGA.event({
                 category: 'Demo Video',
                 action: 'click',
                 label: 'Early Access'
               });
-
-              setIsVideoOpen(true);
+              
+              // TODO : once we have a new intro video update URI and re-enable video box, by setting the input below to `true`  
+              setIsVideoOpen(false); 
             }}>
               <Lottie 
                 options={videoLottieOptions}
                 height={"90%"}
               />
-              <PlayIcon icon={faPlay} />
+
             </VideoBox>
           </Box>
         </VideoBoxGridContainer>
@@ -470,6 +471,8 @@ export const Home = () => {
     >
       <ModalBody>
         <iframe title='youtubeplayer' id="ytplayer" width="100%" height="100%" frameBorder='0'
+
+          // TODO: Update this link when we havea new explainer video
           src="https://www.youtube.com/embed/ojbMBN9pga4?autoplay=1"
         />
       </ModalBody>
