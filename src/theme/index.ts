@@ -1,3 +1,5 @@
+import { faPalette } from '@fortawesome/free-solid-svg-icons';
+import { colors } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { hexToCSSFilter, HexToCssConfiguration } from 'hex-to-css-filter/dist/es2015';
  
@@ -8,22 +10,62 @@ const config: HexToCssConfiguration = {
 
 const getFilter = (hexColor: string) => hexToCSSFilter(hexColor, config).filter
 
-export const filters = {
-  textSecondary: getFilter('#529dad'),
-  secondary: getFilter('#60c093')
+// **
+// * Polywrap Color Palletes can be handled here, and declared as a palette object with needed configurations.
+// *
+// * Primary Green Gradient:    74DD9F - 27C69F - 120 Degrees
+// * Secondary Blue Gradient :  1B5FED - 1B87ED - 179 Degrees
+// * Terciary Yellow Gradient : FFC272 - FFE272 - 0 Degrees
+// * Wrap Gradient :            878787 - FFFFFF - 127 Degrees - 0.35 Transparency 
+// * Black Background :         231F20
+// * White Background :         FFFFFF
+// ** 
+
+export const polywrapPalette = {
+  primary: {
+    gradient: 'linear-gradient(to right, #74DD9F 20%, #000000, 20%)',
+    start: "#74DD9F",
+    mid: "#4ED29F",
+    end: "#27C69F",
+    direction: '120deg',
+  },
+  secondary: {
+    start: "#1B5FED",
+    mid: "#1B6DED",
+    end: "#1B87ED",
+    direction: 179,
+  },
+  terciary: {
+    gradient: 'linear-gradient(to right, #FFC272, #FFE272)',
+    start: "#FFC272",
+    end: "#FFE272",
+    direction: 0,
+  },
+  wrapGradient: {
+    gradient: 'linear-gradient(0deg, #000000 35%, #FFFFFF 35%)',
+    start: "#878787",
+    end: "#FFFFFF",
+    direction: 0,
+    opacity: 0.35,
+  },
+  blackBackground: "#000000",
+  whiteBackground: "#FFFFFF",
 }
+
 
 export const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#1C272D",
+      // sets background color
+      main: polywrapPalette.blackBackground, 
     },
     secondary: {
-      main: "#60c093",
+      main: polywrapPalette.primary.start,
     },
     text: {
-      primary: '#FFFFFF',
-      secondary: '#529dad'
+      primary: polywrapPalette.primary.mid,   
+      secondary: polywrapPalette.whiteBackground
+    
     }
   },
   typography: {
@@ -52,9 +94,9 @@ export const theme = createMuiTheme({
   overrides: {
     MuiTextField: {
       root: {
-        border: 'solid 1px #529dad',
+        border: polywrapPalette.wrapGradient.gradient,
         borderRadius: 4, 
-        backgroundColor: '#242F35',
+        backgroundColor: polywrapPalette.primary.end,
         '& .MuiInput-underline:before': {
           borderBottomColor: 'none',
         },
@@ -71,7 +113,16 @@ export const theme = createMuiTheme({
     },
     MuiInput: {
       root: {
-        height: 40,
+        height: 50,
+        //font color
+        color: polywrapPalette.terciary.start,
+        //bg color
+        backgroundColor: "#333333", 
+        //borders
+        border: 'solid 1px ' + polywrapPalette.wrapGradient.start,
+        borderColor: polywrapPalette.primary.end,
+        borderRadius: 4,
+        
         "& $notchedOutline": {
           borderWidth: 0
         },
@@ -79,32 +130,42 @@ export const theme = createMuiTheme({
           borderWidth: 0
         },
         "&$focused $notchedOutline": {
-          borderWidth: 0
+          borderWidth: 2
         }
       },
     },
     MuiLink: {
       root: {
         '&:hover': {
-          color: '#60c093'
+          color: polywrapPalette.primary.start
         }
       }
     },
     MuiAppBar: {
       root: {
-        backgroundColor: '#1B262C',
+        backgroundColor: polywrapPalette.blackBackground,
         boxShadow: 'none'
       }
     },
     MuiButton: {
       outlinedSecondary: {
-        border: 'solid 1px #529dad',
+        border: 'solid 1px ' + polywrapPalette.wrapGradient.start,
+        color: polywrapPalette.terciary.end,
         '&:hover': {
-          border: 'solid 1px #529dad',
-          backgroundColor: '#60c093',
-          color: '#ffffff'
+          border: 'solid 1px ' + polywrapPalette.wrapGradient.start,
+          backgroundColor: polywrapPalette.primary.end,
+          color: polywrapPalette.whiteBackground
         }
       }
     }
   }
 });
+
+
+export const filters = {
+  // sets color of Launch Partners when idle 
+  textSecondary: getFilter(polywrapPalette.wrapGradient.start),
+
+  // sets color for Launch Partners on-hover
+  secondary: getFilter(polywrapPalette.terciary.start) 
+};

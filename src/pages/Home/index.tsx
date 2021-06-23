@@ -1,8 +1,10 @@
 import { Carousel } from "../../components/Carousel";
 import { launchPartners } from "../../constants/launch-partners";
 import { filters } from "../../theme";
-import Web3ApiAnimation from "../../lottie/Web3API_Icon_Cycle.json";
+import Web3ApiAnimation from "../../lottie/wrapper-lottie.json";
 import Web3ApiSolution from "../../lottie/Protocols_and_devices.json";
+import { ReactComponent as PolywrapSolution } from '../../wrappers-white-wave-transparent.svg';
+
 
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -301,12 +303,13 @@ export const Home = () => {
   const videoLottieOptions = {
     loop: true,
     autoplay: true,
-    animationData: Web3ApiAnimation
+    isClickToPauseDisabled: true, // TODO:  this doesn't work yet ? users shouldn't be able to click the lottie and stop it.
+    animationData: Web3ApiAnimation //TODO: Rename to polywrap
   };
   const solutionLottieOptions = {
     loop: true,
     autoplay: true,
-    animationData: Web3ApiSolution
+    animationData: Web3ApiSolution //TODO: Rename to polywrap
   };
 
   const onSubmit = async () => {
@@ -353,7 +356,7 @@ export const Home = () => {
                 Any Protocol. Any Language.
               </HeroTitle>
               <HeroBody color="textSecondary" variant="subtitle1">
-                Web3API makes it easy to interact with any web3 protocol from any programming language.
+                Polywrap makes it easy to interact with any web3 protocol from any programming language.
               </HeroBody>
             </Grid>
             <Grid item>
@@ -388,21 +391,22 @@ export const Home = () => {
           </HeroTextContainer>
         </Grid>
         <VideoBoxGridContainer item sm={12} md={7}>
-          <Box display='flex' flexDirection='column' justifyContent='center' width='100%' height='100%'>
+          <Box display='flex' flexDirection='column' justifyContent='center' width='100%' height='100%'>            
             <VideoBox onClick={() => {
               ReactGA.event({
                 category: 'Demo Video',
                 action: 'click',
                 label: 'Early Access'
               });
-
-              setIsVideoOpen(true);
+              
+              // TODO : once we have a new intro video update URI and re-enable video box, by setting the input below to `true`  
+              setIsVideoOpen(false); 
             }}>
               <Lottie 
                 options={videoLottieOptions}
                 height={"90%"}
               />
-              <PlayIcon icon={faPlay} />
+
             </VideoBox>
           </Box>
         </VideoBoxGridContainer>
@@ -439,13 +443,23 @@ export const Home = () => {
       </BetterTitle>
       <BetterContainer>
           <BetterInfographic>
-            <Lottie options={solutionLottieOptions} />
+            
+            {/*
+            Add this line again when we have a solution lottie
+            <Lottie options={solutionLottieOptions} /> 
+            
+            In the mean time, use this SVG.
+            */}
+            <PolywrapSolution
+              height={"90%"} 
+            />
+
           </BetterInfographic>
           <BetterBody color="textSecondary" variant="subtitle1">
-          Web3API solves the integration problem by making Web3 protocols as universally accessible as traditional web services. Web3API-powered apps download lightweight WebAssembly (WASM) modules from IPFS at runtime, and execute GraphQL requests directly inside the app.
+          Polywrap solves the integration problem by making Web3 protocols as universally accessible as traditional web services. Polywrap-powered apps download lightweight WebAssembly (wasm) modules from IPFS at runtime, and execute GraphQL requests directly inside the app.
           <br/>
           <br/>
-          These language-agnostic WASM modules enable developers to more easily compose and extend protocols while drastically improving dApp performance and security compared to Javascript SDKs.
+          These language-agnostic wasm modules enable developers to more easily compose and extend protocols while drastically improving dApp performance and security compared to Javascript SDKs.
         </BetterBody>
       </BetterContainer>
       <CarouselContainer>
@@ -460,6 +474,8 @@ export const Home = () => {
     >
       <ModalBody>
         <iframe title='youtubeplayer' id="ytplayer" width="100%" height="100%" frameBorder='0'
+
+          // TODO: Update this link when we havea new explainer video
           src="https://www.youtube.com/embed/ojbMBN9pga4?autoplay=1"
         />
       </ModalBody>
