@@ -456,10 +456,10 @@ export const Home = () => {
 
           </BetterInfographic>
           <BetterBody color="textSecondary" variant="subtitle1">
-          Polywrap solves the integration problem by making Web3 protocols as universally accessible as traditional web services. Polywrap-powered apps download lightweight WebAssembly (WASM) wrappers from IPFS at runtime, and execute GraphQL requests directly inside the app.
+          Polywrap solves the integration problem by making Web3 protocols as universally accessible as traditional web services. Polywrap-powered apps download lightweight WebAssembly (wasm) modules from IPFS at runtime, and execute GraphQL requests directly inside the app.
           <br/>
           <br/>
-          These language-agnostic WASM wrappers enable developers to more easily compose and extend protocols while drastically improving dApp performance and security compared to Javascript SDKs.
+          These language-agnostic wasm modules enable developers to more easily compose and extend protocols while drastically improving dApp performance and security compared to Javascript SDKs.
         </BetterBody>
       </BetterContainer>
       <CarouselContainer>
