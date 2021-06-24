@@ -54,7 +54,7 @@ export const NavBar: React.FC = () => {
         <Grid item>
           <LinksContainer container wrap='nowrap'>
             <Grid item>
-              <LinkButton href="https://docs.polywrap.dev/" target="_blank" color={'textSecondary'} variant='body1'>
+              <LinkButton href="https://docs.polywrap.io/" target="_blank" color={'textSecondary'} variant='body1'>
                 Docs
               </LinkButton>
             </Grid>
