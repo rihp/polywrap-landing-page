@@ -34,7 +34,7 @@ export const Footer = () => {
   return (
     <FooterContainer container justify='flex-end'>
       <Grid item>
-        <LogoContainer href="https://github.com/Web3-API" target="_blank">
+        <LogoContainer href="https://github.com/polywrap" target="_blank">
           <Logo
             icon={faGithub}
             color={theme.palette.text.secondary}
@@ -43,7 +43,7 @@ export const Footer = () => {
         </LogoContainer>
       </Grid>
       <Grid item>
-        <LogoContainer href="https://twitter.com/web3api" target="_blank">
+        <LogoContainer href="https://twitter.com/polywrap_io" target="_blank">
           <Logo
             icon={faTwitter}
             color={theme.palette.text.secondary}
