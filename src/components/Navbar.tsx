@@ -54,13 +54,13 @@ export const NavBar: React.FC = () => {
         <Grid item>
           <LinksContainer container wrap='nowrap'>
             <Grid item>
-              <LinkButton href="https://docs.web3api.dev/" target="_blank" color={'textSecondary'} variant='body1'>
+              <LinkButton href="https://docs.polywrap.dev/" target="_blank" color={'textSecondary'} variant='body1'>
                 Docs
               </LinkButton>
             </Grid>
             <LinkDivider item />
             <Grid item>
-              <LinkButton href="https://github.com/Web3-API/dao/issues?q=is%3Aopen+is%3Aissue+label%3Arecruiting" target="_blank" color={'textSecondary'} variant='body1'>
+              <LinkButton href="https://github.com/polywrap/dao/issues?q=is%3Aopen+is%3Aissue+label%3Arecruiting" target="_blank" color={'textSecondary'} variant='body1'>
                 Jobs
               </LinkButton>
             </Grid>

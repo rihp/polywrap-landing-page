@@ -1,12 +1,9 @@
 import { Carousel } from "../../components/Carousel";
 import { launchPartners } from "../../constants/launch-partners";
 import { filters } from "../../theme";
-import Web3ApiAnimation from "../../lottie/wrapper-lottie.json";
-import Web3ApiSolution from "../../lottie/Protocols_and_devices.json";
+import PolywrapAnimation from "../../lottie/wrapper-lottie.json";
 import { ReactComponent as PolywrapSolution } from '../../wrappers-white-wave-transparent.svg';
 
-
-import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Box,
@@ -304,12 +301,7 @@ export const Home = () => {
     loop: true,
     autoplay: true,
     isClickToPauseDisabled: true, // TODO:  this doesn't work yet ? users shouldn't be able to click the lottie and stop it.
-    animationData: Web3ApiAnimation //TODO: Rename to polywrap
-  };
-  const solutionLottieOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: Web3ApiSolution //TODO: Rename to polywrap
+    animationData: PolywrapAnimation //TODO: Rename to polywrap
   };
 
   const onSubmit = async () => {
@@ -443,17 +435,7 @@ export const Home = () => {
       </BetterTitle>
       <BetterContainer>
           <BetterInfographic>
-            
-            {/*
-            Add this line again when we have a solution lottie
-            <Lottie options={solutionLottieOptions} /> 
-            
-            In the mean time, use this SVG.
-            */}
-            <PolywrapSolution
-              height={"90%"} 
-            />
-
+            <PolywrapSolution height={"90%"} />
           </BetterInfographic>
           <BetterBody color="textSecondary" variant="subtitle1">
           Polywrap solves the integration problem by making Web3 protocols as universally accessible as traditional web services. Polywrap-powered apps download lightweight WebAssembly (wasm) modules from IPFS at runtime, and execute GraphQL requests directly inside the app.
