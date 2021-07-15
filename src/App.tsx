@@ -5,9 +5,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { useHistory } from 'react-router-dom';
 import { ParallaxProvider } from 'react-scroll-parallax';
-import { theme } from "./theme";
+import { theme, polywrapPalette } from "./theme";
 import { Home } from "./pages/Home";
 import "./App.css";
+import { Footer } from "./components/Footer";
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -35,7 +36,12 @@ const useStyles = makeStyles((theme) => ({
   },
   navLink: {
     fontSize: '14px',
+    fontWeight: 700,
     marginRight: 20,
+    transition: "color 0.25s ease-in-out",
+    "&:hover": {
+      color: polywrapPalette.primary.start,
+    },
     "&:last-of-type": {
       marginRight: 0
     },
@@ -87,6 +93,7 @@ const App: React.FC = () => {
                     <Home />
                   </Route>
                 </Switch>
+                <Footer />
               </Box>
             </Grid>
           </HashRouter>
