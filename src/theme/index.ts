@@ -1,5 +1,3 @@
-import { faPalette } from '@fortawesome/free-solid-svg-icons';
-import { colors } from '@material-ui/core';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { hexToCSSFilter, HexToCssConfiguration } from 'hex-to-css-filter/dist/es2015';
  
@@ -27,12 +25,14 @@ export const polywrapPalette = {
     start: "#74DD9F",
     mid: "#4ED29F",
     end: "#27C69F",
+    700: "#06644D",
     direction: '120deg',
   },
   secondary: {
     start: "#1B5FED",
     mid: "#1B6DED",
     end: "#1B87ED",
+    "900": "#1E2B45",
     direction: 179,
   },
   terciary: {
@@ -48,55 +48,81 @@ export const polywrapPalette = {
     direction: 0,
     opacity: 0.35,
   },
-  blackBackground: "#000000",
-  whiteBackground: "#FFFFFF",
+  black: "#000000",
+  white: "#FFFFFF",
 }
 
 
 export const theme = createMuiTheme({
   palette: {
     primary: {
-      // sets background color
-      main: polywrapPalette.blackBackground, 
+      main: polywrapPalette.primary.start,
+      dark: polywrapPalette.primary.end,
     },
     secondary: {
-      main: polywrapPalette.primary.start,
+      main: polywrapPalette.secondary.start,
+      dark: polywrapPalette.secondary.end,
     },
     text: {
-      primary: polywrapPalette.primary.mid,   
-      secondary: polywrapPalette.whiteBackground
-    
+      primary: polywrapPalette.white,
+      secondary: "rgba(255,255,255,0.7)",
+      disabled: "rgba(255,255,255,0.3)",
+    },
+    background: {
+      default: polywrapPalette.secondary["900"],
     }
   },
   typography: {
-    fontFamily: `'Montserrat', sans-serif`,
+    fontFamily: `'Raleway', sans-serif`,
     h1: {
-      fontSize: 45,
-      letterSpacing: -1
+      fontSize: 80,
+      lineHeight: 1,
     },
     h2: {
-      fontSize: 40,
-      letterSpacing: -1
+      fontSize: 64,
+      lineHeight: 1,
     },
     h3: {
       fontSize: 40,
-      lineHeight: 1.5,
-      letterSpacing: '-1px'
+      lineHeight: 1,
     },
     subtitle1: {
-      fontSize: 22,
-      lineHeight: 1.75
+      fontSize: 20,
+      lineHeight: 1.5
     },
     body1: {
       fontSize: 14
     }
   },
   overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        html: {
+          backgroundColor: polywrapPalette.secondary[900],
+        },
+      },
+    },
+    MuiAppBar: {
+      root: {
+        boxShadow: 'none'
+      }
+    },
+    MuiInput: {
+      root: {
+        background: `${polywrapPalette.secondary[900]}88`,
+        backdropFilter: "blur(8px)",
+        border: `solid 1px ${polywrapPalette.primary[700]}`,
+        borderRadius: 4,
+        fontSize: "1rem",
+        fontWeight: 500,
+        transition: "background 0.25s ease-in-out",
+        "&.Mui-focused": {
+          background: polywrapPalette.secondary[900]
+        },
+      },
+    },
     MuiTextField: {
       root: {
-        border: polywrapPalette.wrapGradient.gradient,
-        borderRadius: 4, 
-        backgroundColor: polywrapPalette.primary.end,
         '& .MuiInput-underline:before': {
           borderBottomColor: 'none',
         },
@@ -111,50 +137,38 @@ export const theme = createMuiTheme({
         }
       },
     },
-    MuiInput: {
-      root: {
-        height: 50,
-        //font color
-        color: polywrapPalette.terciary.start,
-        //bg color
-        backgroundColor: "#333333", 
-        //borders
-        border: 'solid 1px ' + polywrapPalette.wrapGradient.start,
-        borderColor: polywrapPalette.primary.end,
-        borderRadius: 4,
-        
-        "& $notchedOutline": {
-          borderWidth: 0
-        },
-        "&:hover $notchedOutline": {
-          borderWidth: 0
-        },
-        "&$focused $notchedOutline": {
-          borderWidth: 2
+    MuiButton: {
+      containedPrimary: {
+        background: `radial-gradient(circle at 80% 50%, ${polywrapPalette.terciary.end}, ${polywrapPalette.terciary.start})`,
+        backgroundSize: "250%",
+        backgroundPositionX: "0px",
+        borderRadius: 999,
+        boxShadow: `0 8px 16px ${polywrapPalette.secondary[900]}`,
+        color: polywrapPalette.secondary["900"],
+        fontWeight: 700,
+        transform: "translateY(0)",
+        transition: "background 0.25s ease-in-out, transform 0.25s ease-in-out",
+        "&:hover": {
+          backgroundPositionX: "30%",
+          transform: "translateY(-1px)"
         }
       },
-    },
-    MuiLink: {
-      root: {
+      outlinedPrimary: {
+        border: `1px solid ${polywrapPalette.primary.start}`,
+        borderRadius: 999,
+        color: polywrapPalette.primary.start,
         '&:hover': {
-          color: polywrapPalette.primary.start
+          border: `1px solid ${polywrapPalette.primary.end}`,
+          color: polywrapPalette.white
         }
-      }
-    },
-    MuiAppBar: {
-      root: {
-        backgroundColor: polywrapPalette.blackBackground,
-        boxShadow: 'none'
-      }
-    },
-    MuiButton: {
+      },
       outlinedSecondary: {
-        border: 'solid 1px ' + polywrapPalette.wrapGradient.start,
-        color: polywrapPalette.terciary.end,
+        border: `1px solid ${polywrapPalette.terciary.start}`,
+        borderRadius: 999,
+        color: polywrapPalette.terciary.start,
         '&:hover': {
-          border: 'solid 1px ' + polywrapPalette.wrapGradient.start,
-          backgroundColor: polywrapPalette.primary.end,
-          color: polywrapPalette.whiteBackground
+          border: `1px solid ${polywrapPalette.terciary.end}`,
+          color: polywrapPalette.white
         }
       }
     }

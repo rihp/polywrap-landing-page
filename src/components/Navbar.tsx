@@ -1,78 +1,91 @@
 import React from "react";
-import { styled, AppBar, Grid, Box, Link } from "@material-ui/core";
-import { useHistory } from 'react-router-dom';
+import { Box, Link, useTheme } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
+import { faDiscord, faDiscourse, faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const AppBarBody = styled(Grid)({
-  maxHeight: 70,
-  maxWidth: '1400px',
-  margin: 'auto',
-  paddingTop: '0px',
-  paddingBottom: '100px'
-});
-
-const Logo = styled("img")(({ theme }) => ({
-  width: 'auto',
-  height: '20vw',
-  maxHeight: '150px',
-  marginLeft: '2vw',
-  cursor: 'pointer',
-  [theme.breakpoints.down('sm')]: {
-    maxHeight: '100px'
+const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor: "#fff",
+    height: "100vh",
+    width: "100%",
+    [theme.breakpoints.down('sm')]: {
+      display: 'none'
+    },
   },
+  wrapper: {
+    backgroundColor: "#fff",
+    height: "100%",
+    width: "80px",
+    position: "fixed",
+    [theme.breakpoints.down('sm')]: {
+      display: 'none'
+    },
+  },
+  menu: {
+    cursor: "pointer",
+    fill: theme.palette.secondary.main,
+    height: 40,
+    marginTop: 24,
+    width: 40,
+    "&:hover": {
+      fill: theme.palette.secondary.dark,
+    },
+  },
+  socialLink: {
+    marginTop: 24,
+  },
+  socialLogo: {
+    cursor: 'pointer',
+    fontSize: 32,
+    color: theme.palette.primary.dark,
+    "&:hover": {
+      color: theme.palette.primary.main
+    }
+  }
 }));
 
-const LinksContainer = styled(Grid)({
-  marginRight: '2vw'
-});
-
-const LinkButton = styled(Link)(({ theme }) => ({
-  fontSize: '14px',
-  [theme.breakpoints.down('sm')]: {
-    fontSize: '12px'
-  },
-}));
-
-const LinkDivider = styled(Grid)({
-  borderLeft: 'solid 1px white',
-  width: '1px',
-  marginRight: '10px',
-  marginLeft: '10px'
-});
 
 export const NavBar: React.FC = () => {
-  const history = useHistory();
-  const onLogoClick = () => history.push('/');
+  const theme = useTheme();
+  const classes = useStyles();
 
   return (
-    <AppBar position="static">
-      <AppBarBody container justify="space-between" alignItems='center'>
-        <Grid item>
-          <Box>
-            <Logo src={process.env.PUBLIC_URL + "/logos/polywrap-original.png"} alt="Web3 API Logo" onClick={onLogoClick} />
-          </Box>
-        </Grid>
-        <Grid item>
-          <LinksContainer container wrap='nowrap'>
-            <Grid item>
-              <LinkButton href="https://docs.polywrap.io/" target="_blank" color={'textSecondary'} variant='body1'>
-                Docs
-              </LinkButton>
-            </Grid>
-            <LinkDivider item />
-            <Grid item>
-              <LinkButton href="https://github.com/polywrap/dao/issues?q=is%3Aopen+is%3Aissue+label%3Arecruiting" target="_blank" color={'textSecondary'} variant='body1'>
-                Jobs
-              </LinkButton>
-            </Grid>
-            <LinkDivider item />
-            <Grid item>
-              <LinkButton href="https://airtable.com/shrzxezSAlpoUUZNV" target="_blank" color={'textSecondary'} variant='body1'>
-                Contact
-              </LinkButton>
-            </Grid>
-          </LinksContainer>
-        </Grid>
-      </AppBarBody>
-    </AppBar>
+    <Box className={classes.root}>
+      <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" className={classes.wrapper}>
+        <MenuOutlinedIcon className={classes.menu}/>
+        <Box display="flex" flexDirection="column" marginBottom="24px">
+          <Link className={classes.socialLink} href="https://github.com/polywrap" rel="noredirect" target="_blank">
+            <FontAwesomeIcon
+              icon={faGithub}
+              className={classes.socialLogo}
+              color={theme.palette.text.secondary}
+            />
+          </Link>
+          <Link className={classes.socialLink} href="https://twitter.com/polywrap_io" rel="noredirect" target="_blank">
+            <FontAwesomeIcon
+              icon={faTwitter}
+              className={classes.socialLogo}
+              color={theme.palette.text.secondary}
+            />
+          </Link>
+          <Link className={classes.socialLink} href="https://forum.polywrap.io" rel="noredirect" target="_blank">
+            <FontAwesomeIcon
+              icon={faDiscourse}
+              className={classes.socialLogo}
+              color={theme.palette.text.secondary}
+            />
+          </Link>
+          <Link className={classes.socialLink} href="https://discord.gg/Z5m88a5qWu" rel="noredirect" target="_blank">
+            <FontAwesomeIcon
+              icon={faDiscord}
+              className={classes.socialLogo}
+              color={theme.palette.text.secondary}
+            />
+          </Link>
+        </Box>
+      </Box>
+    </Box>
   );
 };

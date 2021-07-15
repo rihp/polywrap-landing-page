@@ -1,308 +1,314 @@
+
 import { Carousel } from "../../components/Carousel";
 import { launchPartners } from "../../constants/launch-partners";
 import { filters } from "../../theme";
-import PolywrapAnimation from "../../lottie/wrapper-lottie.json";
+import { Parallax } from 'react-scroll-parallax';
 import { ReactComponent as PolywrapSolution } from '../../wrappers-white-wave-transparent.svg';
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   Box,
   Button,
   Grid,
-  Modal,
-  styled,
+  Link,
   TextField,
   Typography,
   useMediaQuery,
   useTheme,
 } from "@material-ui/core";
-import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import { polywrapPalette } from "../../theme";
+import { useState } from "react";
 import ReactGA from "react-ga";
-import Lottie from "react-lottie";
 
-const Root = styled(Box)({
-  maxWidth: '1400px',
-  margin: 'auto'
-})
-
-const Hero = styled(Grid)(({ theme }) => ({
-  minHeight: 310,
-  padding: 50,
-  margin: 'auto',
-
-  [theme.breakpoints.down('md')]: {
+const useStyles = makeStyles((theme) => ({
+  root: {
+    maxWidth: '1400px',
+    position: 'relative',
+    [theme.breakpoints.up('sm')]: {
+      margin: 'auto',
+    }
+  },
+  bgMembrane: {
+    height: 'auto',
+    position: 'absolute',
+    opacity: 1,
+    '& img': {
+      width: '100%',
+    }
+  },
+  blurredPoly: {
+    position: "relative",
+    opacity: "0.25",
+    mixBlendMode: "hard-light",
+  },
+  blurredPoly1: {
+    filter: "blur(20px)",
+    transform: "scale(2) translate(5%, 35%) rotate(125deg)",
+    opacity: "0.25",
+  },
+  blurredPoly2: {
+    filter: "blur(35px)",
+    transform: "scale(0.5) rotate(-75deg)",
+    opacity: "0.3",
+    [theme.breakpoints.between('xs','md')]: {
+      left: "44%",
+      top: "7%",
+      transform: "scale(0.25) rotate(125deg)",
+    },
+    [theme.breakpoints.down('xs')]: {
+      left: "9%",
+      top: "5%",
+      transform: "scale(0.1) rotate(125deg)",
+    }
+  },
+  blurredPoly3: {
+    filter: "blur(50px)",
+    transform: "scale(0.25) translate(550%, 300%) rotate(65deg)",
+    opacity: "0.4",
+  },
+  hero: {
+    minHeight: "100vh",
+    margin: 'auto',
+    padding: '0 64px',
+    [theme.breakpoints.down('sm')]: {
+      minHeight: "unset",
+      padding: '0'
+    }
+  },
+  heroPolywrapper: {
+    display: 'flex',
+    marginLeft: 'auto',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    objectFit: 'cover',
+    height: 'auto',
     width: '100%',
-    maxWidth: '100%'
+    [theme.breakpoints.down('md')]: {
+      aspectRatio: '3/2',
+      maxWidth: '60vw',
+      margin: '40px auto 20px',
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginBottom: 20,
+      marginTop: 100,
+    }
   },
-
-  [theme.breakpoints.down('sm')]: {
-    padding: '20px 10px'
+  heroTitle: {
+    fontWeight: 900,
+    marginBottom: 20,
+    marginTop: 20,
+    [theme.breakpoints.down('md')]: {
+      fontSize: 48,
+    },
+    [theme.breakpoints.down('sm')]: {
+      textAlign: 'center',
+    },
+    [theme.breakpoints.down('xs')]: {
+      fontSize: 36,
+    },
   },
-}));
-
-const HeroTitle = styled(Typography)(({ theme }) => ({
-  fontWeight: 700,
-  marginBottom: 20,
-  marginTop: 20,
-  fontSize: 45,
-
-  [theme.breakpoints.down('sm')]: {
-    textAlign: 'center',
-    fontSize: 32
+  heroBody: {
+    [theme.breakpoints.down('sm')]: {
+      textAlign: 'center',
+      fontSize: 16,
+    },
   },
-}));
-
-const HeroBody = styled(Typography)(({ theme }) => ({
-  fontStyle: "italic",
-  marginBottom: 20,
-
-  [theme.breakpoints.down('md')]: {
-    lineHeight: 1.5
+  heroSignUpFlex: {
+    [theme.breakpoints.down('md')]: {
+      justifyContent: "center",
+    }
   },
-
-  [theme.breakpoints.down('sm')]: {
-    textAlign: 'center',
-    fontSize: 16
+  heroTextField: {
+    borderRadius: "99px 16px 16px 99px",
+    maxWidth: 400,
+    width: "100%",
+    "& .MuiInput-input": {
+      height: 38,
+    },
   },
-}));
-
-const VideoBox = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  cursor: 'pointer',
-  marginLeft: 'auto',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-  borderRadius: 40,
-  backgroundPosition: "50% 50%",
-  backgroundSize: "cover",
-  backgroundRepeat: "no-repeat",
-  boxShadow: "2px 2px 14px 3px rgba(0, 0, 0, 0.28)",
-  height: 420,
-  width: '45vw',
-  maxWidth: '80%',
-
-  [theme.breakpoints.down('sm')]: {
+  heroButton: {
+    borderRadius: "16px 99px 99px 16px",
+    fontSize: 18,
+    padding: "9px 28px",
+    marginLeft: 20,
+    whiteSpace: "nowrap",
+  },
+  heroSignupSuccess: {
+    backgroundColor: theme.palette.primary.dark,
+    borderRadius: 8,
+    boxShadow: `0 8px 16px ${polywrapPalette.secondary[900]}88`,
+    fontWeight: 700,
+    padding: 8,
+    width: "100%",
+  },
+  technicalPreview: {
+    color: polywrapPalette.secondary.end,
+    fontWeight: 700,
+    letterSpacing: 1.5,
+    textTransform: "uppercase",
+    paddingLeft: 2, // Optical alignment with "A" below
+    [theme.breakpoints.down('sm')]: {
+      textAlign: "center",
+    }
+  },
+  "@keyframes float": {
+    "0%, 100%": {
+      transform: "translateY(0)",
+      transitionTimingFunction: "ease-in",
+    },
+    "50%": {
+      transform: "translateY(-3%)",
+      transitionTimingFunction: "ease-out",
+    }
+  },
+  heroIllustration: {
+    animation: `$float 6s infinite`,
+    [theme.breakpoints.down('sm')]: {
+      order: -1
+    }
+  },
+  launchPartnersText: {
+    display: 'block',
     margin: 'auto',
-    width: '80vw',
-    height: '50vw',
-    marginBottom: 10
-  }
-}));
-
-const HeroTextContainer = styled(Grid)(({ theme }) => ({
-  height: '100%',
-  margin: 'auto',
-
-  [theme.breakpoints.down('sm')]: {
-    width: '80%'
-  }
+    marginTop: 80,
+    marginBottom: 20,
+    textAlign: 'center',
+    fontWeight: 900,
+  
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 30
+    }
+  },
+  logo: {
+    height: "auto",
+    width: "100%",
+    filter: filters.textSecondary,
+  
+    '&:hover': {
+      filter: filters.secondary,
+    }
+  },
+  logoContainer: {
+    display: "flex",
+    padding: 40,
+    maxHeight: 120,
+    flexDirection: "column",
+    justifyContent: "center",
+  },
+  innerLogoContainer: {
+    maxWidth: 120,
+    width: "12vw",
+    height: "12vw",
+    maxHeight: 120,
+    margin: "0 auto",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    [theme.breakpoints.down('sm')]: {
+      width: "18vw",
+      maxHeight: 160,
+      maxWidth: 160,
+    }
+  },
+  launchPartnersContainer: {
+    paddingRight: '20px',
+    paddingLeft: '20px',
+    maxWidth: '1200px',
+    margin: 'auto'
+  },
+  carouselContainer: {
+    marginTop: 80
+  },
+  betterContainer: {
+    paddingRight: '20px',
+    paddingLeft: '20px',
+    maxWidth: '1000px',
+    margin: 'auto',
+    display: 'flex',
+    flexDirection: 'row',
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column'
+    },
+  },
+  betterTitle: {
+    fontWeight: 900,
+    marginBottom: 20,
+    marginTop: '120px',
+    fontSize: 45,
+    textAlign: 'center',
+  
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 32,
+      margin: '60px auto 0',
+    },
+  },
+  betterInfographic: {
+    display: 'flex',
+    marginRight: 'auto',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '500px',
+    width: '45vw',
+    maxWidth: '50%',
+    [theme.breakpoints.down('sm')]: {
+      margin: 'auto',
+      width: '80vw',
+      height: 'auto',
+      maxWidth: 'unset',
+      marginBottom: 10
+    }
+  },
+  betterBody: {
+    paddingLeft: '20px',
+    width: '45vw',
+    maxWidth: '50%',
+    fontSize: 18,
+    marginBottom: 'auto',
+    marginTop: 'auto',
+    [theme.breakpoints.down('md')]: {
+      lineHeight: 1.5
+    },
+    [theme.breakpoints.down('sm')]: {
+      textAlign: 'center',
+      fontSize: 16,
+      margin: 'auto',
+      width: '100%',
+      padding: 0,
+      maxWidth: 'unset',
+      marginTop: 10,
+      marginBottom: 10
+    }
+  },
+  becomePartnerContainer: {
+    paddingRight: '20px',
+    paddingLeft: '20px',
+    maxWidth: '1200px',
+    margin: '30px auto 0'
+  },
+  becomePartnerButton: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  },
+  errorText: {
+    color: '#f44336'
+  },
 }))
 
-const StyledTextField = styled(TextField)({
-  width: '100%'
-});
-
-const JoinButton = styled(Button)({
-  height: '100%'
-});
-
-const ErrorText = styled(Box)({
-  color: '#f44336'
-});
-
-const SubmitSuccess = styled(Typography)({
-  background: '#529dad',
-  color: 'white',
-  width: '100%',
-  height: 'auto',
-  padding: '10px',
-  textAlign: 'center',
-  fontWeight: 700,
-  borderRadius: '10px',
-  boxShadow: 'rgba(0, 0, 0, 0.28) 2px 2px 14px 3px'
-});
-
-const VideoBoxGridContainer = styled(Grid)(({ theme }) => ({
-  [theme.breakpoints.down('sm')]: {
-    order: -1
-  }
-}))
-
-const LaunchPartnersText = styled(Typography)(({ theme }) => ({
-  display: 'block',
-  margin: 'auto',
-  marginTop: 80,
-  marginBottom: 20,
-  textAlign: 'center',
-  fontWeight: 700,
-
-  [theme.breakpoints.down('sm')]: {
-    fontSize: 30
-  }
-}))
-
-const Logo = styled("img")({
-  height: "auto",
-  width: "100%",
-  filter: filters.textSecondary,
-
-  '&:hover': {
-    filter: filters.secondary,
-  }
-});
-
-const LogoContainer = styled("a")({
-  display: "flex",
-  padding: 10,
-  maxHeight: 150,
-  flexDirection: "column",
-  justifyContent: "center",
-});
-
-const InnerLogoContainer = styled(Box)(({ theme }) => ({
-  maxWidth: 150,
-  width: "15vw",
-  height: "15vw",
-  maxHeight: 150,
-  margin: "0 auto",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-
-  [theme.breakpoints.down('sm')]: {
-    width: "20vw",
-  }
-}));
-
-const LaunchPartnersContainer = styled(Grid)({
-  paddingRight: '20px',
-  paddingLeft: '20px',
-  maxWidth: '1200px',
-  margin: 'auto'
-});
-
-const CarouselContainer = styled(Box)({
-  marginTop: 80
-});
-
-const PlayIcon = styled(FontAwesomeIcon)(({ theme })=> ({
-  cursor: 'pointer',
-  opacity: 0.8,
-  color: '#FFFFFF',
-  padding: '0 0 8px 8px',
-  fontSize: 55,
-  position: "absolute",
-
-  [theme.breakpoints.down('sm')]: {
-    fontSize: 35,
-  }
-}));
-
-const ModalBody = styled(Box)({
-  height: 528,
-  maxHeight: '90%',
-  width: 940,
-  maxWidth: '90%',
-  position: 'fixed',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  outline: 'none'
-});
-
-const BetterContainer = styled(Grid)(({ theme }) => ({
-  paddingRight: '20px',
-  paddingLeft: '20px',
-  maxWidth: '1000px',
-  margin: 'auto',
-  display: 'flex',
-  flexDirection: 'row',
-
-  [theme.breakpoints.down('sm')]: {
-    flexDirection: 'column'
-  },
-}));
-
-const BetterTitle = styled(Typography)(({ theme }) => ({
-  fontWeight: 700,
-  marginBottom: 20,
-  marginTop: '60px',
-  fontSize: 45,
-  textAlign: 'center',
-
-  [theme.breakpoints.down('sm')]: {
-    fontSize: 32
-  },
-}));
-
-const BetterInfographic = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  marginRight: 'auto',
-  alignItems: 'center',
-  justifyContent: 'center',
-  height: '500px',
-  width: '45vw',
-  maxWidth: '50%',
-
-  [theme.breakpoints.down('sm')]: {
-    margin: 'auto',
-    width: '80vw',
-    height: '50vh',
-    marginBottom: 10
-  }
-}));
-
-const BetterBody = styled(Typography)(({ theme }) => ({
-  paddingLeft: '20px',
-  width: '45vw',
-  maxWidth: '50%',
-  fontSize: 18,
-  marginBottom: 'auto',
-  marginTop: 'auto',
-
-  [theme.breakpoints.down('md')]: {
-    lineHeight: 1.5
-  },
-
-  [theme.breakpoints.down('sm')]: {
-    textAlign: 'center',
-    fontSize: 16,
-    margin: 'auto',
-    width: '80vw',
-    marginTop: 10,
-    marginBottom: 10
-  }
-}));
-
-const BecomePartnerContainer = styled(Grid)({
-  paddingRight: '20px',
-  paddingLeft: '20px',
-  maxWidth: '1200px',
-  margin: 'auto'
-});
-
-const BecomePartnerButton = styled(Button)({
-  marginLeft: 'auto',
-  marginRight: 'auto',
-});
+const parallaxStyles = {
+  width: '100vw',
+  height: '100vh',
+  'top': 0,
+  left: 0,
+  position: 'absolute',
+};
 
 export const Home = () => {
 
   ReactGA.pageview('home');
 
-  const [isVideoOpen, setIsVideoOpen] = useState(false)
+  const [signupSuccess, setSignupSuccess] = useState(false);
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
-  const [signupSuccess, setSignupSuccess] = useState(false);
-  const theme = useTheme()
-  const matches = useMediaQuery(theme.breakpoints.down('xs'))
-  const videoLottieOptions = {
-    loop: true,
-    autoplay: true,
-    isClickToPauseDisabled: true, // TODO:  this doesn't work yet ? users shouldn't be able to click the lottie and stop it.
-    animationData: PolywrapAnimation //TODO: Rename to polywrap
-  };
 
   const onSubmit = async () => {
     const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -317,8 +323,6 @@ export const Home = () => {
     let uri = "https://tech.us17.list-manage.com/subscribe/post-json?u=7515d8292da68c0a33f4c7e7e&amp;id=48ff512e96&c=jQuery34108557665382199082_1607465109249&b_7515d8292da68c0a33f4c7e7e_48ff512e96=&_=1607465109250";
     uri = uri + `&Email=${email}&EMAIL=${email}`;
     uri = encodeURI(uri);
-
-    console.log(uri);
 
     try {
       await fetch(uri, {
@@ -337,131 +341,146 @@ export const Home = () => {
     }
   }
 
+  const theme = useTheme()
+  const classes = useStyles();
+  const matches = useMediaQuery(theme.breakpoints.down('xs'))
+  const membranes = [
+    { top: '-144vh', width: '120%'},
+    { top: '104vh', width: '100%'},
+    { top: '-72vh', width: '120%'},
+    { top: '-128vh', width: '140%'},
+    { top: '64vh', width: '120%'},
+    { top: '144vh', width: '100%'},
+  ]
+
   return (
     <>
-    <Root>
-      <Hero container justify="center" direction={matches? 'row-reverse': 'row'}>
-        <Grid item sm={12} md={5}>
-          <HeroTextContainer container direction='column' justify='space-between'>
-            <Grid item>
-              <HeroTitle color="textPrimary" variant="h1">
-                Any Protocol. Any Language.
-              </HeroTitle>
-              <HeroBody color="textSecondary" variant="subtitle1">
-                Polywrap makes it easy to interact with any web3 protocol from any programming language.
-              </HeroBody>
-            </Grid>
-            <Grid item>
-              <Grid container spacing={2}>
+    <Box position="absolute" width="100vw" height="100%" overflow="hidden" left="0" zIndex="0">
+      {membranes.map((membrane, i) => {
+        return (
+          <div key={`membrane-${i}`}>
+            {i === 4 && (
+              <Box display="flex">
+                <img className={`${classes.blurredPoly} ${classes.blurredPoly1}`} src={`${process.env.PUBLIC_URL}/imgs/polywrapper-hero.svg`} alt="Polywrap" />
+                <Parallax y={[0, -50]} styleOuter={parallaxStyles} styleInner={{"mixBlendMode": "hard-light"}}>
+                  <img className={`${classes.blurredPoly} ${classes.blurredPoly2}`} src={`${process.env.PUBLIC_URL}/imgs/polywrapper-hero.svg`} alt="Polywrap" />
+                </Parallax>
+                <Parallax y={[-25, 25]} styleOuter={parallaxStyles}>
+                  <img className={`${classes.blurredPoly} ${classes.blurredPoly3}`} src={`${process.env.PUBLIC_URL}/imgs/polywrapper-hero.svg`} alt="Polywrap" />
+                </Parallax>
+              </Box>
+            )}
+            <Box top={membrane.top} width={membrane.width} className={classes.bgMembrane}>
+              <img src={`${process.env.PUBLIC_URL}/imgs/assets/bg/bg-membrane-${i % 2 === 0 ? 1 : 2}.svg`} alt="" />
+            </Box>
+          </div>
+        )
+      })}
+    </Box>
+    <Box className={classes.root}>
+      <Grid className={classes.hero} container justify="center" alignItems="center" direction={matches? 'row-reverse': 'row'}>
+        <Grid item sm={12} md={6}>
+          <Parallax y={[60, -60]} disabled={window.innerWidth < theme.breakpoints.values.md}>
+            <Typography variant="subtitle2" color="secondary" className={classes.technicalPreview}>
+              Technical Preview
+            </Typography>
+            <Typography className={classes.heroTitle} color="textPrimary" variant="h1">
+              Any Protocol.
+              <br/>
+              Any Language.
+            </Typography>
+            <Typography className={classes.heroBody} color="textSecondary" variant="subtitle1">
+              Polywrap makes it easy to interact with any web3 protocol from any programming language.
+            </Typography>
+            <form>
+              <Box className={classes.heroSignUpFlex} display="flex" alignItems="center" marginTop={4}>
                 {!signupSuccess ? (
                   <>
-                  <Grid item xs={12} sm={8}>
-                    <StyledTextField
-                      placeholder="Stay informed!"
+                    <TextField
+                      className={classes.heroTextField}
+                      placeholder="Request Early Access"
                       inputProps={{ style: { textAlign: "center" } }}
                       onChange={(e) => setEmail(e.target.value)}
                     />
-                  </Grid>
-                  <Grid item xs={12} sm={4}>
-                    <JoinButton color="secondary" variant="outlined" fullWidth onClick={onSubmit}>
-                      Subscribe
-                    </JoinButton>
-                  </Grid>
+                    <Button
+                      className={classes.heroButton}
+                      color="primary"
+                      type="submit"
+                      variant="contained"
+                      onClick={onSubmit}
+                    >
+                      Sign Up
+                    </Button>
                   </>
                 ) : (
-                  <SubmitSuccess>
+                  <Typography className={classes.heroSignupSuccess} align="center" color="textPrimary">
                     Thank you for signing up {email}! More details coming soon.
-                  </SubmitSuccess>
+                  </Typography>
                 )}
-              </Grid>
+              </Box>
               {emailError && (
-                <ErrorText>
+                <Typography className={classes.errorText}>
                 {emailError}
-                </ErrorText>
+                </Typography>
               )}
-            </Grid>
-          </HeroTextContainer>
+            </form>
+          </Parallax>
         </Grid>
-        <VideoBoxGridContainer item sm={12} md={7}>
-          <Box display='flex' flexDirection='column' justifyContent='center' width='100%' height='100%'>            
-            <VideoBox onClick={() => {
-              ReactGA.event({
-                category: 'Demo Video',
-                action: 'click',
-                label: 'Early Access'
-              });
-              
-              // TODO : once we have a new intro video update URI and re-enable video box, by setting the input below to `true`  
-              setIsVideoOpen(false); 
-            }}>
-              <Lottie 
-                options={videoLottieOptions}
-                height={"90%"}
-              />
-
-            </VideoBox>
+        <Grid className={classes.heroIllustration} item sm={12} md={6}>
+          <Box display='flex' flexDirection='column' justifyContent='center' width='100%' height='100%'>
+            <Parallax y={[80, -80]} disabled={window.innerWidth < theme.breakpoints.values.md}>
+              <img className={classes.heroPolywrapper} src={process.env.PUBLIC_URL + "/imgs/polywrapper-hero.svg"} alt="Polywrap Logo" />
+            </Parallax>
           </Box>
-        </VideoBoxGridContainer>
-      </Hero>
-      <LaunchPartnersText variant='h3' color='textPrimary'>
+        </Grid>
+      </Grid>
+      <Typography className={classes.launchPartnersText} variant='h3' color='textPrimary'>
         Launch Partners
-      </LaunchPartnersText>
-      <LaunchPartnersContainer container justify='center'>
+      </Typography>
+      <Grid className={classes.launchPartnersContainer} container justify='center'>
         {
-          launchPartners.map(({logo, url}) => (
-            <Grid item key={url}>
-              <LogoContainer href={url} target="_blank" onClick={() => {
-                ReactGA.event({
-                  category: 'Launch Partners',
-                  action: `goto ${url}`,
-                  label: 'Early Access'
-                });
-              }}>
-                <InnerLogoContainer>
-                  <Logo src={logo} />
-                </InnerLogoContainer>
-              </LogoContainer>
-            </Grid>
-          ))
+          launchPartners.map(({logo, url}) => {
+            return (
+              <Grid  item key={url}>
+                <Link className={classes.logoContainer} href={url} target="_blank" onClick={() => {
+                  ReactGA.event({
+                    category: 'Launch Partners',
+                    action: `goto ${url}`,
+                    label: 'Early Access'
+                  });
+                }}>
+                  <Box className={classes.innerLogoContainer}>
+                    <img className={classes.logo} src={logo} alt={url} />
+                  </Box>
+                </Link>
+              </Grid>
+            )
+          })
         }
-      </LaunchPartnersContainer>
-      <BecomePartnerContainer container justify="center">
-        <BecomePartnerButton color="secondary" variant="outlined" href="https://airtable.com/shra8gDgo8EgrRT6c">
+      </Grid>
+      <Grid className={classes.becomePartnerContainer} container justify="center">
+        <Button className={classes.becomePartnerButton} color="secondary" variant="outlined" href="https://airtable.com/shra8gDgo8EgrRT6c">
         Become a Partner
-        </BecomePartnerButton>
-      </BecomePartnerContainer>
-      <BetterTitle color="textPrimary" variant="h1">
+        </Button>
+      </Grid>
+      <Typography className={classes.betterTitle} color="textPrimary" variant="h1">
         Hypercomposability Has Arrived
-      </BetterTitle>
-      <BetterContainer>
-          <BetterInfographic>
-            <PolywrapSolution height={"90%"} />
-          </BetterInfographic>
-          <BetterBody color="textSecondary" variant="subtitle1">
+      </Typography>
+      <Box className={classes.betterContainer}>
+        <Box className={classes.betterInfographic}>
+          <PolywrapSolution height={"90%"} />
+        </Box>
+        <Typography className={classes.betterBody}color="textSecondary" variant="subtitle1">
           Polywrap solves the integration problem by making Web3 protocols as universally accessible as traditional web services. Polywrap-powered apps download lightweight WebAssembly (wasm) modules from IPFS at runtime, and execute GraphQL requests directly inside the app.
           <br/>
           <br/>
           These language-agnostic wasm modules enable developers to more easily compose and extend protocols while drastically improving dApp performance and security compared to Javascript SDKs.
-        </BetterBody>
-      </BetterContainer>
-      <CarouselContainer>
+        </Typography>
+      </Box>
+      <Box className={classes.carouselContainer}>
         <Carousel/>
-      </CarouselContainer>
-    </Root>
-    <Modal
-      open={isVideoOpen}
-      onClose={() => setIsVideoOpen(false)}
-      aria-labelledby="video-modal-title"
-      aria-describedby="video-modal-description"
-    >
-      <ModalBody>
-        <iframe title='youtubeplayer' id="ytplayer" width="100%" height="100%" frameBorder='0'
-
-          // TODO: Update this link when we havea new explainer video
-          src="https://www.youtube.com/embed/ojbMBN9pga4?autoplay=1"
-        />
-      </ModalBody>
-    </Modal>
+      </Box>
+    </Box>
     </>
   );
 };

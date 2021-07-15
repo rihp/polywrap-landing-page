@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Grid, makeStyles, styled, Typography, useTheme } from "@material-ui/core";
+import { Box, Grid, makeStyles, styled, Typography } from "@material-ui/core";
 
 import { TESTIMONIALS, Testimonial } from "../constants/launch-partners";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
