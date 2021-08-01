@@ -1,91 +1,109 @@
-import React from "react";
-import { Box, Link, useTheme } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import MenuOutlinedIcon from '@material-ui/icons/MenuOutlined';
-import { faDiscord, faDiscourse, faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import { makeStyles } from '@material-ui/core/styles';
+import { AppBar, Box, Button, Link, Slide } from '@material-ui/core';
+import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined'
+import { polywrapPalette } from '../theme';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: "#fff",
-    height: "100vh",
-    width: "100%",
-    [theme.breakpoints.down('sm')]: {
-      display: 'none'
-    },
+  appBar: {
+    background: `${polywrapPalette.secondary[900]}c2`,
+    backdropFilter: 'blur(48px)',
+    transition: `background 1s ease-in-out`,
   },
-  wrapper: {
-    backgroundColor: "#fff",
-    height: "100%",
-    width: "80px",
-    position: "fixed",
-    [theme.breakpoints.down('sm')]: {
-      display: 'none'
-    },
-  },
-  menu: {
-    cursor: "pointer",
-    fill: theme.palette.secondary.main,
-    height: 40,
-    marginTop: 24,
-    width: 40,
-    "&:hover": {
-      fill: theme.palette.secondary.dark,
-    },
-  },
-  socialLink: {
-    marginTop: 24,
-  },
-  socialLogo: {
+  logo: {
+    width: 'auto',
+    height: '40px',
     cursor: 'pointer',
-    fontSize: 32,
-    color: theme.palette.primary.dark,
-    "&:hover": {
-      color: theme.palette.primary.main
+    transition: 'opacity 0.25s ease-in-out',
+    '&:hover': {
+      opacity: 0.8,
     }
-  }
+  },
+  navLink: {
+    fontSize: '14px',
+    fontWeight: 700,
+    marginRight: 20,
+    transition: 'color 0.25s ease-in-out',
+    '&:hover': {
+      color: polywrapPalette.primary.start,
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '12px'
+    },
+  },
 }));
 
+// interface Props {
+//   children: React.ReactElement;
+// }
 
-export const NavBar: React.FC = () => {
-  const theme = useTheme();
-  const classes = useStyles();
+// function HideOnScroll(props: Props) {
+//   const { children } = props,
+//     classes = useStyles(),
+//     trigger = useScrollTrigger({});
+
+//   const [scrollPosition, setScrollPosition] = useState(0);
+//   const handleScroll = () => {
+//       const position = window.pageYOffset;
+//       setScrollPosition(position);
+//   };
+  
+//   useEffect(() => {
+//     window.addEventListener('scroll', handleScroll, { passive: true });
+  
+//     return () => {
+//         window.removeEventListener('scroll', handleScroll);
+//     };
+//   }, []);
+
+//   return (
+//     <AppBar className={scrollPosition > 100 ? classes.appBar : ''} position='fixed' color='transparent'>
+//       {children}
+//     </AppBar>
+//   );
+// }
+
+
+export const Navbar = () => {
+  const history = useHistory(),
+    onLogoClick = () => history.push('/'),
+    classes = useStyles();
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const handleScroll = () => {
+      const position = window.pageYOffset;
+      setScrollPosition(position);
+  };
+  
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+  
+    return () => {
+        window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
-    <Box className={classes.root}>
-      <Box display="flex" flexDirection="column" alignItems="center" justifyContent="space-between" className={classes.wrapper}>
-        <MenuOutlinedIcon className={classes.menu}/>
-        <Box display="flex" flexDirection="column" marginBottom="24px">
-          <Link className={classes.socialLink} href="https://github.com/polywrap" rel="noredirect" target="_blank">
-            <FontAwesomeIcon
-              icon={faGithub}
-              className={classes.socialLogo}
-              color={theme.palette.text.secondary}
-            />
+    <AppBar position='fixed' color='transparent' className={scrollPosition > 150 ? classes.appBar : undefined} style={{transition: `background 1s ease-in-out`}}>
+      <Box display='flex' justifyContent='space-between' alignItems='center' padding='24px'>
+        <img src={process.env.PUBLIC_URL + '/logos/polywrap-horizontal.svg'} alt='Polywrap Logo' onClick={onLogoClick} className={classes.logo} />
+        <Box display='flex' alignItems='center' flexWrap='nowrap'>
+          <Link className={classes.navLink} href='https://docs.polywrap.io/' target='_blank' color={'textSecondary'} variant='body1'>
+            Docs
           </Link>
-          <Link className={classes.socialLink} href="https://twitter.com/polywrap_io" rel="noredirect" target="_blank">
-            <FontAwesomeIcon
-              icon={faTwitter}
-              className={classes.socialLogo}
-              color={theme.palette.text.secondary}
-            />
+          <Link className={classes.navLink} href='https://github.com/polywrap/dao/issues?q=is%3Aopen+is%3Aissue+label%3Arecruiting' target='_blank' color={'textSecondary'} variant='body1'>
+            Jobs
           </Link>
-          <Link className={classes.socialLink} href="https://forum.polywrap.io" rel="noredirect" target="_blank">
-            <FontAwesomeIcon
-              icon={faDiscourse}
-              className={classes.socialLogo}
-              color={theme.palette.text.secondary}
-            />
+          <Link className={classes.navLink} href='https://airtable.com/shrzxezSAlpoUUZNV' target='_blank' color={'textSecondary'} variant='body1'>
+            Contact
           </Link>
-          <Link className={classes.socialLink} href="https://discord.gg/Z5m88a5qWu" rel="noredirect" target="_blank">
-            <FontAwesomeIcon
-              icon={faDiscord}
-              className={classes.socialLogo}
-              color={theme.palette.text.secondary}
-            />
-          </Link>
+          <Button href="/signup" variant='contained' color='primary' endIcon={<KeyboardArrowRightOutlined />}>Try the Beta</Button>
         </Box>
       </Box>
-    </Box>
+    </AppBar>
+    // <HideOnScroll>
+    // </HideOnScroll>
   );
 };
