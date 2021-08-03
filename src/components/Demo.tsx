@@ -4,13 +4,23 @@ import { IDE } from '../components/IDE'
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    margin: 'auto',
+    maxWidth: theme.breakpoints.values.lg,
+    paddingLeft: 20,
+    paddingRight: 20,
     zIndex: 2,
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 100,
+    },
   },
   grid: {
     justifyContent: 'center',
-    margin: 'auto',
-    maxWidth: theme.breakpoints.values.lg,
     position: 'relative',
+    [theme.breakpoints.down('sm')]: {
+      '& .MuiGrid-item': {
+        padding: 20,
+      },
+    },
   },
   description: {
     marginTop: 20,
@@ -24,7 +34,7 @@ export const Demo = () => {
 
   return (
     <Box position='relative' className={classes.root}>
-      <Parallax y={[0, -40]} disabled={window.innerWidth < theme.breakpoints.values.md}>
+      <Parallax y={[20,-35]} disabled={window.innerWidth < theme.breakpoints.values.md}>
         <Grid container spacing={10} alignItems='flex-start' className={classes.grid}>
           <Grid item xs={12} md={5}>
               <Typography variant='h3' color='textPrimary'>

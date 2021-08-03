@@ -111,6 +111,9 @@ export const theme = createMuiTheme({
         html: {
           backgroundColor: polywrapPalette.secondary[900],
         },
+        body: {
+          overflowX: 'hidden',
+        },
       },
     },
     MuiAppBar: {

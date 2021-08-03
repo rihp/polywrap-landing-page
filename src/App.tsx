@@ -47,7 +47,7 @@ const App: React.FC = () => {
                 <Navbar/>
                 <Switch >
                   <Route path='/' exact component={Home} />
-                  <Route path="/signup" exact component={SignUp} />
+                  <Route path="/signup" component={SignUp} />
                 </Switch>
                 <Footer />
               </Box>

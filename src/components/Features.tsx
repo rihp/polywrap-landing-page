@@ -4,11 +4,17 @@ import { Box, Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexDirection: 'column',
-    height: '100vh',
+    minHeight: '100vh',
     justifyContent: 'center',
+    marginTop: 100,
+    marginBottom: 100,
     position: 'relative',
     padding: '0 20px',
     zIndex: 0,
+    [theme.breakpoints.down('sm')]: {
+      minHeight: 'unset',
+    },
+    
   },
   blurredPoly: {
     // filter: 'blur(20px)',
@@ -142,16 +148,17 @@ const AnimatedBlob = (props: Props) => {
 }
 
 export const Features = () => {
+  const theme = useTheme();
   const classes = useStyles();
 
   return (
     <Box display='flex' alignItems='center' className={classes.root}>
       <Box className={classes.blurredPoly}>
-        <Parallax y={[-90,100]}>
+        <Parallax y={[-90,100]} disabled={window.innerWidth < theme.breakpoints.values.md}>
           <img width="100%" src={`${process.env.PUBLIC_URL}/imgs/polywrapper-hero-blurred.png`} alt='Polywrap' />
         </Parallax>
       </Box>
-      <Parallax y={[-5,5]}>
+      <Parallax y={[-5,5]} disabled={window.innerWidth < theme.breakpoints.values.md}>
         <Typography variant='h3' color='textPrimary' align='center'>
           Our Features
         </Typography>
@@ -161,7 +168,7 @@ export const Features = () => {
               features.map((feature, index) => {
                 // let parallaxSkew = Math.random()*30*index;
                 return (
-                <Grid key={feature.slug} item xs={2} sm={4} className={classes.featureItem}>
+                <Grid key={feature.slug} xs={12} sm={4} item className={classes.featureItem}>
                   {/* <AnimatedBlob duration={((Math.random()*10)+index+20)*1.1} /> */}
                   <Box position='relative'>
                     <Box position='relative' display='flex' alignItems='center' justifyContent='center' className={classes.featureIconContainer}>

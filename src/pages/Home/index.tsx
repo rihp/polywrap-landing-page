@@ -6,7 +6,7 @@ import { Hero } from '../../components/Hero';
 import { Demo } from '../../components/Demo';
 import { Features } from '../../components/Features';
 import { Partners } from '../../components/Partners';
-import { WhatsPolywrap } from '../../components/WhatsPolywrap';
+import { HubCallout } from '../../components/HubCallout';
 import ReactGA from 'react-ga';
 
 const useStyles = makeStyles((theme) => ({
@@ -29,8 +29,8 @@ export const Home = () => {
       <Hero />
       <Demo />
       <Features />
+      <HubCallout />
       <Partners />
-      {/* <WhatsPolywrap /> */}
       <Carousel/>
     </Box>
   );

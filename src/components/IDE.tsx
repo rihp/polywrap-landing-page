@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import { Box, makeStyles, styled } from '@material-ui/core';
 import { polywrapPalette } from '../theme';
@@ -17,7 +18,13 @@ const useStyles = makeStyles((theme) => ({
   tab: {
     borderRight: `1px solid rgba(255,255,255,0.05)`,
     color: 'rgba(255,255,255,0.5)',
+    cursor: 'pointer',
     padding: `12px 16px`,
+    transition: `background 0.25s ease-in-out`,
+    '&:hover': {
+      backgroundColor: 'rgba(255,255,255,0.05)',
+      color: 'rgba(255,255,255,0.8)',
+    },
     '&.is-active': {
       backgroundColor: 'rgba(255,255,255,0.05)',
       boxShadow: `inset 0 -2px 0 ${theme.palette.primary.main}`,
@@ -55,30 +62,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Tabs = () => {
-  const classes = useStyles();
-  return (
-    <Box className={classes.tabs} display='flex'>
-      <Box className={`${classes.tab} is-active`}>Tab.ts</Box>
-      <Box className={classes.tab}>Tab.js</Box>
-      <Box className={classes.tab}>Tab.py</Box>
-    </Box>
-  );
-};
-
-const query = `Web3Api.query({
-  uri: ensUri,
-  query: \`query {
-    bestTradeExactIn(
-      pairs: $pairs
-      amountIn: $amountIn
-      tokenOut: $tokenOut
-      options: $options
-      )
-    }\`,
-  })
-})`
-
 const Line = styled('div')({
   display: 'table-row',
   fontFamily: `Space Mono, Ubuntu Mono, Courier New`,
@@ -96,14 +79,81 @@ const LineContent = styled('span')({
   display: 'table-cell',
 });
 
+const queries = 
+[
+  `Web3Api.query({
+    uri: ensUri,
+    query: \`query {
+      bestTradeExactIn(
+        pairs: $pairs
+        amountIn: $amountIn
+        tokenOut: $tokenOut
+        options: $options
+        )
+      }\`,
+    })
+  })`,
+  `Web4Api.query({
+    uri: ensUri,
+    query: \`query {
+      bestTradeExactIn(
+        pairs: $pairs
+        amountIn: $amountIn
+        tokenOut: $tokenOut
+        options: $options
+        )
+      }\`,
+    })
+  })`,
+  `Web5Api.query({
+    uri: ensUri,
+    query: \`query {
+      bestTradeExactIn(
+        pairs: $pairs
+        amountIn: $amountIn
+        tokenOut: $tokenOut
+        options: $options
+        )
+      }\`,
+    })
+  })`,
+]
+
+export const Tabs = () => {
+  const classes = useStyles();
+
+  return (
+    <Box className={classes.tabs} display='flex'>
+      <Box data-id={0} className={`${classes.tab} is-active`}>Tab.ts</Box>
+      <Box data-id={1} className={classes.tab}>Tab.js</Box>
+      <Box data-id={2} className={classes.tab}>Tab.py</Box>
+    </Box>
+  );
+};
+
 export const IDE = () => {
   const classes = useStyles();
+
+  // const [activeQuery, setActiveQuery] = useState(queries[0]);
+  // const handleClick = (e: Event) => {
+  //     console.log(e.target);
+  //     const query = e.target?.dataset?.id;
+  //     setActiveQuery(query);
+  // };
+  
+  // useEffect(() => {
+  //   window.addEventListener('click', handleClick, { passive: true });
+  
+  //   return () => {
+  //     window.removeEventListener('click', handleClick);
+  //   };
+  // }, []);
 
   return (
     <Box className={classes.root}>
       <Tabs />
       <Box className={classes.main}>
-        <Highlight {...defaultProps} code={query} theme={undefined} language="javascript">
+        <Highlight {...defaultProps} code={queries[0]} theme={undefined} language="javascript">
           {({ tokens, getLineProps, getTokenProps }) => (
             <pre className={classes.pre}>
               {tokens.map((line, i) => (

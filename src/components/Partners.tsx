@@ -7,6 +7,8 @@ import {
   Grid,
   Link,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import ReactGA from 'react-ga';
@@ -15,13 +17,13 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    height: '100vh',
+    marginTop: 100,
+    minHeight: '100vh',
     justifyContent: 'center',
   },
   launchPartnersText: {
     display: 'block',
     margin: 'auto',
-    marginTop: 80,
     marginBottom: 20,
     [theme.breakpoints.down('sm')]: {
       fontSize: 32,
@@ -77,11 +79,15 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export const Partners = () => {
+  const theme = useTheme();
   const classes = useStyles();
+  const isMobile = useMediaQuery(theme.breakpoints.down('xs'), {
+    defaultMatches: true
+  });
 
   return (
     <section id='partners' className={classes.root}>
-      <Parallax y={[-8,8]}>
+      <Parallax y={[-8,8]} disabled={isMobile}>
         <Box>
           <Typography className={classes.launchPartnersText} variant='h3' align='center' color='textPrimary'>
             Launch Partners

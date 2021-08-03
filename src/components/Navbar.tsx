@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Box, Button, Link, Slide } from '@material-ui/core';
+import { AppBar, Box, Button, Link, useMediaQuery, useTheme } from '@material-ui/core';
 import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined'
 import { polywrapPalette } from '../theme';
 
@@ -17,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
     height: '40px',
     cursor: 'pointer',
     transition: 'opacity 0.25s ease-in-out',
+    [theme.breakpoints.down('sm')]: {
+      height: 24,
+    },
     '&:hover': {
       opacity: 0.8,
     }
@@ -29,8 +32,9 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       color: polywrapPalette.primary.start,
     },
-    [theme.breakpoints.down('sm')]: {
-      fontSize: '12px'
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '12px',
+      marginRight: 10,
     },
   },
 }));
@@ -69,6 +73,10 @@ const useStyles = makeStyles((theme) => ({
 export const Navbar = () => {
   const history = useHistory(),
     onLogoClick = () => history.push('/'),
+    theme = useTheme(),
+    isMobile = useMediaQuery(theme.breakpoints.down('xs'), {
+      defaultMatches: true
+    }),
     classes = useStyles();
 
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -99,7 +107,9 @@ export const Navbar = () => {
           <Link className={classes.navLink} href='https://airtable.com/shrzxezSAlpoUUZNV' target='_blank' color={'textSecondary'} variant='body1'>
             Contact
           </Link>
-          <Button href="/signup" variant='contained' color='primary' endIcon={<KeyboardArrowRightOutlined />}>Try the Beta</Button>
+          <Button href="/signup" variant='contained' color='primary' endIcon={<KeyboardArrowRightOutlined />}>
+            {`${!isMobile ? 'Try the ' : ''}Beta`}
+          </Button>
         </Box>
       </Box>
     </AppBar>

@@ -13,7 +13,7 @@ import { polywrapPalette } from '../theme';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '100vh',
+    minHeight: '100vh',
     margin: 'auto',
     padding: '0 64px',
     [theme.breakpoints.down('sm')]: {
@@ -122,6 +122,11 @@ const useStyles = makeStyles((theme) => ({
   heroContent: {
     animation: `$fadeInUp 1s 1s forwards ease-in`,
     opacity: 0,
+    [theme.breakpoints.down('sm')]: {
+      alignItems: 'center',
+      display: 'flex',
+      flexDirection: 'column',
+    },
   },
   heroIllustration: {
     animation: `$float 6s infinite`,
