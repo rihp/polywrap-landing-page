@@ -96,7 +96,7 @@ export const theme = createMuiTheme({
       lineHeight: 1,
     },
     subtitle1: {
-      fontSize: 20,
+      fontSize: 24,
       fontWeight: 900,
       lineHeight: 1.75
     },

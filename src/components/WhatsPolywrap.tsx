@@ -1,91 +1,63 @@
-
-
-import { ReactComponent as PolywrapSolution } from '../wrappers-white-wave-transparent.svg';
-import { Box, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Parallax } from 'react-scroll-parallax';
+import { Box, Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
-  betterContainer: {
-    paddingRight: '20px',
-    paddingLeft: '20px',
-    maxWidth: '1000px',
-    margin: 'auto',
+  root: {
     display: 'flex',
-    flexDirection: 'row',
-    [theme.breakpoints.down('sm')]: {
-      flexDirection: 'column'
-    },
-  },
-  betterTitle: {
-    fontWeight: 900,
-    marginBottom: 20,
-    marginTop: '120px',
-    fontSize: 45,
-    textAlign: 'center',
-  
-    [theme.breakpoints.down('sm')]: {
-      fontSize: 32,
-      margin: '60px auto 0',
-    },
-  },
-  betterInfographic: {
-    display: 'flex',
-    marginRight: 'auto',
-    alignItems: 'center',
+    flexDirection: 'column',
     justifyContent: 'center',
-    height: '500px',
-    width: '45vw',
-    maxWidth: '50%',
+    margin: 'auto',
+    maxWidth: theme.breakpoints.values.lg,
+    minHeight: '80vh',
+    zIndex: 2,
     [theme.breakpoints.down('sm')]: {
-      margin: 'auto',
-      width: '80vw',
-      height: 'auto',
-      maxWidth: 'unset',
-      marginBottom: 10
-    }
-  },
-  betterBody: {
-    paddingLeft: '20px',
-    width: '45vw',
-    maxWidth: '50%',
-    fontSize: 18,
-    marginBottom: 'auto',
-    marginTop: 'auto',
-    [theme.breakpoints.down('md')]: {
-      lineHeight: 1.5
+      marginTop: 100,
+      minHeight: 'unset',
     },
-    [theme.breakpoints.down('sm')]: {
-      textAlign: 'center',
-      fontSize: 16,
-      margin: 'auto',
-      width: '100%',
-      padding: 0,
-      maxWidth: 'unset',
-      marginTop: 10,
-      marginBottom: 10
-    }
   },
-}))
+  grid: {
+    justifyContent: 'center',
+    position: 'relative',
+    [theme.breakpoints.down('sm')]: {
+      '& .MuiGrid-item': {
+        padding: 20,
+      },
+    },
+  },
+  description: {
+    marginTop: 20,
+  },
+  polywrapIllustration: {
+    width: '100%',
+  },
+}));
+
 
 export const WhatsPolywrap = () => {
+  const theme = useTheme();
   const classes = useStyles();
 
   return (
-    <section id='what-is-polywrap'>
-      <Typography className={classes.betterTitle} color='textPrimary' variant='h1'>
-        Hypercomposability Has Arrived
-      </Typography>
-      <Box className={classes.betterContainer}>
-        <Box className={classes.betterInfographic}>
-          <PolywrapSolution height={'90%'} />
-        </Box>
-        <Typography className={classes.betterBody} color='textSecondary' variant='body1'>
-          Polywrap solves the integration problem by making Web3 protocols as universally accessible as traditional web services. Polywrap-powered apps download lightweight WebAssembly (wasm) modules from IPFS at runtime, and execute GraphQL requests directly inside the app.
-          <br/>
-          <br/>
-          These language-agnostic wasm modules enable developers to more easily compose and extend protocols while drastically improving dApp performance and security compared to Javascript SDKs.
-        </Typography>
-      </Box>
-    </section>
+    <Box position='relative' className={classes.root}>
+      <Parallax y={[20,-35]} disabled={window.innerWidth < theme.breakpoints.values.md}>
+        <Grid container spacing={10} alignItems='center' className={classes.grid}>
+          <Grid item xs={12} md={5}>
+            <img className={classes.polywrapIllustration} src={process.env.PUBLIC_URL + '/imgs/wrappers-white-wave.svg'} alt='Polywrap - wrapper white wave' />
+          </Grid>
+          <Grid item xs={12} md={7}>
+              <Typography variant='h3' color='textPrimary'>
+              Hypercomposability Has Arrived
+              </Typography>
+              <Typography variant='body1' color='textSecondary' className={classes.description}>
+                Polywrap solves the integration problem by making Web3 protocols as universally accessible as traditional web services. Polywrap-powered apps download lightweight WebAssembly (wasm) modules from IPFS at runtime, and execute GraphQL requests directly inside the app.
+              </Typography>
+              <Typography variant='body1' color='textSecondary' className={classes.description}>
+                These language-agnostic wasm modules enable developers to more easily compose and extend protocols while drastically improving dApp performance and security compared to Javascript SDKs.
+              </Typography>
+            {/* </Parallax> */}
+          </Grid>
+        </Grid>
+      </Parallax>
+    </Box>
   );
 };

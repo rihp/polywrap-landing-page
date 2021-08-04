@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Box, Button, Link, useMediaQuery, useTheme } from '@material-ui/core';
 import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined'
 import { polywrapPalette } from '../theme';
+import { CTA } from '../constants/verbiage';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -108,7 +109,7 @@ export const Navbar = () => {
             Contact
           </Link>
           <Button href="/signup" variant='contained' color='primary' endIcon={<KeyboardArrowRightOutlined />}>
-            {`${!isMobile ? 'Try the ' : ''}Beta`}
+            {!isMobile ? CTA : CTA.split(' ')[2]}
           </Button>
         </Box>
       </Box>

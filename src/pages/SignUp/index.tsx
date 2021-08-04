@@ -12,6 +12,7 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined';
 import { polywrapPalette } from '../../theme';
+import { CTA } from '../../constants/verbiage';
 import { useState } from 'react';
 import ReactGA from 'react-ga';
 
@@ -155,7 +156,7 @@ export const SignUp = () => {
 
       ReactGA.event({
         category: 'Button-hero',
-        action: 'Try the Beta',
+        action: CTA,
         label: 'Early Access'
       });
 
@@ -202,7 +203,7 @@ export const SignUp = () => {
                     variant='contained'
                     onClick={onSubmit}
                   >
-                    Try the Beta
+                    {CTA}
                   </Button>
                 </>
               ) : (

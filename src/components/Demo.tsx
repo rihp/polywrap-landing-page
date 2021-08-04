@@ -38,15 +38,13 @@ export const Demo = () => {
         <Grid container spacing={10} alignItems='flex-start' className={classes.grid}>
           <Grid item xs={12} md={5}>
               <Typography variant='h3' color='textPrimary'>
-                Hypercomposability
-                <br/>
-                Has Arrived
+                We’re Solving the Web Integration Problem
               </Typography>
               <Typography variant='body1' color='textSecondary' className={classes.description}>
-                Polywrap solves the integration problem by making Web3 protocols as universally accessible as traditional web services. Polywrap-powered apps download lightweight WebAssembly (wasm) modules from IPFS at runtime, and execute GraphQL requests directly inside the app.
-                <br/>
-                <br/>
-                These language-agnostic wasm modules enable developers to more easily compose and extend protocols while drastically improving dApp performance and security compared to Javascript SDKs.
+                The Web3 Ecosystem is currently building on technical debt, since we are continuously relying on javascript SDKs to interact with virtually all web3 protocols (DeFi, NFTs, DAOs, DEXs) which is driving to create several more dApps which are insecure, not scalable, not composable, and not multi-platform. 
+              </Typography>
+              <Typography variant='body1' color='textSecondary' className={classes.description}>
+                Polywrap makes it possible for applications on any platform or language to read and write to Web3 protocols. Developers can create Wasm-based SDKs to create the APIs called “wrappers”, share them with our community and leverage other wrappers as “composable  libraries” to connect to different protocols.
               </Typography>
             {/* </Parallax> */}
           </Grid>

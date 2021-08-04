@@ -10,6 +10,7 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined';
 import { polywrapPalette } from '../theme';
+import { CTA } from '../constants/verbiage';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -158,7 +159,7 @@ export const Hero = () => {
               Any Language.
             </Typography>
             <Typography className={classes.heroBody} color='textSecondary' variant='body1'>
-              Polywrap makes it easy to interact with any web3 protocol from any programming language.
+              Polywrap is a community governance ecosystem that makes it easy to interact with any web3 protocol from any programming language into any application.
             </Typography>
             <Button
               className={classes.heroButton}
@@ -169,7 +170,7 @@ export const Hero = () => {
               type='submit'
               variant='contained'
             >
-              Try the Beta
+              {CTA}
             </Button>
           </Box>
         </Parallax>

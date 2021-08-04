@@ -6,7 +6,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     minHeight: '100vh',
     justifyContent: 'center',
-    marginTop: 100,
     marginBottom: 100,
     position: 'relative',
     padding: '0 20px',
@@ -29,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
   cell: {
     margin: '64px auto 0',
-    maxWidth: theme.breakpoints.values.lg,
+    maxWidth: theme.breakpoints.values.md,
     position: 'relative',
   },
   featureGrid: {
@@ -39,9 +38,9 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
   },
   featureIconContainer: {
-    height: 144,
+    height: 96,
     margin: 'auto',
-    width: 144,
+    width: 96,
   },
   featureIconBg: {
     height: '140%',
@@ -58,6 +57,7 @@ const useStyles = makeStyles((theme) => ({
   featureTitle: {
     margin: '20px auto',
     lineHeight: 1,
+    whiteSpace: 'nowrap',
     [theme.breakpoints.up('sm')]: {
       maxWidth: '60%',
     },
@@ -83,17 +83,17 @@ const features = [
   {
     slug: 'multi_platform',
     title: 'Multi-Platform',
-    description: 'Write your SDK once. Use it everywhere.',
+    description: 'Write your SDK once. Use it everywhere and with any supported client language.',
   },
   {
     slug: 'user_friendly',
     title: 'User-Friendly',
-    description: 'The ease of web2 is finally available in web3.',
+    description: 'The ease of web2 is finally available in web3, thanks to GraphQL syntax.',
   },
   {
     slug: 'secure',
     title: 'Secure',
-    description: 'Sandboxing ensures your integrations are always secure.',
+    description: 'Sandboxing ensures your integrations are always completely secure, virtual memory is safe.',
   },
   {
     slug: 'scalable',
@@ -103,12 +103,12 @@ const features = [
   {
     slug: 'composable',
     title: 'Composable',
-    description: 'Compose and extend protocols more performantly and securely',
+    description: 'Polywrappers make composing and extending protocols more reliable, simple and secure.',
   },
   {
     slug: 'upgradable',
     title: 'Upgradable',
-    description: 'Optionally upgradeable at run-time.',
+    description: 'Optionally upgradeable at run-time. Choose your versioning so it’s always yours.',
   },
 ]
 
@@ -163,7 +163,7 @@ export const Features = () => {
           Our Features
         </Typography>
         <Box className={classes.cell}>
-          <Grid container spacing={10} alignItems='flex-start' className={classes.featureGrid}>
+          <Grid container spacing={6} alignItems='flex-start' className={classes.featureGrid}>
             {
               features.map((feature, index) => {
                 // let parallaxSkew = Math.random()*30*index;

@@ -7,6 +7,7 @@ import { Demo } from '../../components/Demo';
 import { Features } from '../../components/Features';
 import { Partners } from '../../components/Partners';
 import { HubCallout } from '../../components/HubCallout';
+import { WhatsPolywrap } from '../../components/WhatsPolywrap';
 import ReactGA from 'react-ga';
 
 const useStyles = makeStyles((theme) => ({
@@ -28,6 +29,7 @@ export const Home = () => {
     <Box className={classes.root}>
       <Hero />
       <Demo />
+      <WhatsPolywrap />
       <Features />
       <HubCallout />
       <Partners />

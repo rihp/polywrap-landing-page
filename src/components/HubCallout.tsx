@@ -2,6 +2,7 @@ import { Parallax } from 'react-scroll-parallax';
 import { Box, Button, Grid, makeStyles, Typography, useMediaQuery, useTheme } from '@material-ui/core';
 import { KeyboardArrowRightOutlined } from '@material-ui/icons';
 import { polywrapPalette } from '../theme';
+import { CTA } from '../constants/verbiage';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -93,7 +94,7 @@ export const HubCallout = () => {
                   type='submit'
                   variant='contained'
                 >
-                  Try the Beta
+                  {CTA}
                 </Button>
               </Box>
             </Grid>
