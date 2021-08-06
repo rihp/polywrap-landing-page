@@ -13,6 +13,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined';
 import { polywrapPalette } from '../../theme';
 import { CTA } from '../../constants/verbiage';
+import { DemoSection } from '../../components/DemoSection';
 import { useState } from 'react';
 import ReactGA from 'react-ga';
 
@@ -129,7 +130,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export const SignUp = () => {
+export const Demo = () => {
 
   const [signupSuccess, setSignupSuccess] = useState(false);
   const [email, setEmail] = useState('');
@@ -173,7 +174,8 @@ export const SignUp = () => {
   return (
     <>
       <Grid className={classes.root} container justify='center' alignItems='center' direction={matches? 'row-reverse': 'row'}>
-        <Grid item sm={12} md={6}>
+        <DemoSection />
+        {/* <Grid item sm={12} md={6}>
           <Typography variant='subtitle2' color='secondary' className={classes.technicalPreview}>
             Technical Preview
           </Typography>
@@ -221,7 +223,7 @@ export const SignUp = () => {
           <Box marginTop={4}>
             <Typography variant="body2">
               Want to start building right away?
-              <Link href="https://docs.polywrap.io/guides/create-as-wrapper/project-setup" className={classes.polywrapLink}>
+              <Link href="#" className={classes.polywrapLink}>
                 Build a Polywrap
               </Link>
             </Typography>
@@ -231,7 +233,7 @@ export const SignUp = () => {
           <Box display='flex' flexDirection='column' justifyContent='center' width='100%' height='100%'>
             <img className={classes.heroPolywrapper} src={process.env.PUBLIC_URL + '/imgs/polywrapper-hero.svg'} alt='Polywrap Logo' />
           </Box>
-        </Grid>
+        </Grid> */}
       </Grid>
     </>
   );

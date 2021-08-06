@@ -3,7 +3,7 @@ import { Carousel } from '../../components/Carousel';
 import { Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Hero } from '../../components/Hero';
-import { Demo } from '../../components/Demo';
+import { DemoSection } from '../../components/DemoSection';
 import { Features } from '../../components/Features';
 import { Partners } from '../../components/Partners';
 import { HubCallout } from '../../components/HubCallout';
@@ -28,12 +28,12 @@ export const Home = () => {
   return (
     <Box className={classes.root}>
       <Hero />
-      <Demo />
+      <DemoSection />
       <WhatsPolywrap />
       <Features />
-      <HubCallout />
       <Partners />
-      <Carousel/>
+      <HubCallout />
+      {/* <Carousel/> */}
     </Box>
   );
 };

@@ -7,10 +7,10 @@ import { ParallaxProvider } from 'react-scroll-parallax';
 import { theme } from './theme';
 import { Home } from './pages/Home';
 import { SignUp } from './pages/SignUp';
-import './App.css';
 import { MembraneBg } from './components/MembraneBg'
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
+import './App.css';
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {

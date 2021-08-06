@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   tab: {
     borderRight: `1px solid rgba(255,255,255,0.05)`,
     color: 'rgba(255,255,255,0.5)',
-    cursor: 'pointer',
+    cursor: 'default',
     padding: `12px 16px`,
     transition: `background 0.25s ease-in-out`,
     '&:hover': {
@@ -124,9 +124,9 @@ export const Tabs = () => {
 
   return (
     <Box className={classes.tabs} display='flex'>
-      <Box data-id={0} className={`${classes.tab} is-active`}>Tab.ts</Box>
-      <Box data-id={1} className={classes.tab}>Tab.js</Box>
-      <Box data-id={2} className={classes.tab}>Tab.py</Box>
+      <Box data-id={0} className={`${classes.tab} is-active`}>simplestorage.ts</Box>
+      {/* <Box data-id={1} className={classes.tab}>Tab.js</Box>
+      <Box data-id={2} className={classes.tab}>Tab.py</Box> */}
     </Box>
   );
 };

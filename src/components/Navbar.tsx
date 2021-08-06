@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     width: 'auto',
-    height: '40px',
+    height: '48px',
     cursor: 'pointer',
     transition: 'opacity 0.25s ease-in-out',
     [theme.breakpoints.down('sm')]: {

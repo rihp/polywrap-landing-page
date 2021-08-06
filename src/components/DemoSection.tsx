@@ -1,6 +1,7 @@
 import { Parallax } from 'react-scroll-parallax';
-import { Box, Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
-import { IDE } from '../components/IDE'
+import { Box, Button, Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
+import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined'
+import { IDE } from './IDE'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,10 +26,22 @@ const useStyles = makeStyles((theme) => ({
   description: {
     marginTop: 20,
   },
+  uniswapDemo: {
+    boxShadow: `0 24px 80px rgba(0,0,0,0.25)`,
+    borderRadius: 24,
+    cursor: 'pointer',
+    overflow: 'hidden',
+    position: 'relative',
+    transition: 'brightness 0.25s ease-in-out, transform 0.5s ease-in-out',
+    width: '100%',
+    // '&:hover': {
+    //   filter: 'brightness(0.8)',
+    // }
+  },
 }));
 
 
-export const Demo = () => {
+export const DemoSection = () => {
   const theme = useTheme();
   const classes = useStyles();
 
@@ -48,9 +61,23 @@ export const Demo = () => {
               </Typography>
             {/* </Parallax> */}
           </Grid>
-          <Grid item xs={12} md={6}>
-            {/* <Parallax y={[20, -70]} disabled={window.innerWidth < theme.breakpoints.values.md}> */}
-              <IDE />
+          <Grid item xs={12} md={7}>
+            <Parallax y={[40, -20]} disabled={window.innerWidth < theme.breakpoints.values.md}>
+              {/* <IDE /> */}
+              <img className={classes.uniswapDemo} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/polywrap-uniswap-demo.png`} alt='' />
+              <Box marginTop={2}>
+                <Button
+                  href="https://demo.uniswapv2.polywrap.io/#/swap"
+                  target="_blank"
+                  rel="noredirect"
+                  variant="outlined"
+                  color="secondary"
+                  endIcon={<KeyboardArrowRightOutlined />}
+                >
+                  Try the Uniswap Demo
+                </Button>
+              </Box>
+            </Parallax>
           </Grid>
         </Grid>
       </Parallax>
