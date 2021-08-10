@@ -30,10 +30,10 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 0,
   },
   container: {
-    backgroundColor: polywrapPalette.secondary[800],
+    backgroundColor: polywrapPalette.secondary[1000],
     borderRadius: 8,
-    boxShadow: `0 24px 80px rgba(0,0,0,0.25)`,
-    padding: 48,
+    boxShadow: `0 64px 96px -24px rgba(0,0,0,0.5)`,
+    padding: 72,
     position: 'relative',
     [theme.breakpoints.down('sm')]: {
       padding: 32,
@@ -45,12 +45,12 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   hubWireframeImg: {
-    boxShadow: `0 4px 64px ${polywrapPalette.primary.mid}4a`,
+    boxShadow: `0 4px 64px ${polywrapPalette.primary.mid}85`,
     borderRadius: 4,
     transformOrigin: 'top left',
     transform: `scale(1.4) translateY(-8px)`,
     [theme.breakpoints.down('sm')]: {
-      boxShadow: `0 4px 32px ${polywrapPalette.primary.mid}4a`,
+      boxShadow: `0 4px 32px ${polywrapPalette.primary.mid}85`,
       width: '100%',
       transform: 'none',
     },
@@ -77,7 +77,7 @@ export const HubCallout = () => {
           <Grid container spacing={isMobile ? 6 : 10} alignItems='stretch' >
             <Grid item xs={12} sm={6}>
               <Typography variant="h3">
-                Welcome to the Polywrap Hub.
+                Welcome to the Polywrap Hub...
               </Typography>
               <Box marginTop={2}>
                 <Typography variant="body1">
@@ -99,7 +99,7 @@ export const HubCallout = () => {
               </Box>
             </Grid>
             <Grid item xs={12} sm={6}>
-              <Parallax y={[24, -12]} disabled={isMobile}>
+              <Parallax y={[24, -24]} disabled={isMobile}>
                 <Box className={classes.hubWireframe}>
                   <img className={classes.hubWireframeImg} src={process.env.PUBLIC_URL + '/imgs/assets/polywrap-hub-wireframe.png'} alt='Polywrap Hub'/>
                 </Box>

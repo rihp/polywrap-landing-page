@@ -33,7 +33,7 @@ const App: React.FC = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <ParallaxProvider>
-        <Box width='100%' minHeight='100vh'>
+        <Box width='100%' minHeight='100vh' overflow="hidden">
           <BrowserRouter>
             <Grid container className={classes.wrapper}>
               <Box
@@ -46,8 +46,12 @@ const App: React.FC = () => {
                 <MembraneBg />
                 <Navbar/>
                 <Switch >
-                  <Route path='/' exact component={Home} />
-                  <Route path="/signup" component={SignUp} />
+                  <Route path='/' exact>
+                    <Home />
+                  </Route>
+                  <Route path="/signup">
+                    <SignUp />
+                  </Route>
                 </Switch>
                 <Footer />
               </Box>

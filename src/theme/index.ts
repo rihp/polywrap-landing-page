@@ -35,6 +35,7 @@ export const polywrapPalette = {
     300: '#66D9EF',
     800: '#293653',
     900: '#1E2B45',
+    1000: '#1d2538',
     direction: 179,
   },
   terciary: {

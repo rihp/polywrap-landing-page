@@ -16,7 +16,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: '100vh',
     margin: 'auto',
-    padding: '0 64px',
+    maxWidth: theme.breakpoints.values.lg,
+    paddingLeft: theme.spacing(3),
+    paddingTight: theme.spacing(3),
     [theme.breakpoints.down('sm')]: {
       minHeight: 'unset',
       padding: '0'
