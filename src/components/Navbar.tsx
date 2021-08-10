@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Box, Container, useMediaQuery, useTheme } from '@material-ui/core';
+import { AppBar, Box, Container } from '@material-ui/core';
 import { polywrapPalette } from '../theme';
 import { NavLinks } from './NavLinks';
 
@@ -75,10 +75,6 @@ const useStyles = makeStyles((theme) => ({
 export const Navbar = () => {
   const history = useHistory(),
     onLogoClick = () => history.push('/'),
-    theme = useTheme(),
-    isMobile = useMediaQuery(theme.breakpoints.down('xs'), {
-      defaultMatches: true
-    }),
     classes = useStyles();
 
   const [scrollPosition, setScrollPosition] = useState(0);

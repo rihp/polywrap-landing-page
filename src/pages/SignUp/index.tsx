@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: '100vh',
     margin: 'auto',
-    padding: '40px 64px 0',
+    padding: `40px 64px 0`,
     position: 'relative',
     zIndex: 2,
     [theme.breakpoints.down('sm')]: {
@@ -120,7 +120,7 @@ export const SignUp = () => {
             <EmailForm location="signup"/>
           </Box>
           <Box marginTop={4}>
-            <Typography variant="body2">
+            <Typography component="div" variant="body2">
               Want to start building right away?
               <Box className={classes.polywrapLink}>
                 <Link href="https://docs.polywrap.io/guides/create-as-wrapper/project-setup">

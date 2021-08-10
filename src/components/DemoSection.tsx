@@ -1,7 +1,6 @@
 import { Parallax } from 'react-scroll-parallax';
 import { Box, Button, Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
 import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined'
-import { IDE } from './IDE'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,9 +33,6 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     transition: 'brightness 0.25s ease-in-out, transform 0.5s ease-in-out',
     width: '100%',
-    // '&:hover': {
-    //   filter: 'brightness(0.8)',
-    // }
   },
 }));
 

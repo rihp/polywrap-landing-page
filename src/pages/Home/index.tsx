@@ -1,5 +1,3 @@
-
-import { Carousel } from '../../components/Carousel';
 import { Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Hero } from '../../components/Hero';
@@ -8,6 +6,7 @@ import { Features } from '../../components/Features';
 import { Partners } from '../../components/Partners';
 import { HubCallout } from '../../components/HubCallout';
 import { WhatsPolywrap } from '../../components/WhatsPolywrap';
+import { Testimonials } from '../../components/Testimonials';
 import ReactGA from 'react-ga';
 
 const useStyles = makeStyles((theme) => ({
@@ -33,7 +32,7 @@ export const Home = () => {
       <Features />
       <Partners />
       <HubCallout />
-      {/* <Carousel/> */}
+      <Testimonials />
     </Box>
   );
 };
