@@ -48,24 +48,22 @@ export const Testimonials = () => {
           {TESTIMONIALS.map(
             (testimonial: Testimonial, index: number) =>
               <Box className={classes.testimonial} key={`testimonial-${index}`}>
-                <Parallax y={[20*(index+3),-30]}>
-                  <Box>
-                    <Typography variant='subtitle1' color='textSecondary'>
-                      {testimonial.description}
+                <Box>
+                  <Typography variant='subtitle1' color='textSecondary'>
+                    {testimonial.description}
+                  </Typography>
+                  <Box marginTop={2}>
+                    <Typography variant='body1' color='textSecondary'>
+                      {testimonial.persona}
                     </Typography>
-                    <Box marginTop={2}>
-                      <Typography variant='body1' color='textSecondary'>
-                        {testimonial.persona}
-                      </Typography>
-                    </Box>
-                    <Box marginTop={2}>
-                      <Link href={testimonial.url} target='_blank'>
-                        <img src={testimonial.logo} className={classes.logo} alt=""/>
-                      </Link>
-                    </Box>
                   </Box>
-              </Parallax>
-            </Box>
+                  <Box marginTop={2}>
+                    <Link href={testimonial.url} target='_blank'>
+                      <img src={testimonial.logo} className={classes.logo} alt=""/>
+                    </Link>
+                  </Box>
+                </Box>
+              </Box>
           )}
         </Box>
       </Container>

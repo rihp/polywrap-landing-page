@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import ReactGA from 'react-ga';
-import { Box, Button, TextField, Typography, } from '@material-ui/core'
+import { Box, Button, Link, TextField, Typography, } from '@material-ui/core'
 import { polywrapPalette } from '../theme';
 import { makeStyles } from '@material-ui/core/styles';
 import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined';
+import ArrowBackOutlinedIcon from '@material-ui/icons/ArrowBackOutlined';
 import { CTA } from '../constants/verbiage';
 
 const useStyles = makeStyles((theme) => ({
@@ -35,6 +36,13 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 700,
     padding: 8,
     width: '100%',
+  },
+  backToPolywrap: {
+    color: theme.palette.primary.main,
+    display: 'block',
+    fontSize: 24,
+    fontWeight: 700,
+    marginTop: theme.spacing(3),
   },
   errorText: {
     color: '#f44336'
@@ -97,7 +105,7 @@ export const EmailForm = ({location}: EmailFormProps) => {
               className={classes.heroButton}
               color='primary'
               endIcon={<KeyboardArrowRightOutlined />}
-              type='submit'
+              type='button'
               variant='contained'
               onClick={onSubmit}
             >
@@ -105,9 +113,21 @@ export const EmailForm = ({location}: EmailFormProps) => {
             </Button>
           </>
         ) : (
-          <Typography className={classes.heroSignupSuccess} align='center' color='textPrimary'>
-            Thank you for signing up {email}! More details coming soon.
-          </Typography>
+          <Box>
+            <Typography className={classes.heroSignupSuccess} align='center' color='textPrimary'>
+              Thank you for signing up {email}! More details coming soon.
+            </Typography>
+            {location === 'signup' ? (
+              <Link href="/" className={classes.backToPolywrap}>
+                <Box display="flex" alignItems="center" color="primary">
+                  <Box marginRight={1} display="flex">
+                    <ArrowBackOutlinedIcon />
+                  </Box>
+                  Go Back to Polywrap
+                </Box>
+              </Link>
+            ) : null}
+          </Box>
         )}
       </Box>
       {emailError && (
