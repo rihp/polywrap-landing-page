@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '0 20px',
     zIndex: 0,
     [theme.breakpoints.down('sm')]: {
+      marginTop: 100,
       minHeight: 'unset',
     },
   },

@@ -9,6 +9,8 @@ const useStyles = makeStyles((theme) => ({
     margin: 'auto',
     maxWidth: theme.breakpoints.values.lg,
     minHeight: '80vh',
+    paddingLeft: theme.spacing(3),
+    paddingRight: theme.spacing(3),
     zIndex: 2,
     [theme.breakpoints.down('sm')]: {
       marginTop: 100,
@@ -22,6 +24,11 @@ const useStyles = makeStyles((theme) => ({
       '& .MuiGrid-item': {
         padding: 20,
       },
+    },
+  },
+  h3: {
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 32,
     },
   },
   description: {
@@ -45,7 +52,7 @@ export const WhatsPolywrap = () => {
             <img className={classes.polywrapIllustration} src={process.env.PUBLIC_URL + '/imgs/wrappers-white-wave.svg'} alt='Polywrap - wrapper white wave' />
           </Grid>
           <Grid item xs={12} md={7}>
-              <Typography variant='h3' color='textPrimary'>
+              <Typography variant='h3' color='textPrimary' className={classes.h3}>
               Hypercomposability Has Arrived
               </Typography>
               <Typography variant='body1' color='textSecondary' className={classes.description}>

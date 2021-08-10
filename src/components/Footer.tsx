@@ -12,6 +12,14 @@ const useStyles = makeStyles((theme) => ({
     padding: 64,
     zIndex: 2,
     position: 'relative',
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: -theme.spacing(3),
+      paddingLeft: 8,
+      paddingRight: 8,
+      paddingTop: 64,
+      paddingBottom: 64,
+      width: `calc(100% + ${theme.spacing(3)*2}px)`,
+    },
   },
   cell: {},
   logo: {
@@ -66,7 +74,11 @@ export const Footer = () => {
             </Box>
           </Grid>
           <Grid item xs={12} sm={5}>
-            <EmailForm location="footer"/>
+            {
+              (window.location.pathname === 'signup') ?
+              <EmailForm location="footer"/>
+              : null
+            }
             <Box display="flex" alignItems="center" marginTop={4}>
               <Box className={classes.socialContainer}>
                 <Link href='https://github.com/polywrap' target='_blank'>

@@ -19,6 +19,12 @@ const useStyles = makeStyles((theme) => ({
   testimonial: {
     padding: theme.spacing(8),
     width: '50%',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+      '& h6': {
+        fontSize: 20,
+      },
+    },
   },
   logo: {
     filter: filters.textSecondary,
@@ -40,6 +46,7 @@ export const Testimonials = () => {
         <Box
           display="flex"
           justifyContent="center"
+          flexWrap="wrap"
           marginLeft={-8}
           marginRight={-8}
           position="relative"

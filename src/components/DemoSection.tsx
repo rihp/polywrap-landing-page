@@ -28,10 +28,8 @@ const useStyles = makeStyles((theme) => ({
   uniswapDemo: {
     boxShadow: `0 24px 80px rgba(0,0,0,0.25)`,
     borderRadius: 24,
-    cursor: 'pointer',
     overflow: 'hidden',
     position: 'relative',
-    transition: 'brightness 0.25s ease-in-out, transform 0.5s ease-in-out',
     width: '100%',
   },
 }));

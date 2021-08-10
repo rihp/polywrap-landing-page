@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
   heroSignUpFlex: {
     [theme.breakpoints.down('md')]: {
       justifyContent: 'center',
+    },
+    [theme.breakpoints.down('sm')]: {
+      flexWrap: 'wrap',
     }
   },
   heroTextField: {
@@ -21,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
     '& .MuiInput-input': {
       height: 38,
     },
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+    }
   },
   heroButton: {
     borderRadius: '16px 99px 99px 16px',
@@ -28,6 +34,12 @@ const useStyles = makeStyles((theme) => ({
     padding: '9px 28px',
     marginLeft: 20,
     whiteSpace: 'nowrap',
+    [theme.breakpoints.down('sm')]: {
+      borderRadius: 99,
+      marginLeft: 0,
+      marginTop: theme.spacing(2),
+      width: '100%',
+    }
   },
   heroSignupSuccess: {
     backgroundColor: theme.palette.primary.dark,

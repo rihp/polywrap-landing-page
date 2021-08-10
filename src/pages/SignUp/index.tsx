@@ -15,7 +15,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: '100vh',
     margin: 'auto',
-    padding: `40px 64px 0`,
+    maxWidth: theme.breakpoints.values.lg,
+    paddingLeft: theme.spacing(3),
     position: 'relative',
     zIndex: 2,
     [theme.breakpoints.down('sm')]: {
@@ -104,7 +105,7 @@ export const SignUp = () => {
   return (
     <>
       <Grid className={classes.root} container justify='center' alignItems='center' direction={matches? 'row-reverse': 'row'}>
-        <Grid item sm={12} md={6}>
+        <Grid item sm={12} md={7}>
           <Typography variant='subtitle2' color='secondary' className={classes.technicalPreview}>
             Technical Preview
           </Typography>
@@ -131,7 +132,7 @@ export const SignUp = () => {
             </Typography>
           </Box>
         </Grid>
-        <Grid className={classes.heroIllustration} item sm={12} md={6}>
+        <Grid className={classes.heroIllustration} item sm={12} md={5}>
           <Box display='flex' flexDirection='column' justifyContent='center' width='100%' height='100%'>
             <img className={classes.heroPolywrapper} src={process.env.PUBLIC_URL + '/imgs/polywrapper-hero.svg'} alt='Polywrap Logo' />
           </Box>
