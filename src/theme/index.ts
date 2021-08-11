@@ -99,6 +99,14 @@ export const theme = createMuiTheme({
         fontSize: 32,
       },
     },
+    h4: {
+      fontSize: 32,
+      fontWeight: 900,
+      lineHeight: 1,
+      '@media (max-width:650px)': {
+        fontSize: 28,
+      },
+    },
     subtitle1: {
       fontSize: 24,
       fontWeight: 900,

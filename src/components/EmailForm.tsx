@@ -109,7 +109,7 @@ export const EmailForm = ({location}: EmailFormProps) => {
           <>
             <TextField
               className={classes.heroTextField}
-              placeholder='Request Early Access'
+              placeholder={location === 'signup' ? 'Request Early Access' : 'email address'}
               inputProps={{ style: { textAlign: 'center' } }}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -121,7 +121,7 @@ export const EmailForm = ({location}: EmailFormProps) => {
               variant='contained'
               onClick={onSubmit}
             >
-              {CTA}
+              {location === 'signup' ? CTA : 'Subscribe'}
             </Button>
           </>
         ) : (

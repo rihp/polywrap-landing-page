@@ -1,6 +1,7 @@
 import { Box, Container, Link, makeStyles, Typography } from '@material-ui/core';
 import { Parallax } from 'react-scroll-parallax';
 import { TESTIMONIALS, Testimonial } from '../constants/launch-partners';
+import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
 import { filters } from '../theme';
 
 const useStyles = makeStyles((theme) => ({
@@ -18,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
   testimonial: {
     padding: theme.spacing(8),
+    position: 'relative',
     width: '50%',
     [theme.breakpoints.down('sm')]: {
       width: '100%',
@@ -25,6 +27,12 @@ const useStyles = makeStyles((theme) => ({
         fontSize: 20,
       },
     },
+  },
+  testimonialQuote: {
+    color: theme.palette.text.secondary,
+    fontSize: 80,
+    opacity: 0.2,
+    transform: 'translate(-16px, 12px)',
   },
   logo: {
     filter: filters.textSecondary,
@@ -56,6 +64,7 @@ export const Testimonials = () => {
             (testimonial: Testimonial, index: number) =>
               <Box className={classes.testimonial} key={`testimonial-${index}`}>
                 <Box>
+                  <FormatQuoteIcon className={classes.testimonialQuote} />
                   <Typography variant='subtitle1' color='textSecondary'>
                     {testimonial.description}
                   </Typography>

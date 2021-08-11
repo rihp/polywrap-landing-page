@@ -15,12 +15,13 @@ const useStyles = makeStyles((theme) => ({
     padding: 0,
   },
   logo: {
-    width: 'auto',
-    height: '48px',
     cursor: 'pointer',
+    height: 48,
+    marginRight: theme.spacing(2),
     transition: 'opacity 0.25s ease-in-out',
+    width: 'auto',
     [theme.breakpoints.down('sm')]: {
-      height: 24,
+      height: 32,
     },
     '&:hover': {
       opacity: 0.8,
@@ -41,38 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// interface Props {
-//   children: React.ReactElement;
-// }
-
-// function HideOnScroll(props: Props) {
-//   const { children } = props,
-//     classes = useStyles(),
-//     trigger = useScrollTrigger({});
-
-//   const [scrollPosition, setScrollPosition] = useState(0);
-//   const handleScroll = () => {
-//       const position = window.pageYOffset;
-//       setScrollPosition(position);
-//   };
-  
-//   useEffect(() => {
-//     window.addEventListener('scroll', handleScroll, { passive: true });
-  
-//     return () => {
-//         window.removeEventListener('scroll', handleScroll);
-//     };
-//   }, []);
-
-//   return (
-//     <AppBar className={scrollPosition > 100 ? classes.appBar : ''} position='fixed' color='transparent'>
-//       {children}
-//     </AppBar>
-//   );
-// }
-
-
-export const Navbar = () => {
+export const NavBar = () => {
   const history = useHistory(),
     onLogoClick = () => history.push('/'),
     classes = useStyles();
@@ -97,7 +67,7 @@ export const Navbar = () => {
         <Box display='flex' justifyContent='space-between' alignItems='center' padding='24px'>
           <img src={process.env.PUBLIC_URL + '/logos/polywrap-horizontal.svg'} alt='Polywrap Logo' onClick={onLogoClick} className={classes.logo} />
           { window.location.pathname !== '/signup' ?
-            <NavLinks />
+            <NavLinks scrollPosition={scrollPosition} />
             : null
           }
         </Box>

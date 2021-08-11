@@ -18,45 +18,41 @@ const useStyles = makeStyles((theme) => ({
       marginRight: 10,
     },
   },
-  footerLink: {
-    fontSize: 16,
+  navButton: {
     [theme.breakpoints.down('xs')]: {
-      fontSize: 14
+      display: 'none',
     },
   },
 }));
 
 interface NavLinkProps {
   type?: "footer";
+  scrollPosition: number;
 }
 
 export const NavLinks = (props: NavLinkProps) => {
   const theme = useTheme(),
-    type = props.type,
-    isMobile = useMediaQuery(theme.breakpoints.down('xs'), {
+    scrollPosition = props.scrollPosition,
+    isMobile = useMediaQuery(theme.breakpoints.down('sm'), {
       defaultMatches: true
     }),
+    showButton = (!isMobile || scrollPosition > 150),
     classes = useStyles();
 
   return (
     <Box display='flex' alignItems='center' flexWrap='nowrap'>
-      <Link className={`${classes.navLink} ${type === 'footer' ? classes.footerLink : ''}`} href='https://docs.polywrap.io/' target='_blank' color={type === 'footer' ? 'textPrimary' : 'textSecondary'} variant='body1'>
+      <Link className={classes.navLink} href='https://docs.polywrap.io/' target='_blank' color='textSecondary' variant='body1' style={{display: `${(!showButton || !isMobile) ? 'block' : 'none'}`}}>
         Docs
       </Link>
-      <Link className={`${classes.navLink} ${type === 'footer' ? classes.footerLink : ''}`} href='https://github.com/polywrap/dao/issues?q=is%3Aopen+is%3Aissue+label%3Arecruiting' target='_blank' color={type === 'footer' ? 'textPrimary' : 'textSecondary'} variant='body1'>
+      <Link className={classes.navLink} href='https://github.com/polywrap/dao/issues?q=is%3Aopen+is%3Aissue+label%3Arecruiting' target='_blank' color='textSecondary' variant='body1' style={{display: `${(!showButton || !isMobile) ? 'block' : 'none'}`}}>
         Jobs
       </Link>
-      <Link className={`${classes.navLink} ${type === 'footer' ? classes.footerLink : ''}`} href='https://discord.com/invite/Z5m88a5qWu' target='_blank' color={type === 'footer' ? 'textPrimary' : 'textSecondary'} variant='body1'>
+      <Link className={classes.navLink} href='https://discord.com/invite/Z5m88a5qWu' target='_blank' color='textSecondary' variant='body1' style={{display: `${(!showButton || !isMobile) ? 'block' : 'none'}`}}>
         Community
       </Link>
-      {type !== "footer" ?
-        (
-          <Button href="/signup" variant='contained' color='primary' endIcon={<KeyboardArrowRightOutlined />}>
-            {!isMobile ? CTA : CTA.split(' ')[2]}
-          </Button>
-
-        ) : null
-      }
+      <Button href="/signup" variant='contained' color='primary' endIcon={<KeyboardArrowRightOutlined />} className={classes.navButton} style={{display: `${(showButton) ? 'flex' : 'none'}`}}>
+        {!isMobile ? CTA : CTA.split(' ')[2]}
+      </Button>
     </Box>
   );
 };
