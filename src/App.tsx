@@ -8,7 +8,7 @@ import { theme } from './theme';
 import { Home } from './pages/Home';
 import { SignUp } from './pages/SignUp';
 import { MembraneBg } from './components/MembraneBg'
-import { NavBar } from './components/NavBar';
+import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import './App.css';
 
@@ -44,7 +44,7 @@ const App: React.FC = () => {
                 className={classes.main}
               >
                 <MembraneBg />
-                <NavBar/>
+                <Header />
                 <Switch >
                   <Route path='/' exact>
                     <Home />
