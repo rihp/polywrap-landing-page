@@ -1,8 +1,5 @@
-import { faDiscord, faDiscourse, faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Box, Container, Grid, Link, Typography, useTheme } from '@material-ui/core'
+import { Box, Container, Grid, Link, Typography } from '@material-ui/core'
 import { EmailForm } from './EmailForm'
-import { NavLinks } from './NavLinks';
 import { polywrapPalette } from '../theme';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -82,7 +79,6 @@ const useStyles = makeStyles((theme) => ({
 
 export const Footer = () => {
   const classes = useStyles();
-  const theme = useTheme();
 
   return (
     <Box component="footer" className={classes.root}>

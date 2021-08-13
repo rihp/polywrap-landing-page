@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const NavBar = () => {
+export const Header = () => {
   const history = useHistory(),
     onLogoClick = () => history.push('/'),
     classes = useStyles();

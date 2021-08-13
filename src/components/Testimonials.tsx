@@ -1,5 +1,4 @@
 import { Box, Container, Link, makeStyles, Typography } from '@material-ui/core';
-import { Parallax } from 'react-scroll-parallax';
 import { TESTIMONIALS, Testimonial } from '../constants/launch-partners';
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
 import { filters } from '../theme';
