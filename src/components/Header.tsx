@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, Box, Container } from '@material-ui/core';
 import { polywrapPalette } from '../theme';
@@ -44,7 +44,8 @@ const useStyles = makeStyles((theme) => ({
 
 export const Header = () => {
   const history = useHistory(),
-    onLogoClick = () => history.push('/'),
+    navigateToPage = (route: string) => history.push(route),
+    location = useLocation(),
     classes = useStyles();
 
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -65,8 +66,8 @@ export const Header = () => {
     <AppBar position='fixed' color='transparent' className={scrollPosition > 150 ? classes.appBar : undefined} style={{transition: `background 1s ease-in-out`}}>
       <Container maxWidth="lg" className={classes.cell}>
         <Box display='flex' justifyContent='space-between' alignItems='center' padding='24px'>
-          <img src={process.env.PUBLIC_URL + '/logos/polywrap-horizontal.svg'} alt='Polywrap Logo' onClick={onLogoClick} className={classes.logo} />
-          { window.location.pathname !== '/signup' ?
+          <img src={process.env.PUBLIC_URL + '/logos/polywrap-horizontal.svg'} alt='Polywrap Logo' onClick={() => navigateToPage('/')} className={classes.logo} />
+          { location.pathname !== '/signup' ?
             <NavLinks scrollPosition={scrollPosition} />
             : null
           }

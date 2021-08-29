@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Switch, Route, HashRouter } from 'react-router-dom';
 import { Box, Grid, ThemeProvider } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -34,7 +34,7 @@ const App: React.FC = () => {
       <CssBaseline />
       <ParallaxProvider>
         <Box width='100%' minHeight='100vh' overflow="hidden">
-          <BrowserRouter>
+          <HashRouter>
             <Grid container className={classes.wrapper}>
               <Box
                 display='flex'
@@ -56,7 +56,7 @@ const App: React.FC = () => {
                 <Footer />
               </Box>
             </Grid>
-          </BrowserRouter>
+          </HashRouter>
         </Box>
       </ParallaxProvider>
     </ThemeProvider>

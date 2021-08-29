@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Button, Link, useMediaQuery, useTheme } from '@material-ui/core';
 import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined'
@@ -32,6 +33,8 @@ interface NavLinkProps {
 
 export const NavLinks = (props: NavLinkProps) => {
   const theme = useTheme(),
+    history = useHistory(),
+    navigateToPage = (route: string) => history.push(route),
     scrollPosition = props.scrollPosition,
     isMobile = useMediaQuery(theme.breakpoints.down('sm'), {
       defaultMatches: true
@@ -50,7 +53,13 @@ export const NavLinks = (props: NavLinkProps) => {
       <Link className={classes.navLink} href='https://discord.com/invite/Z5m88a5qWu' target='_blank' color='textSecondary' variant='body1' style={{display: `${(!showButton || !isMobile) ? 'block' : 'none'}`}}>
         Community
       </Link>
-      <Button href="/signup" variant='contained' color='primary' endIcon={<KeyboardArrowRightOutlined />} className={classes.navButton} style={{display: `${(showButton) ? 'flex' : 'none'}`}}>
+      <Button
+        onClick={() => navigateToPage('/signup')}
+        variant='contained' color='primary'
+        endIcon={<KeyboardArrowRightOutlined />}
+        className={classes.navButton}
+        style={{display: `${(showButton) ? 'flex' : 'none'}`}}
+      >
         {!isMobile ? CTA : CTA.split(' ')[2]}
       </Button>
     </Box>

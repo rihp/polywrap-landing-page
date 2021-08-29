@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router-dom';
 import { Parallax } from 'react-scroll-parallax';
 import {
   Box,
@@ -146,6 +147,9 @@ export const Hero = () => {
   const classes = useStyles();
   const matches = useMediaQuery(theme.breakpoints.down('xs'))
 
+  const history = useHistory();
+  const navigateToPage = (route: string) => history.push(route);
+
   return (
     <Grid className={classes.root} container justify='center' alignItems='center' direction={matches? 'row-reverse': 'row'}>
       <Grid item sm={12} md={6}>
@@ -166,7 +170,7 @@ export const Hero = () => {
               className={classes.heroButton}
               component="button"
               color='primary'
-              href="/signup"
+              onClick={() => navigateToPage('/signup')}
               endIcon={<KeyboardArrowRightOutlined />}
               type='submit'
               variant='contained'
