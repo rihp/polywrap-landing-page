@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router-dom';
 import { Parallax } from 'react-scroll-parallax';
 import { Box, Button, Grid, makeStyles, Typography, useMediaQuery, useTheme } from '@material-ui/core';
 import { KeyboardArrowRightOutlined } from '@material-ui/icons';
@@ -60,6 +61,8 @@ const useStyles = makeStyles((theme) => ({
 
 export const HubCallout = () => {
   const theme = useTheme();
+  const history = useHistory();
+  const navigateToPage = (route: string) => history.push(route);
   const classes = useStyles();
   const isMobile = useMediaQuery(theme.breakpoints.down('xs'), {
     defaultMatches: true
@@ -89,7 +92,7 @@ export const HubCallout = () => {
                   // className={classes.heroButton}
                   component="button"
                   color='primary'
-                  href="/signup"
+                  onClick={() => navigateToPage('/signup')}
                   endIcon={<KeyboardArrowRightOutlined />}
                   type='submit'
                   variant='contained'
