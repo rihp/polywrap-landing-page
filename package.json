@@ -8,6 +8,8 @@
     "build": "CI=false react-scripts build && echo polywrap.io > build/CNAME",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "reset": "yarn clean && yarn",
+    "clean": "npx rimraf ./**/node_modules ./**/build ./**/coverage",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
     "deploy:ci": "gh-pages -d build -b ci-$(git rev-parse HEAD | cut -c 1-10)"
@@ -21,6 +23,7 @@
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^5.0.0-beta.0",
     "hex-to-css-filter": "^3.1.2",
+    "prism-react-renderer": "^1.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-ga": "^3.3.0",
@@ -35,7 +38,9 @@
     "@types/react-dom": "^16.9.8",
     "@types/react-lottie": "1.2.5",
     "@types/react-router-dom": "^5.1.6",
+    "babel-plugin-prismjs": "^2.1.0",
     "gh-pages": "^3.1.0",
+    "rimraf": "3.0.2",
     "serve": "^11.3.2",
     "typescript": "^4.0.3"
   },
