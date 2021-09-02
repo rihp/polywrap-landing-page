@@ -175,65 +175,6 @@ export const Demo = () => {
     <>
       <Grid className={classes.root} container justify='center' alignItems='center' direction={matches? 'row-reverse': 'row'}>
         <DemoSection />
-        {/* <Grid item sm={12} md={6}>
-          <Typography variant='subtitle2' color='secondary' className={classes.technicalPreview}>
-            Technical Preview
-          </Typography>
-          <Typography className={classes.heroTitle} color='textPrimary' variant='h2'>
-            Bring Web3 to Life
-          </Typography>
-          <Typography className={classes.heroBody} color='textSecondary' variant='body1'>
-            Access is limited to a small group of testers during the beta release of Polywrap Hub Marketplace.
-            <br/>
-            Sign up today for your chance to try it out early and help us improve.
-          </Typography>
-          <form>
-            <Box className={classes.heroSignUpFlex} display='flex' alignItems='center' marginTop={4}>
-              {!signupSuccess ? (
-                <>
-                  <TextField
-                    className={classes.heroTextField}
-                    placeholder='Request Early Access'
-                    inputProps={{ style: { textAlign: 'center' } }}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                  <Button
-                    className={classes.heroButton}
-                    color='primary'
-                    endIcon={<KeyboardArrowRightOutlined />}
-                    type='submit'
-                    variant='contained'
-                    onClick={onSubmit}
-                  >
-                    {CTA}
-                  </Button>
-                </>
-              ) : (
-                <Typography className={classes.heroSignupSuccess} align='center' color='textPrimary'>
-                  Thank you for signing up {email}! More details coming soon.
-                </Typography>
-              )}
-            </Box>
-            {emailError && (
-              <Typography className={classes.errorText}>
-              {emailError}
-              </Typography>
-            )}
-          </form>
-          <Box marginTop={4}>
-            <Typography variant="body2">
-              Want to start building right away?
-              <Link href="#" className={classes.polywrapLink}>
-                Build a Polywrap
-              </Link>
-            </Typography>
-          </Box>
-        </Grid>
-        <Grid className={classes.heroIllustration} item sm={12} md={6}>
-          <Box display='flex' flexDirection='column' justifyContent='center' width='100%' height='100%'>
-            <img className={classes.heroPolywrapper} src={process.env.PUBLIC_URL + '/imgs/polywrapper-hero.svg'} alt='Polywrap Logo' />
-          </Box>
-        </Grid> */}
       </Grid>
     </>
   );

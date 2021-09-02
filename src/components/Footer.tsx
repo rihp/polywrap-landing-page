@@ -118,7 +118,7 @@ export const Footer = () => {
                     Twitter
                   </Link>
                   <Link className={`${classes.navLink} ${classes.footerLink}`} href='https://blog.polywrap.io/' target='_blank' color="textPrimary" variant='body1'>
-                    Substack
+                    Blog
                   </Link>
                 </Box>
               </Grid>
@@ -129,13 +129,13 @@ export const Footer = () => {
                 <Box marginTop={2}>
                   <Box className={classes.footerDivider} />
                   <Link className={`${classes.navLink} ${classes.footerLink}`} href='https://gnosis-safe.io/app/#/safes/0x09B0d46189d3F94E692c1CCaaFA071A199687B7c/balances' target='_blank' color="textPrimary" variant='body1'>
-                    Gnosis Safe
+                    Funds
                   </Link>
                   <Link className={`${classes.navLink} ${classes.footerLink}`} href='https://snapshot.org/#/polywrap.eth' target='_blank' color="textPrimary" variant='body1'>
-                    Snapshot
+                    Voting
                   </Link>
                   <Link className={`${classes.navLink} ${classes.footerLink}`} href='https://forum.polywrap.io' target='_blank' color="textPrimary" variant='body1'>
-                    Discourse
+                    Forum
                   </Link>
                 </Box>
               </Grid>

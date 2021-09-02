@@ -124,7 +124,7 @@ export const SignUp = () => {
             <Typography component="div" variant="body2">
               Want to start building right away?
               <Box className={classes.polywrapLink}>
-                <Link href="https://docs.polywrap.io/guides/create-as-wrapper/project-setup">
+                <Link href="https://docs.polywrap.io/guides/create-as-wrapper/project-setup" target="_blank">
                   Build a Polywrap
                 </Link>
                 <KeyboardArrowRightOutlined />

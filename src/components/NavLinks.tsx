@@ -47,7 +47,7 @@ export const NavLinks = (props: NavLinkProps) => {
       <Link className={classes.navLink} href='https://docs.polywrap.io/' target='_blank' color='textSecondary' variant='body1' style={{display: `${(!showButton || !isMobile) ? 'block' : 'none'}`}}>
         Docs
       </Link>
-      <Link className={classes.navLink} href='https://github.com/polywrap/dao/issues?q=is%3Aopen+is%3Aissue+label%3Arecruiting' target='_blank' color='textSecondary' variant='body1' style={{display: `${(!showButton || !isMobile) ? 'block' : 'none'}`}}>
+      <Link className={classes.navLink} href='https://forum.polywrap.io/c/job-postings/41' target='_blank' color='textSecondary' variant='body1' style={{display: `${(!showButton || !isMobile) ? 'block' : 'none'}`}}>
         Jobs
       </Link>
       <Link className={classes.navLink} href='https://discord.com/invite/Z5m88a5qWu' target='_blank' color='textSecondary' variant='body1' style={{display: `${(!showButton || !isMobile) ? 'block' : 'none'}`}}>
