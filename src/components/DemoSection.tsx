@@ -61,7 +61,7 @@ export const DemoSection = () => {
               <img className={classes.uniswapDemo} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/polywrap-uniswap-demo.png`} alt='' />
               <Box marginTop={2}>
                 <Button
-                  href="https://demo.uniswapv2.polywrap.io/#/swap"
+                  href="https://demo.uniswap.polywrap.io/#/swap"
                   target="_blank"
                   rel="noredirect"
                   variant="outlined"
