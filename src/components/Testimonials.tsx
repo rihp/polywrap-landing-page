@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
     minHeight: '60vh',
     justifyContent: 'center',
     marginBottom: 100,
+    marginTop: 140,
     position: 'relative',
     padding: '0 20px',
     zIndex: 0,
@@ -16,8 +17,24 @@ const useStyles = makeStyles((theme) => ({
       minHeight: 'unset',
     },
   },
+  title: {
+    display: 'block',
+    margin: 'auto',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 32,
+    }
+  },
+  testimonialText: {
+    display: 'block',
+    margin: 'auto',
+    marginBottom: 20,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 32,
+    }
+  },
   testimonial: {
     padding: theme.spacing(8),
+    paddingBottom: theme.spacing(0),
     position: 'relative',
     width: '50%',
     [theme.breakpoints.down('sm')]: {
@@ -49,6 +66,9 @@ export const Testimonials = () => {
 
   return (
     <Box className={classes.root}>
+      <Typography className={classes.title} variant='h3' align='center' color='textPrimary'>
+        Validation
+      </Typography>
       <Container maxWidth="lg">
         <Box
           display="flex"
@@ -64,7 +84,7 @@ export const Testimonials = () => {
               <Box className={classes.testimonial} key={`testimonial-${index}`}>
                 <Box>
                   <FormatQuoteIcon className={classes.testimonialQuote} />
-                  <Typography variant='subtitle1' color='textSecondary'>
+                  <Typography variant='subtitle1' style={{ fontSize: 20 }} color='textSecondary'>
                     {testimonial.description}
                   </Typography>
                   <Box marginTop={2}>

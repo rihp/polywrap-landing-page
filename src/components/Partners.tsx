@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    marginTop: 100,
-    minHeight: '100vh',
+    marginTop: 140,
+    marginBottom: 50,
     justifyContent: 'center',
   },
   launchPartnersText: {
@@ -33,17 +33,22 @@ const useStyles = makeStyles((theme) => ({
     height: 'auto',
     width: '100%',
     filter: filters.textSecondary,
-  
     '&:hover': {
       filter: filters.secondary,
     }
   },
   logoContainer: {
     display: 'flex',
-    padding: 40,
+    padding: 30,
     maxHeight: 120,
     flexDirection: 'column',
     justifyContent: 'center',
+    [theme.breakpoints.down('sm')]: {
+      padding: 20,
+    },
+    [theme.breakpoints.down('xs')]: {
+      padding: 10,
+    }
   },
   innerLogoContainer: {
     maxWidth: 120,
@@ -61,8 +66,6 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   launchPartnersContainer: {
-    paddingRight: '20px',
-    paddingLeft: '20px',
     maxWidth: '1200px',
     margin: 'auto'
   },

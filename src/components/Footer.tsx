@@ -94,11 +94,11 @@ export const Footer = () => {
                 </Typography>
                 <Box marginTop={2}>
                   <Box className={classes.footerDivider} />
-                  <Link className={`${classes.navLink} ${classes.footerLink}`} href='https://github.com/polywrap/' target='_blank' color="textPrimary" variant='body1'>
-                    Github
+                  <Link className={`${classes.navLink} ${classes.footerLink}`} href='https://github.com/polywrap/monorepo' target='_blank' color="textPrimary" variant='body1'>
+                    Toolchain
                   </Link>
                   <Link className={`${classes.navLink} ${classes.footerLink}`} href='https://github.com/polywrap/hub' target='_blank' color="textPrimary" variant='body1'>
-                    Polywrap Hub
+                    The Hub
                   </Link>
                   <Link className={`${classes.navLink} ${classes.footerLink}`} href='https://docs.polywrap.io/' target='_blank' color="textPrimary" variant='body1'>
                     Docs

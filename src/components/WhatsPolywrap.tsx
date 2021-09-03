@@ -1,5 +1,13 @@
 import { Parallax } from 'react-scroll-parallax';
-import { Box, Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
+import {
+  Box,
+  Button,
+  Grid,
+  makeStyles,
+  Typography,
+  useTheme,
+} from '@material-ui/core';
+import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
       marginTop: 100,
       minHeight: 'unset',
     },
+    [theme.breakpoints.up('xs')]: {
+      maxWidth: '90vw',
+    },
   },
   grid: {
     justifyContent: 'center',
@@ -23,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       '& .MuiGrid-item': {
         padding: 20,
+        paddingTop: 5,
       },
     },
   },
@@ -34,34 +46,79 @@ const useStyles = makeStyles((theme) => ({
   description: {
     marginTop: 20,
   },
-  polywrapIllustration: {
+  uniswapDemo: {
+    boxShadow: `0 24px 80px rgba(0,0,0,0.25)`,
+    borderRadius: 24,
+    overflow: 'hidden',
+    position: 'relative',
     width: '100%',
   },
 }));
-
 
 export const WhatsPolywrap = () => {
   const theme = useTheme();
   const classes = useStyles();
 
   return (
-    <Box position='relative' className={classes.root}>
-      <Parallax y={[20,-35]} disabled={window.innerWidth < theme.breakpoints.values.md}>
-        <Grid container spacing={10} alignItems='center' className={classes.grid}>
-          <Grid item xs={12} md={5}>
-            <img className={classes.polywrapIllustration} src={process.env.PUBLIC_URL + '/imgs/wrappers-white-wave.svg'} alt='Polywrap - wrapper white wave' />
-          </Grid>
+    <Box position='relative' alignItems='flex-start' className={classes.root}>
+      <Parallax
+        y={[20, -35]}
+        disabled={window.innerWidth < theme.breakpoints.values.md}
+      >
+        <Grid
+          container
+          direction={'row-reverse'}
+          spacing={10}
+          alignItems='center'
+          className={classes.grid}
+        >
           <Grid item xs={12} md={7}>
-              <Typography variant='h3' color='textPrimary' className={classes.h3}>
-              Hypercomposability Has Arrived
-              </Typography>
-              <Typography variant='body1' color='textSecondary' className={classes.description}>
-                Polywrap solves the integration problem by making Web3 protocols as universally accessible as traditional web services. Polywrap-powered apps download lightweight WebAssembly (wasm) modules from IPFS at runtime, and execute GraphQL requests directly inside the app.
-              </Typography>
-              <Typography variant='body1' color='textSecondary' className={classes.description}>
-                These language-agnostic wasm modules enable developers to more easily compose and extend protocols while drastically improving dApp performance and security compared to Javascript SDKs.
-              </Typography>
-            {/* </Parallax> */}
+            <img
+              className={classes.uniswapDemo}
+              width='100%'
+              src={`${process.env.PUBLIC_URL}/imgs/assets/polywrap-uniswap-demo.png`}
+              alt=''
+            />
+            <Box marginTop={2}>
+              <Button
+                href='https://demo.uniswap.polywrap.io/#/swap'
+                target='_blank'
+                rel='noredirect'
+                variant='outlined'
+                color='secondary'
+                endIcon={<KeyboardArrowRightOutlined />}
+              >
+                Try the Uniswap Demo
+              </Button>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={5}>
+            <Typography variant='h3' color='textPrimary' className={classes.h3}>
+              Hyper-Composability has Arrived
+            </Typography>
+            <Typography
+              variant='body1'
+              color='textSecondary'
+              className={classes.description}
+            >
+              <b>
+                Polywrap makes Web3 protocols as universally accessible as
+                traditional Web2 APIs.
+              </b>{' '}
+              Polywrap enabled applications download lightweight SDKs
+              (WebAssembly) from decentralized storage (IPFS) and execute
+              requests (GraphQL) directly inside the application.
+            </Typography>
+            <Typography
+              variant='body1'
+              color='textSecondary'
+              className={classes.description}
+            >
+              Polywrap enables developers to more{' '}
+              <b>easily compose and extend protocols</b> while drastically{' '}
+              <b>improving performance and security</b> compared to traditional
+              SDKs.
+            </Typography>
           </Grid>
         </Grid>
       </Parallax>

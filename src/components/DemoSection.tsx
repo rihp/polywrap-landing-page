@@ -1,6 +1,5 @@
 import { Parallax } from 'react-scroll-parallax';
-import { Box, Button, Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
-import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined'
+import { Box, Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -9,8 +8,12 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: 20,
     paddingRight: 20,
     zIndex: 2,
-    [theme.breakpoints.down('sm')]: {
-      marginTop: 100,
+    [theme.breakpoints.down('md')]: {
+      marginTop: 150,
+      minHeight: '60vh',
+    },
+    [theme.breakpoints.up('xs')]: {
+      maxWidth: '90vw',
     },
   },
   grid: {
@@ -22,18 +25,32 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  title: {
+    fontWeight: 900,
+    marginBottom: 20,
+    marginTop: 20,
+    [theme.breakpoints.down('md')]: {
+      fontSize: 48,
+    },
+    [theme.breakpoints.down('sm')]: {
+      textAlign: 'center',
+      marginTop: 10,
+      fontSize: 28,
+    },
+  },
   description: {
     marginTop: 20,
   },
-  uniswapDemo: {
-    boxShadow: `0 24px 80px rgba(0,0,0,0.25)`,
-    borderRadius: 24,
-    overflow: 'hidden',
-    position: 'relative',
+  polywrapIllustration: {
     width: '100%',
+    [theme.breakpoints.down('md')]: {
+      maxHeight: '60vh',
+    },
+    [theme.breakpoints.down('xs')]: {
+      maxHeight: '30vh',
+    },
   },
 }));
-
 
 export const DemoSection = () => {
   const theme = useTheme();
@@ -41,37 +58,52 @@ export const DemoSection = () => {
 
   return (
     <Box position='relative' className={classes.root}>
-      <Parallax y={[20,-35]} disabled={window.innerWidth < theme.breakpoints.values.md}>
-        <Grid container spacing={10} alignItems='flex-start' className={classes.grid}>
-          <Grid item xs={12} md={5}>
-              <Typography variant='h3' color='textPrimary'>
-                We’re Solving the Web Integration Problem
-              </Typography>
-              <Typography variant='body1' color='textSecondary' className={classes.description}>
-                The Web3 Ecosystem is currently building on technical debt, since we are continuously relying on javascript SDKs to interact with virtually all web3 protocols (DeFi, NFTs, DAOs, DEXs) which is driving to create several more dApps which are insecure, not scalable, not composable, and not multi-platform. 
-              </Typography>
-              <Typography variant='body1' color='textSecondary' className={classes.description}>
-                Polywrap makes it possible for applications on any platform or language to read and write to Web3 protocols. Developers can create Wasm-based SDKs to create the APIs called “wrappers”, share them with our community and leverage other wrappers as “composable  libraries” to connect to different protocols.
-              </Typography>
-            {/* </Parallax> */}
+      <Parallax
+        y={[20, -35]}
+        disabled={window.innerWidth < theme.breakpoints.values.md}
+      >
+        <Grid
+          container
+          spacing={10}
+          alignItems='flex-start'
+          className={classes.grid}
+        >
+          <Grid item xs={12} md={6}>
+            <img
+              className={classes.polywrapIllustration}
+              src={process.env.PUBLIC_URL + '/imgs/wrappers-white-wave.svg'}
+              alt='Polywrap - wrapper white wave'
+            />
           </Grid>
-          <Grid item xs={12} md={7}>
-            <Parallax y={[40, -20]} disabled={window.innerWidth < theme.breakpoints.values.md}>
-              {/* <IDE /> */}
-              <img className={classes.uniswapDemo} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/polywrap-uniswap-demo.png`} alt='' />
-              <Box marginTop={2}>
-                <Button
-                  href="https://demo.uniswap.polywrap.io/#/swap"
-                  target="_blank"
-                  rel="noredirect"
-                  variant="outlined"
-                  color="secondary"
-                  endIcon={<KeyboardArrowRightOutlined />}
-                >
-                  Try the Uniswap Demo
-                </Button>
-              </Box>
-            </Parallax>
+          <Grid item xs={12} md={6}>
+            <Typography
+              variant='h3'
+              color='textPrimary'
+              className={classes.title}
+            >
+              Solving the Web3 Integration Problem
+            </Typography>
+            <Typography
+              variant='body1'
+              color='textSecondary'
+              className={classes.description}
+            >
+              Web3 relies on SDKs to integrate virtually every type of protocol:
+              DeFi, NFTs, DAOs, P2P Networks
+            </Typography>
+            <Typography
+              variant='body1'
+              color='textSecondary'
+              className={classes.description}
+            >
+              Due to traditional SDKs’ short-comings, Web3’s technical debt is
+              growing day by day.
+              <br />
+              <br />
+              Traditional SDKs are:
+              <br />
+              <b>Insecure, Bloated, Incompatible, and Language-Specific</b>
+            </Typography>
           </Grid>
         </Grid>
       </Parallax>
