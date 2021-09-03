@@ -24,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
       padding: '0',
     },
     [theme.breakpoints.up('xs')]: {
-      maxWidth: '90vw'
-    }
+      maxWidth: '90vw',
+    },
   },
   heroPolywrapper: {
     display: 'flex',
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       marginBottom: 20,
       marginTop: 100,
-    }
+    },
   },
   heroTitle: {
     fontWeight: 900,
@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
   heroSignUpFlex: {
     [theme.breakpoints.down('md')]: {
       justifyContent: 'center',
-    }
+    },
   },
   heroTextField: {
     borderRadius: '99px 16px 16px 99px',
@@ -88,7 +88,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       marginTop: 12,
       fontSize: 14,
-    }
+    },
   },
   heroSignupSuccess: {
     backgroundColor: theme.palette.primary.dark,
@@ -107,7 +107,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       textAlign: 'center',
       fontSize: 12,
-    }
+    },
   },
   '@keyframes fadeInUp': {
     '0%': {
@@ -127,7 +127,7 @@ const useStyles = makeStyles((theme) => ({
     '50%': {
       transform: 'translateY(-3%)',
       transitionTimingFunction: 'ease-out',
-    }
+    },
   },
   heroContent: {
     animation: `$fadeInUp 1s 1s forwards ease-in`,
@@ -141,41 +141,65 @@ const useStyles = makeStyles((theme) => ({
   heroIllustration: {
     animation: `$float 6s infinite`,
     [theme.breakpoints.down('sm')]: {
-      order: -1
-    }
+      order: -1,
+    },
   },
   errorText: {
-    color: '#f44336'
+    color: '#f44336',
   },
-}))
+}));
 
 export const Hero = () => {
-  const theme = useTheme()
+  const theme = useTheme();
   const classes = useStyles();
-  const matches = useMediaQuery(theme.breakpoints.down('xs'))
+  const matches = useMediaQuery(theme.breakpoints.down('xs'));
 
   const history = useHistory();
   const navigateToPage = (route: string) => history.push(route);
 
   return (
-    <Grid className={classes.root} container justify='center' alignItems='center' direction={matches? 'row-reverse': 'row'}>
+    <Grid
+      className={classes.root}
+      container
+      justify='center'
+      alignItems='center'
+      direction={matches ? 'row-reverse' : 'row'}
+    >
       <Grid item sm={12} md={6}>
-        <Parallax y={[60, -60]} disabled={window.innerWidth < theme.breakpoints.values.md}>
+        <Parallax
+          y={[60, -60]}
+          disabled={window.innerWidth < theme.breakpoints.values.md}
+        >
           <Box className={classes.heroContent}>
-            <Typography variant='subtitle2' color='secondary' className={classes.technicalPreview}>
+            <Typography
+              variant='subtitle2'
+              color='secondary'
+              className={classes.technicalPreview}
+            >
               Technical Preview
             </Typography>
-            <Typography className={classes.heroTitle} color='textPrimary' variant='h1'>
+            <Typography
+              className={classes.heroTitle}
+              color='textPrimary'
+              variant='h1'
+            >
               Next-Gen SDKs
-              <br/>
-              For Web3
+              <br />
+              for Web3
             </Typography>
-            <Typography className={classes.heroBody} color='textSecondary' variant='body1'>
-            Polywrap is a development platform that enables the easy integration of Web3 protocols into any application. It makes it possible for software on any device, written in any language, to read and write data to Web3 protocols.
+            <Typography
+              className={classes.heroBody}
+              color='textSecondary'
+              variant='body1'
+            >
+              Polywrap is a development platform that enables easy integration
+              of Web3 protocols into any application. It makes it possible for
+              software on any device, written in any language, to read and write
+              data to Web3 protocols.
             </Typography>
             <Button
               className={classes.heroButton}
-              component="button"
+              component='button'
               color='primary'
               onClick={() => navigateToPage('/signup')}
               endIcon={<KeyboardArrowRightOutlined />}
@@ -188,9 +212,22 @@ export const Hero = () => {
         </Parallax>
       </Grid>
       <Grid className={classes.heroIllustration} item sm={12} md={6}>
-        <Box display='flex' flexDirection='column' justifyContent='center' width='100%' height='100%'>
-          <Parallax y={[80, -80]} disabled={window.innerWidth < theme.breakpoints.values.md}>
-            <img className={classes.heroPolywrapper} src={process.env.PUBLIC_URL + '/imgs/polywrapper-hero.png'} alt='Polywrap Logo' />
+        <Box
+          display='flex'
+          flexDirection='column'
+          justifyContent='center'
+          width='100%'
+          height='100%'
+        >
+          <Parallax
+            y={[80, -80]}
+            disabled={window.innerWidth < theme.breakpoints.values.md}
+          >
+            <img
+              className={classes.heroPolywrapper}
+              src={process.env.PUBLIC_URL + '/imgs/polywrapper-hero.png'}
+              alt='Polywrap Logo'
+            />
           </Parallax>
         </Box>
       </Grid>
