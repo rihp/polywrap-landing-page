@@ -10,8 +10,9 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     padding: '0 20px',
     zIndex: 0,
+    marginTop: 140,
     [theme.breakpoints.down('sm')]: {
-      marginTop: 100,
+      marginTop: 200,
       minHeight: 'unset',
     },
   },
@@ -55,9 +56,6 @@ const useStyles = makeStyles((theme) => ({
     margin: '20px auto',
     lineHeight: 1,
     whiteSpace: 'nowrap',
-    [theme.breakpoints.up('sm')]: {
-      maxWidth: '60%',
-    },
   },
   featureDescription: {
     marginTop: 20,
@@ -80,60 +78,34 @@ const features = [
   {
     slug: 'multi_platform',
     title: 'Multi-Platform',
-    description: 'Write your SDK once. Use it everywhere and with any supported client language.',
+    description: 'Write your SDK once, use it anywhere. Simply add the Polywrap Client to your user applications.',
   },
   {
     slug: 'user_friendly',
     title: 'User-Friendly',
-    description: 'The ease of web2 is finally available in web3, thanks to GraphQL syntax.',
+    description: 'Integrating Web3 is finally as easy as Web2, thanks to GraphQL syntax.',
   },
   {
     slug: 'secure',
     title: 'Secure',
-    description: 'Sandboxing ensures your integrations are always completely secure, virtual memory is safe.',
+    description: 'Sandboxing ensures your integrations are isolated from your application. Users are safer with Polywrap.',
   },
   {
     slug: 'scalable',
     title: 'Scalable',
-    description: 'Language-agnostic wasm modules enable light-weight and on-demand performance',
+    description: 'Keep applications light-weight and efficient, only download what you need, when you need it.',
   },
   {
     slug: 'composable',
     title: 'Composable',
-    description: 'Polywrappers make composing and extending protocols more reliable, simple and secure.',
+    description: 'Polywrap makes composition and extensions easy. Combine using imports, or extend using standard interfaces.',
   },
   {
     slug: 'upgradable',
     title: 'Upgradable',
-    description: 'Optionally upgradeable at run-time. Choose your versioning so it’s always yours.',
+    description: 'Optionally upgrade your applications at run-time, no rebuilds required. Choose the level of control that makes sense for your application.',
   },
 ]
-
-// interface Props {
-//   duration: number;
-// }
-
-// const AnimatedBlob = (props: Props) => {
-//   const classes = useStyles(),
-//   values = [
-//     `M172.4,133.3c-54.5,0.3-101.9,42.5-108.6,96.5c-4,32.5,11.5,55.3,18,85.5c7,32.6-9,58.3-8,89.4 c2.6,77.3,92.2,51.2,140,63.8c58.9,15.5,110.2,32.6,160.1-17.2c41.4-41.3,22.4-96.6,54.8-139.5c37.2-49.2,66.9-93.1,42.2-158.2 c-18.9-49.7-65.9-85.2-119-89.2c-30.4-2.3-61.3,5.6-86.8,22.4C233.9,107.4,213.3,133,172.4,133.3z`,
-//     `M130.7,111.9c-25.3,43.3-14.6,62-21.3,116c-4,32.5-72.7,42-67.3,86.7c4,33.1,55.6,37.6,56.7,68.7 c2.6,77.3,63.6,88.6,111.3,101.1c58.9,15.5,78.1-26,128-75.8c41.4-41.3,106-35.3,118-88c13.7-60.1-13.9-90.9-38.7-156 c-18.9-49.7,12-103.3-41.3-129.9c-47.9-23.8-96.2,13.5-126,19.9C178.5,69.9,151.3,76.5,130.7,111.9z`,
-//     `M130.7,111.9c-26.9,42.4-89.3,15.3-108.1,74c-16.2,50.7,9.3,74.6,36.1,110.7c17.3,23.3,39,55.6,40,86.7 c2.6,77.3,31.6,111.5,79.3,124c58.9,15.5,76.1-58.2,126-108c41.4-41.3,140-26,152-78.7c13.7-60.1-67.3-64.9-92-130 c-18.9-49.7,32-112.7-3-131.7c-29-16-49.8,8.2-78.3,19C252.7,89.2,180.7,33.2,130.7,111.9z`,
-//     `M172.4,133.3c-54.5,0.3-101.9,42.5-108.6,96.5c-4,32.5,11.5,55.3,18,85.5c7,32.6-9,58.3-8,89.4 c2.6,77.3,92.2,51.2,140,63.8c58.9,15.5,110.2,32.6,160.1-17.2c41.4-41.3,22.4-96.6,54.8-139.5c37.2-49.2,66.9-93.1,42.2-158.2 c-18.9-49.7-65.9-85.2-119-89.2c-30.4-2.3-61.3,5.6-86.8,22.4C233.9,107.4,213.3,133,172.4,133.3z`,
-//   ];
-//   return (
-//     <svg 
-//       className={classes.animatedBlob}
-//       xmlns='http://www.w3.org/2000/svg' 
-//       viewBox='0 0 600 600'
-//     >
-//       <path
-//         d={values[2]}
-//       >
-//       </path>
-//     </svg>
-//   )
-// }
 
 export const Features = () => {
   const theme = useTheme();
@@ -148,14 +120,14 @@ export const Features = () => {
       </Box>
       <Parallax y={[-5,5]} disabled={window.innerWidth < theme.breakpoints.values.md}>
         <Typography variant='h3' color='textPrimary' align='center'>
-          Our Features
+          Next-Gen SDKs
         </Typography>
         <Box className={classes.cell}>
           <Grid container spacing={6} alignItems='flex-start' className={classes.featureGrid}>
             {
               features.map((feature, index) => {
                 return (
-                <Grid key={feature.slug} xs={12} sm={4} item className={classes.featureItem}>
+                <Grid key={feature.slug} xs={12} sm={6} md={4} item className={classes.featureItem}>
                   <Box position='relative'>
                     <Box position='relative' display='flex' alignItems='center' justifyContent='center' className={classes.featureIconContainer}>
                       <img className={classes.featureIconBg} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/blob-1.png`} alt='' />

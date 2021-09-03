@@ -21,7 +21,10 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(3),
     [theme.breakpoints.down('sm')]: {
       minHeight: 'unset',
-      padding: '0'
+      padding: '0',
+    },
+    [theme.breakpoints.up('xs')]: {
+      maxWidth: '90vw'
     }
   },
   heroPolywrapper: {
@@ -52,9 +55,8 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down('sm')]: {
       textAlign: 'center',
-    },
-    [theme.breakpoints.down('xs')]: {
-      fontSize: 36,
+      marginTop: 10,
+      fontSize: 28,
     },
   },
   heroBody: {
@@ -83,6 +85,10 @@ const useStyles = makeStyles((theme) => ({
     padding: '9px 28px',
     marginTop: 40,
     whiteSpace: 'nowrap',
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 12,
+      fontSize: 14,
+    }
   },
   heroSignupSuccess: {
     backgroundColor: theme.palette.primary.dark,
@@ -100,6 +106,7 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: 2, // Optical alignment with 'A' below
     [theme.breakpoints.down('sm')]: {
       textAlign: 'center',
+      fontSize: 12,
     }
   },
   '@keyframes fadeInUp': {
@@ -159,12 +166,12 @@ export const Hero = () => {
               Technical Preview
             </Typography>
             <Typography className={classes.heroTitle} color='textPrimary' variant='h1'>
-              Any Protocol.
+              Next-Gen SDKs
               <br/>
-              Any Language.
+              For Web3
             </Typography>
             <Typography className={classes.heroBody} color='textSecondary' variant='body1'>
-              Polywrap is a community governance ecosystem that makes it easy to interact with any web3 protocol from any programming language into any application.
+            Polywrap is a development platform that enables the easy integration of Web3 protocols into any application. It makes it possible for software on any device, written in any language, to read and write data to Web3 protocols.
             </Typography>
             <Button
               className={classes.heroButton}

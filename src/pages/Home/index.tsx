@@ -29,9 +29,9 @@ export const Home = () => {
       <Hero />
       <DemoSection />
       <WhatsPolywrap />
+      <HubCallout />
       <Features />
       <Partners />
-      <HubCallout />
       <Testimonials />
     </Box>
   );

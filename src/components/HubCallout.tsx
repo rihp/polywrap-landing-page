@@ -10,13 +10,17 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     display: 'flex',
     flexDirection: 'column',
-    minHeight: '80vh',
+    minHeight: '60vh',
     position: 'relative',
     zIndex: 2,
-    [theme.breakpoints.down('sm')]: {
+    marginTop: 140,
+    [theme.breakpoints.down('md')]: {
       marginTop: 80,
-      minHeight: 'unset',
+      marginBottom: 80,
     },
+    [theme.breakpoints.up('xs')]: {
+      maxWidth: '90vw'
+    }
   },
   cell: {
     margin: 'auto',
@@ -84,12 +88,11 @@ export const HubCallout = () => {
               </Typography>
               <Box marginTop={2}>
                 <Typography variant="body1">
-                Where you can discover, deploy and interact. Our own factory was born to create APIs within our community and share them as wrappers. Protocol Devs can post their wrappers, and App Devs can browse existing wrappers.
+                Publish, discover, and interact with any Polywrap SDK. Integrating and interacting with Web3 has never been so easy.
                 </Typography>
               </Box>
               <Box marginTop={2}>
                 <Button
-                  // className={classes.heroButton}
                   component="button"
                   color='primary'
                   onClick={() => navigateToPage('/signup')}
@@ -110,8 +113,6 @@ export const HubCallout = () => {
             </Grid>
           </Grid>
         </Box>
-        {/* <Parallax y={[-20, 20]} disabled={window.innerWidth < theme.breakpoints.values.md}>
-        </Parallax> */}
       </Box>
     </Box>
   );
