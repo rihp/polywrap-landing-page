@@ -1,5 +1,12 @@
 import { Parallax } from 'react-scroll-parallax';
-import { Box, Button, Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
+import {
+  Box,
+  Button,
+  Grid,
+  makeStyles,
+  Typography,
+  useTheme,
+} from '@material-ui/core';
 import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined';
 
 const useStyles = makeStyles((theme) => ({
@@ -18,8 +25,8 @@ const useStyles = makeStyles((theme) => ({
       minHeight: 'unset',
     },
     [theme.breakpoints.up('xs')]: {
-      maxWidth: '90vw'
-    }
+      maxWidth: '90vw',
+    },
   },
   grid: {
     justifyContent: 'center',
@@ -48,24 +55,37 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 export const WhatsPolywrap = () => {
   const theme = useTheme();
   const classes = useStyles();
 
   return (
     <Box position='relative' alignItems='flex-start' className={classes.root}>
-      <Parallax y={[20,-35]} disabled={window.innerWidth < theme.breakpoints.values.md}>
-        <Grid container direction={'row-reverse'} spacing={10} alignItems='center' className={classes.grid}>
+      <Parallax
+        y={[20, -35]}
+        disabled={window.innerWidth < theme.breakpoints.values.md}
+      >
+        <Grid
+          container
+          direction={'row-reverse'}
+          spacing={10}
+          alignItems='center'
+          className={classes.grid}
+        >
           <Grid item xs={12} md={7}>
-            <img className={classes.uniswapDemo} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/polywrap-uniswap-demo.png`} alt='' />
+            <img
+              className={classes.uniswapDemo}
+              width='100%'
+              src={`${process.env.PUBLIC_URL}/imgs/assets/polywrap-uniswap-demo.png`}
+              alt=''
+            />
             <Box marginTop={2}>
               <Button
-                href="https://demo.uniswap.polywrap.io/#/swap"
-                target="_blank"
-                rel="noredirect"
-                variant="outlined"
-                color="secondary"
+                href='https://demo.uniswap.polywrap.io/#/swap'
+                target='_blank'
+                rel='noredirect'
+                variant='outlined'
+                color='secondary'
                 endIcon={<KeyboardArrowRightOutlined />}
               >
                 Try the Uniswap Demo
@@ -74,13 +94,30 @@ export const WhatsPolywrap = () => {
           </Grid>
           <Grid item xs={12} md={5}>
             <Typography variant='h3' color='textPrimary' className={classes.h3}>
-            Hyper-Composability Has Arrived
+              Hyper-Composability has Arrived
             </Typography>
-            <Typography variant='body1' color='textSecondary' className={classes.description}>
-              <b>Polywrap makes Web3 protocols as universally accessible as traditional Web2 APIs.</b> Polywrap enabled applications download lightweight SDKs (WebAssembly) from decentralized storage (IPFS) and execute requests (GraphQL) directly inside the application.
+            <Typography
+              variant='body1'
+              color='textSecondary'
+              className={classes.description}
+            >
+              <b>
+                Polywrap makes Web3 protocols as universally accessible as
+                traditional Web2 APIs.
+              </b>{' '}
+              Polywrap enabled applications download lightweight SDKs
+              (WebAssembly) from decentralized storage (IPFS) and execute
+              requests (GraphQL) directly inside the application.
             </Typography>
-            <Typography variant='body1' color='textSecondary' className={classes.description}>
-              Polywrap enables developers to more <b>easily compose and extend protocols</b> while drastically <b>improving performance and security</b> compared to traditional SDKs.
+            <Typography
+              variant='body1'
+              color='textSecondary'
+              className={classes.description}
+            >
+              Polywrap enables developers to more{' '}
+              <b>easily compose and extend protocols</b> while drastically{' '}
+              <b>improving performance and security</b> compared to traditional
+              SDKs.
             </Typography>
           </Grid>
         </Grid>

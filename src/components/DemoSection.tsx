@@ -13,8 +13,8 @@ const useStyles = makeStyles((theme) => ({
       minHeight: '60vh',
     },
     [theme.breakpoints.up('xs')]: {
-      maxWidth: '90vw'
-    }
+      maxWidth: '90vw',
+    },
   },
   grid: {
     justifyContent: 'center',
@@ -52,30 +52,57 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 export const DemoSection = () => {
   const theme = useTheme();
   const classes = useStyles();
 
   return (
     <Box position='relative' className={classes.root}>
-      <Parallax y={[20,-35]} disabled={window.innerWidth < theme.breakpoints.values.md}>
-        <Grid container spacing={10} alignItems='flex-start' className={classes.grid}>
+      <Parallax
+        y={[20, -35]}
+        disabled={window.innerWidth < theme.breakpoints.values.md}
+      >
+        <Grid
+          container
+          spacing={10}
+          alignItems='flex-start'
+          className={classes.grid}
+        >
           <Grid item xs={12} md={6}>
-            <img className={classes.polywrapIllustration} src={process.env.PUBLIC_URL + '/imgs/wrappers-white-wave.svg'} alt='Polywrap - wrapper white wave' />
+            <img
+              className={classes.polywrapIllustration}
+              src={process.env.PUBLIC_URL + '/imgs/wrappers-white-wave.svg'}
+              alt='Polywrap - wrapper white wave'
+            />
           </Grid>
           <Grid item xs={12} md={6}>
-            <Typography variant='h3' color='textPrimary' className={classes.title}>
-              Solving The Web3 Integration Problem
+            <Typography
+              variant='h3'
+              color='textPrimary'
+              className={classes.title}
+            >
+              Solving the Web3 Integration Problem
             </Typography>
-            <Typography variant='body1' color='textSecondary' className={classes.description}>
-              Web3 relies on SDKs to integrate virtually every type of protocol: DeFi, NFTs, DAOs, P2P Networks
+            <Typography
+              variant='body1'
+              color='textSecondary'
+              className={classes.description}
+            >
+              Web3 relies on SDKs to integrate virtually every type of protocol:
+              DeFi, NFTs, DAOs, P2P Networks
             </Typography>
-            <Typography variant='body1' color='textSecondary' className={classes.description}>
-              Due to traditional SDKs’ short-comings, Web3’s technical debt is growing day by day. <u>Traditional SDKs are:</u><br/><b>Insecure, Bloated, Incompatible, and Language-Specific</b>
-            </Typography>
-            <Typography variant='body1' color='textSecondary' className={classes.description}>
-              Polywrap is here to fix this. <u>Polywrap SDKs are:</u><br/><b>Secure, Scalable, Composable, and Language-Agnostic</b>
+            <Typography
+              variant='body1'
+              color='textSecondary'
+              className={classes.description}
+            >
+              Due to traditional SDKs’ short-comings, Web3’s technical debt is
+              growing day by day.
+              <br />
+              <br />
+              Traditional SDKs are:
+              <br />
+              <b>Insecure, Bloated, Incompatible, and Language-Specific</b>
             </Typography>
           </Grid>
         </Grid>

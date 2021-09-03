@@ -15,9 +15,9 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     [theme.breakpoints.up('sm')]: {
       margin: 'auto',
-    }
+    },
   },
-}))
+}));
 
 export const Home = () => {
   ReactGA.pageview('home');
@@ -28,9 +28,9 @@ export const Home = () => {
     <Box className={classes.root}>
       <Hero />
       <DemoSection />
+      <Features />
       <WhatsPolywrap />
       <HubCallout />
-      <Features />
       <Partners />
       <Testimonials />
     </Box>
