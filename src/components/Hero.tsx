@@ -98,17 +98,6 @@ const useStyles = makeStyles((theme) => ({
     padding: 8,
     width: '100%',
   },
-  technicalPreview: {
-    color: polywrapPalette.secondary.end,
-    fontWeight: 700,
-    letterSpacing: 1.5,
-    textTransform: 'uppercase',
-    paddingLeft: 2, // Optical alignment with 'A' below
-    [theme.breakpoints.down('sm')]: {
-      textAlign: 'center',
-      fontSize: 12,
-    },
-  },
   '@keyframes fadeInUp': {
     '0%': {
       opacity: 0,
@@ -171,13 +160,6 @@ export const Hero = () => {
           disabled={window.innerWidth < theme.breakpoints.values.md}
         >
           <Box className={classes.heroContent}>
-            <Typography
-              variant='subtitle2'
-              color='secondary'
-              className={classes.technicalPreview}
-            >
-              Technical Preview
-            </Typography>
             <Typography
               className={classes.heroTitle}
               color='textPrimary'
