@@ -18,13 +18,10 @@ const useStyles = makeStyles((theme) => ({
       marginTop: 80,
       marginBottom: 80,
     },
-    [theme.breakpoints.up('xs')]: {
-      maxWidth: '90vw'
-    }
   },
   cell: {
     margin: 'auto',
-    maxWidth: theme.breakpoints.values.md,
+    maxWidth: '90vw'
   },
   blurredGraphicContainer: {
     position: 'absolute',
@@ -44,16 +41,13 @@ const useStyles = makeStyles((theme) => ({
       padding: 32,
     },
   },
-  hubWireframe: {
-    display: 'flex',
-    flexDirection: 'column',
-    flexGrow: 1,
-  },
   hubWireframeImg: {
     boxShadow: `0 4px 64px ${polywrapPalette.primary.mid}85`,
     borderRadius: 4,
     transformOrigin: 'top left',
-    transform: `scale(1.4) translateY(-8px)`,
+    transform: `translateY(-8px)`,
+    maxHeight: '400px',
+    maxWidth: '100%',
     [theme.breakpoints.down('sm')]: {
       boxShadow: `0 4px 32px ${polywrapPalette.primary.mid}85`,
       width: '100%',
@@ -106,7 +100,7 @@ export const HubCallout = () => {
             </Grid>
             <Grid item xs={12} sm={6}>
               <Parallax y={[24, -24]} disabled={isMobile}>
-                <Box className={classes.hubWireframe}>
+                <Box>
                   <img className={classes.hubWireframeImg} src={process.env.PUBLIC_URL + '/imgs/assets/polywrap-hub-wireframe.png'} alt='Polywrap Hub'/>
                 </Box>
               </Parallax>
