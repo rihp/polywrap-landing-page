@@ -165,9 +165,9 @@ export const launchPartners = [
     alt: ""
   },
   {
-    logo: process.env.PUBLIC_URL + "/logos/omg.png",
-    url: "https://omg.network",
-    alt: "OMG Network"
+    logo: process.env.PUBLIC_URL + "/logos/boba.png",
+    url: "https://boba.network",
+    alt: "Boba Network"
   },
   {
     logo: process.env.PUBLIC_URL + "/logos/enya.png",
