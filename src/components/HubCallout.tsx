@@ -82,10 +82,10 @@ export const HubCallout = () => {
               </Typography>
               <Box marginTop={2}>
                 <Typography variant="body1">
-                Publish, discover, and interact with any Polywrap SDK. Integrating and interacting with Web3 has never been so easy.
+                  Where you can discover, deploy and interact. Our own factory was born to create APIs within our community and share them as wrappers. Protocol Devs can post their wrappers, and App Devs can browse existing wrappers.
                 </Typography>
               </Box>
-              <Box marginTop={2}>
+              {/* <Box marginTop={2}>
                 <Button
                   component="button"
                   color='primary'
@@ -96,7 +96,7 @@ export const HubCallout = () => {
                 >
                   {CTA}
                 </Button>
-              </Box>
+              </Box> */}
             </Grid>
             <Grid item xs={12} sm={6}>
               <Parallax y={[24, -24]} disabled={isMobile}>

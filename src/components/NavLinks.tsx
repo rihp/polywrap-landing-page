@@ -60,7 +60,7 @@ export const NavLinks = (props: NavLinkProps) => {
         className={classes.navButton}
         style={{display: `${(showButton) ? 'flex' : 'none'}`}}
       >
-        {!isMobile ? CTA : CTA.split(' ')[2]}
+        {!isMobile ? CTA : CTA.split(' ')[0]}
       </Button>
     </Box>
   );

@@ -183,9 +183,7 @@ export const Hero = () => {
               color='textPrimary'
               variant='h1'
             >
-              Next-Gen SDKs
-              <br />
-              for Web3
+              Use Web3 Anywhere
             </Typography>
             <Typography
               className={classes.heroBody}
