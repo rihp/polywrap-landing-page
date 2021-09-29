@@ -54,7 +54,7 @@ export const NavLinks = (props: NavLinkProps) => {
         Community
       </Link>
       <Button
-        onClick={() => navigateToPage('/signup')}
+        href='https://discord.gg/bGsqQrNhqd'
         variant='contained' color='primary'
         endIcon={<KeyboardArrowRightOutlined />}
         className={classes.navButton}

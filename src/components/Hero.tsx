@@ -201,7 +201,7 @@ export const Hero = () => {
               className={classes.heroButton}
               component='button'
               color='primary'
-              onClick={() => navigateToPage('/signup')}
+              href='https://discord.gg/bGsqQrNhqd'
               endIcon={<KeyboardArrowRightOutlined />}
               type='submit'
               variant='contained'
