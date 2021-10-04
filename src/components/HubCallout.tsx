@@ -82,8 +82,7 @@ export const HubCallout = () => {
               </Typography>
               <Box marginTop={2}>
                 <Typography variant="body1">
-                  Where you can discover, deploy and interact. Our own factory was born to create APIs within our community and share them as wrappers. Protocol Devs can post their wrappers, and App Devs can browse existing wrappers.
-                </Typography>
+                  A developer-centric platform where you can discover, deploy, and interact with any Polywrapper in the ecosystem. We are paving the road, expecting endless collaboration and curation possibilities. Test and Integrate web3 protocols quickly on the browser with our GraphQL Playground, and publish your packages to decentralised hosting. Soon you'll be able to explore an endless ocean of wrappers, by querying tags like `multisig`, `defi`, or `vesting`. A more semantic web3 that's easy to compose together!                </Typography>
               </Box>
               {/* <Box marginTop={2}>
                 <Button
