@@ -176,7 +176,7 @@ export const Hero = () => {
               color='secondary'
               className={classes.technicalPreview}
             >
-              Technical Preview
+              Pre-Alpha
             </Typography>
             <Typography
               className={classes.heroTitle}
