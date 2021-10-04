@@ -176,16 +176,14 @@ export const Hero = () => {
               color='secondary'
               className={classes.technicalPreview}
             >
-              Technical Preview
+              Pre-Alpha
             </Typography>
             <Typography
               className={classes.heroTitle}
               color='textPrimary'
               variant='h1'
             >
-              Next-Gen SDKs
-              <br />
-              for Web3
+              Use Web3 Anywhere
             </Typography>
             <Typography
               className={classes.heroBody}
@@ -201,7 +199,7 @@ export const Hero = () => {
               className={classes.heroButton}
               component='button'
               color='primary'
-              onClick={() => navigateToPage('/signup')}
+              href='https://discord.gg/bGsqQrNhqd'
               endIcon={<KeyboardArrowRightOutlined />}
               type='submit'
               variant='contained'

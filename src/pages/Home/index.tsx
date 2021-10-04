@@ -29,7 +29,7 @@ export const Home = () => {
       <Hero />
       <DemoSection />
       <Features />
-      <WhatsPolywrap />
+      {/* <WhatsPolywrap /> */}
       <HubCallout />
       <Partners />
       <Testimonials />

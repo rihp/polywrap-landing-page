@@ -120,7 +120,7 @@ export const Features = () => {
       </Box>
       <Parallax y={[-5,5]} disabled={window.innerWidth < theme.breakpoints.values.md}>
         <Typography variant='h3' color='textPrimary' align='center'>
-          Next-Gen SDKs
+          Next-Gen SDKs for Web3
         </Typography>
         <Box className={classes.cell}>
           <Grid container spacing={6} alignItems='flex-start' className={classes.featureGrid}>

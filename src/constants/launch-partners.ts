@@ -15,26 +15,26 @@ export const TESTIMONIALS: Testimonial[] = [
     gatekeepers`,
     url: "https://gnosis.io/",
   },
-  {
-    logo: process.env.PUBLIC_URL + "/logos/pocket.png",
-    persona: "Michael O'Rourke, CEO",
-    description: `By creating one single standard for Web3 developers, 
-    the complexity and user experience of accessing the basic building 
-    blocks for these protocols is massively improved. Pocket aims to 
-    provide a neutral networking stack, allowing Polywrap users to easily
-    connect to any protocol they are building on.`,
-    url: "https://www.pokt.network",
-  },
-  {
-    logo: process.env.PUBLIC_URL + "/logos/fleek.png",
-    persona: "Harrison Hines, CEO",
-    description: `Our leading product (the open source Space Daemon for building dweb apps) 
-    currently only works on desktop, and the most elegant way we can get it to work in the 
-    browser and mobile (without centralizing some aspects of the Daemon) is with Polywrap. 
-    Also the experience for developers building dweb apps on top of the Space Daemon will 
-    be much better once we convert it into Polywrap modules.`,
-    url: "https://fleek.co/",
-  },
+  // {
+  //   logo: process.env.PUBLIC_URL + "/logos/pocket.png",
+  //   persona: "Michael O'Rourke, CEO",
+  //   description: `By creating one single standard for Web3 developers, 
+  //   the complexity and user experience of accessing the basic building 
+  //   blocks for these protocols is massively improved. Pocket aims to 
+  //   provide a neutral networking stack, allowing Polywrap users to easily
+  //   connect to any protocol they are building on.`,
+  //   url: "https://www.pokt.network",
+  // },
+  // {
+  //   logo: process.env.PUBLIC_URL + "/logos/fleek.png",
+  //   persona: "Harrison Hines, CEO",
+  //   description: `Our leading product (the open source Space Daemon for building dweb apps) 
+  //   currently only works on desktop, and the most elegant way we can get it to work in the 
+  //   browser and mobile (without centralizing some aspects of the Daemon) is with Polywrap. 
+  //   Also the experience for developers building dweb apps on top of the Space Daemon will 
+  //   be much better once we convert it into Polywrap modules.`,
+  //   url: "https://fleek.co/",
+  // },
   {
     logo: process.env.PUBLIC_URL + "/logos/gelato.png",
     persona: "Hilmar X, Legendary Member",
@@ -43,15 +43,15 @@ export const TESTIMONIALS: Testimonial[] = [
     provide arbitrary instructions to a decentralized network of bots with a single Web3 api call.`,
     url: "https://gelato.network/",
   },
-  {
-    logo: process.env.PUBLIC_URL + "/logos/abridged.png",
-    persona: "James Duncan, Co-Founder",
-    description: `Polywrap aligns with Abridged's vision of lowering the barrier for smart contract 
-    "remixing". More importantly the team behind the project is smart, passionate and know how to ship. 
-    We can not wait to integrate polywrap in to our no-code platform and fulfil 
-    the vision of making money legos accessible to everyone.`,
-    url: "https://abridged.io/",
-  },
+  // {
+  //   logo: process.env.PUBLIC_URL + "/logos/abridged.png",
+  //   persona: "James Duncan, Co-Founder",
+  //   description: `Polywrap aligns with Abridged's vision of lowering the barrier for smart contract 
+  //   "remixing". More importantly the team behind the project is smart, passionate and know how to ship. 
+  //   We can not wait to integrate polywrap in to our no-code platform and fulfil 
+  //   the vision of making money legos accessible to everyone.`,
+  //   url: "https://abridged.io/",
+  // },
   /*{
     logo: process.env.PUBLIC_URL + "/logos/squad.png",
     persona: "Jesse B. Miller, Co-Founder",
@@ -71,16 +71,16 @@ export const TESTIMONIALS: Testimonial[] = [
     and it looks very promising.`,
     url: "https://rockside.io/",
   },*/
-  {
-    logo: process.env.PUBLIC_URL + "/logos/mantradao.png",
-    persona: "John Patrick Mullin, Co-Founder",
-    description: `With cross-chain DeFi products at the core of what MANTRA DAO is building, 
-    this inherently involves building a tech stack that is blockchain and programming language 
-    agnostic. We believe that what Polywrap is building is truly novel, and are looking forward 
-    to being a launch partner and strong participant within the Polywrap DAO.
-    `,
-    url: "https://mantradao.com/",
-  },
+  // {
+  //   logo: process.env.PUBLIC_URL + "/logos/mantradao.png",
+  //   persona: "John Patrick Mullin, Co-Founder",
+  //   description: `With cross-chain DeFi products at the core of what MANTRA DAO is building, 
+  //   this inherently involves building a tech stack that is blockchain and programming language 
+  //   agnostic. We believe that what Polywrap is building is truly novel, and are looking forward 
+  //   to being a launch partner and strong participant within the Polywrap DAO.
+  //   `,
+  //   url: "https://mantradao.com/",
+  // },
 ];
 
 export const launchPartners = [
