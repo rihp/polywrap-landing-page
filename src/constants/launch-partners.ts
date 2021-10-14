@@ -145,6 +145,11 @@ export const launchPartners = [
     alt: "DXDAO"
   },
   {
+    logo: process.env.PUBLIC_URL + "/logos/composable.png",
+    url: "https://www.composable.finance/",
+    alt: "Composable Finance"
+  },
+  {
     logo: process.env.PUBLIC_URL + "/logos/squad.png",
     url: "https://squad.games/",
     alt: "Squad Games"
