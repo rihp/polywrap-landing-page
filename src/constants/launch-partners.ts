@@ -167,7 +167,12 @@ export const launchPartners = [
   {
     logo: process.env.PUBLIC_URL + "/logos/jarvis.png",
     url: "https://jarvis.network",
-    alt: ""
+    alt: "Jarvis"
+  },
+  {
+    logo: process.env.PUBLIC_URL + "/logos/dehive.png",
+    url: "https://dehive.finance",
+    alt: "DeHive"
   },
   {
     logo: process.env.PUBLIC_URL + "/logos/boba.png",
@@ -177,7 +182,7 @@ export const launchPartners = [
   {
     logo: process.env.PUBLIC_URL + "/logos/enya.png",
     url: "https://enya.ai",
-    alt: ""
+    alt: "Enya"
   },
   {
     logo: process.env.PUBLIC_URL + "/logos/chainstack.png",
