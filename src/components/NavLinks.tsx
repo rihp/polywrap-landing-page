@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Button, Link, useMediaQuery, useTheme } from '@material-ui/core';
-import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined'
+import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined';
 import { polywrapPalette } from '../theme';
 import { CTA } from '../constants/verbiage';
 
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 interface NavLinkProps {
-  type?: "footer";
+  type?: 'footer';
   scrollPosition: number;
 }
 
@@ -37,28 +37,50 @@ export const NavLinks = (props: NavLinkProps) => {
     navigateToPage = (route: string) => history.push(route),
     scrollPosition = props.scrollPosition,
     isMobile = useMediaQuery(theme.breakpoints.down('sm'), {
-      defaultMatches: true
+      defaultMatches: true,
     }),
-    showButton = (!isMobile || scrollPosition > 150),
+    showButton = !isMobile || scrollPosition > 150,
     classes = useStyles();
 
   return (
     <Box display='flex' alignItems='center' flexWrap='nowrap'>
-      <Link className={classes.navLink} href='https://docs.polywrap.io/' target='_blank' color='textSecondary' variant='body1' style={{display: `${(!showButton || !isMobile) ? 'block' : 'none'}`}}>
-        Docs
+      <Link
+        className={classes.navLink}
+        href='https://docs.polywrap.io/'
+        target='_blank'
+        color='textSecondary'
+        variant='body1'
+        style={{ display: `${!showButton || !isMobile ? 'block' : 'none'}` }}
+      >
+        Documentation
       </Link>
-      <Link className={classes.navLink} href='https://forum.polywrap.io/c/job-postings/41' target='_blank' color='textSecondary' variant='body1' style={{display: `${(!showButton || !isMobile) ? 'block' : 'none'}`}}>
-        Jobs
-      </Link>
-      <Link className={classes.navLink} href='https://discord.com/invite/Z5m88a5qWu' target='_blank' color='textSecondary' variant='body1' style={{display: `${(!showButton || !isMobile) ? 'block' : 'none'}`}}>
+      <Link
+        className={classes.navLink}
+        href='https://discord.com/invite/Z5m88a5qWu'
+        target='_blank'
+        color='textSecondary'
+        variant='body1'
+        style={{ display: `${!showButton || !isMobile ? 'block' : 'none'}` }}
+      >
         Community
+      </Link>
+      <Link
+        className={classes.navLink}
+        href='https://forum.polywrap.io/c/job-postings/41'
+        target='_blank'
+        color='textSecondary'
+        variant='body1'
+        style={{ display: `${!showButton || !isMobile ? 'block' : 'none'}` }}
+      >
+        Careers
       </Link>
       <Button
         href='https://discord.gg/bGsqQrNhqd'
-        variant='contained' color='primary'
+        variant='contained'
+        color='primary'
         endIcon={<KeyboardArrowRightOutlined />}
         className={classes.navButton}
-        style={{display: `${(showButton) ? 'flex' : 'none'}`}}
+        style={{ display: `${showButton ? 'flex' : 'none'}` }}
       >
         {!isMobile ? CTA : CTA.split(' ')[0]}
       </Button>

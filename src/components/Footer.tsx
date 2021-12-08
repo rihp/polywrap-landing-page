@@ -1,5 +1,5 @@
-import { Box, Container, Grid, Link, Typography } from '@material-ui/core'
-import { EmailForm } from './EmailForm'
+import { Box, Container, Grid, Link, Typography } from '@material-ui/core';
+import { EmailForm } from './EmailForm';
 import { polywrapPalette } from '../theme';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: theme.spacing(1),
       paddingTop: theme.spacing(8),
       paddingBottom: theme.spacing(8),
-      width: `calc(100% + ${theme.spacing(3)*2}px)`,
+      width: `calc(100% + ${theme.spacing(3) * 2}px)`,
     },
   },
   cell: {},
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     },
     '&:hover': {
       opacity: 0.8,
-    }
+    },
   },
   socialContainer: {
     display: 'flex',
@@ -72,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'block',
     fontSize: 14,
     [theme.breakpoints.down('xs')]: {
-      fontSize: 12
+      fontSize: 12,
     },
   },
 }));
@@ -81,91 +81,136 @@ export const Footer = () => {
   const classes = useStyles();
 
   return (
-    <Box component="footer" className={classes.root}>
+    <Box component='footer' className={classes.root}>
       <Container className={classes.cell}>
-        <Grid container justify="space-between" spacing={6}>
+        <Grid container justify='space-between' spacing={6}>
           <Grid item xs={12} md={7}>
-            <img src={process.env.PUBLIC_URL + '/logos/polywrap-horizontal.svg'} alt='Polywrap Logo' className={classes.logo} />
+            <img
+              src={process.env.PUBLIC_URL + '/logos/polywrap-horizontal.svg'}
+              alt='Polywrap Logo'
+              className={classes.logo}
+            />
             <Box marginTop={3}>
-            <Grid container spacing={4}>
-              <Grid item xs={6} sm={3}>
-                <Typography variant="h6">
-                  Code
-                </Typography>
-                <Box marginTop={2}>
-                  <Box className={classes.footerDivider} />
-                  <Link className={`${classes.navLink} ${classes.footerLink}`} href='https://github.com/polywrap/monorepo' target='_blank' color="textPrimary" variant='body1'>
-                    Toolchain
-                  </Link>
-                  <Link className={`${classes.navLink} ${classes.footerLink}`} href='https://github.com/polywrap/hub' target='_blank' color="textPrimary" variant='body1'>
-                    The Hub
-                  </Link>
-                  <Link className={`${classes.navLink} ${classes.footerLink}`} href='https://docs.polywrap.io/' target='_blank' color="textPrimary" variant='body1'>
-                    Docs
-                  </Link>
-                </Box>
+              <Grid container spacing={4}>
+                <Grid item xs={6} sm={3}>
+                  <Typography variant='h6'>Code</Typography>
+                  <Box marginTop={2}>
+                    <Box className={classes.footerDivider} />
+                    <Link
+                      className={`${classes.navLink} ${classes.footerLink}`}
+                      href='https://github.com/polywrap/monorepo'
+                      target='_blank'
+                      color='textPrimary'
+                      variant='body1'
+                    >
+                      Toolchain
+                    </Link>
+                    <Link
+                      className={`${classes.navLink} ${classes.footerLink}`}
+                      href='https://github.com/polywrap/hub'
+                      target='_blank'
+                      color='textPrimary'
+                      variant='body1'
+                    >
+                      The Hub
+                    </Link>
+                    <Link
+                      className={`${classes.navLink} ${classes.footerLink}`}
+                      href='https://docs.polywrap.io/'
+                      target='_blank'
+                      color='textPrimary'
+                      variant='body1'
+                    >
+                      Docs
+                    </Link>
+                  </Box>
+                </Grid>
+                <Grid item xs={6} sm={3}>
+                  <Typography variant='h6'>Social</Typography>
+                  <Box marginTop={2}>
+                    <Box className={classes.footerDivider} />
+                    <Link
+                      className={`${classes.navLink} ${classes.footerLink}`}
+                      href='https://discord.com/invite/Z5m88a5qWu'
+                      target='_blank'
+                      color='textPrimary'
+                      variant='body1'
+                    >
+                      Discord
+                    </Link>
+                    <Link
+                      className={`${classes.navLink} ${classes.footerLink}`}
+                      href='https://twitter.com/polywrap_io'
+                      target='_blank'
+                      color='textPrimary'
+                      variant='body1'
+                    >
+                      Twitter
+                    </Link>
+                    <Link
+                      className={`${classes.navLink} ${classes.footerLink}`}
+                      href='https://blog.polywrap.io/'
+                      target='_blank'
+                      color='textPrimary'
+                      variant='body1'
+                    >
+                      Blog
+                    </Link>
+                  </Box>
+                </Grid>
+                <Grid item xs={6} sm={3}>
+                  <Typography variant='h6'>Governance</Typography>
+                  <Box marginTop={2}>
+                    <Box className={classes.footerDivider} />
+                    <Link
+                      className={`${classes.navLink} ${classes.footerLink}`}
+                      href='https://handbook.polywrap.io'
+                      target='_blank'
+                      color='textPrimary'
+                      variant='body1'
+                    >
+                      Handbook
+                    </Link>
+                    <Link
+                      className={`${classes.navLink} ${classes.footerLink}`}
+                      href='https://gnosis-safe.io/app/#/safes/0x8c3FA50473065f1D90f186cA8ba1Aa76Aee409Bb/balances'
+                      target='_blank'
+                      color='textPrimary'
+                      variant='body1'
+                    >
+                      Funds
+                    </Link>
+                    <Link
+                      className={`${classes.navLink} ${classes.footerLink}`}
+                      href='https://snapshot.org/#/polywrap.eth'
+                      target='_blank'
+                      color='textPrimary'
+                      variant='body1'
+                    >
+                      Voting
+                    </Link>
+                    <Link
+                      className={`${classes.navLink} ${classes.footerLink}`}
+                      href='https://forum.polywrap.io'
+                      target='_blank'
+                      color='textPrimary'
+                      variant='body1'
+                    >
+                      Forum
+                    </Link>
+                  </Box>
+                </Grid>
               </Grid>
-              <Grid item xs={6} sm={3}>
-                <Typography variant="h6">
-                  Social
-                </Typography>
-                <Box marginTop={2}>
-                  <Box className={classes.footerDivider} />
-                  <Link className={`${classes.navLink} ${classes.footerLink}`} href='https://discord.com/invite/Z5m88a5qWu' target='_blank' color="textPrimary" variant='body1'>
-                    Discord
-                  </Link>
-                  <Link className={`${classes.navLink} ${classes.footerLink}`} href='https://twitter.com/polywrap_io' target='_blank' color="textPrimary" variant='body1'>
-                    Twitter
-                  </Link>
-                  <Link className={`${classes.navLink} ${classes.footerLink}`} href='https://blog.polywrap.io/' target='_blank' color="textPrimary" variant='body1'>
-                    Blog
-                  </Link>
-                </Box>
-              </Grid>
-              <Grid item xs={6} sm={3}>
-                <Typography variant="h6">
-                  Governance
-                </Typography>
-                <Box marginTop={2}>
-                  <Box className={classes.footerDivider} />
-                  <Link className={`${classes.navLink} ${classes.footerLink}`} href='https://gnosis-safe.io/app/#/safes/0x8c3FA50473065f1D90f186cA8ba1Aa76Aee409Bb/balances' target='_blank' color="textPrimary" variant='body1'>
-                    Funds
-                  </Link>
-                  <Link className={`${classes.navLink} ${classes.footerLink}`} href='https://snapshot.org/#/polywrap.eth' target='_blank' color="textPrimary" variant='body1'>
-                    Voting
-                  </Link>
-                  <Link className={`${classes.navLink} ${classes.footerLink}`} href='https://forum.polywrap.io' target='_blank' color="textPrimary" variant='body1'>
-                    Forum
-                  </Link>
-                </Box>
-              </Grid>
-              <Grid item xs={6} sm={3}>
-                <Typography variant="h6">
-                  Contact
-                </Typography>
-                <Box marginTop={2}>
-                  <Box className={classes.footerDivider} />
-                  <Link className={`${classes.navLink} ${classes.footerLink}`} href='https://airtable.com/shrzxezSAlpoUUZNV' target='_blank' color="textPrimary" variant='body1'>
-                    Join Us
-                  </Link>
-                  <Link className={`${classes.navLink} ${classes.footerLink}`} href='https://airtable.com/shra8gDgo8EgrRT6c' target='_blank' color="textPrimary" variant='body1'>
-                    Become a Partner
-                  </Link>
-                </Box>
-              </Grid>
-            </Grid>
             </Box>
           </Grid>
           <Grid item xs={12} md={5}>
-            <Typography variant="h4">
-              Get Wrapped
-            </Typography>
+            <Typography variant='h4'>Get Wrapped</Typography>
             <Box marginTop={5}>
-              <EmailForm location="footer"/>
+              <EmailForm location='footer' />
             </Box>
           </Grid>
         </Grid>
       </Container>
     </Box>
   );
-}
+};
