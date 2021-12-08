@@ -56,7 +56,7 @@ export const NavLinks = (props: NavLinkProps) => {
       </Link>
       <Link
         className={classes.navLink}
-        href='https://discord.com/invite/Z5m88a5qWu'
+        href='https://handbook.polywrap.io'
         target='_blank'
         color='textSecondary'
         variant='body1'
