@@ -13,8 +13,10 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import './App.css';
 
-
-
+require('dotenv').config();
+console.log("This is my site which im querying");
+//const api_endpoint = process.env.REACT_APP_CMS_SITE;
+console.log("MY_VARIABLE: " + process.env.REACT_APP_CMS_TOKEN);
 
 const useStyles = makeStyles((theme) => ({
   wrapper: {
@@ -32,22 +34,26 @@ const useStyles = makeStyles((theme) => ({
 
 const App: React.FC = () => {
   const classes = useStyles();
+
   ////////////////////////////
   // Begin CMS implementation
   console.log("Hello world! this is my query");
 
   const cmsQuery = `{ webContent(id:"6DWrAojZUdPcTSDXGip5PN") { title } } `;
   console.log(cmsQuery);
+ //  console.log(process.env)
+
+
 
   const [content, setContent] = useState(null);
 
   useEffect(() => {
     window
-      .fetch(`https://graphql.contentful.com/content/v1/[SPACE_ID_GOES_HERE]/`, {
+      .fetch(process.env.REACT_APP_CMS_SITE as string, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer [BEARER_TOKEN_GOES_HERE]",
+          "Authorization": process.env.REACT_APP_CMS_TOKEN as string,
         },
         body: JSON.stringify({ cmsQuery }),
       })
