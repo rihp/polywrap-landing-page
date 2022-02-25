@@ -10,3 +10,7 @@
 ## Theme 
 
 Color and themes should be modified from the `src/theme/index.ts` file, by updating constants.
+
+## CMS 
+
+Part of the content of the site is fed through a Headless CMS system. (contentful)
