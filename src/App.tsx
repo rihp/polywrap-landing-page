@@ -39,11 +39,12 @@ const App: React.FC = () => {
   // Begin CMS implementation
   console.log("Hello world! this is my query");
 
-  const cmsQuery = `{ webContent(id:"6DWrAojZUdPcTSDXGip5PN") { title } } `;
+  const cmsQuery = `query { 
+     webContent(id:"6DWrAojZUdPcTSDXGip5PN") { 
+      title 
+    } 
+  }`;
   console.log(cmsQuery);
- //  console.log(process.env)
-
-
 
   const [content, setContent] = useState(null);
 
@@ -68,7 +69,7 @@ const App: React.FC = () => {
         console.log(content);
         //setContent(data.webContent.items[0]);
       });
-  }, []);
+  });
 
   // End CMS Implementation 
   ////////////////////////////
