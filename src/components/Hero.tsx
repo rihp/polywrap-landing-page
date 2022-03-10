@@ -194,9 +194,9 @@ export const Hero = () => {
           console.error(errors);
         }
 
-        const heroTitle = data.webContent.title
+        //const heroTitle = data.webContent.title
         //console.log("This is the data:", heroTitle);
-        //setContent(data.webContent.items[0]);
+        setContent(data.webContent.title);
       });
       //console.log("and it can live out of the window:", heroTitle);
 
@@ -234,7 +234,7 @@ export const Hero = () => {
               color='textPrimary'
               variant='h1'
             >
-             heroTitle
+             {content}
             </Typography>
             <Typography
               className={classes.heroBody}
