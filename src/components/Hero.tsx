@@ -1,4 +1,4 @@
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 import { Parallax } from 'react-scroll-parallax';
 import {
   Box,
@@ -162,12 +162,13 @@ export const Hero = () => {
   const classes = useStyles();
   const matches = useMediaQuery(theme.breakpoints.down('xs'));
 
-  const history = useHistory();
-  const navigateToPage = (route: string) => history.push(route);
+  //const history = useHistory();
+  //const navigateToPage = (route: string) => history.push(route);
 
 
-  ////////////////////////////
-  // Begin CMS implementation
+    ///////////////////////////////////////////////////////
+   //////  Beginning of CMS Data fetch   vvvvvv
+  ///////////////////////////////////////////////////////
   const cmsQuery = `query { 
      webContent(id:"6DWrAojZUdPcTSDXGip5PN") { 
       title 
@@ -194,21 +195,17 @@ export const Hero = () => {
           console.error(errors);
         }
 
-        //const heroTitle = data.webContent.title
-        //console.log("This is the data:", heroTitle);
         setContent(data.webContent.title);
+        //console.log("This is the data:", content);
+
       });
-      //console.log("and it can live out of the window:", heroTitle);
-
   });
-  //console.log("and it can live out of the useEffect:", heroTitle);
-
-  // End CMS Implementation 
-  ////////////////////////////
-
+    ///////////////////////////////////////////////////////
+   //////// End of the CMS Data Fetch    ^^^^
+  ///////////////////////////////////////////////////////
 
   return (
-    //console.log("and it can be returned:", heroTitle),
+    // TODO: Pass all of the content pieces below as necessary
     <Grid
       className={classes.root}
       container

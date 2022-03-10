@@ -1,9 +1,12 @@
-import { useHistory } from 'react-router-dom';
 import { Parallax } from 'react-scroll-parallax';
-import { Box, Button, Grid, makeStyles, Typography, useMediaQuery, useTheme } from '@material-ui/core';
-import { KeyboardArrowRightOutlined } from '@material-ui/icons';
+import { Box, Grid, makeStyles, Typography, useMediaQuery, useTheme } from '@material-ui/core';
 import { polywrapPalette } from '../theme';
-import { CTA } from '../constants/verbiage';
+
+//These imports are for multiple slides/caroussel effect
+//import { useHistory } from 'react-router-dom';
+//import { KeyboardArrowRightOutlined } from '@material-ui/icons';
+//import { CTA } from '../constants/verbiage';
+//import Button from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,8 +62,8 @@ const useStyles = makeStyles((theme) => ({
 
 export const HubCallout = () => {
   const theme = useTheme();
-  const history = useHistory();
-  const navigateToPage = (route: string) => history.push(route);
+  //const history = useHistory();
+  //const navigateToPage = (route: string) => history.push(route);
   const classes = useStyles();
   const isMobile = useMediaQuery(theme.breakpoints.down('xs'), {
     defaultMatches: true
