@@ -13,6 +13,14 @@ import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOut
 import { polywrapPalette } from '../theme';
 import { CTA } from '../constants/verbiage';
 
+
+import {useState, useEffect} from 'react';
+require('dotenv').config();
+console.log("This is my site which im querying");
+//const api_endpoint = process.env.REACT_APP_CMS_SITE;
+console.log("MY_VARIABLE: " + process.env.REACT_APP_CMS_TOKEN);
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: '100vh',
@@ -157,7 +165,50 @@ export const Hero = () => {
   const history = useHistory();
   const navigateToPage = (route: string) => history.push(route);
 
+
+  ////////////////////////////
+  // Begin CMS implementation
+  const cmsQuery = `query { 
+     webContent(id:"6DWrAojZUdPcTSDXGip5PN") { 
+      title 
+    } 
+  }`;
+
+  const [content, setContent] = useState(null);
+
+  useEffect(() => {
+    window
+      .fetch(process.env.REACT_APP_CMS_SITE as string, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": process.env.REACT_APP_CMS_TOKEN as string,
+        },
+        body: JSON.stringify({ "query":cmsQuery }),
+      })
+
+      .then((response) => response.json())
+      .then(({ data, errors }) => {
+        if (errors) {
+          console.log("There was an error with the query:");
+          console.error(errors);
+        }
+
+        const heroTitle = data.webContent.title
+        //console.log("This is the data:", heroTitle);
+        //setContent(data.webContent.items[0]);
+      });
+      //console.log("and it can live out of the window:", heroTitle);
+
+  });
+  //console.log("and it can live out of the useEffect:", heroTitle);
+
+  // End CMS Implementation 
+  ////////////////////////////
+
+
   return (
+    //console.log("and it can be returned:", heroTitle),
     <Grid
       className={classes.root}
       container
@@ -183,7 +234,7 @@ export const Hero = () => {
               color='textPrimary'
               variant='h1'
             >
-              Use Web3 Anywhere.
+             heroTitle
             </Typography>
             <Typography
               className={classes.heroBody}
