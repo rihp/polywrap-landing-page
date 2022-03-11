@@ -1,4 +1,4 @@
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 import { Parallax } from 'react-scroll-parallax';
 import {
   Box,
@@ -160,8 +160,8 @@ export const Hero = () => {
   const classes = useStyles();
   const matches = useMediaQuery(theme.breakpoints.down('xs'));
 
-  const history = useHistory();
-  const navigateToPage = (route: string) => history.push(route);
+  //const history = useHistory();
+  //const navigateToPage = (route: string) => history.push(route);
 
 
     ///////////////////////////////////////////////////////
@@ -203,20 +203,18 @@ export const Hero = () => {
         setTitle(data.webContent.title);
         setSubtitle(data.webContent.subtitle)
         setDescription(data.webContent.description)
-        // supportImage is not used yet as the received data is not rightly formatted
+        // TODO: supportImage is not used yet as the received data is not rightly formatted
         setSupportImage(data.webContent.supportImage)
         setCTA2(data.webContent.callToAction)
 
       });
-
   });
     ///////////////////////////////////////////////////////
    //////// End of the CMS Data Fetch    ^^^^
   ///////////////////////////////////////////////////////
 
-
   return (
-    
+    // TODO: Pass the supportImage to the <img> div below
     <Grid
       className={classes.root}
       container
