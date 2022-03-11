@@ -1,4 +1,5 @@
 //import { useHistory } from 'react-router-dom';
+import {useState, useEffect} from 'react';
 import { Parallax } from 'react-scroll-parallax';
 import {
   Box,
@@ -13,8 +14,11 @@ import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOut
 import { polywrapPalette } from '../theme';
 // TODO: should we deprecate the verbiage folder?
 //import { CTA } from '../constants/verbiage';
+// WIP: Try to modularize the CMS query
+import * as QM from './QueryModule';
 
-import {useState, useEffect} from 'react';
+QM.CommonOne()
+
 require('dotenv').config();
 console.log("MY_VARIABLE: " + process.env.REACT_APP_CMS_TOKEN);
 
@@ -179,7 +183,7 @@ export const Hero = () => {
   const [title, setTitle] = useState(null);
   const [subtitle, setSubtitle] = useState(null);
   const [description, setDescription] = useState(null);
-  const [supportImage, setSupportImage] = useState(null);
+  //const [supportImage, setSupportImage] = useState(null);
   const [CTA2, setCTA2] = useState(null);
 
   useEffect(() => {
@@ -204,11 +208,11 @@ export const Hero = () => {
         setSubtitle(data.webContent.subtitle)
         setDescription(data.webContent.description)
         // TODO: supportImage is not used yet as the received data is not rightly formatted
-        setSupportImage(data.webContent.supportImage)
+        //setSupportImage(data.webContent.supportImage)
         setCTA2(data.webContent.callToAction)
 
       });
-  });
+    });
     ///////////////////////////////////////////////////////
    //////// End of the CMS Data Fetch    ^^^^
   ///////////////////////////////////////////////////////
