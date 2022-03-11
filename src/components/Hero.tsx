@@ -178,6 +178,11 @@ export const Hero = () => {
 
   const [title, setTitle] = useState(null);
   const [subtitle, setSubtitle] = useState(null);
+  const [description, setDescription] = useState(null);
+  const [supportImage, setSupportImage] = useState(null);
+  const [CTA2, setCTA2] = useState(null);
+
+
 
   useEffect(() => {
     window
@@ -201,6 +206,9 @@ export const Hero = () => {
         //console.log("This is the data:", heroTitle);
         setTitle(data.webContent.title);
         setSubtitle(data.webContent.subtitle)
+        setDescription(data.webContent.description)
+        setSupportImage(data.webContent.supportImage)
+
       });
       //console.log("and it can live out of the window:", heroTitle);
 
