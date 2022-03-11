@@ -171,10 +171,13 @@ export const Hero = () => {
   const cmsQuery = `query { 
      webContent(id:"6DWrAojZUdPcTSDXGip5PN") { 
       title 
+      subtitle
+      description
     } 
   }`;
 
-  const [content, setContent] = useState(null);
+  const [title, setTitle] = useState(null);
+  const [subtitle, setSubtitle] = useState(null);
 
   useEffect(() => {
     window
@@ -196,19 +199,20 @@ export const Hero = () => {
 
         //const heroTitle = data.webContent.title
         //console.log("This is the data:", heroTitle);
-        setContent(data.webContent.title);
+        setTitle(data.webContent.title);
+        setSubtitle(data.webContent.subtitle)
       });
       //console.log("and it can live out of the window:", heroTitle);
 
   });
-  //console.log("and it can live out of the useEffect:", heroTitle);
+  console.log("and it can live out of the useEffect:", subtitle);
 
   // End CMS Implementation 
   ////////////////////////////
 
 
   return (
-    //console.log("and it can be returned:", heroTitle),
+    
     <Grid
       className={classes.root}
       container
@@ -227,14 +231,14 @@ export const Hero = () => {
               color='secondary'
               className={classes.technicalPreview}
             >
-              Pre-Alpha
+              {subtitle}
             </Typography>
             <Typography
               className={classes.heroTitle}
               color='textPrimary'
               variant='h1'
             >
-             {content}
+             {title}
             </Typography>
             <Typography
               className={classes.heroBody}
