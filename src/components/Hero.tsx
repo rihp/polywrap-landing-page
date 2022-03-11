@@ -11,13 +11,11 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined';
 import { polywrapPalette } from '../theme';
-import { CTA } from '../constants/verbiage';
-
+// TODO: should we deprecate the verbiage folder?
+//import { CTA } from '../constants/verbiage';
 
 import {useState, useEffect} from 'react';
 require('dotenv').config();
-console.log("This is my site which im querying");
-//const api_endpoint = process.env.REACT_APP_CMS_SITE;
 console.log("MY_VARIABLE: " + process.env.REACT_APP_CMS_TOKEN);
 
 
@@ -172,10 +170,17 @@ export const Hero = () => {
   const cmsQuery = `query { 
      webContent(id:"6DWrAojZUdPcTSDXGip5PN") { 
       title 
+      subtitle
+      description
+      callToAction
     } 
   }`;
 
-  const [content, setContent] = useState(null);
+  const [title, setTitle] = useState(null);
+  const [subtitle, setSubtitle] = useState(null);
+  const [description, setDescription] = useState(null);
+  const [supportImage, setSupportImage] = useState(null);
+  const [CTA2, setCTA2] = useState(null);
 
   useEffect(() => {
     window
@@ -195,8 +200,12 @@ export const Hero = () => {
           console.error(errors);
         }
 
-        setContent(data.webContent.title);
-        //console.log("This is the data:", content);
+        setTitle(data.webContent.title);
+        setSubtitle(data.webContent.subtitle)
+        setDescription(data.webContent.description)
+        // TODO: supportImage is not used yet as the received data is not rightly formatted
+        setSupportImage(data.webContent.supportImage)
+        setCTA2(data.webContent.callToAction)
 
       });
   });
@@ -205,7 +214,7 @@ export const Hero = () => {
   ///////////////////////////////////////////////////////
 
   return (
-    // TODO: Pass all of the content pieces below as necessary
+    // TODO: Pass the supportImage to the <img> div below
     <Grid
       className={classes.root}
       container
@@ -224,24 +233,21 @@ export const Hero = () => {
               color='secondary'
               className={classes.technicalPreview}
             >
-              Pre-Alpha
+              {subtitle}
             </Typography>
             <Typography
               className={classes.heroTitle}
               color='textPrimary'
               variant='h1'
             >
-             {content}
+             {title}
             </Typography>
             <Typography
               className={classes.heroBody}
               color='textSecondary'
               variant='body1'
             >
-              Polywrap is a development platform that enables easy integration
-              of Web3 protocols into any application. It makes it possible for
-              software on any device, written in any language, to read and write
-              data to Web3 protocols.
+              {description}
             </Typography>
             <Button
               className={classes.heroButton}
@@ -252,7 +258,7 @@ export const Hero = () => {
               type='submit'
               variant='contained'
             >
-              {CTA}
+              {CTA2}
             </Button>
           </Box>
         </Parallax>
