@@ -15,13 +15,7 @@ import { polywrapPalette } from '../theme';
 // TODO: should we deprecate the verbiage folder?
 //import { CTA } from '../constants/verbiage';
 // WIP: Try to modularize the CMS query
-import * as QM from './QueryModule';
-
-QM.CommonOne()
-
-require('dotenv').config();
-console.log("MY_VARIABLE: " + process.env.REACT_APP_CMS_TOKEN);
-
+import { ContentfulFetcher } from './QueryModule';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -159,6 +153,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// NEW CMS INTEGREATION
+const cmsQuery = `query { 
+  webContent(id:"6DWrAojZUdPcTSDXGip5PN") { 
+   title 
+   subtitle
+   description
+   callToAction
+ } 
+}`;
+const data = ContentfulFetcher(cmsQuery)
+console.log("On the component", data)
+// NEW CMS INTEGREATION
+
+
 export const Hero = () => {
   const theme = useTheme();
   const classes = useStyles();
@@ -167,18 +175,10 @@ export const Hero = () => {
   //const history = useHistory();
   //const navigateToPage = (route: string) => history.push(route);
 
-
     ///////////////////////////////////////////////////////
    //////  Beginning of CMS Data fetch   vvvvvv
   ///////////////////////////////////////////////////////
-  const cmsQuery = `query { 
-     webContent(id:"6DWrAojZUdPcTSDXGip5PN") { 
-      title 
-      subtitle
-      description
-      callToAction
-    } 
-  }`;
+
 
   const [title, setTitle] = useState(null);
   const [subtitle, setSubtitle] = useState(null);
@@ -187,32 +187,18 @@ export const Hero = () => {
   const [CTA2, setCTA2] = useState(null);
 
   useEffect(() => {
-    window
-      .fetch(process.env.REACT_APP_CMS_SITE as string, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": process.env.REACT_APP_CMS_TOKEN as string,
-        },
-        body: JSON.stringify({ "query":cmsQuery }),
-      })
+    //const { webContent.title, webContent.subtitle } = QueryModule(query)
 
-      .then((response) => response.json())
-      .then(({ data, errors }) => {
-        if (errors) {
-          console.log("There was an error with the query:");
-          console.error(errors);
-        }
-
-        setTitle(data.webContent.title);
-        setSubtitle(data.webContent.subtitle)
-        setDescription(data.webContent.description)
-        // TODO: supportImage is not used yet as the received data is not rightly formatted
-        //setSupportImage(data.webContent.supportImage)
-        setCTA2(data.webContent.callToAction)
-
-      });
-    });
+    //setTitle(data);
+    /* 
+    setSubtitle(data.webContent.subtitle)
+    setDescription(data.webContent.description)
+    // TODO: supportImage is not used yet as the received data is not rightly formatted
+    //setSupportImage(data.webContent.supportImage)
+    setCTA2(data.webContent.callToAction) 
+    */
+  
+  }, []);
     ///////////////////////////////////////////////////////
    //////// End of the CMS Data Fetch    ^^^^
   ///////////////////////////////////////////////////////
