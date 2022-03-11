@@ -11,13 +11,11 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined';
 import { polywrapPalette } from '../theme';
-import { CTA } from '../constants/verbiage';
-
+// TODO: should we deprecate the verbiage folder?
+//import { CTA } from '../constants/verbiage';
 
 import {useState, useEffect} from 'react';
 require('dotenv').config();
-console.log("This is my site which im querying");
-//const api_endpoint = process.env.REACT_APP_CMS_SITE;
 console.log("MY_VARIABLE: " + process.env.REACT_APP_CMS_TOKEN);
 
 
@@ -166,13 +164,15 @@ export const Hero = () => {
   const navigateToPage = (route: string) => history.push(route);
 
 
-  ////////////////////////////
-  // Begin CMS implementation
+    ///////////////////////////////////////////////////////
+   //////  Beginning of CMS Data fetch   vvvvvv
+  ///////////////////////////////////////////////////////
   const cmsQuery = `query { 
      webContent(id:"6DWrAojZUdPcTSDXGip5PN") { 
       title 
       subtitle
       description
+      callToAction
     } 
   }`;
 
@@ -181,8 +181,6 @@ export const Hero = () => {
   const [description, setDescription] = useState(null);
   const [supportImage, setSupportImage] = useState(null);
   const [CTA2, setCTA2] = useState(null);
-
-
 
   useEffect(() => {
     window
@@ -202,21 +200,19 @@ export const Hero = () => {
           console.error(errors);
         }
 
-        //const heroTitle = data.webContent.title
-        //console.log("This is the data:", heroTitle);
         setTitle(data.webContent.title);
         setSubtitle(data.webContent.subtitle)
         setDescription(data.webContent.description)
+        // supportImage is not used yet as the received data is not rightly formatted
         setSupportImage(data.webContent.supportImage)
+        setCTA2(data.webContent.callToAction)
 
       });
-      //console.log("and it can live out of the window:", heroTitle);
 
   });
-  console.log("and it can live out of the useEffect:", subtitle);
-
-  // End CMS Implementation 
-  ////////////////////////////
+    ///////////////////////////////////////////////////////
+   //////// End of the CMS Data Fetch    ^^^^
+  ///////////////////////////////////////////////////////
 
 
   return (
@@ -253,10 +249,7 @@ export const Hero = () => {
               color='textSecondary'
               variant='body1'
             >
-              Polywrap is a development platform that enables easy integration
-              of Web3 protocols into any application. It makes it possible for
-              software on any device, written in any language, to read and write
-              data to Web3 protocols.
+              {description}
             </Typography>
             <Button
               className={classes.heroButton}
@@ -267,7 +260,7 @@ export const Hero = () => {
               type='submit'
               variant='contained'
             >
-              {CTA}
+              {CTA2}
             </Button>
           </Box>
         </Parallax>
