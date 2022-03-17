@@ -133,28 +133,16 @@ export const DemoSection = () => {
               color='textPrimary'
               className={classes.title}
             >
-              Solving the Web3 Integration Problem
+              someContent.title
             </Typography>
             <Typography
               variant='body1'
               color='textSecondary'
               className={classes.description}
+              // TODO: Fix the formatting of description below, this should allow us somehow to show line breaks and bold sections for example
             >
-              Web3 relies on SDKs to integrate virtually every type of protocol:
-              DeFi, NFTs, DAOs, P2P Networks
-            </Typography>
-            <Typography
-              variant='body1'
-              color='textSecondary'
-              className={classes.description}
-            >
-              Due to traditional SDKs’ short-comings, Web3’s technical debt is
-              growing day by day.
-              <br />
-              <br />
-              Traditional SDKs are:
-              <br />
-              <b>Insecure, Bloated, Incompatible, and Language-Specific</b>
+            
+              {someContent.description}
             </Typography>
           </Grid>
         </Grid>
