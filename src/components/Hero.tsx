@@ -164,6 +164,15 @@ const cmsQuery = `query {
 }`;
 const data = ContentfulFetcher(cmsQuery)
 console.log("On the component", data)
+
+interface webContent {
+  title: string;
+  subtitle: string;
+  callToAction: string;
+  description: string;
+}
+
+
 // NEW CMS INTEGREATION
 
 
@@ -178,26 +187,79 @@ export const Hero = () => {
     ///////////////////////////////////////////////////////
    //////  Beginning of CMS Data fetch   vvvvvv
   ///////////////////////////////////////////////////////
-
-
-  const [title, setTitle] = useState(null);
-  const [subtitle, setSubtitle] = useState(null);
-  const [description, setDescription] = useState(null);
-  //const [supportImage, setSupportImage] = useState(null);
-  const [CTA2, setCTA2] = useState(null);
+  const [someData, setSomeData] = useState<webContent> (
+    {
+    "title": "Use Web3 Anywhere.",
+    "subtitle": "PRE-ALPHA",
+    "description": "Polywrap is a development platform that enables easy integration of Web3 protocols into any application. It makes it possible for software on any device, written in any language, to read and write data to Web3 protocols",
+    "callToAction": "JOIN OUR DISCORD"
+    });
+  const [hasFailed, setHasFailed] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    //const { webContent.title, webContent.subtitle } = QueryModule(query)
+    //const webContent = QueryModule(query)
 
     //setTitle(data);
-    /* 
+    /* TODO :  probably deprecate this section and use proper data type verification
     setSubtitle(data.webContent.subtitle)
     setDescription(data.webContent.description)
     // TODO: supportImage is not used yet as the received data is not rightly formatted
     //setSupportImage(data.webContent.supportImage)
     setCTA2(data.webContent.callToAction) 
     */
-  
+
+
+    /*     
+    //async await version
+
+    const test = async () => {
+      setIsLoading(true);
+
+      try {
+        // should return the object of CMS content
+        const data: any = await ContentfulFetcher(cmsQuery);
+    
+        we can use a custom data type to check data integrity, and subsequently unpack it 
+         //On success
+        const credentials: UserCredentials = {
+          username: data.username,
+          pass: data.pass,
+        };
+      
+    
+        setSomeData(data);
+      } catch(error) {
+        setHasFailed(true);
+      } finally {
+        setIsLoading(false);
+      }
+
+      
+    };
+    test(); 
+    */
+
+    ///////////callback version
+
+    setIsLoading(true);
+
+    ContentfulFetcher(cmsQuery).then(
+      (response) => {
+        //On success        
+        const content: webContent = response.data.webContent;
+        console.log("On the arrow func", content)
+
+        setSomeData(content);
+      }, 
+      (error) => {
+        //On fail
+        setHasFailed(true);
+      }
+    ).finally(() => {
+      setIsLoading(false);
+    });
+
   }, []);
     ///////////////////////////////////////////////////////
    //////// End of the CMS Data Fetch    ^^^^
@@ -223,21 +285,22 @@ export const Hero = () => {
               color='secondary'
               className={classes.technicalPreview}
             >
-              {subtitle}
+             {someData.subtitle}
             </Typography>
             <Typography
               className={classes.heroTitle}
               color='textPrimary'
               variant='h1'
             >
-             {title}
+             {someData.title}
             </Typography>
             <Typography
               className={classes.heroBody}
               color='textSecondary'
               variant='body1'
             >
-              {description}
+            {someData.description}
+
             </Typography>
             <Button
               className={classes.heroButton}
@@ -248,7 +311,7 @@ export const Hero = () => {
               type='submit'
               variant='contained'
             >
-              {CTA2}
+             {someData.callToAction}
             </Button>
           </Box>
         </Parallax>
