@@ -1,18 +1,15 @@
-//  import { Component } from "react";
-
 require('dotenv').config();
 console.log("MY_VARIABLE: " + process.env.REACT_APP_CMS_TOKEN);
 
-/* 
-class CommonComponentsMain extends Component {
-    render() {
-        return (
-            <div>
-                Class-Based component named as "CommonComponents"
-            </div>
-        )
-    }
-} */
+// TODO: supportImage is not used yet as the received data is not rightly formatted
+//setSupportImage(data.webContent.supportImage)
+
+export interface webContent {
+  title: string;
+  subtitle: string | null;
+  callToAction: string | null;
+  description: string;
+}
 
 function ContentfulFetcher(query: string): Promise<any> {
     //console.log("Heyo, we're about to query the text from Contentful: ~ ")

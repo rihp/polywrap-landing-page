@@ -14,8 +14,7 @@ import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOut
 import { polywrapPalette } from '../theme';
 // TODO: should we deprecate the verbiage folder?
 //import { CTA } from '../constants/verbiage';
-// WIP: Try to modularize the CMS query
-import { ContentfulFetcher } from './QueryModule';
+import { webContent, ContentfulFetcher } from './QueryModule';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -163,14 +162,9 @@ const cmsQuery = `query {
  } 
 }`;
 const data = ContentfulFetcher(cmsQuery)
-console.log("On the component", data)
+//console.log("On the Hero component", data)
 
-interface webContent {
-  title: string;
-  subtitle: string;
-  callToAction: string;
-  description: string;
-}
+
 // CONTENTFUL CMS INTEGREATION ABOVE
 
 export const Hero = () => {
@@ -178,11 +172,12 @@ export const Hero = () => {
   const classes = useStyles();
   const matches = useMediaQuery(theme.breakpoints.down('xs'));
 
+  // This was used for pagination
   //const history = useHistory();
   //const navigateToPage = (route: string) => history.push(route);
 
   // CONTENTFUL CMS INTEGRATION BELOW
-  const [someData, setSomeData] = useState<webContent> (
+  const [someContent, setSomeContent] = useState<webContent> (
     {
     "title": "Use Web3 Anywhere.",
     "subtitle": "PRE-ALPHA",
@@ -193,42 +188,10 @@ export const Hero = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    // TODO: supportImage is not used yet as the received data is not rightly formatted
-    //setSupportImage(data.webContent.supportImage)
 
 
-    /*     
-    //async await version
 
-    const test = async () => {
-      setIsLoading(true);
-
-      try {
-        // should return the object of CMS content
-        const data: any = await ContentfulFetcher(cmsQuery);
-    
-        we can use a custom data type to check data integrity, and subsequently unpack it 
-         //On success
-        const credentials: UserCredentials = {
-          username: data.username,
-          pass: data.pass,
-        };
-      
-    
-        setSomeData(data);
-      } catch(error) {
-        setHasFailed(true);
-      } finally {
-        setIsLoading(false);
-      }
-
-      
-    };
-    test(); 
-    */
-
-    ///////////callback version
-
+    /////////// CMS content fetching: Callback version
     setIsLoading(true);
 
     ContentfulFetcher(cmsQuery).then(
@@ -237,7 +200,7 @@ export const Hero = () => {
         const content: webContent = response.data.webContent;
         console.log("On the arrow func", content)
 
-        setSomeData(content);
+        setSomeContent(content);
       }, 
       (error) => {
         //On fail
@@ -270,21 +233,21 @@ export const Hero = () => {
               color='secondary'
               className={classes.technicalPreview}
             >
-             {someData.subtitle}
+             {someContent.subtitle}
             </Typography>
             <Typography
               className={classes.heroTitle}
               color='textPrimary'
               variant='h1'
             >
-             {someData.title}
+             {someContent.title}
             </Typography>
             <Typography
               className={classes.heroBody}
               color='textSecondary'
               variant='body1'
             >
-            {someData.description}
+            {someContent.description}
 
             </Typography>
             <Button
@@ -296,7 +259,7 @@ export const Hero = () => {
               type='submit'
               variant='contained'
             >
-             {someData.callToAction}
+             {someContent.callToAction}
             </Button>
           </Box>
         </Parallax>
