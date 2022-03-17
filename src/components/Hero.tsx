@@ -153,7 +153,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// NEW CMS INTEGREATION
+// CONTENTFUL CMS INTEGREATION BELOW
 const cmsQuery = `query { 
   webContent(id:"6DWrAojZUdPcTSDXGip5PN") { 
    title 
@@ -171,10 +171,7 @@ interface webContent {
   callToAction: string;
   description: string;
 }
-
-
-// NEW CMS INTEGREATION
-
+// CONTENTFUL CMS INTEGREATION ABOVE
 
 export const Hero = () => {
   const theme = useTheme();
@@ -184,9 +181,7 @@ export const Hero = () => {
   //const history = useHistory();
   //const navigateToPage = (route: string) => history.push(route);
 
-    ///////////////////////////////////////////////////////
-   //////  Beginning of CMS Data fetch   vvvvvv
-  ///////////////////////////////////////////////////////
+  // CONTENTFUL CMS INTEGRATION BELOW
   const [someData, setSomeData] = useState<webContent> (
     {
     "title": "Use Web3 Anywhere.",
@@ -198,16 +193,8 @@ export const Hero = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    //const webContent = QueryModule(query)
-
-    //setTitle(data);
-    /* TODO :  probably deprecate this section and use proper data type verification
-    setSubtitle(data.webContent.subtitle)
-    setDescription(data.webContent.description)
     // TODO: supportImage is not used yet as the received data is not rightly formatted
     //setSupportImage(data.webContent.supportImage)
-    setCTA2(data.webContent.callToAction) 
-    */
 
 
     /*     
@@ -261,9 +248,7 @@ export const Hero = () => {
     });
 
   }, []);
-    ///////////////////////////////////////////////////////
-   //////// End of the CMS Data Fetch    ^^^^
-  ///////////////////////////////////////////////////////
+  // CONTENTFUL CMS INTEGREATION ABOVE
 
   return (
     // TODO: Pass the supportImage to the <img> div below
