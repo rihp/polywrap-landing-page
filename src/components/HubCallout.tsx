@@ -1,6 +1,9 @@
 import { Parallax } from 'react-scroll-parallax';
 import { Box, Grid, makeStyles, Typography, useMediaQuery, useTheme } from '@material-ui/core';
 import { polywrapPalette } from '../theme';
+// WIP: Try to modularize the CMS query
+import {useState, useEffect} from 'react';
+import {  webContent, ContentfulFetcher } from './QueryModule';
 
 //These imports are for multiple slides/caroussel effect
 //import { useHistory } from 'react-router-dom';
@@ -60,6 +63,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
+// CONTENTFUL CMS INTEGREATION BELOW
+const cmsQuery = `query { 
+  webContent(id:"4QLItvU9WU4CFNCC4c0jf1") { 
+   title 
+   subtitle
+   description
+   callToAction
+ } 
+}`;
+const data = ContentfulFetcher(cmsQuery)
+console.log("On the Hub component", data)
+
+
 export const HubCallout = () => {
   const theme = useTheme();
   //const history = useHistory();
@@ -68,6 +84,44 @@ export const HubCallout = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('xs'), {
     defaultMatches: true
   });
+
+
+
+
+  // CONTENTFUL CMS INTEGRATION BELOW
+  const [someContent, setSomeContent] = useState<webContent> (
+    {
+      "title": "Welcome to the Polywrap Hub",
+      "subtitle": "Our flagship dApp",
+      "description": "A developer-centric platform where you can discover, deploy, and interact with any Polywrapper in the ecosystem. We are paving the road, expecting endless collaboration and curation possibilities. Test and Integrate web3 protocols quickly on the browser with our GraphQL Playground, and publish your packages to decentralised hosting. Soon you'll be able to explore an endless ocean of wrappers, by querying tags like `multisig`, `defi`, or `vesting`. A more semantic web3 that's easy to compose together!",
+      "callToAction": "Start Coding"
+  });
+  const [hasFailed, setHasFailed] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    /////////// CMS content fetching: Callback version
+    setIsLoading(true);
+
+    ContentfulFetcher(cmsQuery).then(
+      (response) => {
+        //On success        
+        const content: webContent = response.data.webContent;
+        console.log("On the arrow func", content)
+
+        setSomeContent(content);
+      }, 
+      (error) => {
+        //On fail
+        setHasFailed(true);
+      }
+    ).finally(() => {
+      setIsLoading(false);
+    });
+
+  }, []);
+  // CONTENTFUL CMS INTEGREATION ABOVE
+
 
   return (
     <Box position='relative' className={classes.root}>
@@ -81,11 +135,12 @@ export const HubCallout = () => {
           <Grid container spacing={isMobile ? 6 : 10} alignItems='stretch' >
             <Grid item xs={12} sm={6}>
               <Typography variant="h3">
-                Welcome to the Polywrap Hub...
+                {someContent.title}
               </Typography>
               <Box marginTop={2}>
                 <Typography variant="body1">
-                  A developer-centric platform where you can discover, deploy, and interact with any Polywrapper in the ecosystem. We are paving the road, expecting endless collaboration and curation possibilities. Test and Integrate web3 protocols quickly on the browser with our GraphQL Playground, and publish your packages to decentralised hosting. Soon you'll be able to explore an endless ocean of wrappers, by querying tags like `multisig`, `defi`, or `vesting`. A more semantic web3 that's easy to compose together!                </Typography>
+                  {someContent.description}
+                </Typography>
               </Box>
               {/* <Box marginTop={2}>
                 <Button

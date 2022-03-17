@@ -133,7 +133,7 @@ export const DemoSection = () => {
               color='textPrimary'
               className={classes.title}
             >
-              someContent.title
+              {someContent.title}
             </Typography>
             <Typography
               variant='body1'
