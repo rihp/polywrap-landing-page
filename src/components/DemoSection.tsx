@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-// CONTENTFUL CMS INTEGREATION BELOW
+// CONTENTFUL CMS INITIAL SET UP BELOW
 const cmsQuery = `query { 
   webContent(id:"5GN94FkZlXn4s5b0Q9aQ2N") { 
    title 
@@ -66,7 +66,9 @@ const cmsQuery = `query {
  } 
 }`;
 const data = ContentfulFetcher(cmsQuery)
-console.log("On the Demo component", data)
+//console.log("On the Demo component", data)
+// CONTENTFUL CMS INITIAL SET UP ABOVE
+
 
 export const DemoSection = () => {
   const theme = useTheme();
@@ -92,7 +94,7 @@ export const DemoSection = () => {
       (response) => {
         //On success        
         const content: webContent = response.data.webContent;
-        console.log("On the arrow func", content)
+        //console.log("On the arrow func", content)
 
         setSomeContent(content);
       }, 

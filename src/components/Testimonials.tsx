@@ -3,6 +3,10 @@ import { TESTIMONIALS, Testimonial } from '../constants/launch-partners';
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
 import { filters } from '../theme';
 
+// WIP: Try to modularize the CMS query
+import {useState, useEffect} from 'react';
+import { launchPartner, ContentfulFetcher } from './QueryModule';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexDirection: 'column',
@@ -61,8 +65,62 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+// CONTENTFUL CMS  INITIAL SET UP BELOW
+const cmsQuery = `query { 
+  launchPartners(id:"4NuUSkl1u6JPVA7QNiM4iS") { 
+   name 
+   link
+   testimonial
+   persona
+   futurePromise
+ } 
+}`;
+const data = ContentfulFetcher(cmsQuery)
+console.log("On the Testimonials component", data)
+// CONTENTFUL CMS INITIAL SET UP ABOVE
+
+
 export const Testimonials = () => {
   const classes = useStyles();
+
+  // CONTENTFUL CMS INTEGRATION BELOW
+  const [gelatoContent, setGelatoContent] = useState<launchPartner> (
+    {
+      "name": "Gelato Network",
+      "link": "https://gelato.network",
+      "testimonial": "With the help of Polywrap, Gelato enables every developer to easily automate the execution of transactions on networks like Ethereum, giving them the ability to provide arbitrary instructions to a decentralized network of bots with a single wrapper call",
+      "persona": "Hilmar X, Legendary Member",
+      "futurePromise": "Gelato and other node networks will leverage Polywrap to have sdk’s that dynamically update upon governance decisions instead of needing to contact all the operators to restart their nodes and install the new package."
+    });
+  const [hasFailed, setHasFailed] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    /////////// CMS content fetching: Callback version
+    setIsLoading(true);
+
+    ContentfulFetcher(cmsQuery).then(
+      (response) => {
+        //On success        
+        const content: launchPartner = response.data.webContent;
+        //console.log("On the arrow func", content)
+
+        setGelatoContent(content);
+      }, 
+      (error) => {
+        //On fail
+        setHasFailed(true);
+      }
+    ).finally(() => {
+      setIsLoading(false);
+    });
+
+  }, []);
+  // CONTENTFUL CMS INTEGREATION ABOVE
+
+
+
 
   return (
     <Box className={classes.root}>

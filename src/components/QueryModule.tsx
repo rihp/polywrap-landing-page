@@ -11,6 +11,14 @@ export interface webContent {
   description: string;
 }
 
+export interface launchPartner {
+  name: string;
+  link: string | null;
+  testimonial: string | null;
+  persona: string;
+  futurePromise: string;
+}
+
 function ContentfulFetcher(query: string): Promise<any> {
     //console.log("Heyo, we're about to query the text from Contentful: ~ ")
 

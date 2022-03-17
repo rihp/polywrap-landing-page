@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-// CONTENTFUL CMS INTEGREATION BELOW
+// CONTENTFUL CMS  INITIAL SET UP BELOW
 const cmsQuery = `query { 
   webContent(id:"4QLItvU9WU4CFNCC4c0jf1") { 
    title 
@@ -73,7 +73,8 @@ const cmsQuery = `query {
  } 
 }`;
 const data = ContentfulFetcher(cmsQuery)
-console.log("On the Hub component", data)
+// console.log("On the Hub component", data)
+// CONTENTFUL CMS INITIAL SET UP ABOVE
 
 
 export const HubCallout = () => {
@@ -107,7 +108,7 @@ export const HubCallout = () => {
       (response) => {
         //On success        
         const content: webContent = response.data.webContent;
-        console.log("On the arrow func", content)
+        //console.log("On the arrow func", content)
 
         setSomeContent(content);
       }, 
