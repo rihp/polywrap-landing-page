@@ -45,6 +45,9 @@ function ContentfulFetcher(query: string): Promise<any> {
       body: JSON.stringify({ "query":query }),
     })
     .then((response) => response.json());
+
+    // Could be useful to add some error handling 
+    // if response.json.error != undefined, console.log(response.json.error)
 }
 
 export {ContentfulFetcher}

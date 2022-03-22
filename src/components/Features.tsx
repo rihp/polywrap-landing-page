@@ -94,7 +94,7 @@ const myFeatures = ["7LYHglxrDEqHwa23xPbrEo", // Multiplatform
 
 
 var newFeatures: webContent[] = []
-var currentFetch: webContent = {
+var currentFetch: Promise<any> | webContent = {
   "title": "Welcome to the Polywrap Hub",
   "subtitle": "Our flagship dApp",
   "description": "A developer-centric platform where you can discover, deploy, and interact with any Polywrapper in the ecosystem. We are paving the road, expecting endless collaboration and curation possibilities. Test and Integrate web3 protocols quickly on the browser with our GraphQL Playground, and publish your packages to decentralised hosting. Soon you'll be able to explore an endless ocean of wrappers, by querying tags like `multisig`, `defi`, or `vesting`. A more semantic web3 that's easy to compose together!",
@@ -102,15 +102,26 @@ var currentFetch: webContent = {
 }
 ;
 
-myFeatures.forEach( (element) => {
+myFeatures.forEach( async (element) => {
   var cmsQuery = `query { 
-    multi-platform: webContent(id:"${element}") { 
+    ${element}: webContent(id:"${element}") { 
+      title
+      supportImage {
+        title
+        description
+        contentType
+        fileName
+        size
+        url
+        width
+        height
+      }
+      description
    }
-  }`
-
-  currentFetch = ContentfulFetcher(cmsQuery)
-  console.log(currentFetch)
-  // newFeatures.push(currentFetch)
+  }`;
+  console.log("Querying this feature:", cmsQuery);
+  currentFetch = ContentfulFetcher(cmsQuery);
+  newFeatures.push(await currentFetch);
 });
 
 console.log("On the Features component", newFeatures)
