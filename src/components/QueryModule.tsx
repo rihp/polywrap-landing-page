@@ -8,7 +8,7 @@ export interface webContent {
   title: string;
   subtitle: string | null;
   callToAction: string | null;
-  description: string;
+  description: string | null;
 }
 
 export interface launchPartner {
