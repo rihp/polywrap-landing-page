@@ -85,6 +85,7 @@ export const Testimonials = () => {
   const classes = useStyles();
 
   // CONTENTFUL CMS INTEGRATION BELOW
+
   const [gelatoContent, setGelatoContent] = useState<launchPartner> (
     {
       "name": "Gelato Network",
@@ -100,13 +101,15 @@ export const Testimonials = () => {
     /////////// CMS content fetching: Callback version
     setIsLoading(true);
 
+    
     ContentfulFetcher(cmsQuery).then(
       (response) => {
         //On success        
-        const content: launchPartner = response.data.webContent;
-        //console.log("On the arrow func", content)
+        const g_content: launchPartner = response.data.launchPartners;
+        console.log("On the arrow func", g_content)
 
-        setGelatoContent(content);
+        setGelatoContent(g_content);
+        // setGnosisContent(gnosisContent)
       }, 
       (error) => {
         //On fail
