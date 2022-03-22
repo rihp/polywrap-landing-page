@@ -24,7 +24,8 @@ export interface newTestimonial {
   testimonial: string | null;
   //futurePromise: string;
   persona: string;
-  link: string | null;
+  link: string | null | undefined;
+  logo: string;
 }
 
 function ContentfulFetcher(query: string): Promise<any> {

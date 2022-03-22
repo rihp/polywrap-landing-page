@@ -153,6 +153,7 @@ export const Testimonials = () => {
       "testimonial": newTestimonials[partner].testimonial ,
       "persona":newTestimonials[partner].persona ,
       "link": newTestimonials[partner].link,
+      "logo": "https://polywrap.io/logos/gelato.png"
     };
 
   };
@@ -173,13 +174,13 @@ export const Testimonials = () => {
           position="relative"
           zIndex={2}
         >
-          {TESTIMONIALS.map(
-            (testimonial: Testimonial, index: number) =>
+          {featuredPartners.map(
+            (testimonial: newTestimonial, index: number) =>
               <Box className={classes.testimonial} key={`testimonial-${index}`}>
                 <Box>
                   <FormatQuoteIcon className={classes.testimonialQuote} />
                   <Typography variant='subtitle1' style={{ fontSize: 20 }} color='textSecondary'>
-                    {testimonial.description}
+                    {testimonial.testimonial}
                   </Typography>
                   <Box marginTop={2}>
                     <Typography variant='body1' color='textSecondary'>
@@ -187,9 +188,9 @@ export const Testimonials = () => {
                     </Typography>
                   </Box>
                   <Box marginTop={2}>
-                    <Link href={testimonial.url} target='_blank'>
+                    {/* <Link href={testimonial.link} target='_blank'> */}
                       <img src={testimonial.logo} className={classes.logo} alt=""/>
-                    </Link>
+                    {/* </Link> */}
                   </Box>
                 </Box>
               </Box>
