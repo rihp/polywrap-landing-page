@@ -5,7 +5,7 @@ import { filters } from '../theme';
 
 // WIP: Try to modularize the CMS query
 import {useState, useEffect} from 'react';
-import { launchPartner, ContentfulFetcher } from './QueryModule';
+import { launchPartner, ContentfulFetcher, newTestimonial } from './QueryModule';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -68,16 +68,23 @@ const useStyles = makeStyles((theme) => ({
 
 // CONTENTFUL CMS  INITIAL SET UP BELOW
 const cmsQuery = `query { 
-  launchPartners(id:"4NuUSkl1u6JPVA7QNiM4iS") { 
+  gelato: launchPartners(id:"4NuUSkl1u6JPVA7QNiM4iS") { 
    name 
    link
    testimonial
    persona
    futurePromise
- } 
+ }, 
+  gnosis:  launchPartners(id: "4wW7f4q1VU7Y0VoHIYKJDK") {
+    name 
+    link
+    testimonial
+    persona
+    futurePromise
+  }
 }`;
 const data = ContentfulFetcher(cmsQuery)
-console.log("On the Testimonials component", data)
+//console.log("On the Testimonials component", data)
 // CONTENTFUL CMS INITIAL SET UP ABOVE
 
 
@@ -94,6 +101,14 @@ export const Testimonials = () => {
       "persona": "Hilmar X, Legendary Member",
       "futurePromise": "Gelato and other node networks will leverage Polywrap to have sdk’s that dynamically update upon governance decisions instead of needing to contact all the operators to restart their nodes and install the new package."
     });
+  const [gnosisContent, setGnosisContent] = useState<launchPartner> (
+    {
+      "name": "Gnosis",
+      "link": "https://gnosis.io",
+      "testimonial": "Polywrap will make it easy for everyone to build on top of Gnosis technologies and interact with our contracts and interfaces. This will help us achieve our vision of building open platforms and removing gatekeepers",
+      "persona": "Team Gnosis",
+      "futurePromise": "Gnosis is creating wrappers that will encapsulate their business logic in secure, language-agnostic modules that interact with many chains, storage networks, oracles, and services. This growing ecosystem of Gnosis apps will be auto-updated in a securely."
+    });
   const [hasFailed, setHasFailed] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -104,12 +119,12 @@ export const Testimonials = () => {
     
     ContentfulFetcher(cmsQuery).then(
       (response) => {
-        //On success        
-        const g_content: launchPartner = response.data.launchPartners;
-        console.log("On the arrow func", g_content)
-
-        setGelatoContent(g_content);
-        // setGnosisContent(gnosisContent)
+        //On success      
+        const gelato: launchPartner = response.data.gelato;
+        setGelatoContent(gelato);
+        const gnosis: launchPartner = response.data.gnosis;
+        setGelatoContent(gelato);
+        setGnosisContent(gnosis)
       }, 
       (error) => {
         //On fail
@@ -122,7 +137,7 @@ export const Testimonials = () => {
   }, []);
   // CONTENTFUL CMS INTEGREATION ABOVE
 
-
+  const newTestimonials: launchPartner[] = [gelatoContent, gnosisContent]
 
 
   return (

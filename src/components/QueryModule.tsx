@@ -19,6 +19,14 @@ export interface launchPartner {
   futurePromise: string;
 }
 
+export interface newTestimonial {
+  name: string;
+  testimonial: string;
+  futurePromise: string;
+  persona: string;
+  link: string;
+}
+
 function ContentfulFetcher(query: string): Promise<any> {
     //console.log("Heyo, we're about to query the text from Contentful: ~ ")
 
