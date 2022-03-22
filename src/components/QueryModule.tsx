@@ -21,10 +21,10 @@ export interface launchPartner {
 
 export interface newTestimonial {
   name: string;
-  testimonial: string;
-  futurePromise: string;
+  testimonial: string | null;
+  //futurePromise: string;
   persona: string;
-  link: string;
+  link: string | null;
 }
 
 function ContentfulFetcher(query: string): Promise<any> {

@@ -123,7 +123,6 @@ export const Testimonials = () => {
         const gelato: launchPartner = response.data.gelato;
         setGelatoContent(gelato);
         const gnosis: launchPartner = response.data.gnosis;
-        setGelatoContent(gelato);
         setGnosisContent(gnosis)
       }, 
       (error) => {
@@ -136,10 +135,29 @@ export const Testimonials = () => {
 
   }, []);
   // CONTENTFUL CMS INTEGREATION ABOVE
+  //         console.log(gelatoContent, gnosisContent)
 
   const newTestimonials: launchPartner[] = [gelatoContent, gnosisContent]
+  
+  var  featuredPartners: newTestimonial[] = []
 
+  
+  for (var partner in newTestimonials) {
+    // console.log(newTestimonials[partner].testimonial);
+    // console.log(newTestimonials[partner].persona);
+    // console.log(newTestimonials[partner].link);
 
+    featuredPartners[partner] = 
+    {
+      "name": newTestimonials[partner].name,
+      "testimonial": newTestimonials[partner].testimonial ,
+      "persona":newTestimonials[partner].persona ,
+      "link": newTestimonials[partner].link,
+    };
+
+  };
+
+  console.log(featuredPartners)
   return (
     <Box className={classes.root}>
       <Typography className={classes.title} variant='h3' align='center' color='textPrimary'>
