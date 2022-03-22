@@ -13,7 +13,10 @@ Color and themes should be modified from the `src/theme/index.ts` file, by updat
 
 ## CMS 
 
-Part of the content of the site is fed through a Headless CMS system. (contentful)
+Part of the content of the site is fed through a Headless CMS system named ([Contentful](https://app.contentful.com/spaces/tmv21jqhvpr2/))
 
 To be able to query the content, you must configure the correct environment variables. 
-- Rename `.env.example` to `.env` and add the API keys
+- Register and get access to the Polywrap space
+- Rename `.env.example` to `.env` and add the API keys.
+- Use the functions in the [`QueryModule.tsx`](./src/components/QueryModule.tsx)
+- [Learn to use GraphQL](https://devhints.io/graphql)
