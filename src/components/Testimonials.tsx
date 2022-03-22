@@ -1,11 +1,10 @@
 import { Box, Container, Link, makeStyles, Typography } from '@material-ui/core';
-import { TESTIMONIALS, Testimonial } from '../constants/launch-partners';
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
 import { filters } from '../theme';
 
 // WIP: Try to modularize the CMS query
 import {useState, useEffect} from 'react';
-import { launchPartner, ContentfulFetcher, newTestimonial } from './QueryModule';
+import { launchPartner, ContentfulFetcher, Testimonial } from './QueryModule';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -139,7 +138,7 @@ export const Testimonials = () => {
 
   const newTestimonials: launchPartner[] = [gelatoContent, gnosisContent]
   
-  var  featuredPartners: newTestimonial[] = []
+  var  TESTIMONIALS: Testimonial[] = []
 
   
   for (var partner in newTestimonials) {
@@ -147,18 +146,20 @@ export const Testimonials = () => {
     // console.log(newTestimonials[partner].persona);
     // console.log(newTestimonials[partner].link);
 
-    featuredPartners[partner] = 
+    TESTIMONIALS[partner] = 
     {
       "name": newTestimonials[partner].name,
       "testimonial": newTestimonials[partner].testimonial ,
       "persona":newTestimonials[partner].persona ,
       "link": newTestimonials[partner].link,
-      "logo": "https://polywrap.io/logos/gelato.png"
+      // TODO: This is a hacky way of getting the link to the image, we should be able to fetch 
+      // it all from the CMS, or have this structured in a a way that the .split(' ')[0] doesn't break
+      "logo": "https://polywrap.io/logos/" + newTestimonials[partner].name.split(' ')[0].toLocaleLowerCase() + ".png"
     };
 
   };
 
-  console.log(featuredPartners)
+  console.log(TESTIMONIALS)
   return (
     <Box className={classes.root}>
       <Typography className={classes.title} variant='h3' align='center' color='textPrimary'>
@@ -174,8 +175,8 @@ export const Testimonials = () => {
           position="relative"
           zIndex={2}
         >
-          {featuredPartners.map(
-            (testimonial: newTestimonial, index: number) =>
+          {TESTIMONIALS.map(
+            (testimonial: Testimonial, index: number) =>
               <Box className={classes.testimonial} key={`testimonial-${index}`}>
                 <Box>
                   <FormatQuoteIcon className={classes.testimonialQuote} />

@@ -19,7 +19,7 @@ export interface launchPartner {
   futurePromise: string;
 }
 
-export interface newTestimonial {
+export interface Testimonial {
   name: string;
   testimonial: string | null;
   //futurePromise: string;
