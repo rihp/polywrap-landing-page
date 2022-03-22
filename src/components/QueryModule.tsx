@@ -28,6 +28,10 @@ export interface Testimonial {
   logo: string;
 }
 
+export interface Asset {
+  name: string;
+}
+
 function ContentfulFetcher(query: string): Promise<any> {
     //console.log("Heyo, we're about to query the text from Contentful: ~ ")
 

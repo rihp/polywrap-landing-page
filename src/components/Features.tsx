@@ -1,6 +1,10 @@
 import { Parallax } from 'react-scroll-parallax';
 import { Box, Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
 
+// WIP: Try to modularize the CMS query
+import {useState, useEffect} from 'react';
+import { webContent, ContentfulFetcher, Asset } from './QueryModule';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexDirection: 'column',
@@ -73,6 +77,48 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 20,
   },
 }));
+
+// CONTENTFUL CMS  INITIAL SET UP BELOW       // v FEATURES v
+const myFeatures = ["7LYHglxrDEqHwa23xPbrEo", // Multiplatform
+                    "7g5q14hzPYzLhwos7IVik1", //User-Friendly
+                    "5NjaWIMhQlair2k0dVDsXC", // Composable
+                    "3aV4XbTikwD2bIdKAsmShv", // Scalable
+                    "1i96gjazTJVQVxMdbDbfNm", // Upgradable
+                    "d4he1KTXgSQLg6BuaY6MA", // Secure
+                  ]
+
+// TODO : Iterate through myFeatures, and perform all the queries respectively
+// make sure to store the values on a new variable.
+// Consider turning the myFeatures list into a dict                  
+
+
+
+var newFeatures: webContent[] = []
+var currentFetch: webContent = {
+  "title": "Welcome to the Polywrap Hub",
+  "subtitle": "Our flagship dApp",
+  "description": "A developer-centric platform where you can discover, deploy, and interact with any Polywrapper in the ecosystem. We are paving the road, expecting endless collaboration and curation possibilities. Test and Integrate web3 protocols quickly on the browser with our GraphQL Playground, and publish your packages to decentralised hosting. Soon you'll be able to explore an endless ocean of wrappers, by querying tags like `multisig`, `defi`, or `vesting`. A more semantic web3 that's easy to compose together!",
+  "callToAction": "Start Coding"
+}
+;
+
+myFeatures.forEach( (element) => {
+  var cmsQuery = `query { 
+    multi-platform: webContent(id:"${element}") { 
+   }
+  }`
+
+  currentFetch = ContentfulFetcher(cmsQuery)
+  console.log(currentFetch)
+  // newFeatures.push(currentFetch)
+});
+
+console.log("On the Features component", newFeatures)
+
+// CONTENTFUL CMS INITIAL SET UP ABOVE
+
+
+
 
 const features = [
   {
