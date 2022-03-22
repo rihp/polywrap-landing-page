@@ -1,4 +1,5 @@
 //import { useHistory } from 'react-router-dom';
+import {useState, useEffect} from 'react';
 import { Parallax } from 'react-scroll-parallax';
 import {
   Box,
@@ -13,11 +14,7 @@ import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOut
 import { polywrapPalette } from '../theme';
 // TODO: should we deprecate the verbiage folder?
 //import { CTA } from '../constants/verbiage';
-
-import {useState, useEffect} from 'react';
-require('dotenv').config();
-console.log("MY_VARIABLE: " + process.env.REACT_APP_CMS_TOKEN);
-
+import { webContent, ContentfulFetcher } from './QueryModule';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -155,63 +152,64 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// CONTENTFUL CMS  INITIAL SET UP BELOW
+const cmsQuery = `query { 
+  webContent(id:"6DWrAojZUdPcTSDXGip5PN") { 
+   title 
+   subtitle
+   description
+   callToAction
+ } 
+}`;
+const data = ContentfulFetcher(cmsQuery)
+//console.log("On the Hero component", data)
+// CONTENTFUL CMS  INITIAL SET UP ABOVE
+
 export const Hero = () => {
   const theme = useTheme();
   const classes = useStyles();
   const matches = useMediaQuery(theme.breakpoints.down('xs'));
 
+  // This was used for pagination
   //const history = useHistory();
   //const navigateToPage = (route: string) => history.push(route);
 
-
-    ///////////////////////////////////////////////////////
-   //////  Beginning of CMS Data fetch   vvvvvv
-  ///////////////////////////////////////////////////////
-  const cmsQuery = `query { 
-     webContent(id:"6DWrAojZUdPcTSDXGip5PN") { 
-      title 
-      subtitle
-      description
-      callToAction
-    } 
-  }`;
-
-  const [title, setTitle] = useState(null);
-  const [subtitle, setSubtitle] = useState(null);
-  const [description, setDescription] = useState(null);
-  const [supportImage, setSupportImage] = useState(null);
-  const [CTA2, setCTA2] = useState(null);
+  // CONTENTFUL CMS INTEGRATION BELOW
+  const [someContent, setSomeContent] = useState<webContent> (
+    {
+    "title": "Use Web3 Anywhere.",
+    "subtitle": "PRE-ALPHA",
+    "description": "Polywrap is a development platform that enables easy integration of Web3 protocols into any application. It makes it possible for software on any device, written in any language, to read and write data to Web3 protocols",
+    "callToAction": "JOIN OUR DISCORD"
+    });
+  const [hasFailed, setHasFailed] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    window
-      .fetch(process.env.REACT_APP_CMS_SITE as string, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": process.env.REACT_APP_CMS_TOKEN as string,
-        },
-        body: JSON.stringify({ "query":cmsQuery }),
-      })
 
-      .then((response) => response.json())
-      .then(({ data, errors }) => {
-        if (errors) {
-          console.log("There was an error with the query:");
-          console.error(errors);
-        }
 
-        setTitle(data.webContent.title);
-        setSubtitle(data.webContent.subtitle)
-        setDescription(data.webContent.description)
-        // TODO: supportImage is not used yet as the received data is not rightly formatted
-        setSupportImage(data.webContent.supportImage)
-        setCTA2(data.webContent.callToAction)
 
-      });
-  });
-    ///////////////////////////////////////////////////////
-   //////// End of the CMS Data Fetch    ^^^^
-  ///////////////////////////////////////////////////////
+    /////////// CMS content fetching: Callback version
+    setIsLoading(true);
+
+    ContentfulFetcher(cmsQuery).then(
+      (response) => {
+        //On success        
+        const content: webContent = response.data.webContent;
+        // console.log("On the arrow func", content)
+
+        setSomeContent(content);
+      }, 
+      (error) => {
+        //On fail
+        setHasFailed(true);
+      }
+    ).finally(() => {
+      setIsLoading(false);
+    });
+
+  }, []);
+  // CONTENTFUL CMS INTEGREATION ABOVE
 
   return (
     // TODO: Pass the supportImage to the <img> div below
@@ -233,21 +231,22 @@ export const Hero = () => {
               color='secondary'
               className={classes.technicalPreview}
             >
-              {subtitle}
+             {someContent.subtitle}
             </Typography>
             <Typography
               className={classes.heroTitle}
               color='textPrimary'
               variant='h1'
             >
-             {title}
+             {someContent.title}
             </Typography>
             <Typography
               className={classes.heroBody}
               color='textSecondary'
               variant='body1'
             >
-              {description}
+            {someContent.description}
+
             </Typography>
             <Button
               className={classes.heroButton}
@@ -258,7 +257,7 @@ export const Hero = () => {
               type='submit'
               variant='contained'
             >
-              {CTA2}
+             {someContent.callToAction}
             </Button>
           </Box>
         </Parallax>

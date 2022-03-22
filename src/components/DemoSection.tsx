@@ -1,5 +1,8 @@
 import { Parallax } from 'react-scroll-parallax';
 import { Box, Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
+// WIP: Try to modularize the CMS query
+import {useState, useEffect} from 'react';
+import {  webContent, ContentfulFetcher } from './QueryModule';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,9 +55,60 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+// CONTENTFUL CMS INITIAL SET UP BELOW
+const cmsQuery = `query { 
+  webContent(id:"5GN94FkZlXn4s5b0Q9aQ2N") { 
+   title 
+   subtitle
+   description
+   callToAction
+ } 
+}`;
+const data = ContentfulFetcher(cmsQuery)
+//console.log("On the Demo component", data)
+// CONTENTFUL CMS INITIAL SET UP ABOVE
+
+
 export const DemoSection = () => {
   const theme = useTheme();
   const classes = useStyles();
+
+
+  // CONTENTFUL CMS INTEGRATION BELOW
+  const [someContent, setSomeContent] = useState<webContent> (
+    {
+      "title": "Solving the Web3 Integration Problem",
+      "subtitle": ".",
+      "description": "Web3 relies on SDKs to integrate virtually every type of protocol: DeFi, NFTs, DAOs, P2P Networks\n\nDue to traditional SDKs’ short-comings, Web3’s technical debt is growing day by day.\n\nTraditional SDKs are:\nInsecure, Bloated, Incompatible, and Language-Specific",
+      "callToAction": "Read the Docs"
+  });
+  const [hasFailed, setHasFailed] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    /////////// CMS content fetching: Callback version
+    setIsLoading(true);
+
+    ContentfulFetcher(cmsQuery).then(
+      (response) => {
+        //On success        
+        const content: webContent = response.data.webContent;
+        //console.log("On the arrow func", content)
+
+        setSomeContent(content);
+      }, 
+      (error) => {
+        //On fail
+        setHasFailed(true);
+      }
+    ).finally(() => {
+      setIsLoading(false);
+    });
+
+  }, []);
+  // CONTENTFUL CMS INTEGREATION ABOVE
+
 
   return (
     <Box position='relative' className={classes.root}>
@@ -81,28 +135,16 @@ export const DemoSection = () => {
               color='textPrimary'
               className={classes.title}
             >
-              Solving the Web3 Integration Problem
+              {someContent.title}
             </Typography>
             <Typography
               variant='body1'
               color='textSecondary'
               className={classes.description}
+              // TODO: Fix the formatting of description below, this should allow us somehow to show line breaks and bold sections for example
             >
-              Web3 relies on SDKs to integrate virtually every type of protocol:
-              DeFi, NFTs, DAOs, P2P Networks
-            </Typography>
-            <Typography
-              variant='body1'
-              color='textSecondary'
-              className={classes.description}
-            >
-              Due to traditional SDKs’ short-comings, Web3’s technical debt is
-              growing day by day.
-              <br />
-              <br />
-              Traditional SDKs are:
-              <br />
-              <b>Insecure, Bloated, Incompatible, and Language-Specific</b>
+            
+              {someContent.description}
             </Typography>
           </Grid>
         </Grid>
