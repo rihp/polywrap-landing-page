@@ -2,8 +2,8 @@ import { Parallax } from 'react-scroll-parallax';
 import { Box, Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
 
 // WIP: Try to modularize the CMS query
-import {useState, useEffect} from 'react';
-import { webContent, ContentfulFetcher, Asset } from './QueryModule';
+//import {useState, useEffect} from 'react';
+import { webContent, ContentfulFetcher } from './QueryModule';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -95,31 +95,26 @@ const myFeatures = ["7LYHglxrDEqHwa23xPbrEo", // Multiplatform
 
 var newFeatures: webContent[] = []
 var currentFetch: Promise<any> | webContent = {
-  "title": "Welcome to the Polywrap Hub",
-  "subtitle": "Our flagship dApp",
-  "description": "A developer-centric platform where you can discover, deploy, and interact with any Polywrapper in the ecosystem. We are paving the road, expecting endless collaboration and curation possibilities. Test and Integrate web3 protocols quickly on the browser with our GraphQL Playground, and publish your packages to decentralised hosting. Soon you'll be able to explore an endless ocean of wrappers, by querying tags like `multisig`, `defi`, or `vesting`. A more semantic web3 that's easy to compose together!",
+  "title": "Upgradable",
+  "subtitle": "Optionally upgrade your applications at run-time, no rebuilds required. Choose the level of control that makes sense for your application.",
+  "description": "todo",
   "callToAction": "Start Coding"
 }
 ;
 
+// iterate through the ids and query the data
 myFeatures.forEach( async (element) => {
   var cmsQuery = `query { 
     ${element}: webContent(id:"${element}") { 
       title
       supportImage {
         title
-        description
-        contentType
-        fileName
-        size
         url
-        width
-        height
       }
       description
    }
   }`;
-  console.log("Querying this feature:", cmsQuery);
+  //console.log("Querying this feature:", cmsQuery);
   currentFetch = ContentfulFetcher(cmsQuery);
   newFeatures.push(await currentFetch);
 });
@@ -127,8 +122,6 @@ myFeatures.forEach( async (element) => {
 console.log("On the Features component", newFeatures)
 
 // CONTENTFUL CMS INITIAL SET UP ABOVE
-
-
 
 
 const features = [

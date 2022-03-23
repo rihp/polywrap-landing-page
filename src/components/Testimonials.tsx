@@ -1,4 +1,4 @@
-import { Box, Container, Link, makeStyles, Typography } from '@material-ui/core';
+import { Box, Container, makeStyles, Typography } from '@material-ui/core';
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
 import { filters } from '../theme';
 
@@ -82,8 +82,7 @@ const cmsQuery = `query {
     futurePromise
   }
 }`;
-const data = ContentfulFetcher(cmsQuery)
-//console.log("On the Testimonials component", data)
+
 // CONTENTFUL CMS INITIAL SET UP ABOVE
 
 
