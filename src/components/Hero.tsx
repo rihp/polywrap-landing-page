@@ -186,9 +186,6 @@ export const Hero = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-
-
-
     /////////// CMS content fetching: Callback version
     setIsLoading(true);
 

@@ -79,56 +79,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // CONTENTFUL CMS  INITIAL SET UP BELOW       // v FEATURES v
-const myFeatures = [
-                    ["7LYHglxrDEqHwa23xPbrEo", "Multiplatform"],
-                    ["7g5q14hzPYzLhwos7IVik1", "UserFriendly"],
-                    ["5NjaWIMhQlair2k0dVDsXC", "Composable"],
-                    ["3aV4XbTikwD2bIdKAsmShv", "Scalable"],
-                    ["1i96gjazTJVQVxMdbDbfNm", "Upgradable"],
-                    ["d4he1KTXgSQLg6BuaY6MA", "Secure"]
-                ]
 
 // TODO : Iterate through myFeatures, and perform all the queries respectively
 // make sure to store the values on a new variable.
 // Consider turning the myFeatures list into a dict                  
-
-
-
-var newFeatures: webContent[] = []
-var currentFetch: Promise<any> | webContent = {
-  "title": "Welcome to the Polywrap Hub",
-  "subtitle": "Our flagship dApp",
-  "description": "A developer-centric platform where you can discover, deploy, and interact with any Polywrapper in the ecosystem. We are paving the road, expecting endless collaboration and curation possibilities. Test and Integrate web3 protocols quickly on the browser with our GraphQL Playground, and publish your packages to decentralised hosting. Soon you'll be able to explore an endless ocean of wrappers, by querying tags like `multisig`, `defi`, or `vesting`. A more semantic web3 that's easy to compose together!",
-  "callToAction": "Start Coding"
-}
-;
-//var counter: number = 0;
-myFeatures.forEach( async (element) => {
-  //console.log(element[0])
-  //console.log(element[1])
-  var cmsQuery = `query { 
-    ${element[1]}: webContent(id:"${element[0]}") { 
-      title
-      supportImage {
-        title
-        description
-        contentType
-        fileName
-        size
-        url
-        width
-        height
-      }
-      description
-   }
-  }`;
-  //console.log("Querying this feature:", cmsQuery);
-  currentFetch = ContentfulFetcher(cmsQuery);
-  newFeatures.push(await currentFetch);
-  //var counter = counter + 1;
-}); 
-
-console.log("On the Features component", newFeatures)
 
 // CONTENTFUL CMS INITIAL SET UP ABOVE
 
@@ -170,6 +124,79 @@ export const Features = () => {
   const theme = useTheme();
   const classes = useStyles();
 
+
+  var newFeatures: webContent | any= []
+
+  //var counter: number = 0;
+  
+  // TODO : Hooks ?
+  const [hasFailed, setHasFailed] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [someContent, setSomeContent] = useState<webContent[]> (
+    [{
+    "title": "Use Web3 Anywhere.",
+    "subtitle": "PRE-ALPHA",
+    "description": "Polywrap is a development platform that enables easy integration of Web3 protocols into any application. It makes it possible for software on any device, written in any language, to read and write data to Web3 protocols",
+    "callToAction": "JOIN OUR DISCORD"
+    }]);
+
+    useEffect(() => {
+
+      /////////// CMS content fetching: Callback version
+      setIsLoading(true);
+      const myFeatures = [
+        ["7LYHglxrDEqHwa23xPbrEo", "Multiplatform"],
+        ["7g5q14hzPYzLhwos7IVik1", "UserFriendly"],
+        ["5NjaWIMhQlair2k0dVDsXC", "Composable"],
+        ["3aV4XbTikwD2bIdKAsmShv", "Scalable"],
+        ["1i96gjazTJVQVxMdbDbfNm", "Upgradable"],
+        ["d4he1KTXgSQLg6BuaY6MA", "Secure"]
+      ]
+
+      var currentFetch: Promise<any> | webContent = {
+        "title": "Welcome to the Polywrap Hub",
+        "subtitle": "Our flagship dApp",
+        "description": "A developer-centric platform where you can discover, deploy, and interact with any Polywrapper in the ecosystem. We are paving the road, expecting endless collaboration and curation possibilities. Test and Integrate web3 protocols quickly on the browser with our GraphQL Playground, and publish your packages to decentralised hosting. Soon you'll be able to explore an endless ocean of wrappers, by querying tags like `multisig`, `defi`, or `vesting`. A more semantic web3 that's easy to compose together!",
+        "callToAction": "Start Coding"
+      };
+      myFeatures.forEach( async (element) => {
+        //console.log(element[0])
+        //console.log(element[1])
+        var cmsQuery = `query { 
+          ${element[1]}:webContent(id:"${element[0]}") { 
+            title
+            supportImage {
+              title
+              description
+              contentType
+              fileName
+              size
+              url
+              width
+              height
+            }
+            description
+         }
+        }`;
+        //console.log("Querying this feature:", cmsQuery);
+        currentFetch = ContentfulFetcher(cmsQuery);
+        console.log(currentFetch)
+        newFeatures.push(await currentFetch);
+        //var counter = counter + 1; 
+        //console.log(newFeatures)
+        setSomeContent(newFeatures);
+
+        setIsLoading(false);
+      });
+  
+    }, []);
+
+    console.log("On the Features component, from the useState function of someContent", someContent)
+    console.log("try here ", someContent[0])
+
+    // CONTENTFUL CMS INTEGREATION ABOVE
+
+
   return (
     <Box display='flex' alignItems='center' className={classes.root}>
       <Box className={classes.blurredPoly}>
@@ -184,22 +211,29 @@ export const Features = () => {
         <Box className={classes.cell}>
           <Grid container spacing={6} alignItems='flex-start' className={classes.featureGrid}>
             {
-              newFeatures.map((feature, index) => {
+              
+              someContent.map((feature, index) => {
                 // DEbug here to get the right data
 
                 return (
-
-                <Grid key={feature.title} xs={12} sm={6} md={4} item className={classes.featureItem}>
-                  <Box position='relative'>
-                    <Box position='relative' display='flex' alignItems='center' justifyContent='center' className={classes.featureIconContainer}>
-                      <img className={classes.featureIconBg} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/blob-1.png`} alt='' />
-                      <img className={classes.featureIcon} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/features/${feature.title}.png`} alt='' />
-                    </Box>
-                    <Typography variant='subtitle1' color='textPrimary' align='center' className={classes.featureTitle}>
-                      {feature.title}
-                    </Typography>
-                    <Typography variant='body1' color='textSecondary' align='center' className={classes.featureDescription}>
-                      {feature.subtitle}
+                // <Grid key={feature.title} xs={12} sm={6} md={4} item className={classes.featureItem}>
+                //   <Box position='relative'>
+                //     <Box position='relative' display='flex' alignItems='center' justifyContent='center' className={classes.featureIconContainer}>
+                //       <img className={classes.featureIconBg} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/blob-1.png`} alt='' />
+                //       <img className={classes.featureIcon} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/features/${feature.title}.png`} alt='' />
+                //     </Box>
+                //     <Typography variant='subtitle1' color='textPrimary' align='center' className={classes.featureTitle}>
+                //       {feature.title}
+                //     </Typography>
+                //     <Typography variant='body1' color='textSecondary' align='center' className={classes.featureDescription}>
+                //       {feature.subtitle}
+                //     </Typography>
+                //   </Box>
+                // </Grid>
+                <Grid>
+                  <Box>
+                    <Typography>
+                      {feature}
                     </Typography>
                   </Box>
                 </Grid>
