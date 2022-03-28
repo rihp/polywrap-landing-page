@@ -132,9 +132,7 @@ console.log("On the Features component", newFeatures)
 
 // CONTENTFUL CMS INITIAL SET UP ABOVE
 
-
-
-
+// TODO : Deprecate this array
 const features = [
   {
     slug: 'multi_platform',
@@ -186,19 +184,19 @@ export const Features = () => {
         <Box className={classes.cell}>
           <Grid container spacing={6} alignItems='flex-start' className={classes.featureGrid}>
             {
-              features.map((feature, index) => {
+              newFeatures.map((feature, index) => {
                 return (
-                <Grid key={feature.slug} xs={12} sm={6} md={4} item className={classes.featureItem}>
+                <Grid key={feature.title} xs={12} sm={6} md={4} item className={classes.featureItem}>
                   <Box position='relative'>
                     <Box position='relative' display='flex' alignItems='center' justifyContent='center' className={classes.featureIconContainer}>
                       <img className={classes.featureIconBg} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/blob-1.png`} alt='' />
-                      <img className={classes.featureIcon} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/features/${feature.slug}.png`} alt='' />
+                      <img className={classes.featureIcon} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/features/${feature.title}.png`} alt='' />
                     </Box>
                     <Typography variant='subtitle1' color='textPrimary' align='center' className={classes.featureTitle}>
                       {feature.title}
                     </Typography>
                     <Typography variant='body1' color='textSecondary' align='center' className={classes.featureDescription}>
-                      {feature.description}
+                      {feature.subtitle}
                     </Typography>
                   </Box>
                 </Grid>
