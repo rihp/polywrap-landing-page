@@ -79,13 +79,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // CONTENTFUL CMS  INITIAL SET UP BELOW       // v FEATURES v
-const myFeatures = ["7LYHglxrDEqHwa23xPbrEo", // Multiplatform
-                    "7g5q14hzPYzLhwos7IVik1", //User-Friendly
-                    "5NjaWIMhQlair2k0dVDsXC", // Composable
-                    "3aV4XbTikwD2bIdKAsmShv", // Scalable
-                    "1i96gjazTJVQVxMdbDbfNm", // Upgradable
-                    "d4he1KTXgSQLg6BuaY6MA", // Secure
-                  ]
+const myFeatures = [
+                    ["7LYHglxrDEqHwa23xPbrEo", "Multiplatform"],
+                    ["7g5q14hzPYzLhwos7IVik1", "UserFriendly"],
+                    ["5NjaWIMhQlair2k0dVDsXC", "Composable"],
+                    ["3aV4XbTikwD2bIdKAsmShv", "Scalable"],
+                    ["1i96gjazTJVQVxMdbDbfNm", "Upgradable"],
+                    ["d4he1KTXgSQLg6BuaY6MA", "Secure"]
+                ]
 
 // TODO : Iterate through myFeatures, and perform all the queries respectively
 // make sure to store the values on a new variable.
@@ -101,10 +102,12 @@ var currentFetch: Promise<any> | webContent = {
   "callToAction": "Start Coding"
 }
 ;
-
+//var counter: number = 0;
 myFeatures.forEach( async (element) => {
+  console.log(element[0])
+  console.log(element[1])
   var cmsQuery = `query { 
-    ${element}: webContent(id:"${element}") { 
+    ${element[1]}: webContent(id:"${element[0]}") { 
       title
       supportImage {
         title
@@ -122,7 +125,8 @@ myFeatures.forEach( async (element) => {
   console.log("Querying this feature:", cmsQuery);
   currentFetch = ContentfulFetcher(cmsQuery);
   newFeatures.push(await currentFetch);
-});
+  //var counter = counter + 1;
+}); 
 
 console.log("On the Features component", newFeatures)
 
