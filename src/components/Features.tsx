@@ -104,8 +104,8 @@ var currentFetch: Promise<any> | webContent = {
 ;
 //var counter: number = 0;
 myFeatures.forEach( async (element) => {
-  console.log(element[0])
-  console.log(element[1])
+  //console.log(element[0])
+  //console.log(element[1])
   var cmsQuery = `query { 
     ${element[1]}: webContent(id:"${element[0]}") { 
       title
@@ -122,7 +122,7 @@ myFeatures.forEach( async (element) => {
       description
    }
   }`;
-  console.log("Querying this feature:", cmsQuery);
+  //console.log("Querying this feature:", cmsQuery);
   currentFetch = ContentfulFetcher(cmsQuery);
   newFeatures.push(await currentFetch);
   //var counter = counter + 1;
@@ -185,7 +185,10 @@ export const Features = () => {
           <Grid container spacing={6} alignItems='flex-start' className={classes.featureGrid}>
             {
               newFeatures.map((feature, index) => {
+                // DEbug here to get the right data
+
                 return (
+
                 <Grid key={feature.title} xs={12} sm={6} md={4} item className={classes.featureItem}>
                   <Box position='relative'>
                     <Box position='relative' display='flex' alignItems='center' justifyContent='center' className={classes.featureIconContainer}>
