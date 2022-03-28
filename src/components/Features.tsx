@@ -125,8 +125,6 @@ export const Features = () => {
   const classes = useStyles();
 
 
-  var newFeatures: polywrapFeature | any= []
-
   //var counter: number = 0;
   
   // TODO : Hooks ?
@@ -142,55 +140,65 @@ export const Features = () => {
     }]);
 
     useEffect(() => {
+      (async () => {
+        var newFeatures: polywrapFeature[] = [];
 
-      /////////// CMS content fetching: Callback version
-      setIsLoading(true);
-      const myFeatures = [
-        ["7LYHglxrDEqHwa23xPbrEo", "Multiplatform"],
-        ["7g5q14hzPYzLhwos7IVik1", "UserFriendly"],
-        ["5NjaWIMhQlair2k0dVDsXC", "Composable"],
-        ["3aV4XbTikwD2bIdKAsmShv", "Scalable"],
-        ["1i96gjazTJVQVxMdbDbfNm", "Upgradable"],
-        ["d4he1KTXgSQLg6BuaY6MA", "Secure"]
-      ]
+        /////////// CMS content fetching: Callback version
+        setIsLoading(true);
+        const myFeatures = [
+          ["7LYHglxrDEqHwa23xPbrEo", "Multiplatform"],
+          ["7g5q14hzPYzLhwos7IVik1", "UserFriendly"],
+          ["5NjaWIMhQlair2k0dVDsXC", "Composable"],
+          ["3aV4XbTikwD2bIdKAsmShv", "Scalable"],
+          ["1i96gjazTJVQVxMdbDbfNm", "Upgradable"],
+          ["d4he1KTXgSQLg6BuaY6MA", "Secure"]
+        ]
 
-      var currentFetch: Promise<any> | polywrapFeature = {
-        "title": "Welcome to the Polywrap Hub",
-        "subtitle": "Our flagship dApp",
-        "description": "A developer-centric platform where you can discover, deploy, and interact with any Polywrapper in the ecosystem. We are paving the road, expecting endless collaboration and curation possibilities. Test and Integrate web3 protocols quickly on the browser with our GraphQL Playground, and publish your packages to decentralised hosting. Soon you'll be able to explore an endless ocean of wrappers, by querying tags like `multisig`, `defi`, or `vesting`. A more semantic web3 that's easy to compose together!",
-        "callToAction": "Start Coding",
-        "slug": "hub"
-      };
-      myFeatures.forEach( async (element) => {
-        //console.log(element[0])
-        //console.log(element[1])
-        var cmsQuery = `query { 
-          webContent(id:"${element[0]}") { 
-            title
-            supportImage {
+        // var currentFetch: Promise<any> | polywrapFeature = {
+        //   "title": "Welcome to the Polywrap Hub",
+        //   "subtitle": "Our flagship dApp",
+        //   "description": "A developer-centric platform where you can discover, deploy, and interact with any Polywrapper in the ecosystem. We are paving the road, expecting endless collaboration and curation possibilities. Test and Integrate web3 protocols quickly on the browser with our GraphQL Playground, and publish your packages to decentralised hosting. Soon you'll be able to explore an endless ocean of wrappers, by querying tags like `multisig`, `defi`, or `vesting`. A more semantic web3 that's easy to compose together!",
+        //   "callToAction": "Start Coding",
+        //   "slug": "hub"
+        // };
+
+        var currentFetch: {
+          data: {
+            webContent: polywrapFeature
+          }
+        };
+
+        for(const element of myFeatures) {
+          //console.log(element[0])
+          //console.log(element[1])
+          var cmsQuery = `query { 
+            webContent(id:"${element[0]}") { 
               title
+              subtitle
+              supportImage {
+                title
+                description
+                contentType
+                fileName
+                size
+                url
+                width
+                height
+              }
               description
-              contentType
-              fileName
-              size
-              url
-              width
-              height
-            }
-            description
-         }
-        }`;
-        //console.log("Querying this feature:", cmsQuery);
-        currentFetch = ContentfulFetcher(cmsQuery);
-        console.log(currentFetch)
-        newFeatures.push(await currentFetch);
-        //var counter = counter + 1; 
-        //console.log(newFeatures)
-        setSomeContent(newFeatures);
+          }
+          }`;
+          //console.log("Querying this feature:", cmsQuery);
+          currentFetch = await ContentfulFetcher(cmsQuery);
+          console.log("currentFetch", currentFetch)
+          newFeatures.push(currentFetch.data.webContent);
+          //var counter = counter + 1; 
+          //console.log(newFeatures)
+          setSomeContent((oldFeatures) => [...oldFeatures, currentFetch.data.webContent]);
 
-        setIsLoading(false);
-      });
-  
+          setIsLoading(false);
+        }
+      })();
     }, []);
 
     console.log("On the Features component, from the useState function of someContent", someContent)
@@ -215,40 +223,33 @@ export const Features = () => {
             {
               
               someContent.map((feature, index) => {
-                // Debug here to unpack the right data from the object
-                {console.log("check this -> ", feature);
-                // This returns "undefined"
-                console.log("check this -> ", feature.title);
-                // this returns a type error
-                console.log("check this -> ", feature.webContent);
-                }
                 return (
-                // <Grid key={feature.title} xs={12} sm={6} md={4} item className={classes.featureItem}>
-                //   <Box position='relative'>
-                //     <Box position='relative' display='flex' alignItems='center' justifyContent='center' className={classes.featureIconContainer}>
-                //       <img className={classes.featureIconBg} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/blob-1.png`} alt='' />
-                //       <img className={classes.featureIcon} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/features/${feature.title}.png`} alt='' />
-                //     </Box>
-                //     <Typography variant='subtitle1' color='textPrimary' align='center' className={classes.featureTitle}>
-                //       {feature.title}
-                //     </Typography>
-                //     <Typography variant='body1' color='textSecondary' align='center' className={classes.featureDescription}>
-                //       {feature.subtitle}
-                //     </Typography>
-                //   </Box>
-                // </Grid>
                 <Grid key={feature.title} xs={12} sm={6} md={4} item className={classes.featureItem}>
+                  <Box position='relative'>
                     <Box position='relative' display='flex' alignItems='center' justifyContent='center' className={classes.featureIconContainer}>
+                      <img className={classes.featureIconBg} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/blob-1.png`} alt='' />
+                      <img className={classes.featureIcon} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/features/${feature.title}.png`} alt='' />
+                    </Box>
                     <Typography variant='subtitle1' color='textPrimary' align='center' className={classes.featureTitle}>
                       {feature.title}
-                      {feature.description}
-                      {feature.supportImage}
-                      <img className={classes.featureIcon} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/features/${feature['title']}.png`} alt='' />
-
-
+                    </Typography>
+                    <Typography variant='body1' color='textSecondary' align='center' className={classes.featureDescription}>
+                      {feature.subtitle}
                     </Typography>
                   </Box>
                 </Grid>
+                // <Grid key={feature.title} xs={12} sm={6} md={4} item className={classes.featureItem}>
+                //     <Box position='relative' display='flex' alignItems='center' justifyContent='center' className={classes.featureIconContainer}>
+                //       <Typography variant='subtitle1' color='textPrimary' align='center' className={classes.featureTitle}>
+                //         <div>
+                //           <div>{feature.title}</div>
+                //           <div>{feature.description}</div>
+                //           <div>{feature.supportImage}</div>
+                //           <img className={classes.featureIcon} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/features/${feature['title']}.png`} alt='' />
+                //         </div>
+                //     </Typography>
+                //   </Box>
+                // </Grid>
               )})
             }
           </Grid>
