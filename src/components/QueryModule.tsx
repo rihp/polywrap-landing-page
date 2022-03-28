@@ -12,6 +12,10 @@ export interface webContent {
   supportImage?: any | null;
 }
 
+export interface polywrapFeature extends webContent{
+  slug: string; 
+}
+
 export interface launchPartner {
   name: string;
   link: string | null;

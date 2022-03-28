@@ -3,7 +3,7 @@ import { Box, Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
 
 // WIP: Try to modularize the CMS query
 import {useState, useEffect} from 'react';
-import { webContent, ContentfulFetcher, Asset } from './QueryModule';
+import { polywrapFeature, ContentfulFetcher, Asset } from './QueryModule';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -125,19 +125,20 @@ export const Features = () => {
   const classes = useStyles();
 
 
-  var newFeatures: webContent | any= []
+  var newFeatures: polywrapFeature | any= []
 
   //var counter: number = 0;
   
   // TODO : Hooks ?
   const [hasFailed, setHasFailed] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [someContent, setSomeContent] = useState<webContent[]> (
+  const [someContent, setSomeContent] = useState<polywrapFeature[]> (
     [{
     "title": "Use Web3 Anywhere.",
     "subtitle": "PRE-ALPHA",
     "description": "Polywrap is a development platform that enables easy integration of Web3 protocols into any application. It makes it possible for software on any device, written in any language, to read and write data to Web3 protocols",
-    "callToAction": "JOIN OUR DISCORD"
+    "callToAction": "JOIN OUR DISCORD",
+    "slug":"fake"
     }]);
 
     useEffect(() => {
@@ -153,17 +154,18 @@ export const Features = () => {
         ["d4he1KTXgSQLg6BuaY6MA", "Secure"]
       ]
 
-      var currentFetch: Promise<any> | webContent = {
+      var currentFetch: Promise<any> | polywrapFeature = {
         "title": "Welcome to the Polywrap Hub",
         "subtitle": "Our flagship dApp",
         "description": "A developer-centric platform where you can discover, deploy, and interact with any Polywrapper in the ecosystem. We are paving the road, expecting endless collaboration and curation possibilities. Test and Integrate web3 protocols quickly on the browser with our GraphQL Playground, and publish your packages to decentralised hosting. Soon you'll be able to explore an endless ocean of wrappers, by querying tags like `multisig`, `defi`, or `vesting`. A more semantic web3 that's easy to compose together!",
-        "callToAction": "Start Coding"
+        "callToAction": "Start Coding",
+        "slug": "hub"
       };
       myFeatures.forEach( async (element) => {
         //console.log(element[0])
         //console.log(element[1])
         var cmsQuery = `query { 
-          ${element[1]}:webContent(id:"${element[0]}") { 
+          webContent(id:"${element[0]}") { 
             title
             supportImage {
               title
@@ -192,7 +194,7 @@ export const Features = () => {
     }, []);
 
     console.log("On the Features component, from the useState function of someContent", someContent)
-    console.log("try here ", someContent[0])
+    console.log("try here ", someContent)
 
     // CONTENTFUL CMS INTEGREATION ABOVE
 
@@ -213,8 +215,13 @@ export const Features = () => {
             {
               
               someContent.map((feature, index) => {
-                // DEbug here to get the right data
-
+                // Debug here to unpack the right data from the object
+                {console.log("check this -> ", feature);
+                // This returns "undefined"
+                console.log("check this -> ", feature.title);
+                // this returns a type error
+                console.log("check this -> ", feature.webContent);
+                }
                 return (
                 // <Grid key={feature.title} xs={12} sm={6} md={4} item className={classes.featureItem}>
                 //   <Box position='relative'>
@@ -230,10 +237,15 @@ export const Features = () => {
                 //     </Typography>
                 //   </Box>
                 // </Grid>
-                <Grid>
-                  <Box>
-                    <Typography>
-                      {feature}
+                <Grid key={feature.title} xs={12} sm={6} md={4} item className={classes.featureItem}>
+                    <Box position='relative' display='flex' alignItems='center' justifyContent='center' className={classes.featureIconContainer}>
+                    <Typography variant='subtitle1' color='textPrimary' align='center' className={classes.featureTitle}>
+                      {feature.title}
+                      {feature.description}
+                      {feature.supportImage}
+                      <img className={classes.featureIcon} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/features/${feature['title']}.png`} alt='' />
+
+
                     </Typography>
                   </Box>
                 </Grid>
