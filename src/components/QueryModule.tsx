@@ -22,6 +22,9 @@ export interface launchPartner {
   testimonial: string | null;
   persona: string;
   futurePromise: string;
+  blackPngLogo: {
+    url: string;
+  }
 }
 
 export interface Testimonial {

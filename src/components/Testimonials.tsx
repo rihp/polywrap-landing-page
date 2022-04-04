@@ -71,6 +71,9 @@ const cmsQuery = `query {
    name 
    link
    testimonial
+   blackPngLogo {
+    url
+  }
    persona
    futurePromise
  }, 
@@ -78,6 +81,9 @@ const cmsQuery = `query {
     name 
     link
     testimonial
+    blackPngLogo {
+      url
+    }
     persona
     futurePromise
   }
@@ -98,7 +104,10 @@ export const Testimonials = () => {
       "link": "https://gelato.network",
       "testimonial": "With the help of Polywrap, Gelato enables every developer to easily automate the execution of transactions on networks like Ethereum, giving them the ability to provide arbitrary instructions to a decentralized network of bots with a single wrapper call",
       "persona": "Hilmar X, Legendary Member",
-      "futurePromise": "Gelato and other node networks will leverage Polywrap to have sdk’s that dynamically update upon governance decisions instead of needing to contact all the operators to restart their nodes and install the new package."
+      "futurePromise": "Gelato and other node networks will leverage Polywrap to have sdk’s that dynamically update upon governance decisions instead of needing to contact all the operators to restart their nodes and install the new package.",
+      "blackPngLogo": {
+        "url":"empty"
+      }
     });
   const [gnosisContent, setGnosisContent] = useState<launchPartner> (
     {
@@ -106,7 +115,10 @@ export const Testimonials = () => {
       "link": "https://gnosis.io",
       "testimonial": "Polywrap will make it easy for everyone to build on top of Gnosis technologies and interact with our contracts and interfaces. This will help us achieve our vision of building open platforms and removing gatekeepers",
       "persona": "Team Gnosis",
-      "futurePromise": "Gnosis is creating wrappers that will encapsulate their business logic in secure, language-agnostic modules that interact with many chains, storage networks, oracles, and services. This growing ecosystem of Gnosis apps will be auto-updated in a securely."
+      "futurePromise": "Gnosis is creating wrappers that will encapsulate their business logic in secure, language-agnostic modules that interact with many chains, storage networks, oracles, and services. This growing ecosystem of Gnosis apps will be auto-updated in a securely.",
+      "blackPngLogo": {
+        "url":"empty"
+      }
     });
   const [hasFailed, setHasFailed] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -154,7 +166,7 @@ export const Testimonials = () => {
       "link": newTestimonials[partner].link,
       // TODO: This is a hacky way of getting the link to the image, we should be able to fetch 
       // it all from the CMS, or have this structured in a a way that the .split(' ')[0] doesn't break
-      "logo": "https://polywrap.io/logos/" + newTestimonials[partner].name.split(' ')[0].toLocaleLowerCase() + ".png"
+      "logo": newTestimonials[partner].blackPngLogo.url
     };
 
   };
