@@ -232,7 +232,7 @@ export const Features = () => {
                       <Box position='relative'>
                         <Box position='relative' display='flex' alignItems='center' justifyContent='center' className={classes.featureIconContainer}>
                           <img className={classes.featureIconBg} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/blob-1.png`} alt='' />
-                          <img className={classes.featureIcon} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/features/${feature.title}.png`} alt='' />
+                          <img className={classes.featureIcon} width="100%" src={`${feature.supportImage.url}`} alt='' />
                         </Box>
                         <Typography variant='subtitle1' color='textPrimary' align='center' className={classes.featureTitle}>
                           {feature.title}
