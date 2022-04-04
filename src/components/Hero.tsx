@@ -161,8 +161,7 @@ const cmsQuery = `query {
    callToAction
  } 
 }`;
-const data = ContentfulFetcher(cmsQuery)
-//console.log("On the Hero component", data)
+
 // CONTENTFUL CMS  INITIAL SET UP ABOVE
 
 export const Hero = () => {
@@ -193,8 +192,6 @@ export const Hero = () => {
       (response) => {
         //On success        
         const content: webContent = response.data.webContent;
-        // console.log("On the arrow func", content)
-
         setSomeContent(content);
       }, 
       (error) => {
@@ -209,7 +206,6 @@ export const Hero = () => {
   // CONTENTFUL CMS INTEGREATION ABOVE
 
   return (
-    // TODO: Pass the supportImage to the <img> div below
     <Grid
       className={classes.root}
       container
@@ -271,6 +267,7 @@ export const Hero = () => {
             y={[80, -80]}
             disabled={window.innerWidth < theme.breakpoints.values.md}
           >
+            {/* // TODO: Pass the supportImage to the <img> div below */}
             <img
               className={classes.heroPolywrapper}
               src={process.env.PUBLIC_URL + '/imgs/polywrapper-hero.png'}

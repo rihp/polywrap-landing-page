@@ -1,9 +1,7 @@
 import { Parallax } from 'react-scroll-parallax';
 import { Box, Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
-
-// WIP: Try to modularize the CMS query
 import {useState, useEffect} from 'react';
-import { polywrapFeature, ContentfulFetcher, Asset } from './QueryModule';
+import { polywrapFeature, ContentfulFetcher } from './QueryModule';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -86,39 +84,6 @@ const useStyles = makeStyles((theme) => ({
 
 // CONTENTFUL CMS INITIAL SET UP ABOVE
 
-// TODO : Deprecate this array
-const features = [
-  {
-    slug: 'multi_platform',
-    title: 'Multi-Platform',
-    description: 'Write your SDK once, use it anywhere. Simply add the Polywrap Client to your user applications.',
-  },
-  {
-    slug: 'user_friendly',
-    title: 'User-Friendly',
-    description: 'Integrating Web3 is finally as easy as Web2, thanks to GraphQL syntax.',
-  },
-  {
-    slug: 'secure',
-    title: 'Secure',
-    description: 'Sandboxing ensures your integrations are isolated from your application. Users are safer with Polywrap.',
-  },
-  {
-    slug: 'scalable',
-    title: 'Scalable',
-    description: 'Keep applications light-weight and efficient, only download what you need, when you need it.',
-  },
-  {
-    slug: 'composable',
-    title: 'Composable',
-    description: 'Polywrap makes composition and extensions easy. Combine using imports, or extend using standard interfaces.',
-  },
-  {
-    slug: 'upgradable',
-    title: 'Upgradable',
-    description: 'Optionally upgrade your applications at run-time, no rebuilds required. Choose the level of control that makes sense for your application.',
-  },
-]
 
 export const Features = () => {
   const theme = useTheme();
@@ -188,24 +153,14 @@ export const Features = () => {
               description
           }
           }`;
-          //console.log("Querying this feature:", cmsQuery);
-          currentFetch = await ContentfulFetcher(cmsQuery);
-          //console.log("currentFetch", currentFetch)
           
+          currentFetch = await ContentfulFetcher(cmsQuery);
           newFeatures.push(currentFetch.data.webContent);
-          console.log(newFeatures)
-
-          //var counter = counter + 1; 
-          //console.log(newFeatures)
           setSomeContent((oldFeatures) => [...oldFeatures, currentFetch.data.webContent]);
-
           setIsLoading(false);
         }
       })();
     }, []);
-
-    console.log("On the Features component, from the useState function of someContent", someContent)
-
     // CONTENTFUL CMS INTEGREATION ABOVE
 
 

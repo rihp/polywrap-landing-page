@@ -65,8 +65,6 @@ const cmsQuery = `query {
    callToAction
  } 
 }`;
-const data = ContentfulFetcher(cmsQuery)
-//console.log("On the Demo component", data)
 // CONTENTFUL CMS INITIAL SET UP ABOVE
 
 
