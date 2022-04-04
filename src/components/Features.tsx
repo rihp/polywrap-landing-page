@@ -132,10 +132,10 @@ export const Features = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [someContent, setSomeContent] = useState<polywrapFeature[]> (
     [{
-    "title": "Use Web3 Anywhere.",
+    "title": "Fake Content.",
     "subtitle": "PRE-ALPHA",
     "description": "Polywrap is a development platform that enables easy integration of Web3 protocols into any application. It makes it possible for software on any device, written in any language, to read and write data to Web3 protocols",
-    "callToAction": "JOIN OUR DISCORD",
+    "callToAction": "ERROR Happened",
     "slug":"fake"
     }]);
 
@@ -190,8 +190,11 @@ export const Features = () => {
           }`;
           //console.log("Querying this feature:", cmsQuery);
           currentFetch = await ContentfulFetcher(cmsQuery);
-          console.log("currentFetch", currentFetch)
+          //console.log("currentFetch", currentFetch)
+          
           newFeatures.push(currentFetch.data.webContent);
+          console.log(newFeatures)
+
           //var counter = counter + 1; 
           //console.log(newFeatures)
           setSomeContent((oldFeatures) => [...oldFeatures, currentFetch.data.webContent]);
@@ -202,7 +205,6 @@ export const Features = () => {
     }, []);
 
     console.log("On the Features component, from the useState function of someContent", someContent)
-    console.log("try here ", someContent)
 
     // CONTENTFUL CMS INTEGREATION ABOVE
 
@@ -223,21 +225,23 @@ export const Features = () => {
             {
               
               someContent.map((feature, index) => {
-                return (
-                <Grid key={feature.title} xs={12} sm={6} md={4} item className={classes.featureItem}>
-                  <Box position='relative'>
-                    <Box position='relative' display='flex' alignItems='center' justifyContent='center' className={classes.featureIconContainer}>
-                      <img className={classes.featureIconBg} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/blob-1.png`} alt='' />
-                      <img className={classes.featureIcon} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/features/${feature.title}.png`} alt='' />
-                    </Box>
-                    <Typography variant='subtitle1' color='textPrimary' align='center' className={classes.featureTitle}>
-                      {feature.title}
-                    </Typography>
-                    <Typography variant='body1' color='textSecondary' align='center' className={classes.featureDescription}>
-                      {feature.subtitle}
-                    </Typography>
-                  </Box>
-                </Grid>
+                if (feature.slug !== 'fake') {
+                  
+                  return (
+                    <Grid key={feature.title} xs={12} sm={6} md={4} item className={classes.featureItem}>
+                      <Box position='relative'>
+                        <Box position='relative' display='flex' alignItems='center' justifyContent='center' className={classes.featureIconContainer}>
+                          <img className={classes.featureIconBg} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/blob-1.png`} alt='' />
+                          <img className={classes.featureIcon} width="100%" src={`${process.env.PUBLIC_URL}/imgs/assets/features/${feature.title}.png`} alt='' />
+                        </Box>
+                        <Typography variant='subtitle1' color='textPrimary' align='center' className={classes.featureTitle}>
+                          {feature.title}
+                        </Typography>
+                        <Typography variant='body1' color='textSecondary' align='center' className={classes.featureDescription}>
+                          {feature.subtitle}
+                        </Typography>
+                      </Box>
+                    </Grid>
                 // <Grid key={feature.title} xs={12} sm={6} md={4} item className={classes.featureItem}>
                 //     <Box position='relative' display='flex' alignItems='center' justifyContent='center' className={classes.featureIconContainer}>
                 //       <Typography variant='subtitle1' color='textPrimary' align='center' className={classes.featureTitle}>
@@ -250,7 +254,7 @@ export const Features = () => {
                 //     </Typography>
                 //   </Box>
                 // </Grid>
-              )})
+              )}})
             }
           </Grid>
         </Box>
