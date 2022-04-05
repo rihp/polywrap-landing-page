@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
 
 // CONTENTFUL CMS INITIAL SET UP BELOW
 const cmsQuery = `query { 
-  webContent(id:"5GN94FkZlXn4s5b0Q9aQ2N") { 
+  webContent(id:"26XK8ENo5y1MgwpY7CDRlb") { 
    title 
    subtitle
    description
@@ -77,10 +77,10 @@ export const WrappersSection = () => {
   // CONTENTFUL CMS INTEGRATION BELOW
   const [someContent, setSomeContent] = useState<webContent> (
     {
-      "title": "Solving the Web3 Integration Problem",
-      "subtitle": ".",
-      "description": "Web3 relies on SDKs to integrate virtually every type of protocol: DeFi, NFTs, DAOs, P2P Networks\n\nDue to traditional SDKs’ short-comings, Web3’s technical debt is growing day by day.\n\nTraditional SDKs are:\nInsecure, Bloated, Incompatible, and Language-Specific",
-      "callToAction": "Read the Docs"
+      "title": "Blazing fast development",
+      "subtitle": "",
+      "description": " Write queries in minutes rather than hours.\n\nUsing the polywrap toolchain, you'll be able to hit any protocol endpoint from any device that can run a Polywrap client.",
+      "callToAction": "Execute Query"
   });
   const [hasFailed, setHasFailed] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
