@@ -31,7 +31,7 @@ export const Home = () => {
       <Features />
       {/* <WhatsPolywrap /> */}
       <HubCallout />
-      <Partners />
+      {/* <Partners /> */}
       <Testimonials />
     </Box>
   );

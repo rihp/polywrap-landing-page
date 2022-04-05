@@ -66,6 +66,8 @@ const useStyles = makeStyles((theme) => ({
 
 
 // CONTENTFUL CMS  INITIAL SET UP BELOW
+// TO ADD A NEW TESTIMONIAL BLOCK YOU SHOULD 
+// JUST REPLICATE THE QUERY AND ADD THE CORRECT ID
 const cmsQuery = `query { 
   gelato: launchPartners(id:"4NuUSkl1u6JPVA7QNiM4iS") { 
    name 
