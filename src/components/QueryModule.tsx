@@ -10,6 +10,26 @@ export interface webContent {
   callToAction: string | null;
   description?: string | null;
   supportImage?: any | null;
+  
+}
+
+export interface wrapperQuery {
+  filename: string;
+  featured: boolean;
+  query: string;
+  comment: string;
+  source: string;
+}
+
+export interface wrapper {
+  wrapperName: string;
+  featured: boolean;
+  thirdParty: boolean;
+  description: string;
+  queriesCollection: {
+    items : wrapperQuery[];
+  }
+  docsLink: string;
 }
 
 export interface polywrapFeature extends webContent{
