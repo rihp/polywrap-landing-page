@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import { Box, makeStyles, styled } from '@material-ui/core';
 import { polywrapPalette } from '../theme';
+
+// WIP: Try to modularize the CMS query
+import {useState, useEffect} from 'react';
+import {  webContent, ContentfulFetcher } from './QueryModule';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -78,6 +81,29 @@ const LineNo = styled('span')({
 const LineContent = styled('span')({
   display: 'table-cell',
 });
+
+
+// CONTENTFUL CMS INITIAL SET UP BELOW
+const cmsQuery = `query { 
+  featuredWrapper(id:"1Lo0Gmtk7BI5v0bNmzPRhb") { 
+    wrapperName
+    docsLink
+    featured
+    thirdParty
+    description
+ 		queriesCollection {
+      items {
+        filename
+        featured
+        query
+        comment
+        source
+      }
+    }  
+	}
+}`;
+// CONTENTFUL CMS INITIAL SET UP ABOVE
+
 
 const queries = 
 [
