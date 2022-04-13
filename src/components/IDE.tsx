@@ -1,7 +1,9 @@
+import React from 'react';
 import { useEffect, useState } from "react";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import { Box, makeStyles, styled } from '@material-ui/core';
 import { polywrapPalette } from '../theme';
+import theme from "prism-react-renderer/themes/nightOwl";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: 'rgba(255,255,255,0.05)',
       color: 'rgba(255,255,255,0.8)',
+      cursor: 'pointer',
     },
     '&.is-active': {
       backgroundColor: 'rgba(255,255,255,0.05)',
@@ -35,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     background: polywrapPalette.secondary[800],
     borderRadius: '0 0 8px 8px',
     maxHeight: '400px',
-    overflowY: 'scroll',
+    overflowY: 'auto',
   },
   pre: {
     textAlign: 'left',
@@ -79,81 +82,40 @@ const LineContent = styled('span')({
   display: 'table-cell',
 });
 
-const queries = 
-[
-  `Web3Api.query({
-    uri: ensUri,
-    query: \`query {
-      bestTradeExactIn(
-        pairs: $pairs
-        amountIn: $amountIn
-        tokenOut: $tokenOut
-        options: $options
-        )
-      }\`,
-    })
-  })`,
-  `Web4Api.query({
-    uri: ensUri,
-    query: \`query {
-      bestTradeExactIn(
-        pairs: $pairs
-        amountIn: $amountIn
-        tokenOut: $tokenOut
-        options: $options
-        )
-      }\`,
-    })
-  })`,
-  `Web5Api.query({
-    uri: ensUri,
-    query: \`query {
-      bestTradeExactIn(
-        pairs: $pairs
-        amountIn: $amountIn
-        tokenOut: $tokenOut
-        options: $options
-        )
-      }\`,
-    })
-  })`,
-]
 
-export const Tabs = () => {
+export const Tabs = ({queriesData, activeQuery, setActiveQuery}: any) => {
   const classes = useStyles();
 
   return (
     <Box className={classes.tabs} display='flex'>
-      <Box data-id={0} className={`${classes.tab} is-active`}>simplestorage.ts</Box>
-      {/* <Box data-id={1} className={classes.tab}>Tab.js</Box>
-      <Box data-id={2} className={classes.tab}>Tab.py</Box> */}
+      { queriesData &&
+        queriesData.map((query: { featured: boolean, filename: string }, index: number) => {
+          return query.featured &&
+            <Box
+            data-id={index}
+            className={`${classes.tab} ${activeQuery === index && 'is-active'}`}
+            onClick={() => setActiveQuery(index)}
+          >
+            {query.filename}
+          </Box>
+        }
+      )}
     </Box>
   );
 };
 
-export const IDE = () => {
-  const classes = useStyles();
 
-  // const [activeQuery, setActiveQuery] = useState(queries[0]);
-  // const handleClick = (e: Event) => {
-  //     console.log(e.target);
-  //     const query = e.target?.dataset?.id;
-  //     setActiveQuery(query);
-  // };
-  
-  // useEffect(() => {
-  //   window.addEventListener('click', handleClick, { passive: true });
-  
-  //   return () => {
-  //     window.removeEventListener('click', handleClick);
-  //   };
-  // }, []);
+export const IDE = ({queriesData}: any) => {
+  const classes = useStyles();
+  const firstFeatured = queriesData.findIndex((query: { featured: boolean; }) => query.featured);
+  const [activeQuery, setActiveQuery] = useState(firstFeatured);
 
   return (
     <Box className={classes.root}>
-      <Tabs />
+      <Tabs queriesData={queriesData} activeQuery={activeQuery} setActiveQuery={setActiveQuery} />
+
       <Box className={classes.main}>
-        <Highlight {...defaultProps} code={queries[0]} theme={undefined} language="javascript">
+        <Highlight {...defaultProps} code={queriesData[activeQuery].query} theme={theme} language={queriesData[activeQuery].language}>
           {({ tokens, getLineProps, getTokenProps }) => (
             <pre className={classes.pre}>
               {tokens.map((line, i) => (
