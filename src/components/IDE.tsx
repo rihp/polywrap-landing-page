@@ -92,9 +92,10 @@ export const Tabs = ({queriesData, activeQuery, setActiveQuery}: any) => {
         queriesData.map((query: { featured: boolean, filename: string }, index: number) => {
           return query.featured &&
             <Box
-            data-id={index}
-            className={`${classes.tab} ${activeQuery === index && 'is-active'}`}
-            onClick={() => setActiveQuery(index)}
+              key={index}
+              data-id={index}
+              className={`${classes.tab} ${activeQuery === index && 'is-active'}`}
+              onClick={() => setActiveQuery(index)}
           >
             {query.filename}
           </Box>

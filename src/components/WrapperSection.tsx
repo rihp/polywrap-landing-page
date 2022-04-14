@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect, useState } from "react";
 import { Parallax } from 'react-scroll-parallax';
 import { Box, Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
 import parse from 'html-react-parser';
@@ -18,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('xs')]: {
       maxWidth: '90vw',
     },
+    minHeight: 650,
   },
   grid: {
     justifyContent: 'center',
@@ -52,6 +54,27 @@ export const WrapperSection = () => {
   const theme = useTheme();
   const classes = useStyles();
 
+  const featuredWrappers = data.map((wrapper, i) => wrapper.featured ? i : -1).filter(index => index !== -1);
+  const [transitionID, setTransitionID] = useState<number>(featuredWrappers[0])
+
+  useEffect(() => {
+
+    let rotationInterval = setInterval(() => {
+
+      if (transitionID === featuredWrappers.slice(-1)[0] ) {
+        setTransitionID(featuredWrappers[0])
+      }
+      else {
+        setTransitionID(transitionID => featuredWrappers[transitionID+1])
+      }
+
+    }, 5000)
+
+    return () => {
+      clearInterval(rotationInterval);
+    }
+  }, [transitionID])
+
   return (
     <Box position='relative' className={classes.root}>
       <Parallax
@@ -59,37 +82,45 @@ export const WrapperSection = () => {
         disabled={window.innerWidth < theme.breakpoints.values.md}
       >
 
-        { data &&
-        data.map((wrapper, index: number) => {
-            return wrapper.featured &&
-              <Grid
-                container
-                spacing={10}
-                alignItems='flex-start'
-                className={classes.grid}
-              >
-                <Grid item xs={12} md={6}>
-                  <IDE queriesData={wrapper.queries} />
-                </Grid>
+      { data &&
+        data.map((wrapper, index: number) =>
 
-                <Grid item xs={12} md={6}>
-                  <Typography
-                    variant='h3'
-                    color='textPrimary'
-                    className={classes.title}
-                  >
-                    { wrapper.wrapperName }
-                  </Typography>
-                  <Typography
-                    variant='body1'
-                    color='textSecondary'
-                    className={classes.description}
-                  >
-                    { parse(wrapper.description) }
-                  </Typography>
-                </Grid>
+            <Grid
+              key={index}
+              container
+              spacing={10}
+              alignItems='flex-start'
+              className={classes.grid}
+              style={{
+                opacity: transitionID === index ? '100%': '0%',
+                // visibility: transitionID === index ? 'initial': 'hidden',
+                zIndex : transitionID === index ? 99: -1,
+                transition: "all 1s ease-in",
+                position: 'absolute'
+              }}
+            >
+              <Grid item xs={12} md={6}>
+                <IDE queriesData={wrapper.queries} />
               </Grid>
-          }
+
+              <Grid item xs={12} md={6} >
+                <Typography
+                  variant='h3'
+                  color='textPrimary'
+                  className={classes.title}
+                >
+                  { wrapper.wrapperName }
+                </Typography>
+                <Typography
+                  variant='body1'
+                  color='textSecondary'
+                  className={classes.description}
+                >
+                  { parse(wrapper.description) }
+                </Typography>
+              </Grid>
+            </Grid>
+
         )}
 
       </Parallax>

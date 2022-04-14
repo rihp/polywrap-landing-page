@@ -98,7 +98,7 @@ client.invoke({
     // Wrapper #2
     {
       wrapperName: 'Compute Trade Outputs with Uniswap V3',
-      featured: false,
+      featured: true,
       thirdParty: true,
       docsLink: '#',
       description:
