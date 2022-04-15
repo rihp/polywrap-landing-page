@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     color: 'rgba(255,255,255,0.5)',
     cursor: 'default',
     padding: `12px 16px`,
+    display: 'flex',
     transition: `background 0.25s ease-in-out`,
     '&:hover': {
       backgroundColor: 'rgba(255,255,255,0.05)',
@@ -34,6 +35,11 @@ const useStyles = makeStyles((theme) => ({
       color: 'rgba(255,255,255,0.8)',
     },
   },
+  tabImage: {
+    marginRight: 5,
+    height: 'fit-content',
+    alignSelf: 'center',
+  },
   main: {
     background: polywrapPalette.secondary[800],
     borderRadius: '0 0 8px 8px',
@@ -44,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'left',
     margin: 0,
     padding: 24,
+    whiteSpace: 'initial',
   },
   line: {
     color: 'white',
@@ -97,7 +104,11 @@ export const Tabs = ({queriesData, activeQuery, setActiveQuery}: any) => {
               className={`${classes.tab} ${activeQuery === index && 'is-active'}`}
               onClick={() => setActiveQuery(index)}
           >
-            {query.filename}
+              <img
+                className={classes.tabImage}
+                src={`${process.env.PUBLIC_URL}/imgs/file-icons/${queriesData[index].language}.png`}
+                alt={queriesData[index].language} />
+              {query.filename}
           </Box>
         }
       )}

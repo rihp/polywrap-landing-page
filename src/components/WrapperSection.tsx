@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('xs')]: {
       maxWidth: '90vw',
     },
-    minHeight: 650,
+    minHeight: 650, // Edit this for Desktop & Mobile views when changing the section location or adding/changing content.
   },
   grid: {
     justifyContent: 'center',
@@ -68,7 +68,7 @@ export const WrapperSection = () => {
         setTransitionID(transitionID => featuredWrappers[transitionID+1])
       }
 
-    }, 5000)
+    }, 10000) // Timer for switching between wrappers (10000 -> 10 seconds)
 
     return () => {
       clearInterval(rotationInterval);

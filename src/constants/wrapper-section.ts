@@ -92,6 +92,26 @@ client.invoke({
              `,
             source: "#"
           },
+          {
+            filename: "app.rs",
+            language: "rust",
+            featured: true,
+            query:
+              `// Execute Token Swaps w/ Uniswap V3 - (RUST DEMO)
+client.invoke({
+  uri: "wrap://ens/v3.uniswap.polywrap.eth",
+  module: "mutation",
+  method: "swap",
+  input: {
+    inToken,
+    outToken,
+    amount,
+    ...
+  }
+});
+             `,
+            source: "#"
+          },
         ]
     },
 
@@ -170,6 +190,26 @@ client.invoke({
              `,
             source: "#"
           },
+          {
+            filename: "app.rs",
+            language: "rust",
+            featured: true,
+            query:
+              `// Compute Trade Outputs w/ Uniswap V3 - (RUST DEMO)
+client.invoke({
+  uri: "wrap://ens/v3.uniswap.polywrap.eth",
+  module: "query",
+  method: "bestTradeExactIn",
+  input: {
+    pools,
+    amountIn,
+    tokenOut,
+    ...
+  }
+});
+             `,
+            source: "#"
+          },
         ]
     },
 
@@ -230,6 +270,24 @@ client.invoke({
             featured: true,
             query:
               `// Fetch P2P Data w/ IPFS - (PYTHON DEMO)
+client.invoke({
+  uri: "wrap://ens/ipfs.polywrap.eth",
+  module: "query",
+  method: "catFile",
+  input: {
+    cid,
+    options
+  }
+});
+             `,
+            source: "#"
+          },
+          {
+            filename: "app.rs",
+            language: "rust",
+            featured: true,
+            query:
+              `// Fetch P2P Data w/ IPFS - (RUST DEMO)
 client.invoke({
   uri: "wrap://ens/ipfs.polywrap.eth",
   module: "query",
