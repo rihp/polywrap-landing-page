@@ -1,10 +1,11 @@
 import Highlight, { defaultProps } from "prism-react-renderer";
 import { Box, makeStyles, styled } from '@material-ui/core';
 import { polywrapPalette } from '../theme';
+import theme from "prism-react-renderer/themes/nightOwl";
 
 // WIP: Try to modularize the CMS query
 import {useState, useEffect} from 'react';
-import {  webContent, wrapper, ContentfulFetcher } from './QueryModule';
+import {wrapper, ContentfulFetcher } from './QueryModule';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,10 +24,12 @@ const useStyles = makeStyles((theme) => ({
     color: 'rgba(255,255,255,0.5)',
     cursor: 'default',
     padding: `12px 16px`,
+    display: 'flex',
     transition: `background 0.25s ease-in-out`,
     '&:hover': {
       backgroundColor: 'rgba(255,255,255,0.05)',
       color: 'rgba(255,255,255,0.8)',
+      cursor: 'pointer',
     },
     '&.is-active': {
       backgroundColor: 'rgba(255,255,255,0.05)',
@@ -34,16 +37,22 @@ const useStyles = makeStyles((theme) => ({
       color: 'rgba(255,255,255,0.8)',
     },
   },
+  tabImage: {
+    marginRight: 5,
+    height: 'fit-content',
+    alignSelf: 'center',
+  },
   main: {
     background: polywrapPalette.secondary[800],
     borderRadius: '0 0 8px 8px',
     maxHeight: '400px',
-    overflowY: 'scroll',
+    overflowY: 'auto',
   },
   pre: {
     textAlign: 'left',
     margin: 0,
     padding: 24,
+    whiteSpace: 'initial',
   },
   line: {
     color: 'white',
@@ -146,7 +155,7 @@ const queries =
   })`,
 ]
 
-export const Tabs = () => {
+export const Tabs = ({queriesData, activeQuery, setActiveQuery}: any) => {
   const classes = useStyles();
 
 
@@ -208,18 +217,42 @@ export const Tabs = () => {
 
   return (
     <Box className={classes.tabs} display='flex'>
+      {/* Old implementation w CMS */}
       <Box data-id={0} className={`${classes.tab} is-active`}>{someContent.wrapperName}.ts</Box>
-      {/* <Box data-id={1} className={classes.tab}>Tab.js</Box>
-      <Box data-id={2} className={classes.tab}>Tab.py</Box> */}
+
+      {/* New implementation without CMS yet */}
+      { queriesData &&
+        queriesData.map((query: { featured: boolean, filename: string }, index: number) => {
+          return query.featured &&
+            <Box
+              key={index}
+              data-id={index}
+              className={`${classes.tab} ${activeQuery === index && 'is-active'}`}
+              onClick={() => setActiveQuery(index)}
+          >
+              <img
+                className={classes.tabImage}
+                src={`${process.env.PUBLIC_URL}/imgs/file-icons/${queriesData[index].language}.png`}
+                alt={queriesData[index].language} />
+              {query.filename}
+          </Box>
+        }
+      )}
     </Box>
   );
 };
 
-export const IDE = () => {
-  const classes = useStyles();
 
-    // CONTENTFUL CMS INTEGRATION BELOW
-    const [someContent, setSomeContent] = useState<wrapper> ({
+
+    
+export const IDE = ({queriesData}: any) => {
+  const classes = useStyles();
+  const firstFeatured = queriesData.findIndex((query: { featured: boolean; }) => query.featured);
+  const [activeQuery, setActiveQuery] = useState(firstFeatured);
+
+
+  // CONTENTFUL CMS INTEGRATION BELOW
+  const [someContent, setSomeContent] = useState<wrapper> ({
       "wrapperName": "Uniswap V3",
       "docsLink": "https://docs.polywrap.io/uniswapv3/intro",
       "featured": true,
@@ -269,18 +302,26 @@ export const IDE = () => {
   
     }, []);
      const data = someContent
-     console.log("someContent: ", data.queriesCollection)
-     
+     console.log("someContent: ", data.queriesCollection) 
     // CONTENTFUL CMS INTEGREATION ABOVE
+
 
   return (
     <Box className={classes.root}>
-      <Tabs />
+      <Tabs queriesData={queriesData} activeQuery={activeQuery} setActiveQuery={setActiveQuery} />
+
       <Box className={classes.main}>
         {/* Use the line below to fetch the query
           TODO: Adapt this to work with any language, in a way that 
-          is also able to map one query to the desired language */}
+          is also able to map one query to the desired language 
+
+        // Old implementation without CMS
         <Highlight {...defaultProps} code={someContent.queriesCollection.items[1].query} theme={undefined} language="javascript">
+
+
+        // New implementation below without CMS
+        */}
+        <Highlight {...defaultProps} code={queriesData[activeQuery].query} theme={theme} language={queriesData[activeQuery].language}>
           {({ tokens, getLineProps, getTokenProps }) => (
             <pre className={classes.pre}>
               {tokens.map((line, i) => (

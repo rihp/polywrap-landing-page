@@ -28,3 +28,6 @@ package-lock.json
 
 # vscode
 .vscode
+
+.env
+yarn.lock
