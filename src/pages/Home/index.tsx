@@ -1,3 +1,4 @@
+import React from 'react';
 import { Box } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { Hero } from '../../components/Hero';
@@ -7,6 +8,7 @@ import { Partners } from '../../components/Partners';
 import { HubCallout } from '../../components/HubCallout';
 //import { WhatsPolywrap } from '../../components/WhatsPolywrap';
 import { Testimonials } from '../../components/Testimonials';
+import { WrapperSection } from '../../components/WrapperSection';
 import ReactGA from 'react-ga';
 import { WrappersSection } from '../../components/WrappersSection';
 
@@ -42,6 +44,7 @@ export const Home = () => {
       
       {/* <Partners /> */}
       <Testimonials />
+      <WrapperSection />
     </Box>
   );
 };
