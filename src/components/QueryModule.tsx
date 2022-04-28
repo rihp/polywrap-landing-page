@@ -61,7 +61,8 @@ export interface Asset {
 }
 
 function ContentfulFetcher(query: string): Promise<any> {
-    //console.log("Heyo, we're about to query the text from Contentful: ~ ")
+  // Simple helper function to query data from the Contentful API
+  // Inputs the cmsQuery string and returns JSON with results.
 
     return window
     .fetch(process.env.REACT_APP_CMS_SITE as string, {

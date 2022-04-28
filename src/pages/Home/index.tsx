@@ -10,6 +10,11 @@ import { Testimonials } from '../../components/Testimonials';
 import ReactGA from 'react-ga';
 import { WrappersSection } from '../../components/WrappersSection';
 
+// CMS Data queried
+import { queryFeaturedWrappers }from '../../components/CMScontent';
+console.log("///// Data from the API")
+console.log(queryFeaturedWrappers())
+
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: '1400px',
@@ -30,7 +35,7 @@ export const Home = () => {
       <Hero />
       <DemoSection />
       <Features />
-      <WrappersSection />
+      {/* <WrappersSection /> */}
       {/* <WrapperDemos /> */}
       {/* <WhatsPolywrap /> */}
       <HubCallout />
