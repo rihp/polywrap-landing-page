@@ -2,9 +2,10 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import { Parallax } from 'react-scroll-parallax';
 import { Box, Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
-import parse from 'html-react-parser';
+// import parse from 'html-react-parser';
 import { IDE } from './IDE';
-import {wrapperSectionData as data} from '../constants/wrapper-section'
+// import {wrapperSectionData as data} from '../constants/wrapper-section'
+import { queryFeaturedWrappers }from './CMScontent';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,25 +55,40 @@ export const WrapperSection = () => {
   const theme = useTheme();
   const classes = useStyles();
 
-  const featuredWrappers = data.map((wrapper, i) => wrapper.featured ? i : -1).filter(index => index !== -1);
-  const [transitionID, setTransitionID] = useState<number>(featuredWrappers[0])
+  // Get Wrappers Data
+  const [wrappersData, setWrappersData] = useState<any>(null)
+  const [featuredWrappers, setFeaturedWrappers] = useState<[]>([])
+  const [transitionID, setTransitionID] = useState<number>(-1)
 
   useEffect(() => {
-
-    let rotationInterval = setInterval(() => {
-
-      if (transitionID === featuredWrappers.slice(-1)[0] ) {
-        setTransitionID(featuredWrappers[0])
-      }
-      else {
-        setTransitionID(transitionID => featuredWrappers[transitionID+1])
-      }
-
-    }, 10000) // Timer for switching between wrappers (10000 -> 10 seconds)
-
-    return () => {
-      clearInterval(rotationInterval);
+    async function fetchData() {
+      const response = await queryFeaturedWrappers()
+      const resData = response.data.featuredWrapperCollection.items
+      const featuredWrappersNumbers = resData.map((wrapper: { featured: boolean }, i: number) => wrapper.featured ? i : -1).filter((index: number) => index !== -1);
+      setWrappersData(resData)
+      setFeaturedWrappers(featuredWrappersNumbers)
+      setTransitionID(featuredWrappersNumbers[0])
     }
+    fetchData()
+  }, [])
+
+
+  useEffect(() => {
+      let rotationInterval = setInterval(() => {
+
+          if (transitionID === featuredWrappers.slice(-1)[0] ) {
+            // @ts-ignore
+            setTransitionID(featuredWrappers[0])
+          }
+          else {
+            setTransitionID(transitionID => featuredWrappers[transitionID+1])
+          }
+
+      }, 10000) // Timer for switching between wrappers (10000 -> 10 seconds)
+
+      return () => {
+        clearInterval(rotationInterval);
+      }
   }, [transitionID])
 
   return (
@@ -82,8 +98,8 @@ export const WrapperSection = () => {
         disabled={window.innerWidth < theme.breakpoints.values.md}
       >
 
-      { data &&
-        data.map((wrapper, index: number) =>
+      { wrappersData &&
+        wrappersData.map((wrapper: any, index: number) =>
 
             <Grid
               key={index}
@@ -100,7 +116,7 @@ export const WrapperSection = () => {
               }}
             >
               <Grid item xs={12} md={6}>
-                <IDE queriesData={wrapper.queries} />
+                {/*<IDE queriesData={wrapper.queriesCollection.items} />*/}
               </Grid>
 
               <Grid item xs={12} md={6} >
@@ -116,7 +132,7 @@ export const WrapperSection = () => {
                   color='textSecondary'
                   className={classes.description}
                 >
-                  { parse(wrapper.description) }
+                  { wrapper.description }
                 </Typography>
               </Grid>
             </Grid>
