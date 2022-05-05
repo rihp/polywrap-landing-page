@@ -16,9 +16,13 @@ export interface webContent {
 export interface wrapperQuery {
   filename: string;
   featured: boolean;
-  query: string;
+  query?: string;
   comment: string;
   source: string;
+  appJs?: string;
+  appTs?: string;
+  appPy?: string;
+  appRs?: any;
 }
 
 export interface wrapper {
@@ -30,6 +34,23 @@ export interface wrapper {
     items : wrapperQuery[];
   }
   docsLink: string;
+}
+
+export interface newWrappersList {
+  wrapperName: string;
+  description: string;
+  featured: boolean;
+  thirdParty: boolean;
+  docsLink: string;
+  query: {
+    featured: boolean;
+    source: string;
+    snippets: {
+      filename: string;
+      language: string;
+      snippet: string;
+    }[];
+  };
 }
 
 export interface polywrapFeature extends webContent{

@@ -155,10 +155,10 @@ export const Tabs = ({queriesData, activeQuery, setActiveQuery}: any) => {
 
   return (
     <Box className={classes.tabs} display='flex'>
-      { queriesData &&
-        queriesData.map((query: { featured: boolean, filename: string }, index: number) => {
-          return query.featured &&
-            <Box
+      { queriesData.snippets &&
+        queriesData.snippets.map((snippetObj: { filename: string, language: string, snippet: string }, index: number) => {
+          return snippetObj.snippet &&
+          <Box
               key={index}
               data-id={index}
               className={`${classes.tab} ${activeQuery === index && 'is-active'}`}
@@ -166,9 +166,9 @@ export const Tabs = ({queriesData, activeQuery, setActiveQuery}: any) => {
           >
               <img
                 className={classes.tabImage}
-                src={`${process.env.PUBLIC_URL}/imgs/file-icons/${queriesData[index].language}.png`}
-                alt={queriesData[index].language} />
-              {query.filename}
+                src={`${process.env.PUBLIC_URL}/imgs/file-icons/${snippetObj.language}.png`}
+                alt={snippetObj.language} />
+              {snippetObj.filename}
           </Box>
         }
       )}
@@ -179,15 +179,15 @@ export const Tabs = ({queriesData, activeQuery, setActiveQuery}: any) => {
 
 export const IDE = ({queriesData}: any) => {
   const classes = useStyles();
-  const firstFeatured = queriesData.findIndex((query: { featured: boolean; }) => query.featured);
-  const [activeQuery, setActiveQuery] = useState(firstFeatured);
+  const firstSnippet = queriesData.snippets.findIndex((snippetObj: { snippet: string; }) => snippetObj.snippet);
+  const [activeQuery, setActiveQuery] = useState(firstSnippet);
 
   return (
     <Box className={classes.root}>
       <Tabs queriesData={queriesData} activeQuery={activeQuery} setActiveQuery={setActiveQuery} />
 
       <Box className={classes.main}>
-        <Highlight {...defaultProps} code={queriesData[activeQuery].query} theme={theme} language={queriesData[activeQuery].language}>
+        <Highlight {...defaultProps} code={queriesData.snippets[activeQuery].snippet} theme={theme} language={queriesData.snippets[activeQuery].language}>
           {({ tokens, getLineProps, getTokenProps }) => (
             <pre className={classes.pre}>
               {tokens.map((line, i) => (
