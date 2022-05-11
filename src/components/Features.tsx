@@ -88,22 +88,22 @@ const features = [
   {
     slug: 'secure',
     title: 'Secure',
-    description: 'Sandboxing ensures your integrations are isolated from your application. Users are safer with Polywrap.',
+    description: 'Sandboxing keeps users safe by isolating wrappers from application memory.',
   },
   {
     slug: 'scalable',
     title: 'Scalable',
-    description: 'Keep applications light-weight and efficient, only download what you need, when you need it.',
+    description: 'Keep apps lightweight and efficient. Only download what you need, when you need it.',
   },
   {
     slug: 'composable',
     title: 'Composable',
-    description: 'Polywrap makes composition and extensions easy. Combine using imports, or extend using standard interfaces.',
+    description: 'Endlessly compose and extend protocols with imports and standard interfaces.',
   },
   {
     slug: 'upgradable',
     title: 'Upgradable',
-    description: 'Optionally upgrade your applications at run-time, no rebuilds required. Choose the level of control that makes sense for your application.',
+    description: 'Ditch the rebuilds with configurable run-time updates.',
   },
 ]
 
