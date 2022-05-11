@@ -67,7 +67,7 @@ export const Testimonials = () => {
   return (
     <Box className={classes.root}>
       <Typography className={classes.title} variant='h3' align='center' color='textPrimary'>
-        Protocols <3 Polywrap
+        {`Protocols <3 Polywrap`}
       </Typography>
       <Container maxWidth="lg">
         <Box

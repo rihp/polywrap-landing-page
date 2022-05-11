@@ -1,4 +1,3 @@
-import { useHistory } from 'react-router-dom';
 import { Parallax } from 'react-scroll-parallax';
 import {
   Box,
@@ -152,9 +151,6 @@ export const Hero = () => {
   const theme = useTheme();
   const classes = useStyles();
   const matches = useMediaQuery(theme.breakpoints.down('xs'));
-
-  const history = useHistory();
-  const navigateToPage = (route: string) => history.push(route);
 
   return (
     <Grid
