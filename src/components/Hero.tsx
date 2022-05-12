@@ -181,8 +181,8 @@ export const Hero = () => {
             >
               Polywrap is a set of tools that uses Wasm and GraphQL to
               deliver web3 protocols to any execution environment.
-              Anyone can build and publish protocol wrappers, making it easy
-              for all types of applications to integrate web3.
+              Build and publish your protocol wrapper with Polywrap 
+              to be accessible from all types of applications.
             </Typography>
             <Button
               className={classes.heroButton}
