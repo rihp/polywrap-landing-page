@@ -37,14 +37,13 @@ export const Home = () => {
       <Hero />
       <DemoSection />
       <Features />
-      {/* <WrappersSection /> */}
       {/* <WrapperDemos /> */}
       {/* <WhatsPolywrap /> */}
       <HubCallout />
       
       {/* <Partners /> */}
       <Testimonials />
-      <WrapperSection />
+      {/* <WrapperSection /> */}
     </Box>
   );
 };
