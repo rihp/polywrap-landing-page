@@ -35,9 +35,10 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     logo: process.env.PUBLIC_URL + "/logos/gelato.png",
     persona: "Hilmar X, Legendary Member",
-    description: `With the help of Polywrap, Gelato will enable every Web3 developer to easily 
+    description: `With the help of Polywrap, Gelato will enable every 
+    developer to easily 
     automate the execution of transactions on networks like Ethereum, giving them the ability to 
-    provide arbitrary instructions to a decentralized network of bots with a single Web3 api call.`,
+    provide arbitrary instructions to a decentralized network of bots with a single Wrapper call.`,
     url: "https://gelato.network/",
   },
   // {
