@@ -65,7 +65,7 @@ export const NavLinks = (props: NavLinkProps) => {
       </Link>
       <Link
         className={classes.navLink}
-        href='https://substack.com/profile/1496058-polywrap'
+        href='https://blog.polywrap.io/'
         target='_blank'
         color='textSecondary'
         variant='body1'
