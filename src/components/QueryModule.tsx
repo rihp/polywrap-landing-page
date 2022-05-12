@@ -1,8 +1,4 @@
 require('dotenv').config();
-console.log("MY_VARIABLE: " + process.env.REACT_APP_CMS_TOKEN);
-
-// TODO: supportImage is not used yet as the received data is not rightly formatted
-//setSupportImage(data.webContent.supportImage)
 
 export interface webContent {
   title: string;
@@ -101,4 +97,3 @@ function ContentfulFetcher(query: string): Promise<any> {
 }
 
 export {ContentfulFetcher}
-//export default CommonComponentsMain
