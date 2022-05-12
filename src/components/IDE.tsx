@@ -100,7 +100,7 @@ export const Tabs = ({queriesData, activeQuery, setActiveQuery}: any) => {
   // CONTENTFUL CMS INTEGRATION BELOW
   const [someContent, setSomeContent] = useState<wrapper> (
     {
-      "wrapperName": "MockedData",
+      "wrapperName": "Uniswap",
       "featured": false,
       "thirdParty": false,
       "description": "Read the Docs",
