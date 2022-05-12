@@ -1,4 +1,3 @@
-import { useHistory } from 'react-router-dom';
 import { Parallax } from 'react-scroll-parallax';
 import {
   Box,
@@ -11,7 +10,6 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined';
 import { polywrapPalette } from '../theme';
-import { CTA } from '../constants/verbiage';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -154,15 +152,13 @@ export const Hero = () => {
   const classes = useStyles();
   const matches = useMediaQuery(theme.breakpoints.down('xs'));
 
-  const history = useHistory();
-  const navigateToPage = (route: string) => history.push(route);
-
   return (
     <Grid
       className={classes.root}
       container
       justify='center'
       alignItems='center'
+      spacing={6}
       direction={matches ? 'row-reverse' : 'row'}
     >
       <Grid item sm={12} md={6}>
@@ -171,13 +167,6 @@ export const Hero = () => {
           disabled={window.innerWidth < theme.breakpoints.values.md}
         >
           <Box className={classes.heroContent}>
-            <Typography
-              variant='subtitle2'
-              color='secondary'
-              className={classes.technicalPreview}
-            >
-              Pre-Alpha
-            </Typography>
             <Typography
               className={classes.heroTitle}
               color='textPrimary'
@@ -190,10 +179,10 @@ export const Hero = () => {
               color='textSecondary'
               variant='body1'
             >
-              Polywrap is a development platform that enables easy integration
-              of Web3 protocols into any application. It makes it possible for
-              software on any device, written in any language, to read and write
-              data to Web3 protocols.
+              Polywrap is a set of tools that uses Wasm and GraphQL to
+              deliver web3 protocols to any execution environment.
+              Anyone can build and publish protocol wrappers, making it easy
+              for all types of applications to integrate web3.
             </Typography>
             <Button
               className={classes.heroButton}
@@ -204,7 +193,7 @@ export const Hero = () => {
               type='submit'
               variant='contained'
             >
-              {CTA}
+              Join Our Discord
             </Button>
           </Box>
         </Parallax>

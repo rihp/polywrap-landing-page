@@ -12,9 +12,6 @@ const useStyles = makeStyles((theme) => ({
       marginTop: 150,
       minHeight: '60vh',
     },
-    [theme.breakpoints.up('xs')]: {
-      maxWidth: '90vw',
-    },
   },
   grid: {
     justifyContent: 'center',
@@ -81,28 +78,17 @@ export const DemoSection = () => {
               color='textPrimary'
               className={classes.title}
             >
-              Solving the Web3 Integration Problem
+              Say Goodbye to Javascript Wrappers
             </Typography>
             <Typography
               variant='body1'
               color='textSecondary'
               className={classes.description}
             >
-              Web3 relies on SDKs to integrate virtually every type of protocol:
-              DeFi, NFTs, DAOs, P2P Networks
-            </Typography>
-            <Typography
-              variant='body1'
-              color='textSecondary'
-              className={classes.description}
-            >
-              Due to traditional SDKs’ short-comings, Web3’s technical debt is
-              growing day by day.
-              <br />
-              <br />
-              Traditional SDKs are:
-              <br />
-              <b>Insecure, Bloated, Incompatible, and Language-Specific</b>
+              Today, teams are architecting and maintaining custom SDKs,
+              mostly in Javascript. This breaks composability and severely
+              restricts the types of software that can interact with web3
+              securely and efficiently.
             </Typography>
           </Grid>
         </Grid>
