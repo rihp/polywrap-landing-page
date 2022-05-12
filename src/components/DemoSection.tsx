@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
 
 // CONTENTFUL CMS INITIAL SET UP BELOW
 const cmsQuery = `query { 
-  webContent(id:"5GN94FkZlXn4s5b0Q9aQ2N") { 
+  webContent(id:"4vlgBuWUl1gJGQPeYogzI4") { 
    title 
    subtitle
    description
