@@ -15,9 +15,6 @@ const useStyles = makeStyles((theme) => ({
       marginTop: 150,
       minHeight: '60vh',
     },
-    [theme.breakpoints.up('xs')]: {
-      maxWidth: '90vw',
-    },
   },
   grid: {
     justifyContent: 'center',
