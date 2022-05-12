@@ -39,7 +39,7 @@ export const Home = () => {
       <Features />
       {/* <WrapperDemos /> */}
       {/* <WhatsPolywrap /> */}
-      <HubCallout />
+      {/* <HubCallout /> */}
       
       {/* <Partners /> */}
       <Testimonials />
