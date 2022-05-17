@@ -239,14 +239,16 @@ export const Hero = () => {
               color='textSecondary'
               variant='body1'
             >
+
             {someContent.description}
 
             </Typography>
             <Button
               className={classes.heroButton}
-              component='button'
               color='primary'
               href='https://discord.gg/bGsqQrNhqd'
+              target="_blank"
+              rel="noredirect"
               endIcon={<KeyboardArrowRightOutlined />}
               type='submit'
               variant='contained'

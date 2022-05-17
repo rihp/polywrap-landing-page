@@ -49,7 +49,8 @@ export const NavLinks = (props: NavLinkProps) => {
       <Link
         className={classes.navLink}
         href='https://docs.polywrap.io/'
-        target='_blank'
+        target="_blank"
+        rel="noredirect"
         color='textSecondary'
         variant='body1'
         style={{ display: `${!showButton || !isMobile ? 'block' : 'none'}` }}
@@ -59,7 +60,8 @@ export const NavLinks = (props: NavLinkProps) => {
       <Link
         className={classes.navLink}
         href='https://forum.polywrap.io/'
-        target='_blank'
+        target="_blank"
+        rel="noredirect"
         color='textSecondary'
         variant='body1'
         style={{ display: `${!showButton || !isMobile ? 'block' : 'none'}` }}
@@ -69,7 +71,8 @@ export const NavLinks = (props: NavLinkProps) => {
       <Link
         className={classes.navLink}
         href='https://blog.polywrap.io/'
-        target='_blank'
+        target="_blank"
+        rel="noredirect"
         color='textSecondary'
         variant='body1'
         style={{ display: `${!showButton || !isMobile ? 'block' : 'none'}` }}
@@ -78,6 +81,8 @@ export const NavLinks = (props: NavLinkProps) => {
       </Link>
       <Button
         href='https://jobs.ashbyhq.com/polywrap'
+        target="_blank"
+        rel="noredirect"
         variant='contained'
         endIcon={<KeyboardArrowRightOutlined />}
         className={classes.navButton}
