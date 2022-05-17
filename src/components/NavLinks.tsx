@@ -7,14 +7,14 @@ const useStyles = makeStyles((theme) => ({
   navLink: {
     fontSize: 14,
     fontWeight: 700,
-    marginRight: 20,
+    marginRight: theme.spacing(6),
     transition: 'color 0.25s ease-in-out',
     '&:hover': {
       color: polywrapPalette.primary.start,
     },
     [theme.breakpoints.down('xs')]: {
       fontSize: 12,
-      marginRight: 10,
+      marginRight: theme.spacing(2),
     },
   },
   navButton: {
@@ -46,7 +46,8 @@ export const NavLinks = (props: NavLinkProps) => {
       <Link
         className={classes.navLink}
         href='https://docs.polywrap.io/'
-        target='_blank'
+        target="_blank"
+        rel="noredirect"
         color='textSecondary'
         variant='body1'
         style={{ display: `${!showButton || !isMobile ? 'block' : 'none'}` }}
@@ -56,7 +57,8 @@ export const NavLinks = (props: NavLinkProps) => {
       <Link
         className={classes.navLink}
         href='https://forum.polywrap.io/'
-        target='_blank'
+        target="_blank"
+        rel="noredirect"
         color='textSecondary'
         variant='body1'
         style={{ display: `${!showButton || !isMobile ? 'block' : 'none'}` }}
@@ -65,8 +67,9 @@ export const NavLinks = (props: NavLinkProps) => {
       </Link>
       <Link
         className={classes.navLink}
-        href='https://blog.polywrap.io'
-        target='_blank'
+        href='https://blog.polywrap.io/'
+        target="_blank"
+        rel="noredirect"
         color='textSecondary'
         variant='body1'
         style={{ display: `${!showButton || !isMobile ? 'block' : 'none'}` }}
@@ -75,12 +78,14 @@ export const NavLinks = (props: NavLinkProps) => {
       </Link>
       <Button
         href='https://jobs.ashbyhq.com/polywrap'
+        target="_blank"
+        rel="noredirect"
         variant='contained'
         endIcon={<KeyboardArrowRightOutlined />}
         className={classes.navButton}
         style={{ display: `${showButton ? 'flex' : 'none'}` }}
       >
-        {!isMobile ? "We are Hiring" : "Jobs"}
+        {!isMobile ? "We are Hiring" : "Join Us"}
       </Button>
     </Box>
   );
