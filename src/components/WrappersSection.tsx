@@ -3,6 +3,7 @@ import { Box, Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
 // WIP: Try to modularize the CMS query
 import {useState, useEffect} from 'react';
 import {  webContent, ContentfulFetcher } from './QueryModule';
+import { DemoFunctions } from './DemoFunctions';
 import { IDE } from './IDE';
 
 const useStyles = makeStyles((theme) => ({
@@ -45,6 +46,12 @@ const useStyles = makeStyles((theme) => ({
   description: {
     marginTop: 20,
   },
+  IDEWrapper: {
+    position: 'relative',
+    [theme.breakpoints.down('md')]: {
+      marginBottom: theme.spacing(8),
+    },
+  },
   polywrapIllustration: {
     width: '100%',
     [theme.breakpoints.down('md')]: {
@@ -54,6 +61,15 @@ const useStyles = makeStyles((theme) => ({
       maxHeight: '30vh',
     },
   },
+  demoFunctionWrapper: {
+    bottom: -theme.spacing(2),
+    position: "absolute",
+    right: -theme.spacing(2),
+    zIndex: 1,
+    [theme.breakpoints.down('md')]: {
+      bottom: -theme.spacing(8),
+    },
+  }
 }));
 
 
@@ -122,7 +138,18 @@ export const WrappersSection = () => {
           className={classes.grid}
         >
           <Grid item xs={12} md={6}>
-            <IDE />
+            <Box className={classes.IDEWrapper}>
+              <Box className={classes.demoFunctionWrapper}>
+                <Parallax
+                  y={[140, -13]}
+                  disabled={window.innerWidth < theme.breakpoints.values.md}
+                >
+                  <DemoFunctions content={['functionNameA','functionNameB','funcNameC','...']} />
+                </Parallax>
+              </Box>
+              <IDE />
+            </Box>
+
           </Grid>
           <Grid item xs={12} md={6}>
             <Typography
