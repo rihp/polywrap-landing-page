@@ -3,6 +3,8 @@ import { Box, Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
 // WIP: Try to modularize the CMS query
 import {useState, useEffect} from 'react';
 import {  webContent, ContentfulFetcher } from './QueryModule';
+import { DemoFunctions } from './DemoFunctions';
+import { IDE } from './IDE';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       marginTop: 150,
       minHeight: '60vh',
+    },
+    [theme.breakpoints.up('xs')]: {
+      maxWidth: '90vw',
     },
   },
   grid: {
@@ -41,6 +46,12 @@ const useStyles = makeStyles((theme) => ({
   description: {
     marginTop: 20,
   },
+  IDEWrapper: {
+    position: 'relative',
+    [theme.breakpoints.down('md')]: {
+      marginBottom: theme.spacing(8),
+    },
+  },
   polywrapIllustration: {
     width: '100%',
     [theme.breakpoints.down('md')]: {
@@ -50,12 +61,21 @@ const useStyles = makeStyles((theme) => ({
       maxHeight: '30vh',
     },
   },
+  demoFunctionWrapper: {
+    bottom: -theme.spacing(2),
+    position: "absolute",
+    right: -theme.spacing(2),
+    zIndex: 1,
+    [theme.breakpoints.down('md')]: {
+      bottom: -theme.spacing(8),
+    },
+  }
 }));
 
 
 // CONTENTFUL CMS INITIAL SET UP BELOW
 const cmsQuery = `query { 
-  webContent(id:"5GN94FkZlXn4s5b0Q9aQ2N") { 
+  webContent(id:"26XK8ENo5y1MgwpY7CDRlb") { 
    title 
    subtitle
    description
@@ -65,7 +85,7 @@ const cmsQuery = `query {
 // CONTENTFUL CMS INITIAL SET UP ABOVE
 
 
-export const DemoSection = () => {
+export const WrappersSection = () => {
   const theme = useTheme();
   const classes = useStyles();
 
@@ -73,10 +93,10 @@ export const DemoSection = () => {
   // CONTENTFUL CMS INTEGRATION BELOW
   const [someContent, setSomeContent] = useState<webContent> (
     {
-      "title": "Solving the Web3 Integration Problem",
-      "subtitle": ".",
-      "description": "Web3 relies on SDKs to integrate virtually every type of protocol: DeFi, NFTs, DAOs, P2P Networks\n\nDue to traditional SDKs’ short-comings, Web3’s technical debt is growing day by day.\n\nTraditional SDKs are:\nInsecure, Bloated, Incompatible, and Language-Specific",
-      "callToAction": "Read the Docs"
+      "title": "Blazing fast development",
+      "subtitle": "",
+      "description": " Write queries in minutes rather than hours.\n\nUsing the polywrap toolchain, you'll be able to hit any protocol endpoint from any device that can run a Polywrap client.",
+      "callToAction": "Execute Query"
   });
   const [hasFailed, setHasFailed] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -118,11 +138,18 @@ export const DemoSection = () => {
           className={classes.grid}
         >
           <Grid item xs={12} md={6}>
-            <img
-              className={classes.polywrapIllustration}
-              src={process.env.PUBLIC_URL + '/imgs/wrappers-white-wave.svg'}
-              alt='Polywrap - wrapper white wave'
-            />
+            <Box className={classes.IDEWrapper}>
+              <Box className={classes.demoFunctionWrapper}>
+                <Parallax
+                  y={[140, -13]}
+                  disabled={window.innerWidth < theme.breakpoints.values.md}
+                >
+                  <DemoFunctions content={['functionNameA','functionNameB','funcNameC','...']} />
+                </Parallax>
+              </Box>
+              <IDE />
+            </Box>
+
           </Grid>
           <Grid item xs={12} md={6}>
             <Typography
@@ -138,6 +165,7 @@ export const DemoSection = () => {
               className={classes.description}
               // TODO: Fix the formatting of description below, this should allow us somehow to show line breaks and bold sections for example
             >
+            
               {someContent.description}
             </Typography>
           </Grid>

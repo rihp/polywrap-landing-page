@@ -5,6 +5,7 @@ import { DemoSection } from '../../components/DemoSection';
 import { Features } from '../../components/Features';
 import { Testimonials } from '../../components/Testimonials';
 import ReactGA from 'react-ga';
+import { WrappersSection } from '../../components/WrappersSection';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,6 +27,7 @@ export const Home = () => {
       <Hero />
       <DemoSection />
       <Features />
+      <WrappersSection />
       <Testimonials />
     </Box>
   );
