@@ -34,9 +34,15 @@ export const Home = () => {
       <Hero />
       <DemoSection />
       <Features />
-      {/* <WrappersSection /> */}
       <Testimonials />
-      {/* <WrapperSection /> */}
+
+      {/* 
+      These two components are used to showcase the code snippets
+      through the IDE.tsx component. However, they are duplicated.
+      We have to get one working and deprecate the other.
+      <WrappersSection /> 
+      <WrapperSection /> 
+      */}
     </Box>
   );
 };
