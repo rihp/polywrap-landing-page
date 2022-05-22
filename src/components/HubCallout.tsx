@@ -78,8 +78,6 @@ const cmsQuery = `query {
 
 export const HubCallout = () => {
   const theme = useTheme();
-  //const history = useHistory();
-  //const navigateToPage = (route: string) => history.push(route);
   const classes = useStyles();
   const isMobile = useMediaQuery(theme.breakpoints.down('xs'), {
     defaultMatches: true

@@ -138,7 +138,6 @@ export const DemoSection = () => {
               className={classes.description}
               // TODO: Fix the formatting of description below, this should allow us somehow to show line breaks and bold sections for example
             >
-            
               {someContent.description}
             </Typography>
           </Grid>

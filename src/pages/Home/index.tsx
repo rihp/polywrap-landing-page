@@ -4,9 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Hero } from '../../components/Hero';
 import { DemoSection } from '../../components/DemoSection';
 import { Features } from '../../components/Features';
-import { Partners } from '../../components/Partners';
-import { HubCallout } from '../../components/HubCallout';
-//import { WhatsPolywrap } from '../../components/WhatsPolywrap';
 import { Testimonials } from '../../components/Testimonials';
 import { WrapperSection } from '../../components/WrapperSection';
 import ReactGA from 'react-ga';
@@ -37,13 +34,15 @@ export const Home = () => {
       <Hero />
       <DemoSection />
       <Features />
-      {/* <WrapperDemos /> */}
-      {/* <WhatsPolywrap /> */}
-      {/* <HubCallout /> */}
-      
-      {/* <Partners /> */}
       <Testimonials />
-      {/* <WrapperSection /> */}
+
+      {/* 
+      These two components are used to showcase the code snippets
+      through the IDE.tsx component. However, they are duplicated.
+      We have to get one working and deprecate the other.
+      <WrappersSection /> 
+      <WrapperSection /> 
+      */}
     </Box>
   );
 };

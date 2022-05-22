@@ -1,4 +1,3 @@
-//import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Button, Link, useMediaQuery, useTheme } from '@material-ui/core';
 import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined';
@@ -35,8 +34,6 @@ interface NavLinkProps {
 
 export const NavLinks = (props: NavLinkProps) => {
   const theme = useTheme(),
-    //history = useHistory(),
-    //navigateToPage = (route: string) => history.push(route),
     scrollPosition = props.scrollPosition,
     isMobile = useMediaQuery(theme.breakpoints.down('sm'), {
       defaultMatches: true,
@@ -49,7 +46,8 @@ export const NavLinks = (props: NavLinkProps) => {
       <Link
         className={classes.navLink}
         href='https://docs.polywrap.io/'
-        target='_blank'
+        target="_blank"
+        rel="noredirect"
         color='textSecondary'
         variant='body1'
         style={{ display: `${!showButton || !isMobile ? 'block' : 'none'}` }}
@@ -59,7 +57,8 @@ export const NavLinks = (props: NavLinkProps) => {
       <Link
         className={classes.navLink}
         href='https://forum.polywrap.io/'
-        target='_blank'
+        target="_blank"
+        rel="noredirect"
         color='textSecondary'
         variant='body1'
         style={{ display: `${!showButton || !isMobile ? 'block' : 'none'}` }}
@@ -69,7 +68,8 @@ export const NavLinks = (props: NavLinkProps) => {
       <Link
         className={classes.navLink}
         href='https://blog.polywrap.io/'
-        target='_blank'
+        target="_blank"
+        rel="noredirect"
         color='textSecondary'
         variant='body1'
         style={{ display: `${!showButton || !isMobile ? 'block' : 'none'}` }}
@@ -78,6 +78,8 @@ export const NavLinks = (props: NavLinkProps) => {
       </Link>
       <Button
         href='https://jobs.ashbyhq.com/polywrap'
+        target="_blank"
+        rel="noredirect"
         variant='contained'
         endIcon={<KeyboardArrowRightOutlined />}
         className={classes.navButton}
