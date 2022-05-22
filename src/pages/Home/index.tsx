@@ -34,7 +34,7 @@ export const Home = () => {
       <Hero />
       <DemoSection />
       <Features />
-      <WrappersSection />
+      {/* <WrappersSection /> */}
       <Testimonials />
       {/* <WrapperSection /> */}
     </Box>
