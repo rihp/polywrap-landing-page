@@ -155,7 +155,6 @@ export const Testimonials = () => {
         setGelatoContent(gelato);
         const gnosis: launchPartner = response.data.gnosis;
         setGnosisContent(gnosis)
-        console.log("POCKET WORKED ##################################")
         const pocket: launchPartner = response.data.pocket;
         setPocketContent(pocket)
       }, 
@@ -163,7 +162,7 @@ export const Testimonials = () => {
         //On fail
         setHasFailed(true);
         console.log(error)
-        console.log("POCKET FAILED ##################################")
+        console.log("CMS QUERY FAILED ##################################")
 
       }
     ).finally(() => {
@@ -177,12 +176,9 @@ export const Testimonials = () => {
   // CONTENTFUL CMS INTEGREATION ABOVE
   //         console.log(gelatoContent, gnosisContent)
 
-  const newTestimonials: launchPartner[] = [gelatoContent, gnosisContent]
+  const newTestimonials: launchPartner[] = [gelatoContent, gnosisContent, pocketContent]
   
   var  TESTIMONIALS: Testimonial[] = []
-
-  console.log("POCKET POCKET")
-  console.log(pocketContent)
 
   
   for (var partner in newTestimonials) {
