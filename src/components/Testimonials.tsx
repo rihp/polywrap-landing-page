@@ -145,6 +145,8 @@ export const Testimonials = () => {
         setGelatoContent(gelato);
         const gnosis: launchPartner = response.data.gnosis;
         setGnosisContent(gnosis)
+        const pocket: launchPartner = response.data.pocket;
+        setPocketContent(pocket)
       }, 
       (error) => {
         //On fail
