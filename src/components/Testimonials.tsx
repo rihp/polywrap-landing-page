@@ -118,6 +118,18 @@ export const Testimonials = () => {
         "url":"empty"
       }
     });
+
+  const [pocketContent, setPocketContent] = useState<launchPartner> (
+      {
+        "name": "Pocket Network",
+        "link": "https://pokt.network/",
+        "testimonial": "By creating one single standard for Web3 devs, the complexity and UX of accessing the basic building blocks for these protocols is massively improved. Pocket aims to provide a neutral networking stack for Polywrap users to connect to any protocol they want",
+        "persona": "Michael O'Rourke, CEO",
+        "futurePromise": "Lorem Ipsum .",
+        "blackPngLogo": {
+          "url":"empty"
+        }
+      });
   const [hasFailed, setHasFailed] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
