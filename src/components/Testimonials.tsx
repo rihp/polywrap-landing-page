@@ -86,6 +86,16 @@ const cmsQuery = `query {
     }
     persona
     futurePromise
+  }, 
+  pocket:  launchPartners(id: "2a9WNhIMlaMmbgUBO5fRiR") {
+    name 
+    link
+    testimonial
+    blackPngLogo {
+      url
+    }
+    persona
+    futurePromise
   }
 }`;
 // CONTENTFUL CMS INITIAL SET UP ABOVE
@@ -155,6 +165,9 @@ export const Testimonials = () => {
     ).finally(() => {
       setIsLoading(false);
     });
+
+    console.log("POCKET POCKET")
+    console.log(pocketContent)
 
   }, []);
   // CONTENTFUL CMS INTEGREATION ABOVE
