@@ -110,22 +110,22 @@ export const Testimonials = () => {
     {
       "name": "Gelato Network",
       "link": "https://gelato.network",
-      "testimonial": "With the help of Polywrap, Gelato enables every developer to easily automate the execution of transactions on networks like Ethereum, giving them the ability to provide arbitrary instructions to a decentralized network of bots with a single wrapper call",
+      "testimonial": "With the help of Polywrap, Gelato will enable every developer to easily automate the execution of transactions on networks like Ethereum, giving them the ability to provide arbitrary instructions to a decentralized network of bots with a single Wrapper call.",
       "persona": "Hilmar X, Legendary Member",
       "futurePromise": "Gelato and other node networks will leverage Polywrap to have sdk’s that dynamically update upon governance decisions instead of needing to contact all the operators to restart their nodes and install the new package.",
       "blackPngLogo": {
-        "url":"empty"
+        "url":"https://polywrap.io/logos/gelato.png"
       }
     });
   const [gnosisContent, setGnosisContent] = useState<launchPartner> (
     {
       "name": "Gnosis",
       "link": "https://gnosis.io",
-      "testimonial": "Polywrap will make it easy for everyone to build on top of Gnosis technologies and interact with our contracts and interfaces. This will help us achieve our vision of building open platforms and removing gatekeepers",
+      "testimonial": "Polywrap will make it easy for everyone to build on top of Gnosis technologies and interact with our contracts and interfaces. This will help us achieve our vision of building open platforms and removing gatekeepers.",
       "persona": "Team Gnosis",
       "futurePromise": "Gnosis is creating wrappers that will encapsulate their business logic in secure, language-agnostic modules that interact with many chains, storage networks, oracles, and services. This growing ecosystem of Gnosis apps will be auto-updated in a securely.",
       "blackPngLogo": {
-        "url":"empty"
+        "url":"https://polywrap.io/logos/gnosis.png"
       }
     });
 
@@ -133,11 +133,11 @@ export const Testimonials = () => {
       {
         "name": "Pocket Network",
         "link": "https://pokt.network/",
-        "testimonial": "By creating one single standard for Web3 devs, the complexity and UX of accessing the basic building blocks for these protocols is massively improved.",
-        "persona": "Michael O'Rourke, CEO",
+        "testimonial": "By creating one single standard for web3 developers, Polywrap massively improves the experience of interacting with different protocols.",
+        "persona": "Michael O'Rourke, Founder",
         "futurePromise": "Pocket aims to provide a neutral networking stack for Polywrap users to connect to any protocol they want.",
         "blackPngLogo": {
-          "url":"empty"
+          "url":"https://polywrap.io/logos/pocket.png"
         }
       });
   const [hasFailed, setHasFailed] = useState<boolean>(false);
@@ -176,7 +176,7 @@ export const Testimonials = () => {
   // CONTENTFUL CMS INTEGREATION ABOVE
   //         console.log(gelatoContent, gnosisContent)
 
-  const newTestimonials: launchPartner[] = [gelatoContent, gnosisContent, pocketContent]
+  const newTestimonials: launchPartner[] = [gnosisContent, pocketContent, gelatoContent]
   
   var  TESTIMONIALS: Testimonial[] = []
 
@@ -199,7 +199,7 @@ export const Testimonials = () => {
 
   };
 
-  //console.log(TESTIMONIALS)
+  console.log(TESTIMONIALS)
   return (
     <Box className={classes.root}>
       <Typography className={classes.title} variant='h3' align='center' color='textPrimary'>
