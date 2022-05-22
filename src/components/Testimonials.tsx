@@ -1,8 +1,6 @@
 import { Box, Container, makeStyles, Typography } from '@material-ui/core';
 import FormatQuoteIcon from '@material-ui/icons/FormatQuote';
 import { filters } from '../theme';
-
-// WIP: Try to modularize the CMS query
 import {useState, useEffect} from 'react';
 import { launchPartner, ContentfulFetcher, Testimonial } from './QueryModule';
 
