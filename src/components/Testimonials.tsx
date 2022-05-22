@@ -133,9 +133,9 @@ export const Testimonials = () => {
       {
         "name": "Pocket Network",
         "link": "https://pokt.network/",
-        "testimonial": "By creating one single standard for Web3 devs, the complexity and UX of accessing the basic building blocks for these protocols is massively improved. Pocket aims to provide a neutral networking stack for Polywrap users to connect to any protocol they want",
+        "testimonial": "By creating one single standard for Web3 devs, the complexity and UX of accessing the basic building blocks for these protocols is massively improved.",
         "persona": "Michael O'Rourke, CEO",
-        "futurePromise": "Lorem Mock .",
+        "futurePromise": "Pocket aims to provide a neutral networking stack for Polywrap users to connect to any protocol they want.",
         "blackPngLogo": {
           "url":"empty"
         }
