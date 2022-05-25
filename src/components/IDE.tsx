@@ -151,7 +151,7 @@ export const Tabs = () => {
 
 
   // CONTENTFUL CMS INTEGRATION BELOW
-  const [wrapperContent, setSomeContent] = useState<wrapper> (
+  const [wrapperContent, setWrapperContent] = useState<wrapper> (
     {
       "wrapperName": "MockedData",
       "featured": false,
@@ -191,7 +191,7 @@ export const Tabs = () => {
         const content: wrapper = response.items;
         console.log("On the arrow func", content)
 
-        setSomeContent(content);
+        setWrapperContent(content);
       }, 
       (error) => {
         //On fail
@@ -219,7 +219,7 @@ export const IDE = () => {
   const classes = useStyles();
 
     // CONTENTFUL CMS INTEGRATION BELOW
-    const [wrapperContent, setSomeContent] = useState<wrapper> ({
+    const [wrapperContent, setWrapperContent] = useState<wrapper> ({
       "wrapperName": "Uniswap V3",
       "docsLink": "https://docs.polywrap.io/uniswapv3/intro",
       "featured": true,
@@ -257,7 +257,7 @@ export const IDE = () => {
           const content: wrapper = response.items;
           //console.log("On the arrow func", content)
   
-          setSomeContent(content);
+          setWrapperContent(content);
         }, 
         (error) => {
           //On fail
