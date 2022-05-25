@@ -65,23 +65,23 @@ export const WrapperSection = () => {
     }
     fetchData()
   }, [])
-
-
+  
+  
   useEffect(() => {
-      let rotationInterval = setInterval(() => {
-          if (transitionID === wrappersData.length - 1 ) {
-            setTransitionID(0)
-          }
-          else {
-            setTransitionID(transitionID => transitionID + 1)
-          }
-      }, 10000) // Timer for switching between wrappers (10000 -> 10 seconds)
-
-      return () => {
-        clearInterval(rotationInterval);
+    let rotationInterval = setInterval(() => {
+      if (transitionID === wrappersData.length - 1 ) {
+        setTransitionID(0)
       }
+      else {
+        setTransitionID(transitionID => transitionID + 1)
+      }
+    }, 10000) // Timer for switching between wrappers (10000 -> 10 seconds)
+    
+    return () => {
+      clearInterval(rotationInterval);
+    }
   }, [transitionID, wrappersData])
-
+  
 
   return (
     <Box position='relative' className={classes.root}>
