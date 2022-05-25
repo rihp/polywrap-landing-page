@@ -1,25 +1,26 @@
-//import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Button, Link, useMediaQuery, useTheme } from '@material-ui/core';
 import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined';
 import { polywrapPalette } from '../theme';
-import { CTA } from '../constants/verbiage';
 
 const useStyles = makeStyles((theme) => ({
   navLink: {
     fontSize: 14,
     fontWeight: 700,
-    marginRight: 20,
+    marginRight: theme.spacing(6),
     transition: 'color 0.25s ease-in-out',
     '&:hover': {
       color: polywrapPalette.primary.start,
     },
     [theme.breakpoints.down('xs')]: {
       fontSize: 12,
-      marginRight: 10,
+      marginRight: theme.spacing(2),
     },
   },
   navButton: {
+    backgroundColor: polywrapPalette.primary.mid,
+    borderRadius: 999,
+    fontWeight: 700,
     [theme.breakpoints.down('xs')]: {
       display: 'none',
     },
@@ -33,8 +34,6 @@ interface NavLinkProps {
 
 export const NavLinks = (props: NavLinkProps) => {
   const theme = useTheme(),
-    //history = useHistory(),
-    //navigateToPage = (route: string) => history.push(route),
     scrollPosition = props.scrollPosition,
     isMobile = useMediaQuery(theme.breakpoints.down('sm'), {
       defaultMatches: true,
@@ -47,42 +46,46 @@ export const NavLinks = (props: NavLinkProps) => {
       <Link
         className={classes.navLink}
         href='https://docs.polywrap.io/'
-        target='_blank'
+        target="_blank"
+        rel="noredirect"
         color='textSecondary'
         variant='body1'
         style={{ display: `${!showButton || !isMobile ? 'block' : 'none'}` }}
       >
-        Documentation
+        Docs
       </Link>
       <Link
         className={classes.navLink}
-        href='https://handbook.polywrap.io'
-        target='_blank'
+        href='https://forum.polywrap.io/'
+        target="_blank"
+        rel="noredirect"
         color='textSecondary'
         variant='body1'
         style={{ display: `${!showButton || !isMobile ? 'block' : 'none'}` }}
       >
-        Community
+        Forum
       </Link>
       <Link
         className={classes.navLink}
-        href='https://forum.polywrap.io/c/job-postings/41'
-        target='_blank'
+        href='https://blog.polywrap.io/'
+        target="_blank"
+        rel="noredirect"
         color='textSecondary'
         variant='body1'
         style={{ display: `${!showButton || !isMobile ? 'block' : 'none'}` }}
       >
-        Careers
+        Blog
       </Link>
       <Button
-        href='https://discord.gg/bGsqQrNhqd'
+        href='https://jobs.ashbyhq.com/polywrap'
+        target="_blank"
+        rel="noredirect"
         variant='contained'
-        color='primary'
         endIcon={<KeyboardArrowRightOutlined />}
         className={classes.navButton}
         style={{ display: `${showButton ? 'flex' : 'none'}` }}
       >
-        {!isMobile ? CTA : CTA.split(' ')[0]}
+        {!isMobile ? "We are Hiring" : "Join Us"}
       </Button>
     </Box>
   );
