@@ -188,7 +188,7 @@ export const Tabs = () => {
     ContentfulFetcher(cmsQuery).then(
       (response) => {
         //On success        
-        const content: wrapper = response.data.featuredWrapper;
+        const content: wrapper = response.items;
         console.log("On the arrow func", content)
 
         setSomeContent(content);
@@ -254,7 +254,7 @@ export const IDE = () => {
       ContentfulFetcher(cmsQuery).then(
         (response) => {
           //On success        
-          const content: wrapper = response.data.featuredWrapper;
+          const content: wrapper = response.items;
           //console.log("On the arrow func", content)
   
           setSomeContent(content);
