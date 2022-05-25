@@ -5,7 +5,6 @@ import { Hero } from '../../components/Hero';
 import { DemoSection } from '../../components/DemoSection';
 import { Features } from '../../components/Features';
 import { Testimonials } from '../../components/Testimonials';
-import { WrapperSection } from '../../components/WrapperSection';
 import ReactGA from 'react-ga';
 import { WrappersSection } from '../../components/Wrappers';
 
@@ -35,12 +34,12 @@ export const Home = () => {
       <DemoSection />
       <Features />
       <Testimonials />
+      <WrappersSection /> 
 
       {/* 
       These two components are used to showcase the code snippets
       through the IDE.tsx component. However, they are duplicated.
       We have to get one working and deprecate the other.
-      <WrappersSection /> 
       <WrapperSection /> 
       */}
     </Box>
