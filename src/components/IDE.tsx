@@ -151,7 +151,7 @@ export const Tabs = () => {
 
 
   // CONTENTFUL CMS INTEGRATION BELOW
-  const [someContent, setSomeContent] = useState<wrapper> (
+  const [wrapperContent, setSomeContent] = useState<wrapper> (
     {
       "wrapperName": "MockedData",
       "featured": false,
@@ -202,13 +202,13 @@ export const Tabs = () => {
     });
 
   }, []);
-  // const data = someContent
-  // console.log("someContent: ", data)
+  // const data = wrapperContent
+  // console.log("wrapperContent: ", data)
   // CONTENTFUL CMS INTEGREATION ABOVE
 
   return (
     <Box className={classes.tabs} display='flex'>
-      <Box data-id={0} className={`${classes.tab} is-active`}>{someContent.wrapperName}.ts</Box>
+      <Box data-id={0} className={`${classes.tab} is-active`}>{wrapperContent.wrapperName}.ts</Box>
       {/* <Box data-id={1} className={classes.tab}>Tab.js</Box>
       <Box data-id={2} className={classes.tab}>Tab.py</Box> */}
     </Box>
@@ -219,7 +219,7 @@ export const IDE = () => {
   const classes = useStyles();
 
     // CONTENTFUL CMS INTEGRATION BELOW
-    const [someContent, setSomeContent] = useState<wrapper> ({
+    const [wrapperContent, setSomeContent] = useState<wrapper> ({
       "wrapperName": "Uniswap V3",
       "docsLink": "https://docs.polywrap.io/uniswapv3/intro",
       "featured": true,
@@ -268,8 +268,8 @@ export const IDE = () => {
       });
   
     }, []);
-     const data = someContent
-     console.log("someContent: ", data.queriesCollection)
+     const data = wrapperContent
+     console.log("wrapperContent: ", data.queriesCollection)
      
     // CONTENTFUL CMS INTEGREATION ABOVE
 
@@ -280,7 +280,7 @@ export const IDE = () => {
         {/* Use the line below to fetch the query
           TODO: Adapt this to work with any language, in a way that 
           is also able to map one query to the desired language */}
-        <Highlight {...defaultProps} code={someContent.queriesCollection.items[1].query} theme={undefined} language="javascript">
+        <Highlight {...defaultProps} code={wrapperContent.queriesCollection.items[1].query} theme={undefined} language="javascript">
           {({ tokens, getLineProps, getTokenProps }) => (
             <pre className={classes.pre}>
               {tokens.map((line, i) => (
