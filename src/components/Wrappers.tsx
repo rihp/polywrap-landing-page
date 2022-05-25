@@ -5,6 +5,8 @@ import {useState, useEffect} from 'react';
 import {  webContent, ContentfulFetcher } from './QueryModule';
 import { DemoFunctions } from './DemoFunctions';
 import { IDE } from './IDE';
+import { fetchWrappers }from './CMScontent';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -73,25 +75,25 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-// CONTENTFUL CMS INITIAL SET UP BELOW
-const cmsQuery = `query { 
-  webContent(id:"26XK8ENo5y1MgwpY7CDRlb") { 
-   title 
-   subtitle
-   description
-   callToAction
- } 
-}`;
-// CONTENTFUL CMS INITIAL SET UP ABOVE
+// // CONTENTFUL CMS INITIAL SET UP BELOW
+// const cmsQuery = `query { 
+//   webContent(id:"26XK8ENo5y1MgwpY7CDRlb") { 
+//    title 
+//    subtitle
+//    description
+//    callToAction
+//  } 
+// }`;
+// // CONTENTFUL CMS INITIAL SET UP ABOVE
 
 
-export const WrappersSection = () => {
+export const FeaturedWrappersSection = () => {
   const theme = useTheme();
   const classes = useStyles();
 
 
   // CONTENTFUL CMS INTEGRATION BELOW
-  const [someContent, setSomeContent] = useState<webContent> (
+  const [aboutThisSection, setAboutThisSection] = useState<webContent> (
     {
       "title": "Blazing fast development",
       "subtitle": "",
@@ -111,7 +113,7 @@ export const WrappersSection = () => {
         const content: webContent = response.data.webContent;
         //console.log("On the arrow func", content)
 
-        setSomeContent(content);
+        setAboutThisSection(content);
       }, 
       (error) => {
         //On fail
@@ -157,7 +159,7 @@ export const WrappersSection = () => {
               color='textPrimary'
               className={classes.title}
             >
-              {someContent.title}
+              {aboutThisSection.title}
             </Typography>
             <Typography
               variant='body1'
@@ -166,7 +168,7 @@ export const WrappersSection = () => {
               // TODO: Fix the formatting of description below, this should allow us somehow to show line breaks and bold sections for example
             >
             
-              {someContent.description}
+              {aboutThisSection.description}
             </Typography>
           </Grid>
         </Grid>
