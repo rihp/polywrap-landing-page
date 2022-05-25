@@ -48,6 +48,7 @@ export async function fetchWrappers() {
                     thirdParty: wrapper.thirdParty,
                     docsLink: wrapper.docsLink,
                     query: {
+                        
                         featured: item.featured,
                         source: item.source,
                         snippets: [

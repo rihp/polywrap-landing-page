@@ -1,11 +1,13 @@
 import { Parallax } from 'react-scroll-parallax';
-import { Box, Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
+import { Box, Grid, makeStyles, Typography, useTheme, Button } from '@material-ui/core';
 // WIP: Try to modularize the CMS query
 import {useState, useEffect} from 'react';
 import {  webContent } from './QueryModule';
 import { DemoFunctions } from './DemoFunctions';
 import { IDE } from './IDE';
 import { fetchWrappers }from './CMScontent';
+import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -89,6 +91,10 @@ export const FeaturedWrappersSection = () => {
   });  const [wrappersData, setWrappersData] = useState<any>(null)
   const [transitionID, setTransitionID] = useState<number>(0)
   
+  // TODO: Get the "aboutThisSection" content from the CMS
+  // 26XK8ENo5y1MgwpY7CDRlb
+  // https://app.contentful.com/spaces/tmv21jqhvpr2/entries/26XK8ENo5y1MgwpY7CDRlb
+
   // update data with CMS integration
   useEffect(() => {
     async function fetchData() {
@@ -122,11 +128,14 @@ export const FeaturedWrappersSection = () => {
         disabled={window.innerWidth < theme.breakpoints.values.md}
       >
 
+      {/* The lines below are used to check
+            1. that wrappersData exists
+            2. maps all the data to render the component*/}
       { wrappersData && 
         wrappersData.map((wrapper: any, index: number) =>
         
 
-          // This grid is for the entire component
+          // This grid is for the entire featured wrapper component
           <Grid
             key={index}
             container
@@ -141,22 +150,39 @@ export const FeaturedWrappersSection = () => {
               position: 'absolute'
             }}
           >
-            {/* // this grid is used to showcase the IDE and the CMS card*/}
+            {/* // this grid is used to showcase the IDE and the CMS card */}
             <Grid item xs={12} md={6}>
               <Box className={classes.IDEWrapper}>
+
+                {/* Card section for listing names of new functions */}
                 <Box className={classes.demoFunctionWrapper}>
                   <Parallax
                     y={[140, -13]}
                     disabled={window.innerWidth < theme.breakpoints.values.md}
                   >
+                    {/* TODO: use this section to map all the name of the functions 
+                        Also consider a way of setting the active function on "accent",
+                        while the other ones not being displayed could look grey.
+                    */}
                     <DemoFunctions content={['functionNameA','functionNameB','funcNameC','...']} />
                   </Parallax>
                 </Box>
+
+                {/* This is the section that displays the entire IDE window.
+                    it includes both the code snippet and the tabs on top of the window
+                */}
                 <IDE queriesData={wrapper.query} />
               </Box>
 
             </Grid>
+
+            {/* This section is used to display the name of the wrapper, a description of the wrapper,
+                additional copy to generate engagement, and a CTA button that takes users to docs of the
+                specified wrappert
+            */}
             <Grid item xs={12} md={6}>
+
+              {/* exciting title for the section */}
               <Typography
                 variant='h3'
                 color='textPrimary'
@@ -164,20 +190,52 @@ export const FeaturedWrappersSection = () => {
               >
                 {aboutThisSection.title}
               </Typography>
+
+              {/* description about the wrapper dev experience */}
               <Typography
                 variant='body1'
                 color='textSecondary'
                 className={classes.description}
-                // TODO: Fix the formatting of description below, this should allow us somehow to show line breaks and bold sections for example
               >
-              
-                {aboutThisSection.description + wrapper.description  }
-                {/* TODO add also wrapper name and description
-                
-                {wrapper.description } */}
-
+                {aboutThisSection.description  }
               </Typography>
-              {/* TODO: Add CTA button to check docs. <Button url=wrapper.query.source> */}
+
+              {/* The name of the wrapper currently displayed */}
+              <Typography
+                variant='h4'
+                color='textPrimary'
+                className={classes.title}
+              >
+                {wrapper.wrapperName}
+              </Typography>
+
+              {/* CTA to get people to use the specific wrapper */}
+              <Button
+              // still dunno what to calll this
+              //className={classes.heroButton}
+              color='primary'
+              href={wrapper.docsLink}
+              target="_blank"
+              rel="noredirect"
+              endIcon={<KeyboardArrowRightOutlined />}
+              type='submit'
+              variant='contained'
+            >
+              view this wrapper
+             {/* {someContent.callToAction} */}
+            </Button>
+
+
+              {/* Description of the wrapper being displayed */}
+              <Typography
+                variant='body1'
+                color='textSecondary'
+                className={classes.description}
+              >
+                {wrapper.description } 
+              </Typography>
+
+
             </Grid>
           </Grid>
         )}
