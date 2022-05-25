@@ -8,7 +8,7 @@ import { HubCallout } from '../../components/HubCallout';
 //import { WhatsPolywrap } from '../../components/WhatsPolywrap';
 import { Testimonials } from '../../components/Testimonials';
 import ReactGA from 'react-ga';
-import { WrappersSection } from '../../components/WrappersSection';
+import { WrappersSection } from '../../components/Wrappers';
 
 const useStyles = makeStyles((theme) => ({
   root: {
