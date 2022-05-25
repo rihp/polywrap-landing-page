@@ -1,11 +1,13 @@
 import { Parallax } from 'react-scroll-parallax';
-import { Box, Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
+import { Box, Grid, makeStyles, Typography, useTheme, Button } from '@material-ui/core';
 // WIP: Try to modularize the CMS query
 import {useState, useEffect} from 'react';
 import {  webContent } from './QueryModule';
 import { DemoFunctions } from './DemoFunctions';
 import { IDE } from './IDE';
 import { fetchWrappers }from './CMScontent';
+import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -194,7 +196,20 @@ export const FeaturedWrappersSection = () => {
               </Typography>
               {/* TODO: Add CTA button to check docs. <Button url=wrapper.query.source> */}
 
-              
+              <Button
+              // still dunno what to calll this
+              //className={classes.heroButton}
+              color='primary'
+              href='https://discord.gg/bGsqQrNhqd'
+              target="_blank"
+              rel="noredirect"
+              endIcon={<KeyboardArrowRightOutlined />}
+              type='submit'
+              variant='contained'
+            >
+              READ THE DOCS
+             {/* {someContent.callToAction} */}
+            </Button>
             </Grid>
           </Grid>
         )}
