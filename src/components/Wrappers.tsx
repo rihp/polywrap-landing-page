@@ -126,7 +126,7 @@ export const FeaturedWrappersSection = () => {
         wrappersData.map((wrapper: any, index: number) =>
         
 
-          // This grid is for the entire component
+          // This grid is for the entire featured wrapper component
           <Grid
             key={index}
             container
@@ -141,21 +141,36 @@ export const FeaturedWrappersSection = () => {
               position: 'absolute'
             }}
           >
-            {/* // this grid is used to showcase the IDE and the CMS card*/}
+            {/* // this grid is used to showcase the IDE and the CMS card */}
             <Grid item xs={12} md={6}>
               <Box className={classes.IDEWrapper}>
+
+                {/* Card section for listing names of new functions */}
                 <Box className={classes.demoFunctionWrapper}>
                   <Parallax
                     y={[140, -13]}
                     disabled={window.innerWidth < theme.breakpoints.values.md}
                   >
+                    {/* TODO: use this section to map all the name of the functions 
+                        Also consider a way of setting the active function on "accent",
+                        while the other ones not being displayed could look grey.
+                    */}
                     <DemoFunctions content={['functionNameA','functionNameB','funcNameC','...']} />
                   </Parallax>
                 </Box>
+
+                {/* This is the section that displays the entire IDE window.
+                    it includes both the code snippet and the tabs on top of the window
+                */}
                 <IDE queriesData={wrapper.query} />
               </Box>
 
             </Grid>
+
+            {/* This section is used to display the name of the wrapper, a description of the wrapper,
+                additional copy to generate engagement, and a CTA button that takes users to docs of the
+                specified wrappert
+            */}
             <Grid item xs={12} md={6}>
               <Typography
                 variant='h3'
@@ -168,16 +183,18 @@ export const FeaturedWrappersSection = () => {
                 variant='body1'
                 color='textSecondary'
                 className={classes.description}
-                // TODO: Fix the formatting of description below, this should allow us somehow to show line breaks and bold sections for example
               >
-              
-                {aboutThisSection.description + wrapper.description  }
+
+
+                {aboutThisSection.description + "\n\n "+  wrapper.description  }
                 {/* TODO add also wrapper name and description
                 
                 {wrapper.description } */}
 
               </Typography>
               {/* TODO: Add CTA button to check docs. <Button url=wrapper.query.source> */}
+
+              
             </Grid>
           </Grid>
         )}
