@@ -128,19 +128,7 @@ export const Tabs = ({queriesData, activeQuery, setActiveQuery}: any) => {
   const [hasFailed, setHasFailed] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  // useEffect(() => {
-  //   /////////// CMS content fetching: Callback version
-  //   setIsLoading(true);
 
-  //       console.log("On the arrow func", content)
-
-  //     }, 
-  //       setHasFailed(true);
-  //     setIsLoading(false);
-  //   });
-
-  // }, []);
-  // // CONTENTFUL CMS INTEGREATION ABOVE
 
   return (
     <Box className={classes.tabs} display='flex'>
