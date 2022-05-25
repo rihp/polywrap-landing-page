@@ -35,10 +35,10 @@ export const Home = () => {
     <Box className={classes.root}>
       <Hero />
       <DemoSection />
-      <Features />
-      <Testimonials />
       <WrapperSection/>
       <FeaturedWrappersSection /> 
+      <Features />
+      <Testimonials />
 
     </Box>
   );

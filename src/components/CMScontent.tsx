@@ -36,7 +36,11 @@ export async function fetchWrappers() {
     let newWrappersList: newWrappersList[] = [];
     wrappersList.forEach((wrapper: wrapper) => {
         wrapper.queriesCollection.items.forEach((item) => {
+            
+            // Check if this is a featured wrapper or not
             if (item.featured){
+                
+                // If it is, add the relevant data to the array `newWrappersList`
                 newWrappersList.push({
                     wrapperName: wrapper.wrapperName,
                     description: wrapper.description,
@@ -57,6 +61,7 @@ export async function fetchWrappers() {
             }
         });
     });
-    console.log(newWrappersList)
+    
+    // This would return an array with the organized wrappers
     return newWrappersList
 }

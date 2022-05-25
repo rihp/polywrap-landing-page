@@ -1,7 +1,6 @@
-import React from 'react';
-import { useEffect, useState } from "react";
 import { Parallax } from 'react-scroll-parallax';
 import { Box, Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
+import { useEffect, useState } from "react";
 import parse from 'html-react-parser';
 import { IDE } from './IDE';
 // import {wrapperSectionData as data} from '../constants/wrapper-section'
@@ -55,10 +54,11 @@ export const WrapperSection = () => {
   const theme = useTheme();
   const classes = useStyles();
 
-  // Get Wrappers Data
+  // set initial react states
   const [wrappersData, setWrappersData] = useState<any>(null)
   const [transitionID, setTransitionID] = useState<number>(0)
 
+  // update data with CMS integration
   useEffect(() => {
     async function fetchData() {
       setWrappersData(await fetchWrappers())
@@ -66,7 +66,7 @@ export const WrapperSection = () => {
     fetchData()
   }, [])
   
-  
+  // set UI transition effects for the component
   useEffect(() => {
     let rotationInterval = setInterval(() => {
       if (transitionID === wrappersData.length - 1 ) {
