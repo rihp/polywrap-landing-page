@@ -82,7 +82,7 @@ export const FeaturedWrappersSection = () => {
   // set initial react states
   const [aboutThisSection, setAboutThisSection] = useState<webContent> (
     {
-      "title": "Wrappers.tsxBlazing fast development",
+      "title": "Blazing fast development",
       "subtitle": "",
       "description": " Write queries in minutes rather than hours.\n\nUsing the polywrap toolchain, you'll be able to hit any protocol endpoint from any device that can run a Polywrap client.",
       "callToAction": "Execute Query"
@@ -171,7 +171,7 @@ export const FeaturedWrappersSection = () => {
                 // TODO: Fix the formatting of description below, this should allow us somehow to show line breaks and bold sections for example
               >
               
-                {aboutThisSection.description }
+                {aboutThisSection.description + wrapper.description  }
                 {/* TODO add also wrapper name and description
                 
                 {wrapper.description } */}
