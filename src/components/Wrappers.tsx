@@ -220,7 +220,7 @@ export const FeaturedWrappersSection = () => {
               // still dunno what to calll this
               //className={classes.heroButton}
               color='primary'
-              href={wrapper.query.source}
+              href={wrapper.query.docsLink}
               target="_blank"
               rel="noredirect"
               endIcon={<KeyboardArrowRightOutlined />}
