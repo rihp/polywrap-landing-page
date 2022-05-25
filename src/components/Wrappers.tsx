@@ -91,40 +91,40 @@ export const FeaturedWrappersSection = () => {
   const theme = useTheme();
   const classes = useStyles();
 
-
-  // CONTENTFUL CMS INTEGRATION BELOW
+  // set initial react states
   const [aboutThisSection, setAboutThisSection] = useState<webContent> (
     {
       "title": "Blazing fast development",
       "subtitle": "",
       "description": " Write queries in minutes rather than hours.\n\nUsing the polywrap toolchain, you'll be able to hit any protocol endpoint from any device that can run a Polywrap client.",
       "callToAction": "Execute Query"
-  });
-  const [hasFailed, setHasFailed] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-
+  });  const [wrappersData, setWrappersData] = useState<any>(null)
+  const [transitionID, setTransitionID] = useState<number>(0)
+  
+  // update data with CMS integration
   useEffect(() => {
-    /////////// CMS content fetching: Callback version
-    setIsLoading(true);
-
-    ContentfulFetcher(cmsQuery).then(
-      (response) => {
-        //On success        
-        const content: webContent = response.data.webContent;
-        //console.log("On the arrow func", content)
-
-        setAboutThisSection(content);
-      }, 
-      (error) => {
-        //On fail
-        setHasFailed(true);
+    async function fetchData() {
+      setWrappersData(await fetchWrappers())
+    }
+    fetchData()
+  }, [])
+  
+  // set UI transition effects for the component
+  useEffect(() => {
+    let rotationInterval = setInterval(() => {
+      if (transitionID === wrappersData.length - 1 ) {
+        setTransitionID(0)
       }
-    ).finally(() => {
-      setIsLoading(false);
-    });
-
-  }, []);
-  // CONTENTFUL CMS INTEGREATION ABOVE
+      else {
+        setTransitionID(transitionID => transitionID + 1)
+      }
+    }, 10000) // Timer for switching between wrappers (10000 -> 10 seconds)
+    
+    return () => {
+      clearInterval(rotationInterval);
+    }
+  }, [transitionID, wrappersData])
+  
 
 
   return (
