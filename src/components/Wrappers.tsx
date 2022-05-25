@@ -5,7 +5,7 @@ import {useState, useEffect} from 'react';
 import {  webContent } from './QueryModule';
 import { DemoFunctions } from './DemoFunctions';
 import { IDE } from './IDE';
-import { fetchWrappers }from './CMScontent';
+import { fetchWrappers, queryFeaturedQueries }from './CMScontent';
 import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined';
 
 
@@ -88,19 +88,89 @@ export const FeaturedWrappersSection = () => {
       "subtitle": "",
       "description": " Write queries in minutes rather than hours.\n\nUsing the polywrap toolchain, you'll be able to hit any protocol endpoint from any device that can run a Polywrap client.",
       "callToAction": "Execute Query"
-  });  const [wrappersData, setWrappersData] = useState<any>(null)
+  });  
+  const [wrappersData, setWrappersData] = useState<any>(null)
+  const [featuredQueries, setFeaturedQueries] = useState<string[]>(['functionNameA','functionNameB','funcNameC','...'])
   const [transitionID, setTransitionID] = useState<number>(0)
+
+  
   
   // TODO: Get the "aboutThisSection" content from the CMS
   // 26XK8ENo5y1MgwpY7CDRlb
   // https://app.contentful.com/spaces/tmv21jqhvpr2/entries/26XK8ENo5y1MgwpY7CDRlb
 
-  // update data with CMS integration
+  // update wrapper data with CMS integration
   useEffect(() => {
-    async function fetchData() {
+    async function fetchWrapperData() {
       setWrappersData(await fetchWrappers())
     }
-    fetchData()
+    fetchWrapperData()
+  }, [])
+
+  // update functionNames with CMS integration
+  useEffect(() => {
+    async function fetchQueryData() {
+      setFeaturedQueries(await queryFeaturedQueries())
+    }
+    fetchQueryData()
+
+    /*
+      This is what the returned data would look like
+
+       {
+        "data": {
+          "featuredWrapperCollection": {
+            "items": [
+              {
+                "wrapperName": "Uniswap V3",
+                "featured": true,
+                "queriesCollection": {
+                  "items": [
+                    {
+                      "filename": "executeSwap",
+                      "featured": true
+                    },
+                    {
+                      "filename": "calcTradeOutput",
+                      "featured": true
+                    }
+                  ]
+                }
+              },
+              {
+                "wrapperName": "Defiwrapper",
+                "featured": true,
+                "queriesCollection": {
+                  "items": [
+                    {
+                      "filename": "getTransactions",
+                      "featured": true
+                    }
+                  ]
+                }
+              },
+              {
+                "wrapperName": "Tezos Polywrapper",
+                "featured": true,
+                "queriesCollection": {
+                  "items": []
+                }
+              },
+              {
+                "wrapperName": "Gelato Polywrap Resolver ",
+                "featured": true,
+                "queriesCollection": {
+                  "items": []
+                }
+              }
+            ]
+          }
+        }
+      }
+          
+    */
+    
+
   }, [])
   
   // set UI transition effects for the component
