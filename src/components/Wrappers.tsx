@@ -2,7 +2,7 @@ import { Parallax } from 'react-scroll-parallax';
 import { Box, Grid, makeStyles, Typography, useTheme } from '@material-ui/core';
 // WIP: Try to modularize the CMS query
 import {useState, useEffect} from 'react';
-import {  webContent, ContentfulFetcher } from './QueryModule';
+import {  webContent } from './QueryModule';
 import { DemoFunctions } from './DemoFunctions';
 import { IDE } from './IDE';
 import { fetchWrappers }from './CMScontent';
@@ -75,18 +75,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-// // CONTENTFUL CMS INITIAL SET UP BELOW
-// const cmsQuery = `query { 
-//   webContent(id:"26XK8ENo5y1MgwpY7CDRlb") { 
-//    title 
-//    subtitle
-//    description
-//    callToAction
-//  } 
-// }`;
-// // CONTENTFUL CMS INITIAL SET UP ABOVE
-
-
 export const FeaturedWrappersSection = () => {
   const theme = useTheme();
   const classes = useStyles();
@@ -94,7 +82,7 @@ export const FeaturedWrappersSection = () => {
   // set initial react states
   const [aboutThisSection, setAboutThisSection] = useState<webContent> (
     {
-      "title": "Blazing fast development",
+      "title": "Wrappers.tsxBlazing fast development",
       "subtitle": "",
       "description": " Write queries in minutes rather than hours.\n\nUsing the polywrap toolchain, you'll be able to hit any protocol endpoint from any device that can run a Polywrap client.",
       "callToAction": "Execute Query"
@@ -133,45 +121,67 @@ export const FeaturedWrappersSection = () => {
         y={[20, -35]}
         disabled={window.innerWidth < theme.breakpoints.values.md}
       >
-        <Grid
-          container
-          spacing={10}
-          alignItems='flex-start'
-          className={classes.grid}
-        >
-          <Grid item xs={12} md={6}>
-            <Box className={classes.IDEWrapper}>
-              <Box className={classes.demoFunctionWrapper}>
-                <Parallax
-                  y={[140, -13]}
-                  disabled={window.innerWidth < theme.breakpoints.values.md}
-                >
-                  <DemoFunctions content={['functionNameA','functionNameB','funcNameC','...']} />
-                </Parallax>
-              </Box>
-              <IDE />
-            </Box>
 
+      { wrappersData && 
+        wrappersData.map((wrapper: any, index: number) =>
+        
+
+          // This grid is for the entire component
+          <Grid
+            key={index}
+            container
+            spacing={10}
+            alignItems='flex-start'
+            className={classes.grid}
+            style={{
+              opacity: transitionID === index ? '100%': '0%',
+              // visibility: transitionID === index ? 'initial': 'hidden',
+              zIndex : transitionID === index ? 99: -1,
+              transition: "all 1s ease-in",
+              position: 'absolute'
+            }}
+          >
+            {/* // this grid is used to showcase the IDE and the CMS card*/}
+            <Grid item xs={12} md={6}>
+              <Box className={classes.IDEWrapper}>
+                <Box className={classes.demoFunctionWrapper}>
+                  <Parallax
+                    y={[140, -13]}
+                    disabled={window.innerWidth < theme.breakpoints.values.md}
+                  >
+                    <DemoFunctions content={['functionNameA','functionNameB','funcNameC','...']} />
+                  </Parallax>
+                </Box>
+                <IDE queriesData={wrapper.query} />
+              </Box>
+
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Typography
+                variant='h3'
+                color='textPrimary'
+                className={classes.title}
+              >
+                {aboutThisSection.title}
+              </Typography>
+              <Typography
+                variant='body1'
+                color='textSecondary'
+                className={classes.description}
+                // TODO: Fix the formatting of description below, this should allow us somehow to show line breaks and bold sections for example
+              >
+              
+                {aboutThisSection.description }
+                {/* TODO add also wrapper name and description
+                
+                {wrapper.description } */}
+
+              </Typography>
+              {/* TODO: Add CTA button to check docs. <Button url=wrapper.query.source> */}
+            </Grid>
           </Grid>
-          <Grid item xs={12} md={6}>
-            <Typography
-              variant='h3'
-              color='textPrimary'
-              className={classes.title}
-            >
-              {aboutThisSection.title}
-            </Typography>
-            <Typography
-              variant='body1'
-              color='textSecondary'
-              className={classes.description}
-              // TODO: Fix the formatting of description below, this should allow us somehow to show line breaks and bold sections for example
-            >
-            
-              {aboutThisSection.description}
-            </Typography>
-          </Grid>
-        </Grid>
+        )}
+
       </Parallax>
     </Box>
   );
