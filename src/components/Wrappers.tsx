@@ -91,6 +91,10 @@ export const FeaturedWrappersSection = () => {
   });  const [wrappersData, setWrappersData] = useState<any>(null)
   const [transitionID, setTransitionID] = useState<number>(0)
   
+  // TODO: Get the "aboutThisSection" content from the CMS
+  // 26XK8ENo5y1MgwpY7CDRlb
+  // https://app.contentful.com/spaces/tmv21jqhvpr2/entries/26XK8ENo5y1MgwpY7CDRlb
+
   // update data with CMS integration
   useEffect(() => {
     async function fetchData() {
@@ -205,16 +209,6 @@ export const FeaturedWrappersSection = () => {
                 {wrapper.wrapperName}
               </Typography>
 
-              {/* Description of the wrapper being displayed */}
-              <Typography
-                variant='body1'
-                color='textSecondary'
-                className={classes.description}
-              >
-                {wrapper.description } 
-              </Typography>
-
-
               {/* CTA to get people to use the specific wrapper */}
               <Button
               // still dunno what to calll this
@@ -227,9 +221,21 @@ export const FeaturedWrappersSection = () => {
               type='submit'
               variant='contained'
             >
-              READ THE DOCS
+              view this wrapper
              {/* {someContent.callToAction} */}
             </Button>
+
+
+              {/* Description of the wrapper being displayed */}
+              <Typography
+                variant='body1'
+                color='textSecondary'
+                className={classes.description}
+              >
+                {wrapper.description } 
+              </Typography>
+
+
             </Grid>
           </Grid>
         )}
