@@ -174,6 +174,8 @@ export const FeaturedWrappersSection = () => {
                 specified wrappert
             */}
             <Grid item xs={12} md={6}>
+
+              {/* exciting title for the section */}
               <Typography
                 variant='h3'
                 color='textPrimary'
@@ -181,26 +183,41 @@ export const FeaturedWrappersSection = () => {
               >
                 {aboutThisSection.title}
               </Typography>
+
+              {/* description about the wrapper dev experience */}
               <Typography
                 variant='body1'
                 color='textSecondary'
                 className={classes.description}
               >
-
-
-                {aboutThisSection.description + "\n\n "+  wrapper.description  }
-                {/* TODO add also wrapper name and description
-                
-                {wrapper.description } */}
-
+                {aboutThisSection.description  }
               </Typography>
-              {/* TODO: Add CTA button to check docs. <Button url=wrapper.query.source> */}
 
+              {/* The name of the wrapper currently displayed */}
+              <Typography
+                variant='h4'
+                color='textPrimary'
+                className={classes.title}
+              >
+                {wrapper.wrapperName}
+              </Typography>
+
+              {/* Description of the wrapper being displayed */}
+              <Typography
+                variant='body1'
+                color='textSecondary'
+                className={classes.description}
+              >
+                {wrapper.description } 
+              </Typography>
+
+
+              {/* CTA to get people to use the specific wrapper */}
               <Button
               // still dunno what to calll this
               //className={classes.heroButton}
               color='primary'
-              href='https://discord.gg/bGsqQrNhqd'
+              href={wrapper.query.source}
               target="_blank"
               rel="noredirect"
               endIcon={<KeyboardArrowRightOutlined />}
