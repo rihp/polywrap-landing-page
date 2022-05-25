@@ -124,6 +124,9 @@ export const FeaturedWrappersSection = () => {
         disabled={window.innerWidth < theme.breakpoints.values.md}
       >
 
+      {/* The lines below are used to check
+            1. that wrappersData exists
+            2. maps all the data to render the component*/}
       { wrappersData && 
         wrappersData.map((wrapper: any, index: number) =>
         
