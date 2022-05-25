@@ -6,8 +6,9 @@ import { DemoSection } from '../../components/DemoSection';
 import { Features } from '../../components/Features';
 import { Testimonials } from '../../components/Testimonials';
 import ReactGA from 'react-ga';
-import { WrappersSection } from '../../components/Wrappers';
-import { fetchWrappers, queryFeaturedWrappers }from '../../components/CMScontent';
+import { FeaturedWrappersSection } from '../../components/Wrappers';
+import { WrapperSection } from '../../components/WrapperSection';
+import { fetchWrappers, queryFeaturedWrappers } from '../../components/CMScontent';
 
 console.log("///// Wrapper's Data from the API")
 console.log(queryFeaturedWrappers())
@@ -36,14 +37,9 @@ export const Home = () => {
       <DemoSection />
       <Features />
       <Testimonials />
-      <WrappersSection /> 
+      <WrapperSection/>
+      {/* <FeaturedWrappersSection />  */}
 
-      {/* 
-      These two components are used to showcase the code snippets
-      through the IDE.tsx component. However, they are duplicated.
-      We have to get one working and deprecate the other.
-      <WrapperSection /> 
-      */}
     </Box>
   );
 };
