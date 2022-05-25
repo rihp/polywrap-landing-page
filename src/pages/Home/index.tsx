@@ -7,11 +7,13 @@ import { Features } from '../../components/Features';
 import { Testimonials } from '../../components/Testimonials';
 import ReactGA from 'react-ga';
 import { WrappersSection } from '../../components/Wrappers';
+import { fetchWrappers, queryFeaturedWrappers }from '../../components/CMScontent';
 
-// CMS Data queried
-import { queryFeaturedWrappers }from '../../components/CMScontent';
-console.log("///// Data from the API")
+console.log("///// Wrapper's Data from the API")
 console.log(queryFeaturedWrappers())
+console.log("///// wrapper data after mapping with fetchWrappers()")
+console.log(fetchWrappers())
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
