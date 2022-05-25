@@ -117,6 +117,10 @@ export const FeaturedWrappersSection = () => {
     /*
       This is what the returned data would look like
 
+      // you could iterate on each wrapper and
+      // do a ()=> array.push of the queriesCollection.filenames 
+      // this would generate an array that you can use to populate the card
+
        {
         "data": {
           "featuredWrapperCollection": {
@@ -291,7 +295,7 @@ export const FeaturedWrappersSection = () => {
               type='submit'
               variant='contained'
             >
-              view this wrapper
+              wrap with it
              {/* {someContent.callToAction} */}
             </Button>
 
