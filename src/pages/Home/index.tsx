@@ -38,7 +38,7 @@ export const Home = () => {
       <Features />
       <Testimonials />
       <WrapperSection/>
-      {/* <FeaturedWrappersSection />  */}
+      <FeaturedWrappersSection /> 
 
     </Box>
   );
