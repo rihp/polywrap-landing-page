@@ -211,6 +211,7 @@ export const Hero = () => {
       container
       justify='center'
       alignItems='center'
+      spacing={6}
       direction={matches ? 'row-reverse' : 'row'}
     >
       <Grid item sm={12} md={6}>
@@ -243,9 +244,10 @@ export const Hero = () => {
             </Typography>
             <Button
               className={classes.heroButton}
-              component='button'
               color='primary'
               href='https://discord.gg/bGsqQrNhqd'
+              target="_blank"
+              rel="noredirect"
               endIcon={<KeyboardArrowRightOutlined />}
               type='submit'
               variant='contained'
