@@ -199,7 +199,7 @@ export const Testimonials = () => {
 
   };
 
-  console.log(TESTIMONIALS)
+  //console.log(TESTIMONIALS)
   return (
     <Box className={classes.root}>
       <Typography className={classes.title} variant='h3' align='center' color='textPrimary'>

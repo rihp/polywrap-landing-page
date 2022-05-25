@@ -98,7 +98,7 @@ export const Tabs = ({queriesData, activeQuery, setActiveQuery}: any) => {
 
 
   // CONTENTFUL CMS INTEGRATION BELOW
-  const [someContent, setSomeContent] = useState<wrapper> (
+  const [wrapperContent, setWrapperContent] = useState<wrapper> (
     {
       "wrapperName": "Uniswap",
       "featured": false,
@@ -128,30 +128,7 @@ export const Tabs = ({queriesData, activeQuery, setActiveQuery}: any) => {
   const [hasFailed, setHasFailed] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  // useEffect(() => {
-  //   /////////// CMS content fetching: Callback version
-  //   setIsLoading(true);
 
-  //   ContentfulFetcher(cmsQuery).then(
-  //     (response) => {
-  //       //On success        
-  //       const content: wrapper = response.data.featuredWrapper;
-  //       console.log("On the arrow func", content)
-
-  //       setSomeContent(content);
-  //     }, 
-  //     (error) => {
-  //       //On fail
-  //       setHasFailed(true);
-  //     }
-  //   ).finally(() => {
-  //     setIsLoading(false);
-  //   });
-
-  // }, []);
-  // // const data = someContent
-  // // console.log("someContent: ", data)
-  // // CONTENTFUL CMS INTEGREATION ABOVE
 
   return (
     <Box className={classes.tabs} display='flex'>

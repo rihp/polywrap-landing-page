@@ -5,14 +5,16 @@ import { Hero } from '../../components/Hero';
 import { DemoSection } from '../../components/DemoSection';
 import { Features } from '../../components/Features';
 import { Testimonials } from '../../components/Testimonials';
-import { WrapperSection } from '../../components/WrapperSection';
 import ReactGA from 'react-ga';
-import { WrappersSection } from '../../components/WrappersSection';
+import { FeaturedWrappersSection } from '../../components/Wrappers';
+import { WrapperSection } from '../../components/WrapperSection';
+import { fetchWrappers, queryFeaturedWrappers } from '../../components/CMScontent';
 
-// CMS Data queried
-import { queryFeaturedWrappers }from '../../components/CMScontent';
-console.log("///// Data from the API")
+console.log("///// Wrapper's Data from the API")
 console.log(queryFeaturedWrappers())
+console.log("///// wrapper data after mapping with fetchWrappers()")
+console.log(fetchWrappers())
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,14 +37,9 @@ export const Home = () => {
       <DemoSection />
       <Features />
       <Testimonials />
+      <WrapperSection/>
+      <FeaturedWrappersSection /> 
 
-      {/* 
-      These two components are used to showcase the code snippets
-      through the IDE.tsx component. However, they are duplicated.
-      We have to get one working and deprecate the other.
-      <WrappersSection /> 
-      <WrapperSection /> 
-      */}
     </Box>
   );
 };

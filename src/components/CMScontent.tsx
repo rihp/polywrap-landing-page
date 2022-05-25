@@ -24,11 +24,13 @@ export function queryFeaturedWrappers() {
           }
         }
       }`
+
     return ContentfulFetcher(cmsQuery)
 }
 
 export async function fetchWrappers() {
     const response = await queryFeaturedWrappers()
+    //console.log (">---> response of queryFeaturedWrappers()", response)
     const wrappersList = response.data.featuredWrapperCollection.items
 
     let newWrappersList: newWrappersList[] = [];
