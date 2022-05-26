@@ -238,7 +238,11 @@ export const FeaturedWrappersSection = () => {
                         Also consider a way of setting the active function on "accent",
                         while the other ones not being displayed could look grey.
                     */}
-                    <DemoFunctions content={['functionNameA','functionNameB','funcNameC','...']} />
+                    <DemoFunctions 
+                      content={
+                          ['functionNameA','functionNameB','funcNameC','...']
+                        } 
+                    />
                   </Parallax>
                 </Box>
 
