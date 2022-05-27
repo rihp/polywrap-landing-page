@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {  webContent, wrapper, newWrappersList, ContentfulFetcher } from './QueryModule';
+import {  webContent, wrapper,  listOfFeaturedQueries, ContentfulFetcher } from './QueryModule';
 
 export function queryFeaturedWrappers() {
     // GraphQL query to get data from Contentful CMS API
@@ -111,7 +111,7 @@ export async function fetchWrappers() {
     // by the Wrappers.tsx component
 
     // idea: rename the const below to "listOfFeaturedQueries"
-    let newWrappersList: newWrappersList[] = [];
+    let listOfFeaturedQueries: listOfFeaturedQueries[] = [];
 
     const response = await queryFeaturedWrappers()
     const wrappersList = response.data.featuredWrapperCollection.items
@@ -127,7 +127,7 @@ export async function fetchWrappers() {
                 
                 // If it is, add the relevant data to the array `newWrappersList`
                 // idea:  modify this data stucture below to fit all the needs Wrappers.tsx
-                newWrappersList.push({
+                listOfFeaturedQueries.push({
                     wrapperName: wrapper.wrapperName,
                     description: wrapper.description,
                     featured: wrapper.featured,
@@ -150,7 +150,7 @@ export async function fetchWrappers() {
     });
     
     // This would return an array with the organized QUERIES
-    return newWrappersList
+    return listOfFeaturedQueries
 }
 
 export function queryFeaturedQueries() {

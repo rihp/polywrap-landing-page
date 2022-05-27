@@ -32,7 +32,7 @@ export interface wrapper {
   docsLink: string;
 }
 
-export interface newWrappersList {
+export interface listOfFeaturedQueries {
   wrapperName: string;
   description: string;
   featured: boolean;
@@ -47,6 +47,9 @@ export interface newWrappersList {
       snippet: string;
     }[];
   };
+}
+
+export interface listOfFeaturedQueries {
 }
 
 export interface polywrapFeature extends webContent{
