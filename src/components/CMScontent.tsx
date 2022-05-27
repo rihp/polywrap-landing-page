@@ -29,11 +29,17 @@ export function queryFeaturedWrappers() {
 }
 
 export async function fetchWrappers() {
+    // This function queries the CMS, transforms the data to have a list
+    // of indexed queries and all of the relevant metadata to be displayed
+    // by the Wrappers.tsx component
+
+    // idea: rename the const below to "listOfFeaturedQueries"
+    let newWrappersList: newWrappersList[] = [];
+
     const response = await queryFeaturedWrappers()
-    //console.log (">---> response of queryFeaturedWrappers()", response)
     const wrappersList = response.data.featuredWrapperCollection.items
 
-    let newWrappersList: newWrappersList[] = [];
+    // here we iterate over the 
     wrappersList.forEach((wrapper: wrapper) => {
         wrapper.queriesCollection.items.forEach((item) => {
             
