@@ -113,10 +113,9 @@ export const FeaturedWrappersSection = () => {
 
     const getFunctions = (wrappersData:newListOfFeaturedQueries[]) => {
       console.log(wrappersData)
-      //wrappersData.forEach(wrapper => console.log(wrapper))
+      wrappersData.forEach(wrapper => console.log(wrapper))
       return []
     };
-    console.log(wrappersData)
 
     getFunctions(wrappersData);
 
