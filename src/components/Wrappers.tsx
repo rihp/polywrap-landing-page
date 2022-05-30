@@ -2,7 +2,7 @@ import { Parallax } from 'react-scroll-parallax';
 import { Box, Grid, makeStyles, Typography, useTheme, Button } from '@material-ui/core';
 // WIP: Try to modularize the CMS query
 import {useState, useEffect} from 'react';
-import {  webContent } from './QueryModule';
+import {  newListOfFeaturedQueries, webContent } from './QueryModule';
 import { DemoFunctions } from './DemoFunctions';
 import { IDE } from './IDE';
 import { fetchWrappers }from './CMScontent';
@@ -93,6 +93,8 @@ export const FeaturedWrappersSection = () => {
   const [featuredQueries, setFeaturedQueries] = useState<string[]>(['swapToken','functionNameB','funcNameC','...'])
   const [transitionID, setTransitionID] = useState<number>(0)
 
+  // TODO: try using this state to move the function names into the DataCard
+  const [queriesData, setQueriesData] = useState<newListOfFeaturedQueries[] | null>(null)
   
   
   // TODO: Get the "aboutThisSection" content from the CMS
@@ -102,13 +104,22 @@ export const FeaturedWrappersSection = () => {
   // update wrapper data with CMS integration
   useEffect(() => {
     async function fetchWrapperData() {
+
+      // query the CMS and store the wrappers in the react state
       setWrappersData(await fetchWrappers())
       
-      // try to iterate over the queries to prepare the 
-      // list of functions on this query
     }
-
     fetchWrapperData()
+
+    const getFunctions = (wrappersData:newListOfFeaturedQueries[]) => {
+      console.log(wrappersData)
+      //wrappersData.forEach(wrapper => console.log(wrapper))
+      return []
+    };
+    console.log(wrappersData)
+
+    getFunctions(wrappersData);
+
   }, []);
 
 
