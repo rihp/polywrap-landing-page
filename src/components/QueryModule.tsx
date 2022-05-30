@@ -32,6 +32,25 @@ export interface wrapper {
   docsLink: string;
 }
 
+export interface newListOfFeaturedQueries {
+  wrapperName: string;
+  //filename: string;
+  description: string;
+  featured: boolean;
+  thirdParty: boolean;
+  docsLink: string;
+  query: {
+    queryName: string;
+    featured: boolean;
+    source: string;
+    snippets: {
+      filename: string;
+      language: string;
+      snippet: string;
+    }[];
+  };
+}
+
 export interface listOfFeaturedQueries {
   wrapperName: string;
   description: string;
@@ -39,10 +58,11 @@ export interface listOfFeaturedQueries {
   thirdParty: boolean;
   docsLink: string;
   query: {
-    featured: boolean;
+    featured: true;
     source: string;
     snippets: {
       filename: string;
+
       language: string;
       snippet: string;
     }[];

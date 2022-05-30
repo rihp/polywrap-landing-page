@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {  webContent, wrapper,  listOfFeaturedQueries, ContentfulFetcher } from './QueryModule';
+import {  webContent, wrapper,  newListOfFeaturedQueries, listOfFeaturedQueries, ContentfulFetcher } from './QueryModule';
 
 export function queryFeaturedWrappers() {
     // GraphQL query to get data from Contentful CMS API
@@ -111,7 +111,7 @@ export async function fetchWrappers() {
     // by the Wrappers.tsx component
 
     // idea: rename the const below to "listOfFeaturedQueries"
-    let listOfFeaturedQueries: listOfFeaturedQueries[] = [];
+    let listOfFeaturedQueries: newListOfFeaturedQueries[] = [];
 
     const response = await queryFeaturedWrappers()
     const wrappersList = response.data.featuredWrapperCollection.items
@@ -127,24 +127,44 @@ export async function fetchWrappers() {
                 
                 // If it is, add the relevant data to the array `newWrappersList`
                 // idea:  modify this data stucture below to fit all the needs Wrappers.tsx
-                listOfFeaturedQueries.push({
-                    wrapperName: wrapper.wrapperName,
-                    description: wrapper.description,
-                    featured: wrapper.featured,
-                    thirdParty: wrapper.thirdParty,
-                    docsLink: wrapper.docsLink,
-                    query: {
+                // listOfFeaturedQueries.push({
+                //     wrapperName: wrapper.wrapperName,
+                //     description: wrapper.description,
+                //     featured: wrapper.featured,
+                //     thirdParty: wrapper.thirdParty,
+                //     docsLink: wrapper.docsLink,
+                //     query: {
                         
-                        featured: item.featured,
-                        source: item.source,
-                        snippets: [
-                            { filename: item.filename + '.js', language: 'javascript', snippet: item.appJs || '' },
-                            { filename: item.filename + '.ts', language: 'typescript', snippet: item.appTs || '' },
-                            { filename: item.filename + '.py', language: 'python', snippet: item.appPy || '' },
-                            { filename: item.filename + '.rs', language: 'rust', snippet: item.appRs || '' },
-                        ]
-                    }
-                });
+                //         featured: item.featured,
+                //         source: item.source,
+                //         snippets: [
+                //             { filename: item.filename + '.js', language: 'javascript', snippet: item.appJs || '' },
+                //             { filename: item.filename + '.ts', language: 'typescript', snippet: item.appTs || '' },
+                //             { filename: item.filename + '.py', language: 'python', snippet: item.appPy || '' },
+                //             { filename: item.filename + '.rs', language: 'rust', snippet: item.appRs || '' },
+                //         ]
+                //     }
+                // });
+
+                listOfFeaturedQueries.push({
+                  wrapperName: wrapper.wrapperName,
+                  description: wrapper.description,
+                  featured: wrapper.featured,
+                  thirdParty: wrapper.thirdParty,
+                  docsLink: wrapper.docsLink,
+                  query: {
+                      queryName: item.filename,
+                      featured: item.featured,
+                      source: item.source,
+                      snippets: [
+                          { filename: item.filename + '.js', language: 'javascript', snippet: item.appJs || '' },
+                          { filename: item.filename + '.ts', language: 'typescript', snippet: item.appTs || '' },
+                          { filename: item.filename + '.py', language: 'python', snippet: item.appPy || '' },
+                          { filename: item.filename + '.rs', language: 'rust', snippet: item.appRs || '' },
+                      ]
+                  }
+              });
+
             }
         });
     });
