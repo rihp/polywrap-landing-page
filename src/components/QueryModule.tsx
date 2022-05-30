@@ -36,12 +36,12 @@ export interface newListOfFeaturedQueries {
   wrapperName: string;
   //filename: string;
   description: string;
-  featured: boolean;
+  featuredWrapper: boolean;
   thirdParty: boolean;
   docsLink: string;
   query: {
     queryName: string;
-    featured: boolean;
+    featuredQuery: boolean;
     source: string;
     snippets: {
       filename: string;

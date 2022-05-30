@@ -149,12 +149,12 @@ export async function fetchWrappers() {
                 listOfFeaturedQueries.push({
                   wrapperName: wrapper.wrapperName,
                   description: wrapper.description,
-                  featured: wrapper.featured,
+                  featuredWrapper: wrapper.featured,
                   thirdParty: wrapper.thirdParty,
                   docsLink: wrapper.docsLink,
                   query: {
                       queryName: item.filename,
-                      featured: item.featured,
+                      featuredQuery: item.featured,
                       source: item.source,
                       snippets: [
                           { filename: item.filename + '.js', language: 'javascript', snippet: item.appJs || '' },

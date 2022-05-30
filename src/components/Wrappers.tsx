@@ -112,18 +112,8 @@ export const FeaturedWrappersSection = () => {
   }, []);
 
 
-  // // update functionNames with CMS integration
-  // useEffect(() => {
-  //   async function fetchQueryData() {
-  //     setFeaturedQueries(await queryFeaturedQueries())
-  //   }
-  //   fetchQueryData()
-  //
-  // }, [])
-
     /*
-      //  This is what the returned data would look like
-
+      // Below is what the returned data would look like
       // you could iterate on each query Object and
       // do a ()=> array.push of the queriesCollection.filenames 
       // this would generate an array that you can use to populate the card
