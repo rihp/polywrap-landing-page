@@ -5,7 +5,7 @@ import {useState, useEffect} from 'react';
 import {  webContent } from './QueryModule';
 import { DemoFunctions } from './DemoFunctions';
 import { IDE } from './IDE';
-import { fetchWrappers, queryFeaturedQueries }from './CMScontent';
+import { fetchWrappers }from './CMScontent';
 import KeyboardArrowRightOutlined from '@material-ui/icons/KeyboardArrowRightOutlined';
 
 
@@ -90,7 +90,7 @@ export const FeaturedWrappersSection = () => {
       "callToAction": "Execute Query"
   });  
   const [wrappersData, setWrappersData] = useState<any>(null)
-  const [featuredQueries, setFeaturedQueries] = useState<string[]>(['functionNameA','functionNameB','funcNameC','...'])
+  const [featuredQueries, setFeaturedQueries] = useState<string[]>(['swapToken','functionNameB','funcNameC','...'])
   const [transitionID, setTransitionID] = useState<number>(0)
 
   
@@ -103,79 +103,147 @@ export const FeaturedWrappersSection = () => {
   useEffect(() => {
     async function fetchWrapperData() {
       setWrappersData(await fetchWrappers())
+      
+      // try to iterate over the queries to prepare the 
+      // list of functions on this query
     }
-    fetchWrapperData()
-  }, [])
 
-  // update functionNames with CMS integration
-  useEffect(() => {
-    async function fetchQueryData() {
-      setFeaturedQueries(await queryFeaturedQueries())
-    }
-    fetchQueryData()
+    fetchWrapperData()
+  }, []);
+
+
+  // // update functionNames with CMS integration
+  // useEffect(() => {
+  //   async function fetchQueryData() {
+  //     setFeaturedQueries(await queryFeaturedQueries())
+  //   }
+  //   fetchQueryData()
+  //
+  // }, [])
 
     /*
-      This is what the returned data would look like
+      //  This is what the returned data would look like
 
-      // you could iterate on each wrapper and
+      // you could iterate on each query Object and
       // do a ()=> array.push of the queriesCollection.filenames 
       // this would generate an array that you can use to populate the card
 
-       {
-        "data": {
-          "featuredWrapperCollection": {
-            "items": [
-              {
-                "wrapperName": "Uniswap V3",
-                "featured": true,
-                "queriesCollection": {
-                  "items": [
-                    {
-                      "filename": "executeSwap",
-                      "featured": true
-                    },
-                    {
-                      "filename": "calcTradeOutput",
-                      "featured": true
-                    }
-                  ]
+      INDEX:   1 --- 2 --- 3 --- 4 ---
+      WRAPPER: U --------> T -------->
+      QUERY:   a --> b --> m --> n -->
+      
+
+      [
+    {
+        "wrapperName": "Uniswap V3",
+        "description": "The newest Uniswap wrapper is written in AssemblyScript, and like the official Uniswap V3 SDK, it has a robust test suite, performs arbitrary precision arithmetic, and supports rounding to significant digits or fixed decimal places. The Uniswap wrapper business logic will be deployed on a decentralized endpoint, like IPFS.",
+        "featured": true,
+        "thirdParty": false,
+        "docsLink": "https://docs.polywrap.io/demos/uniswapv3/intro",
+        "query": {
+            "queryName": "executeSwap",
+            "featured": true,
+            "source": "https://github.com/polywrap/integrations/blob/2282781a2ba46ef99c41f093b9985487c8a1e98e/uniswapv3/wrapper/src/mutation/schema.graphql#L46-L61",
+            "snippets": [
+                {
+                    "filename": "executeSwap.js",
+                    "language": "javascript",
+                    "snippet": ""
+                },
+                {
+                    "filename": "executeSwap.ts",
+                    "language": "typescript",
+                    "snippet": "//import envs and other configs for the client\nimport * into GetTransactions\n\n// Execute Token Swaps w/ Uniswap V3\nclient.invoke({\n  uri: \"wrap://ens/v3.uniswap.polywrap.eth\",\n  module: \"mutation\",\n  method: \"swap\",\n  input: {\n    inToken,\n    outToken,\n    amount,\n    ...\n  }\n});"
+                },
+                {
+                    "filename": "executeSwap.py",
+                    "language": "python",
+                    "snippet": "#Execute Token Swaps w/ Uniswap V3\n\nclient.invoke(\n  uri=\"wrap://ens/v3.uniswap.polywrap.eth\",\n  module=\"mutation\",\n  method=\"swap\",\n  input={\n    \"inToken\": inToken,\n    \"outToken\": outToken,\n    \"amount\": amount,\n    ...\n  }\n);"
+                },
+                {
+                    "filename": "executeSwap.rs",
+                    "language": "rust",
+                    "snippet": "// Execute Token Swaps w/ Uniswap V3\nclient.invoke({\n  uri: \"wrap://ens/v3.uniswap.polywrap.eth\",\n  module: \"mutation\",\n  method: \"swap\",\n  input: uni::mutation::swap::Input {\n    inToken: inToken,\n    outToken: outToken,\n    amount: amount,\n    ...\n  }.to_json()\n});"
                 }
-              },
-              {
-                "wrapperName": "Defiwrapper",
-                "featured": true,
-                "queriesCollection": {
-                  "items": [
-                    {
-                      "filename": "getTransactions",
-                      "featured": true
-                    }
-                  ]
-                }
-              },
-              {
-                "wrapperName": "Tezos Polywrapper",
-                "featured": true,
-                "queriesCollection": {
-                  "items": []
-                }
-              },
-              {
-                "wrapperName": "Gelato Polywrap Resolver ",
-                "featured": true,
-                "queriesCollection": {
-                  "items": []
-                }
-              }
             ]
-          }
         }
-      }
-          
+    },
+    {
+        "wrapperName": "Uniswap V3",
+        "description": "The newest Uniswap wrapper is written in AssemblyScript, and like the official Uniswap V3 SDK, it has a robust test suite, performs arbitrary precision arithmetic, and supports rounding to significant digits or fixed decimal places. The Uniswap wrapper business logic will be deployed on a decentralized endpoint, like IPFS.",
+        "featured": true,
+        "thirdParty": false,
+        "docsLink": "https://docs.polywrap.io/demos/uniswapv3/intro",
+        "query": {
+            "queryName": "calcTradeOutput",
+            "featured": true,
+            "source": "https://github.com/polywrap/integrations/blob/2282781a2ba46ef99c41f093b9985487c8a1e98e/uniswapv3/wrapper/src/query/schema.graphql#L470-L479",
+            "snippets": [
+                {
+                    "filename": "calcTradeOutput.js",
+                    "language": "javascript",
+                    "snippet": ""
+                },
+                {
+                    "filename": "calcTradeOutput.ts",
+                    "language": "typescript",
+                    "snippet": "//import envs and other configs for the client\nimport * into GetTransactions\n\n// mocked query for component dev\nquery (\n\n  swap.tokens(\"1000 USDC\", out=ETH\")\n)\n"
+                },
+                {
+                    "filename": "calcTradeOutput.py",
+                    "language": "python",
+                    "snippet": "// mocked query for component dev\nquery (\n\n)\n"
+                },
+                {
+                    "filename": "calcTradeOutput.rs",
+                    "language": "rust",
+                    "snippet": "// mocked query for component dev\nquery (\n\n)\n"
+                }
+            ]
+        }
+    },
+    {
+        "wrapperName": "Defiwrapper",
+        "description": "Defiwrapper is a collection of various DeFi  wrappers like defi-sdk, coingecko, and more. With Defiwrapper, you can enable a wide range of  DeFi usecases for a suite of cross-chain and multi-platform innovations.",
+        "featured": true,
+        "thirdParty": false,
+        "docsLink": "https://defiwrapper.com",
+        "query": {
+            "queryName": "getTransactions",
+            "featured": true,
+            "source": "https://github.com/defiwrapper/documentation",
+            "snippets": [
+                {
+                    "filename": "getTransactions.js",
+                    "language": "javascript",
+                    "snippet": ""
+                },
+                {
+                    "filename": "getTransactions.ts",
+                    "language": "typescript",
+                    "snippet": "//import envs and other configs for the client\nimport * into GetTransactions\n\n// Gets all transactions from an accoutn\nquery GetTransactions($account: String!, $currency: String!) {\n  getTransactions(accountAddress: $account,\n  vsCurrency: $currency,\n  options: null)\n}"
+                },
+                {
+                    "filename": "getTransactions.py",
+                    "language": "python",
+                    "snippet": "// mocked query for demo purposes\nquery (\n   accountBalance: $ethereum_address\n)"
+                },
+                {
+                    "filename": "getTransactions.rs",
+                    "language": "rust",
+                    "snippet": "// mocked query for demo purposes\nquery (\n   accountBalance: $ethereum_address\n)"
+                }
+            ]
+        }
+    }
+]
+
     */
     
 
-  }, [])
+
+
+
   
   // set UI transition effects for the component
   useEffect(() => {
@@ -237,12 +305,14 @@ export const FeaturedWrappersSection = () => {
                     {/* TODO: use this section to map all the name of the functions 
                         Also consider a way of setting the active function on "accent",
                         while the other ones not being displayed could look grey.
-                    */}
+                     */}
+
                     <DemoFunctions 
                       content={
-                          ['functionNameA','functionNameB','funcNameC','...']
+                          featuredQueries
                         } 
                     />
+
                   </Parallax>
                 </Box>
 

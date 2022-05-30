@@ -167,7 +167,7 @@ export const Testimonials = () => {
       }
     ).finally(() => {
       setIsLoading(false);
-      console.log("DONE LOADING TESTIMONIALS FROM CMS ##################################")
+      //console.log("DONE LOADING TESTIMONIALS FROM CMS ##################################")
 
     });
 
@@ -182,9 +182,7 @@ export const Testimonials = () => {
 
   
   for (var partner in newTestimonials) {
-    // console.log(newTestimonials[partner].testimonial);
-    // console.log(newTestimonials[partner].persona);
-    // console.log(newTestimonials[partner].link);
+
 
     TESTIMONIALS[partner] = 
     {

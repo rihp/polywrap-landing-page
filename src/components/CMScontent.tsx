@@ -173,23 +173,23 @@ export async function fetchWrappers() {
     return listOfFeaturedQueries
 }
 
-export function queryFeaturedQueries() {
-  // GraphQL query to get data from Contentful CMS API
-  const cmsQuery = `
-  query { 
-    featuredWrapperCollection(where: {featured: true}) { 
-      items {
-        wrapperName
-        featured
-        queriesCollection {
-          items {
-            filename
-            featured
-          }
-        }  
-      }
-    }
-  }`
+// export function queryFeaturedQueries() {
+//   // GraphQL query to get data from Contentful CMS API
+//   const cmsQuery = `
+//   query { 
+//     featuredWrapperCollection(where: {featured: true}) { 
+//       items {
+//         wrapperName
+//         featured
+//         queriesCollection {
+//           items {
+//             filename
+//             featured
+//           }
+//         }  
+//       }
+//     }
+//   }`
 
-  return ContentfulFetcher(cmsQuery)
-}
+//   return ContentfulFetcher(cmsQuery)
+// }
