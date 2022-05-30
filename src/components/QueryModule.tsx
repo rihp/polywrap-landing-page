@@ -39,7 +39,7 @@ export interface newListOfFeaturedQueries {
   featuredWrapper: boolean;
   thirdParty: boolean;
   docsLink: string;
-  query: {
+  queries: {
     queryName: string;
     featuredQuery: boolean;
     source: string;

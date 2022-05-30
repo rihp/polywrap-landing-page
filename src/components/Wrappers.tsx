@@ -123,7 +123,7 @@ export const FeaturedWrappersSection = () => {
       QUERY:   a --> b --> m --> n -->
       
 
-      [
+    [
     {
         "wrapperName": "Uniswap V3",
         "description": "The newest Uniswap wrapper is written in AssemblyScript, and like the official Uniswap V3 SDK, it has a robust test suite, performs arbitrary precision arithmetic, and supports rounding to significant digits or fixed decimal places. The Uniswap wrapper business logic will be deployed on a decentralized endpoint, like IPFS.",
@@ -309,7 +309,7 @@ export const FeaturedWrappersSection = () => {
                 {/* This is the section that displays the entire IDE window.
                     it includes both the code snippet and the tabs on top of the window
                 */}
-                <IDE queriesData={wrapper.query} />
+                <IDE queriesData={wrapper.queries} />
               </Box>
 
             </Grid>
