@@ -37,8 +37,8 @@ export const Home = () => {
     <Box className={classes.root}>
       <Hero />
       <DemoSection />
-      {/* <WrapperSection/> */}
-      <FeaturedWrappersSection /> 
+    
+      {/*<FeaturedWrappersSection /> */}
       <Features />
       <Testimonials />
 
