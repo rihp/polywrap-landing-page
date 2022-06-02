@@ -1,8 +1,10 @@
 ## Keeping standard logos
 
-For now, we have to save logos on this directory
+Previously, we had saving logos on this directory. However, we're trying to migrate to the CMS implementation.
 
-If you're uploading an image for partners make sure that it complies with the following:
+If you need to add / update a logo, first try to follow the CMS steps, if it's impossible to integrate the CMS for some reason, then use this folder to save the logo, and keep this in mind:
+
+# Partners:
 - Black logo
 - in .png format
 - name should be in lowecase `gelato.png`
